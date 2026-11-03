@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+"""What this repository can prove about each comparator: version, configuration, and when it ran.
+
+A comparison is only as reproducible as its comparators, and this paper says so about other
+people's work. Its own record was thinner than it should be: SyGMa carried a version and a
+scenario, BioTransformer a jar digest and a checkout date, and MetaTox and MetaPredictor carried
+neither a version nor a date. Two of the four are not installable packages -- one is a web service
+and one is a source checkout -- so "the version" is not always a thing that exists. What does exist
+in every case is the frozen prediction file, its digest, and the date it entered the repository,
+which bounds when the run happened and is recoverable by anyone holding the history.
+
+This records all of it in one place, marks each field as known or not available and says why, and
+refuses to invent a version string for a service that does not publish one.
+
+    python scripts/typed_edit/comparator_provenance.py
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
+for _p in (str(ROOT), str(ROOT / "scripts"), str(HERE)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
+from _provenance import stamp  # noqa: E402
+
+
+def first_seen(rel: str) -> str | None:
+    """The date the file entered the repository: an upper bound on when the run produced it."""
+    try:
+        out = subprocess.run(["git", "log", "--diff-filter=A", "--format=%ad", "--date=short",
+                              "--", rel], cwd=ROOT, capture_output=True, text=True, timeout=20)
+    except Exception:
+        return None
+    dates = [line for line in out.stdout.splitlines() if line.strip()]
+    return dates[-1] if dates else None
+
+
+def digest(rel: str) -> str | None:
+    path = ROOT / rel
+    if not path.exists():
+        return None
+    h = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+COMPARATORS = {
+    "SyGMa": {
+        "kind": "installed Python package",
+        "version": None,          # filled from the installed module below
+        "configuration": "scenario [[phase1, 1], [phase2, 1]], one cycle of each ruleset",
+        "predictions": "results/sygma_fulltest_predictions.json",
+        "version_note": "read from the installed module at run time",
+    },
+    "MetaTox": {
+        "kind": "web service",
+        "version": None,
+        "configuration": ("SMIRKS rules, all 291 parents returned, ranked by the method's own Pa "
+                          "for the Metabolite class, descending -- the configuration recorded in "
+                          "the scored artifact's own config field"),
+        "predictions": "results/metatox_smirks_preds.json",
+        "a_second_run_exists_and_feeds_nothing": (
+            "results/metatox_preds.json is a separate run in a different configuration -- layer 1 "
+            "only, without the SMIRKS-rule variant, per the supplier's note. It carries 248 "
+            "substrates as TOP-LEVEL keys and has no `predictions` envelope, so reading it "
+            "through the accessor every other comparator uses returns nothing rather than "
+            "failing; that is how a reader mistakes it for empty. No published number comes from "
+            "it: deployment_table.py and the four-method population both read the SMIRKS "
+            "artifact above. This record described that side analysis as though it were the "
+            "column, with the wrong file and the wrong configuration, and the error outlived a "
+            "session in which it was diagnosed and reported as fixed, because nothing compared "
+            "the record against its source"),
+        "version_note": ("the service publishes no version string to a user, so none can be "
+                         "recorded; the submission set and the returned predictions are pinned "
+                         "instead, and the service is the one running at way2drug.com on the date "
+                         "below"),
+    },
+    "MetaPredictor": {
+        "kind": "source checkout, run locally",
+        "version": None,
+        "configuration": "two-stage translation on CPU, the repository's own predict script",
+        "predictions": "artifacts/tier2/metapredictor_preds.json",
+        "version_note": ("the upstream release carries no version string; the checkout used is in "
+                         "the repository under artifacts/tier2/metapredictor_src"),
+    },
+    "BioTransformer": {
+        "kind": "jar",
+        "version": None,          # read from the jar name the split manifest pins
+        "build": None,
+        "configuration": "the shipped metabolic reaction database, unmodified",
+        "predictions": "artifacts/tier2/biotransformer_preds.json",
+        "version_note": "the jar's own build stamp, with its digest in paper2/split_manifest.json",
+    },
+    "GLORYx": {
+        "kind": "web service, the one its own authors operate",
+        "version": None,          # the module version the service reports, read at run time
+        "configuration": "phase 1 and phase 2, the service's default",
+        "predictions": "results/gloryx_service_preds.json",
+        "version_note": ("this is the only arm not run on this machine. Its source is public and "
+                         "GPL-3 and its command line takes an SDF in batch, so submission cost is "
+                         "not what kept it out; what does is that the FAME 3 models it needs are "
+                         "not distributed with it and its README directs a user to the FAME 3 "
+                         "authors for them. So this column comes from the service, which reports a "
+                         "module version, and that version is recorded beside the job identifiers "
+                         "the run used. The successor GLORYxR installs and runs and ships no "
+                         "production model either, but its dumps were supplied privately by its "
+                         "first author for this work, so GLORYxR is additionally run locally as "
+                         "its own arm in both site-of-metabolism modes. Those columns are recorded "
+                         "in revision/T_gloryxr.csv and not beside this one: the local arm emits "
+                         "no stereochemistry at all, so it is comparable to this service column "
+                         "under the stereo-insensitive criteria only"),
+    },
+}
+
+
+def main() -> int:
+    try:
+        import sygma
+        COMPARATORS["SyGMa"]["version"] = getattr(sygma, "__version__", None)
+    except Exception:
+        COMPARATORS["SyGMa"]["version_note"] += "; the module was not importable in this run"
+
+    # BioTransformer's version lives in the name of the jar the split manifest already pins, so it
+    # is read from there rather than typed a second time and left to drift.
+    import re
+
+    manifest = json.loads((ROOT / "paper2/split_manifest.json").read_text())
+    jar = (((manifest.get("third_party") or {}).get("biotransformer") or {}).get("jar") or {})
+    match = re.search(r"BioTransformer([0-9.]+?)_(\d{8})\.jar", jar.get("name") or "")
+    if match:
+        COMPARATORS["BioTransformer"]["version"] = match.group(1)
+        COMPARATORS["BioTransformer"]["build"] = match.group(2)
+
+    # GLORYx's version is whatever the service reported to the run that produced its column, which
+    # the artifact of that run records. Reading it from there rather than asking the service again
+    # keeps the version and the predictions the same event.
+    gx_path = ROOT / "results/gloryx_service_preds.json"
+    if gx_path.exists():
+        gx = json.loads(gx_path.read_text())
+        got = gx.get("obtained_from") or {}
+        COMPARATORS["GLORYx"]["version"] = got.get("module_version")
+        COMPARATORS["GLORYx"]["service"] = got.get("service")
+        COMPARATORS["GLORYx"]["jobs"] = got.get("jobs")
+    else:
+        COMPARATORS["GLORYx"]["version_note"] += "; that run's artifact is not in this checkout"
+
+    rows = {}
+    for name, row in COMPARATORS.items():
+        rel = row["predictions"]
+        rows[name] = {**row,
+                      "predictions_sha256": digest(rel) if rel else None,
+                      "predictions_first_in_the_repository": first_seen(rel) if rel else None}
+    known = sum(1 for r in rows.values() if r["version"])
+    report = {"provenance": stamp(__file__),
+              "comparators": rows,
+              "n_comparators": len(rows),
+              "n_carrying_a_version_string": known,
+              "reading": (
+                  f"{known} of {len(rows)} comparators expose a version string. For the others the "
+                  "record is the frozen predictions, their digest, and the date they entered this "
+                  "repository, which bounds the run. A service that publishes no version cannot be "
+                  "pinned by one, and reporting the bound is the honest alternative to inventing "
+                  "it.")}
+    (ROOT / "results/comparator_provenance.json").write_text(json.dumps(report, indent=1))
+    for name, row in rows.items():
+        print(f"{name:15s} version {str(row['version'] or '--'):18s} "
+              f"predictions first seen {row['predictions_first_in_the_repository'] or '--'}")
+    print(f"\n{known} of {len(rows)} carry a version string")
+    print("wrote results/comparator_provenance.json")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

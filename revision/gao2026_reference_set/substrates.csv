@@ -1,0 +1,12 @@
+drug,smiles,metabolites_published,deposit_file
+Encorafenib,C[C@@H](CNC1=NC=CC(=N1)C2=CN(N=C2C3=C(C(=CC(=C3)Cl)NS(=O)(=O)C)F)C(C)C)NC(=O)OC,12,Encorafenib.py
+Fovinaciclib,CN(CC1)CCN1C(CC2)CCN2C3=CC=C(NC4=NC(C(C5CCCC5)=C(C(N(C)C)=O)S6)=C6C=N4)N=C3,10,FCN-437c.py
+Iberdomide,C1CC(=O)NC(=O)[C@H]1N2CC3=C(C2=O)C=CC=C3OCC4=CC=C(C=C4)CN5CCOCC5,12,Iberdomide.py
+Isavuconazole,C[C@@H](C1=NC(=CS1)C2=CC=C(C=C2)C#N)[C@](CN3C=[N+](C=N3)C(C)OC(=O)N(C)C4=C(C=CC=N4)COC(=O)CNC)(C5=C(C=CC(=C5)F)F)O,7,Isavuconazole.py
+LY3202626,COC1=NC=C(N=C1)C(=O)NC2=CC(=C(C=C2)F)[C@]34CN(C[C@H]3CSC(=N4)N)C5=NC=C(C=N5)F,6,LY3202626.py
+Nemiralisib,CC(C)N1CCN(CC1)CC2=CN=C(O2)C3=C4C=NNC4=CC(=C3)C5=C6C=CNC6=CC=C5,7,Nemiralisib.py
+Opicapone,CC1=C(C(=[N+](C(=C1Cl)C)[O-])Cl)C2=NOC(=N2)C3=CC(=C(C(=C3)O)O)[N+](=O)[O-],16,Opicapone.py
+Pamiparib,C[C@]12CCCN1CC3=NNC(=O)C4=C5C3=C2NC5=CC(=C4)F,8,Pamiparib.py
+Rezafungin,CCCCCOC1=CC=C(C=C1)C2=CC=C(C=C2)C3=CC=C(C=C3)C(=O)N[C@H]4C[C@H]([C@H](NC(=O)[C@@H]5[C@H]([C@H](CN5C(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H]6C[C@H](CN6C(=O)[C@@H](NC4=O)[C@@H](C)O)O)[C@@H]([C@H](C7=CC=C(C=C7)O)O)O)[C@@H](C)O)C)O)OCC[N+](C)(C)C)O,3,Rezafungin.py
+Sotorasib,C[C@H]1CN(CCN1C2=NC(=O)N(C3=NC(=C(C=C32)F)C4=C(C=CC=C4F)O)C5=C(C=CN=C5C(C)C)C)C(=O)C=C,5,Sotorasib.py
+Tinengotinib,CC1=C2C(=NN1)NC3=CC(=NC=C3C(=N2)C4=CC=CC=C4Cl)N5CCOCC5,11,Tinengotinib.py

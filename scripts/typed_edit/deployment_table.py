@@ -1,0 +1,390 @@
+"""The comparison as it would ship: both rule budgets, the H9 cap, the H7 fusion, MetaTox.
+
+Every arm here is a configuration someone could deploy, which the whole-bank selector-free pool
+was not: it exists to measure a ceiling. The two GRAIL arms differ only in how many of the 7,581
+templates were applied, both carry the cap of 100 candidates H9 registers and the rank fusion H7
+registers, and MetaTox is read from its own predictions with no cap of ours imposed on it.
+
+Budgets a pool cannot fill are counted rather than averaged over. Thirty templates yield about
+seventeen candidates, so above a budget of fifteen that arm is returning a short list, and a
+recall gap against it there is an empty list on one side rather than a difference in ordering.
+"""
+from __future__ import annotations
+
+import argparse
+import glob
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
+for _p in (str(ROOT), str(ROOT / "scripts"), str(HERE)):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
+from _provenance import record_inputs, stamp  # noqa: E402
+
+from _rrf import rrf_order  # noqa: E402
+
+CAP = 100
+KS = (1, 3, 5, 8, 10, 15, 20, 30, 50)
+N_BOOT, SEED = 10000, 0
+METATOX = ROOT / "results/metatox_smirks_preds.json"
+FOUR = ROOT / "results/four_method_291.json"
+
+# results/four_method_291.json is the artifact that DEFINES this population, and it carries four
+# methods. Reporting only MetaTox from it was a defect: SyGMa and MetaPredictor have predictions
+# on the identical substrates and beat both GRAIL arms at the tight budgets this comparison is
+# built on. Every comparator that artifact names is read here.
+COMPARATORS = {
+    "metatox": ("results/metatox_smirks_preds.json", "predictions"),
+    "sygma": ("results/sygma_fulltest_predictions.json", None),
+    "metapredictor": ("artifacts/tier2_1170/metapredictor_preds.json", None),
+    # BioTransformer entered the comparison after the multiplicity family was declared. It is a
+    # column here because the rule that kept it out -- that an arm supplies ranked per-substrate
+    # predictions -- does not distinguish it from MetaPredictor, whose list is also unranked and
+    # shorter than the budget on nearly every substrate. The declared family in multiplicity.py
+    # names its three comparators explicitly and is unchanged by this addition, so the corrected
+    # verdicts the paper reports are still computed over the family that was declared.
+    "biotransformer": ("results/biotransformer_allhuman_one_step_preds.json", None),
+    # GLORYx, obtained from the service its own authors operate because the FAME 3 models a
+    # local build needs are not distributed with its source. It entered the comparison after
+    # the multiplicity family was declared, as BioTransformer did, so the correction is still
+    # computed over the family that was declared and this column is read outside it.
+    "gloryx": ("results/gloryx_service_preds.json", "predictions"),
+    # GLORYxR, GLORYx's successor, run locally in BOTH of its site-of-metabolism settings. Two
+    # columns and not one because that setting is a declared knob and this paper's whole argument
+    # is that a comparison turning on an undeclared knob is not a comparison: sweeping a
+    # comparator's knob and then printing one of the two settings would be the thing it objects
+    # to. The tool is unpublished and ships no production model; the weights were supplied
+    # privately by its first author, so the column cannot be rebuilt from public sources alone and
+    # what identifies the run is a repository revision with the digest of every dump, recorded in
+    # results/gloryxr_identity.json. Like BioTransformer and GLORYx it entered after the
+    # multiplicity family was declared, so the correction is still computed over the family that
+    # was declared and these columns are read outside it.
+    "gloryxr_default": ("results/gloryxr_local_preds_default.json", "predictions"),
+    "gloryxr_strict": ("results/gloryxr_local_preds_strict.json", "predictions"),
+}
+
+
+def load(spec):
+    pools, refs, tk, ck, read = {}, {}, set(), {}, []
+    for f in sorted(glob.glob(spec)) or [spec]:
+        read.append(f)
+        d = json.loads(Path(f).read_text())
+        pools.update(d["pools"]); refs.update(d["references"])
+        if d.get("top_k"):
+            tk.add(d["top_k"])
+        # Which checkpoints wrote the pool, where the pool says. The earlier shards say nothing,
+        # and the consequence of that silence was an analysis run against the wrong generator for
+        # an afternoon before a number disagreed with another number.
+        if d.get("checkpoints"):
+            ck = d["checkpoints"]
+    return pools, refs, (sorted(tk) or [None])[0], (ck or None), read
+
+
+def apply_overrides(comparators: dict, specs) -> dict:
+    """Point a comparator at a different predictions file, keeping its declared envelope key.
+
+    An override replaces the path, not the file format, so the key the arm is declared with is
+    carried over. It had been discarded, which made an enveloped arm read as absent on every
+    substrate: `blob[key] if key else blob` then handed the loop the envelope dict, no substrate
+    was found under it, and the arm was scored zero throughout. The run exits zero and writes a
+    table, so the only symptom is a number. Both arms that need an override to reach the
+    1,170-substrate population, metatox and gloryx, are declared with an envelope.
+
+    A replacement that does not carry the declared key is refused rather than guessed at, and the
+    refusal names the keys the file does hold, because the two ways to be wrong here -- reading
+    the envelope as the map, or reading the map as an envelope -- are both silent.
+    """
+    out = dict(comparators)
+    for spec in specs:
+        if "=" not in spec:
+            sys.exit(f"REFUSING: --comparator wants NAME=PATH, got {spec!r}")
+        nm, pth = spec.split("=", 1)
+        if nm not in out:
+            sys.exit(f"REFUSING: {nm!r} is not a comparator this table knows; it has "
+                     + ", ".join(sorted(out)))
+        key = out[nm][1]
+        if key is not None:
+            blob = json.loads(Path(pth).read_text())
+            if not isinstance(blob, dict) or key not in blob:
+                held = ", ".join(sorted(blob)[:8]) if isinstance(blob, dict) else type(blob).__name__
+                sys.exit(f"REFUSING: {nm} is declared with its predictions under {key!r} and "
+                         f"{pth} does not carry that key; it holds {held}. Reading it without "
+                         f"the envelope would score every substrate absent and still write a "
+                         f"table.")
+        out[nm] = (pth, key)
+        print(f"  override: {nm} <- {pth}" + (f" under {key!r}" if key else ""),
+              file=sys.stderr)
+    return out
+
+
+def population_source(spec: str, n_subs: int, n_declared: int) -> str:
+    """What defines the population this table was read on, from the population and not the default.
+
+    This string said "the 291 of results/four_method_291.json" whatever the --whole-bank spec was,
+    so a run over the whole evaluated split produced an artifact reading "n": 1170 two lines above
+    a source naming the 291. Derived here, and it names that file only when the population is the
+    one that file defines.
+    """
+    if n_subs == n_declared:
+        return "the 291 of results/four_method_291.json"
+    return f"the substrates of {spec} that the trained-budget pools also carry"
+
+
+def four_method_verdict(n_subs: int, n_declared: int, mismatches) -> dict:
+    """The committed-column gate, or an explicit statement that it does not apply here.
+
+    The gate compares the MetaTox column computed here against the one results/four_method_291.json
+    commits. Off that population the two are recalls of different substrate sets, so a mismatch is
+    the arithmetic working rather than a fault, and reporting it as a failed gate beside the table
+    invites the reader to distrust the table. What must not happen is the reverse: a real mismatch
+    on the population the gate IS about, hidden behind a not-applicable.
+
+    What decides is the substrate COUNT, because results/four_method_291.json records n_substrates
+    and no substrate list. A different population of that size therefore passes as the one the
+    gate is about; nothing in that artifact closes this, and the test beside this function pins it
+    so the gap is visible where the verdict is read.
+    """
+    if n_subs != n_declared:
+        return {"applies": False,
+                "why_not": ("this table was read on another population, where the committed "
+                            "MetaTox column is a recall of different substrates and no "
+                            "comparison with it is meaningful"),
+                "reproduces_four_method_291_metatox": None, "mismatches": []}
+    return {"applies": True, "reproduces_four_method_291_metatox": not mismatches,
+            "mismatches": list(mismatches)}
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--whole-bank", default="results/widepools_implicit/w*.json")
+    ap.add_argument("--trained", default=str(ROOT / "results/widepools_k30/all.json"))
+    ap.add_argument("--out", default=str(ROOT / "results/deployment_table.json"))
+    # A comparator's predictions path was reachable only by editing the dict above, so the
+    # counterfactual -- what would this table say if that arm's file were corrected --
+    # could not be computed without overwriting the artifact being compared against.
+    ap.add_argument("--comparator", action="append", default=[], metavar="NAME=PATH",
+                    help="override one comparator's predictions file, repeatable")
+    args = ap.parse_args()
+
+    # Resolved ONCE and read by both loops below. Two of them iterate COMPARATORS -- one
+    # for recall, one for the mean-emitted row -- and overriding only the first would give
+    # a table whose recall came from one file and whose emission came from another.
+    comparators = apply_overrides(dict(COMPARATORS), args.comparator)
+
+    from bank_without_selection import _dedup
+
+    big, refs_b, tk_b, ck_b, read_b = load(args.whole_bank)
+    small, refs_s, tk_s, ck_s, read_s = load(args.trained)
+    refs = {**refs_b, **refs_s}
+    subs = sorted(s for s in set(big) & set(small) if refs.get(s))
+    real = {s: set(refs[s]) for s in subs}
+    U = np.array([len(real[s]) for s in subs], dtype=float)
+    N = float(U.sum())
+    print(f"{len(subs)} substrates, {N:.0f} references "
+          f"(whole bank top_k={tk_b}, trained top_k={tk_s})", file=sys.stderr)
+
+    # The artifact that defines this population drops a prediction equal to the substrate before
+    # the budget bites: returning the parent is not a prediction, though it does consume a slot.
+    # That is a declared convention and it has to be the same for every arm, ours included, or
+    # the arms are not measured on one axis. Without it MetaPredictor's recall here missed the
+    # committed column by two references at three budgets, which the gate caught.
+    from bank_without_selection import _key as _tautkey
+    parent = {s: _tautkey(s) for s in subs}
+
+    def drop_parent(keys, s):
+        return [k for k in keys if k and k != parent[s]]
+
+    def ranked(pool, s):
+        keep = sorted(pool, key=lambda c: -c["generator"])[:CAP]
+        return drop_parent([c["key"] for c in rrf_order(keep)], s)
+
+    arms = {"whole bank": {s: ranked(big[s], s) for s in subs},
+            "trained budget": {s: ranked(small[s], s) for s in subs}}
+    absent = []
+    coverage = {}
+    for name, (rel, key) in comparators.items():
+        path = ROOT / rel
+        if not path.exists():
+            absent.append(name)
+            continue
+        blob = json.loads(path.read_text())
+        preds = blob[key] if key else blob
+        arms[name] = {s: drop_parent(_dedup(preds.get(s, []), max(KS) + 5), s)[:max(KS)]
+                      for s in subs}
+        # A substrate absent from a comparator's file becomes an empty list here, which is a zero
+        # in every recall below, and nothing recorded that it had happened. BioTransformer crashes
+        # deterministically on fifteen of these substrates and its arm was scored as though the
+        # tool had answered "none" fifteen times. The share is recorded so the zero is a declared
+        # treatment rather than a silent one, and the drop is named on stderr when it occurs.
+        have = sum(1 for s in subs if preds.get(s))
+        answered = sum(1 for s in subs if s in preds)
+        coverage[name] = {"substrates_in_file": answered, "with_a_prediction": have,
+                          "of_population": len(subs),
+                          "scored_zero_for_absence": len(subs) - answered}
+        if answered < len(subs):
+            print(f"  {name}: answers for {answered} of {len(subs)} substrates; the other "
+                  f"{len(subs) - answered} are scored zero", file=sys.stderr)
+    ours = ("whole bank", "trained budget")
+    others = [a for a in arms if a not in ours]
+
+    rng = np.random.default_rng(SEED)
+    idx = rng.integers(0, len(subs), (N_BOOT, len(subs)))
+    denom = np.maximum(U[idx].sum(axis=1), 1)
+
+    def hits(arm, k):
+        return np.array([len(set(arms[arm][s][:k]) & real[s]) for s in subs], dtype=float)
+
+    # Aggregation is a third choice this comparison makes and the manuscript reports micro
+    # throughout, so the one place a macro figure was quoted had no interval and no grid behind it.
+    # Macro is the mean of per-substrate recall, which weights a substrate with one reference the
+    # same as one with twelve; the two answer different questions and neither is the other's
+    # estimate. Both are computed here so the choice can be swept like the other two.
+    def macro_contrast(a, b, per_sub):
+        d = (a - b) / per_sub
+        bt = d[idx].mean(axis=1)
+        lo, hi = float(np.quantile(bt, .025)), float(np.quantile(bt, .975))
+        below = float((bt <= 0).sum()); above = float((bt >= 0).sum())
+        pval = min(1.0, 2.0 * (min(below, above) + 1.0) / (len(bt) + 1.0))
+        return {"gap": round(float(np.mean(d)), 4),
+                "ci95": [round(lo, 4), round(hi, 4)],
+                "excludes_zero": bool(lo > 0 or hi < 0),
+                "p_bootstrap": round(pval, 5)}
+
+    def contrast(a, b):
+        d = a - b
+        bt = d[idx].sum(axis=1) / denom
+        lo, hi = float(np.quantile(bt, .025)), float(np.quantile(bt, .975))
+        # A two-sided bootstrap p-value from the same replicates the interval is read from, so a
+        # family-wise correction over the grid can be computed rather than asserted. The +1 in
+        # numerator and denominator keeps it strictly positive at B resamples, which is what
+        # stops a Holm step from dividing by an exact zero.
+        below = float((bt <= 0).sum()); above = float((bt >= 0).sum())
+        pval = min(1.0, 2.0 * (min(below, above) + 1.0) / (len(bt) + 1.0))
+        return {"gap": round(float(d.sum() / U.sum()), 4),
+                "ci95": [round(lo, 4), round(hi, 4)],
+                "excludes_zero": bool(lo > 0 or hi < 0),
+                "p_bootstrap": round(pval, 5)}
+
+    table, contrasts, exhausted = {}, {}, {}
+    macro_table, macro_contrasts = {}, {}
+    Usafe = np.maximum(U, 1)
+    for k in KS:
+        h = {a: hits(a, k) for a in arms}
+        table[str(k)] = {a: round(float(v.sum() / N), 4) for a, v in h.items()}
+        macro_table[str(k)] = {a: round(float(np.mean(v / Usafe)), 4) for a, v in h.items()}
+        macro_row = {}
+        for a in ours:
+            for b in others:
+                if b in arms:
+                    macro_row[f"{a} - {b}"] = macro_contrast(h[a], h[b], Usafe)
+        macro_contrasts[str(k)] = macro_row
+        row = {"trained budget - whole bank": contrast(h["trained budget"], h["whole bank"])}
+        for a in ours:
+            for b in others:
+                cov = sum(1 for s in subs if arms[b][s])
+                row[f"{a} - {b}"] = (contrast(h[a], h[b]) if cov else
+                                     {"unavailable": f"{b} covers no substrate here"})
+        contrasts[str(k)] = row
+        exhausted[str(k)] = {a: int(sum(1 for s in subs if len(arms[a][s]) < k)) for a in arms}
+
+    # the gate now covers every comparator the defining artifact records, not just one
+    _four = json.loads(FOUR.read_text())
+    committed = _four["per_method"]
+    n_declared = _four["config"]["n_substrates"]
+    names = {"metatox": "MetaTox", "sygma": "SyGMa", "metapredictor": "MetaPredictor"}
+    mism = []
+    for arm, label in names.items():
+        if arm not in table["1"] or label not in committed:
+            continue
+        r = committed[label]["recall"]
+        mism += [f"{label} k={k}: {table[str(k)][arm]} vs committed {r[str(k)]}"
+                 for k in KS if str(k) in r and abs(table[str(k)][arm] - r[str(k)]) > 1e-9]
+
+    # Two different quantities and the table had been printing one under the other's name. The
+    # lists in `arms` are truncated at the widest budget, so their mean is what each method
+    # contributes inside the sweep and not how much it emits: SyGMa's untruncated mean is nearly
+    # twice its truncated one. Both are reported and each is named.
+    mean_pool = {a: round(float(np.mean([len(arms[a][s]) for s in subs])), 1) for a in arms}
+    # One decimal place stopped being enough when two arms landed on the same rounded value from
+    # different means, which reads as a copy error in a table. The second place is kept beside
+    # the first rather than replacing it, so nothing that quotes the first moves.
+    untruncated, untruncated2 = {}, {}
+    for a in ours:
+        pools = big if a == "whole bank" else small
+        exact = float(np.mean(
+            [len(drop_parent([c["key"] for c in rrf_order(
+                sorted(pools[s], key=lambda c: -c["generator"])[:CAP])], s)) for s in subs]))
+        untruncated[a], untruncated2[a] = round(exact, 1), round(exact, 2)
+    for name, (rel, key) in comparators.items():
+        path = ROOT / rel
+        if not path.exists():
+            continue
+        blob = json.loads(path.read_text())
+        preds = blob[key] if key else blob
+        exact = float(np.mean(
+            [len(drop_parent(_dedup(preds.get(s, []), 10 ** 6), s)) for s in subs]))
+        untruncated[name], untruncated2[name] = round(exact, 1), round(exact, 2)
+    rep = {"provenance": stamp(__file__),
+           # Which pool shards the two GRAIL arms were actually read from, so a table written
+           # against a shard that has since been rebuilt, renamed or planted can be told from one
+           # written against the pools on disk now. A modification time cannot say this: it
+           # belongs to the working tree, and any clone or checkout rewrites it.
+           "comparator_coverage": coverage,
+           "inputs": record_inputs(read_b + read_s),
+           "population": {"n": len(subs), "n_references": N,
+                          "source": population_source(args.whole_bank, len(subs),
+                                                     n_declared)},
+           "aggregation": "micro, ratio of sums",
+           "convention": "a prediction whose key equals the substrate's is dropped before the "
+                         "budget, for every arm alike; results/four_method_291.json, which "
+                         "defines this population, does the same",
+           "configuration": {"cap": CAP, "fusion": "H7 reciprocal rank fusion, k=60",
+                             "top_k": {"whole bank": tk_b, "trained budget": tk_s},
+                             "checkpoints": {"whole bank": ck_b, "trained budget": ck_s}},
+           "gate": four_method_verdict(len(subs), n_declared, mism),
+           "mean_output_length": mean_pool,
+           "mean_output_length_note": ("the mean of the lists as the sweep reads them, truncated "
+                                       "at the widest budget; it is not how much each method "
+                                       "emits"),
+           "mean_emitted_untruncated": untruncated,
+           "mean_emitted_untruncated_2dp": untruncated2,
+           "comparators_absent": absent,
+           "recall_micro": table, "contrasts": contrasts,
+           "recall_macro": macro_table, "contrasts_macro": macro_contrasts,
+           "aggregation_note": ("micro is the ratio of sums and macro the mean of per-substrate "
+                                "recall; the manuscript reports micro and both are computed here "
+                                "so the aggregation can be swept like the other declared choices"),
+           "substrates_whose_list_is_shorter_than_the_budget": exhausted,
+           "status": "H10 was registered and checked on validation; this population is the "
+                     "deployment report, not a second test of it.",
+           "n_boot": N_BOOT, "seed": SEED}
+    Path(args.out).write_text(json.dumps(rep, indent=1))
+
+    order = list(ours) + others
+    print(f"\nmean list length: " + "  ".join(f"{a} {mean_pool[a]}" for a in order))
+    print(f"\n{'k':>4}" + "".join(f"{a:>16}" for a in order))
+    for k in KS:
+        t, c = table[str(k)], contrasts[str(k)]
+        print(f"{k:>4}" + "".join(f"{t[a]:>16.4f}" for a in order))
+    # Read from the same verdict the artifact carries. Printing `not mism` said False on a
+    # population the gate does not apply to, so the console contradicted the artifact beside it
+    # on the one question the gate exists to answer.
+    _v = rep["gate"]
+    print("\ngate reproduces the committed MetaTox column: "
+          + (str(_v["reproduces_four_method_291_metatox"]) if _v["applies"]
+             else "not applicable on this population"))
+    print("\nsubstrates whose list is shorter than the budget:")
+    for k in KS:
+        e = exhausted[str(k)]
+        print(f"  k={k:<3}" + "  ".join(f"{a} {e[a]:>3}" for a in order) + f"  of {len(subs)}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

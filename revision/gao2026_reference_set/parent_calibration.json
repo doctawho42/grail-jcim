@@ -1,0 +1,193 @@
+{
+ "provenance": {
+  "script": "gao_si_structures.py",
+  "script_path": "scripts/typed_edit/gao_si_structures.py",
+  "source_sha256": "6a46f1df6a0e0a684337ad5cbe0f0fbdc1f675a5ca4e681b626dc3eff5e5184b",
+  "git_commit": "c2a2d4293c157e84af5815e537998e5ae835962f",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "revision/gao2026_reference_set/ci5c03045_si_001.pdf",
+   "exists": true,
+   "sha256_16": "907aef9adad03660",
+   "bytes": 280725
+  },
+  {
+   "path": "revision/gao2026_reference_set/substrates.csv",
+   "exists": true,
+   "sha256_16": "a1094a538525bda6",
+   "bytes": 1337
+  }
+ ],
+ "what_this_is": "how often a structure rebuilt from the segments it is drawn with is the structure this repository already holds, measured on the ten parent drugs the benchmark draws in its own tables",
+ "criterion": "canonical SMILES after this project's standardiser, which canonicalises tautomers and strips stereochemistry; agreement under the other criteria is reported per drug",
+ "n_parents": 10,
+ "n_exact": 7,
+ "n_wrong": 3,
+ "n_unbuilt": 0,
+ "parents": [
+  {
+   "drug": "Pamiparib",
+   "page": 9,
+   "segments": 32,
+   "characters": 8,
+   "reference": "C[C@]12CCCN1CC3=NNC(=O)C4=C5C3=C2NC5=CC(=C4)F",
+   "rebuilt": "CC12CCCN1CC1=NNC(=O)c3cc(F)cc4[nH]c2c1c34",
+   "note": "",
+   "agrees_under": {
+    "canonical": true,
+    "inchi_no_stereo": true,
+    "inchikey": false,
+    "inchikey_tautomer": true
+   },
+   "verdict": "exact"
+  },
+  {
+   "drug": "Encorafenib",
+   "page": 11,
+   "segments": 53,
+   "characters": 18,
+   "reference": "C[C@@H](CNC1=NC=CC(=N1)C2=CN(N=C2C3=C(C(=CC(=C3)Cl)NS(=O)(=O)C)F)C(C)C)NC(=O)OC",
+   "rebuilt": "COC(=O)NC(C)CNc1nccc(-c2cn(C(C)C)nc2-c2cc(Cl)cc(NS(C)(=O)=O)c2F)n1",
+   "note": "",
+   "agrees_under": {
+    "canonical": true,
+    "inchi_no_stereo": true,
+    "inchikey": false,
+    "inchikey_tautomer": true
+   },
+   "verdict": "exact"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "page": 14,
+   "segments": 52,
+   "characters": 11,
+   "reference": "CN(CC1)CCN1C(CC2)CCN2C3=CC=C(NC4=NC(C(C5CCCC5)=C(C(N(C)C)=O)S6)=C6C=N4)N=C3",
+   "rebuilt": "CN1CCN(C2CCN(c3ccc(Nc4ncc5sc(C(=O)N(C)C)c(C6CCCC6)c5n4)nc3)CC2)CC1",
+   "note": "",
+   "agrees_under": {
+    "canonical": true,
+    "inchi_no_stereo": true,
+    "inchikey": true,
+    "inchikey_tautomer": true
+   },
+   "verdict": "exact"
+  },
+  {
+   "drug": "Rezafungin",
+   "page": 16,
+   "segments": 129,
+   "characters": 39,
+   "reference": "CCCCCOC1=CC=C(C=C1)C2=CC=C(C=C2)C3=CC=C(C=C3)C(=O)N[C@H]4C[C@H]([C@H](NC(=O)[C@@H]5[C@H]([C@H](CN5C(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H]6C[C@H](CN6C(=O)[C@@H](NC4=O)[C@@H](C)O)O)[C@@H]([C@H](C7=CC=C(C=C7)O)O)O)[C@@H](C)O)C)O)OCC[N+](C)(C)C)O",
+   "rebuilt": "C.CCCOc1ccc(-c2ccc(-c3ccc(C(=O)NC(C)C(NC(=O)CC)C(=O)N4CCCC4C(=O)NC(C(=O)NC(CC)C(=O)N4CCCC4C(=O)NCC)C(O)C(O)c4ccc(O)cc4)cc3)cc2)cc1.C[N+](C)(C)CO.O.O.O.O.O",
+   "note": "",
+   "agrees_under": {
+    "canonical": false,
+    "inchi_no_stereo": false,
+    "inchikey": false,
+    "inchikey_tautomer": false
+   },
+   "verdict": "wrong"
+  },
+  {
+   "drug": "Isavuconazole",
+   "page": 17,
+   "segments": 78,
+   "characters": 25,
+   "reference": "C[C@@H](C1=NC(=CS1)C2=CC=C(C=C2)C#N)[C@](CN3C=[N+](C=N3)C(C)OC(=O)N(C)C4=C(C=CC=N4)COC(=O)CNC)(C5=C(C=CC(=C5)F)F)O",
+   "rebuilt": "CNCC(=O)OCc1cccnc1N(C)C(=O)OC(C)[N+](C=N)=CNCC(c1cc(F)ccc1F)C(C)c1nc(-c2ccc(C#N)cc2)cs1.O.[SH-]",
+   "note": "",
+   "agrees_under": {
+    "canonical": false,
+    "inchi_no_stereo": false,
+    "inchikey": false,
+    "inchikey_tautomer": false
+   },
+   "verdict": "wrong"
+  },
+  {
+   "drug": "LY3202626",
+   "page": 18,
+   "segments": 53,
+   "characters": 16,
+   "reference": "COC1=NC=C(N=C1)C(=O)NC2=CC(=C(C=C2)F)[C@]34CN(C[C@H]3CSC(=N4)N)C5=NC=C(C=N5)F",
+   "rebuilt": "COc1cnc(C(=O)Nc2ccc(F)c(C34CN(c5ncc(F)cn5)CC3CSC(N)=N4)c2)cn1",
+   "note": "",
+   "agrees_under": {
+    "canonical": true,
+    "inchi_no_stereo": true,
+    "inchikey": false,
+    "inchikey_tautomer": true
+   },
+   "verdict": "exact"
+  },
+  {
+   "drug": "Iberdomide",
+   "page": 19,
+   "segments": 46,
+   "characters": 9,
+   "reference": "C1CC(=O)NC(=O)[C@H]1N2CC3=C(C2=O)C=CC=C3OCC4=CC=C(C=C4)CN5CCOCC5",
+   "rebuilt": "O=C1CCC(N2Cc3c(OCc4ccc(CN5CCOCC5)cc4)cccc3C2=O)C(=O)N1",
+   "note": "",
+   "agrees_under": {
+    "canonical": true,
+    "inchi_no_stereo": true,
+    "inchikey": false,
+    "inchikey_tautomer": true
+   },
+   "verdict": "exact"
+  },
+  {
+   "drug": "Opicapone",
+   "page": 21,
+   "segments": 38,
+   "characters": 20,
+   "reference": "CC1=C(C(=[N+](C(=C1Cl)C)[O-])Cl)C2=NOC(=N2)C3=CC(=C(C(=C3)O)O)[N+](=O)[O-]",
+   "rebuilt": "Cc1c(Cl)c(C)[n+]([O-])c(Cl)c1-c1noc(-c2cc(O)c(O)c(N=O)c2)n1",
+   "note": "",
+   "agrees_under": {
+    "canonical": false,
+    "inchi_no_stereo": false,
+    "inchikey": false,
+    "inchikey_tautomer": false
+   },
+   "verdict": "wrong"
+  },
+  {
+   "drug": "Tinengotinib",
+   "page": 24,
+   "segments": 41,
+   "characters": 11,
+   "reference": "CC1=C2C(=NN1)NC3=CC(=NC=C3C(=N2)C4=CC=CC=C4Cl)N5CCOCC5",
+   "rebuilt": "Cc1[nH]nc2c1N=C(c1ccccc1Cl)c1cnc(N3CCOCC3)cc1N2",
+   "note": "",
+   "agrees_under": {
+    "canonical": true,
+    "inchi_no_stereo": true,
+    "inchikey": true,
+    "inchikey_tautomer": true
+   },
+   "verdict": "exact"
+  },
+  {
+   "drug": "Nemiralisib",
+   "page": 26,
+   "segments": 48,
+   "characters": 9,
+   "reference": "CC(C)N1CCN(CC1)CC2=CN=C(O2)C3=C4C=NNC4=CC(=C3)C5=C6C=CNC6=CC=C5",
+   "rebuilt": "CC(C)N1CCN(Cc2cnc(-c3cc(-c4cccc5[nH]ccc45)cc4[nH]ncc34)o2)CC1",
+   "note": "",
+   "agrees_under": {
+    "canonical": true,
+    "inchi_no_stereo": true,
+    "inchikey": true,
+    "inchikey_tautomer": true
+   },
+   "verdict": "exact"
+  }
+ ],
+ "fitted_on_what_it_is_scored_on": "The rule that recognises a hashed stereo bond -- how short a mark is, how many make a ladder, how unequal their lengths must be -- was arrived at by running this on these ten drawings and reading the failures, so the score below is an upper bound on what the same code does on a drawing it has not seen. One constant was not fitted: the distance a bond stops from a label's text was measured over the hundred labels these cells carry, where the nearest endpoint is never more than 1.01 points away. A held-out check is available and not yet run: the metabolite rows state a pathway, so a rebuilt metabolite can be required to differ from its parent by the formula that pathway implies.",
+ "reading": "A parent rebuilt exactly says the geometry of that drawing was read right. A parent rebuilt wrongly is a reading error of a kind the metabolite rows will make too, and the drug it happened on says which drawing feature caused it. The ten parents are the whole key the document offers; Sotorasib is scored by the summary without a table here, so there is no eleventh."
+}

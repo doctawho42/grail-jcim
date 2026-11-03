@@ -1,0 +1,93 @@
+from __future__ import annotations
+
+from typing import Dict, List
+
+from ..config import EvaluationConfig
+from ..metrics import aggregate_prediction_metrics
+from ..model.filter import Filter
+from ..model.generator import Generator
+from ..model.wrapper import ModelWrapper
+from .data import DatasetBundle
+
+
+def _apply_prior_strength(generator, config: EvaluationConfig) -> None:
+    """Optionally override the generator's empirical-rule-prior weight for evaluation. The
+    learned generator under-weights the prior; a val-selected ~8 lifts recall@15 for free."""
+    ps = getattr(config, "prior_strength", None)
+    if ps is not None and hasattr(generator, "prior_strength"):
+        generator.prior_strength = float(ps)
+
+
+def _generator_predictions(generator: Generator, frame, config: EvaluationConfig) -> List[Dict[str, object]]:
+    _apply_prior_strength(generator, config)
+    # An unnamed rule threshold means no gate here for the same reason it does at inference: a
+    # checkpoint's calibrated value gates most substrates down to a handful of rules, and no
+    # figure this project reports was measured that way. Selecting on a configuration the
+    # release does not run is the defect this project's own argument is about.
+    threshold = config.threshold
+    predictions = []
+    for substrate, products in frame.map.items():
+        ranked = generator.generate(substrate, top_k=config.candidate_top_k, threshold=threshold)
+        predictions.append({"substrate": substrate, "predicted": ranked, "real": sorted(products)})
+    return predictions
+
+
+def _ensemble_predictions(model: ModelWrapper, frame, config: EvaluationConfig) -> List[Dict[str, object]]:
+    _apply_prior_strength(model.generator, config)
+    threshold = config.threshold
+    ms = getattr(config, "multistep", None)
+    multistep = ms if (ms is not None and ms.enabled and ms.max_depth > 1) else None
+    # Headline metric is recall@k, so default to rank-only (no hard filter gate). The
+    # gate is precision-oriented and measurably lowers recall@k.
+    gate_by_filter = getattr(config, "ranking_policy", "rank") == "gate"
+    filter_candidate_cap = getattr(config, "filter_candidate_cap", None)
+    rows = []
+    for substrate, products in frame.map.items():
+        ranked = model.generate(
+            substrate,
+            top_k=config.candidate_top_k,
+            threshold=threshold,
+            max_output=config.max_output,
+            multistep=multistep,
+            gate_by_filter=gate_by_filter,
+            filter_candidate_cap=filter_candidate_cap,
+        )
+        rows.append({"substrate": substrate, "predicted": ranked, "real": sorted(products)})
+    return rows
+
+
+def evaluate_generator(generator: Generator, bundle: DatasetBundle, config: EvaluationConfig) -> Dict[str, float]:
+    return aggregate_prediction_metrics(_generator_predictions(generator, bundle.test, config), config.generator_top_k, match=config.match)
+
+
+def evaluate_filter(filter_model: Filter, bundle: DatasetBundle) -> Dict[str, float]:
+    # Single mode scores independent single graphs; run_bundle preps train/val only, so the
+    # test split's single graphs may be missing (pair mode has a lazy loader, single doesn't).
+    # Prepare them here. The MCC/ROC-AUC is a secondary metric, so degrade gracefully rather
+    # than fail the whole run if the test split can't be scored.
+    try:
+        if getattr(filter_model, "mode", "pair") == "single" and not bundle.test.single:
+            bundle.test.singlegraphs()
+        mcc, roc_auc = bundle.test.test(filter_model, mode=filter_model.mode)
+        return {"mcc": float(mcc), "roc_auc": float(roc_auc)}
+    except Exception as exc:  # pragma: no cover - secondary metric, never block the headline
+        print(f"  evaluate_filter skipped ({type(exc).__name__}: {exc})", flush=True)
+        return {"mcc": 0.0, "roc_auc": 0.0}
+
+
+def evaluate_ensemble(model: ModelWrapper, bundle: DatasetBundle, config: EvaluationConfig) -> Dict[str, float]:
+    return aggregate_prediction_metrics(_ensemble_predictions(model, bundle.test, config), config.generator_top_k, match=config.match)
+
+
+def evaluate_ensemble_val(model: ModelWrapper, bundle: DatasetBundle, config: EvaluationConfig) -> Dict[str, float]:
+    """Ensemble metrics on the VALIDATION split, for model/preset selection.
+
+    Selecting the best preset/hyperparameters by test metrics is selection-on-test
+    leakage. Use this for ranking; reserve evaluate_ensemble (test) for the single
+    final report of the chosen configuration.
+    """
+    return aggregate_prediction_metrics(_ensemble_predictions(model, bundle.val, config), config.generator_top_k, match=config.match)
+
+
+def collect_ensemble_predictions(model: ModelWrapper, bundle: DatasetBundle, config: EvaluationConfig) -> List[Dict[str, object]]:
+    return _ensemble_predictions(model, bundle.test, config)

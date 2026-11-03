@@ -1,0 +1,3889 @@
+{
+ "provenance": {
+  "script": "gao_si_tables.py",
+  "script_path": "scripts/typed_edit/gao_si_tables.py",
+  "source_sha256": "f2ca28462f9bd1343067b6dffedeaff5c1920aecbbe46435ad7f0b2ee0ec9244",
+  "git_commit": "348f47a7232b321e141a617d60ad64a7a54e38d6",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "revision/gao2026_reference_set/ci5c03045_si_001.pdf",
+   "exists": true,
+   "sha256_16": "907aef9adad03660",
+   "bytes": 280725
+  }
+ ],
+ "what_this_is": "the external benchmark's per-drug tables as data -- row, pathway, which models predicted it, and what the drawing is labelled with -- read from the Supporting Information and checked against the recall the same document prints",
+ "checked_against": {
+  "table": "S12",
+  "field": "recall",
+  "cells": 55,
+  "note": "the producer refuses to write unless every drug's mark count over its metabolite rows equals the recall printed there, to the three decimals printed"
+ },
+ "scored_without_a_table": [
+  "Sotorasib"
+ ],
+ "n_drugs": 10,
+ "n_metabolites": 92,
+ "n_specified": 64,
+ "n_shorthand": 28,
+ "shorthand_by_reason": {
+  "position not stated": 13,
+  "group abbreviated": 14,
+  "position not stated and group abbreviated": 1
+ },
+ "by_verdict": {
+  "drawn as one structure": 53,
+  "a change of stated mass somewhere in a marked region": 22,
+  "one signal only, to be looked at": 17
+ },
+ "disputed": [
+  {
+   "drug": "Encorafenib",
+   "id": "M46.3",
+   "page": 13,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 2,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M36.5",
+   "page": 13,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 2,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M28.3",
+   "page": 13,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 2,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M564-2",
+   "page": 14,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 0,
+    "dashed": 2
+   }
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M550-1",
+   "page": 14,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 0,
+    "dashed": 2
+   }
+  },
+  {
+   "drug": "Rezafungin",
+   "id": "Hydroxy rezafungin sulfate conjugate",
+   "page": 16,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 2,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "M2",
+   "page": 17,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 2,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "M1",
+   "page": 17,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 2,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "M11",
+   "page": 17,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 2,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-1106",
+   "page": 21,
+   "shorthand": [
+    "GluA"
+   ],
+   "scoping": {
+    "brackets": 0,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-1103",
+   "page": 21,
+   "shorthand": [
+    "SO3"
+   ],
+   "scoping": {
+    "brackets": 0,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Opicapone",
+   "id": "MWT 490",
+   "page": 23,
+   "shorthand": [
+    "SO3"
+   ],
+   "scoping": {
+    "brackets": 0,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M410-1",
+   "page": 24,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 2,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M513",
+   "page": 25,
+   "shorthand": [],
+   "scoping": {
+    "brackets": 2,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M14",
+   "page": 26,
+   "shorthand": [
+    "GluA"
+   ],
+   "scoping": {
+    "brackets": 0,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M15",
+   "page": 26,
+   "shorthand": [
+    "-2H",
+    "2O"
+   ],
+   "scoping": {
+    "brackets": 0,
+    "dashed": 0
+   }
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M3",
+   "page": 27,
+   "shorthand": [
+    "GluA"
+   ],
+   "scoping": {
+    "brackets": 0,
+    "dashed": 0
+   }
+  }
+ ],
+ "tables": [
+  {
+   "drug": "Pamiparib",
+   "caption_spelling": "Pamiparib",
+   "table": "S2",
+   "pages": [
+    9
+   ],
+   "rows": [
+    {
+     "id": "Pamiparib",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "HN",
+      "O",
+      "N",
+      "N",
+      "NH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 9
+    },
+    {
+     "id": "M2",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": true,
+      "MT": true
+     },
+     "labels": [
+      "F",
+      "HN",
+      "O",
+      "N",
+      "N",
+      "NH",
+      "HO"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 9
+    },
+    {
+     "id": "M3",
+     "pathway": "N-oxidation and dehydrogenation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "HN",
+      "O",
+      "N",
+      "-2H",
+      "N",
+      "NH",
+      "O"
+     ],
+     "shorthand": [
+      "-2H"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 9
+    },
+    {
+     "id": "M5",
+     "pathway": "Oxidation and dehydrogenation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": true,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "HN",
+      "-2H",
+      "O",
+      "N",
+      "O",
+      "N",
+      "NH"
+     ],
+     "shorthand": [
+      "-2H"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 1,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 9
+    },
+    {
+     "id": "M4",
+     "pathway": "Oxidation and dehydrogenation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "HN",
+      "-2H",
+      "O",
+      "2O",
+      "N",
+      "N",
+      "NH"
+     ],
+     "shorthand": [
+      "-2H",
+      "2O"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 9
+    },
+    {
+     "id": "M25",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "HN",
+      "O",
+      "2O",
+      "N",
+      "N",
+      "NH"
+     ],
+     "shorthand": [
+      "2O"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 9
+    },
+    {
+     "id": "M8",
+     "pathway": "Oxidation and glucuronidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "HN",
+      "GluA",
+      "O",
+      "O",
+      "N",
+      "N",
+      "NH"
+     ],
+     "shorthand": [
+      "GluA"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 4,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 9
+    },
+    {
+     "id": "M1",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": true
+     },
+     "labels": [
+      "F",
+      "HN",
+      "O",
+      "N",
+      "N",
+      "NH",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 9
+    },
+    {
+     "id": "M10",
+     "pathway": "Hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "HN",
+      "O",
+      "HO",
+      "HN",
+      "N",
+      "NH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 9
+    }
+   ]
+  },
+  {
+   "drug": "Encorafenib",
+   "caption_spelling": "Encorafenib",
+   "table": "S3",
+   "pages": [
+    11,
+    13
+   ],
+   "rows": [
+    {
+     "id": "Encorafenib",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "O",
+      "N",
+      "H",
+      "N",
+      "N",
+      "N",
+      "O",
+      "H",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 11
+    },
+    {
+     "id": "M32.7",
+     "pathway": "N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": true,
+      "BT": true,
+      "MP": true,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "O",
+      "HN",
+      "H",
+      "N",
+      "N",
+      "N",
+      "O",
+      "H",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 11
+    },
+    {
+     "id": "M20.3A",
+     "pathway": "N-dealkylation and hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "HN",
+      "H",
+      "N",
+      "N",
+      "NH2",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 11
+    },
+    {
+     "id": "M42.5A",
+     "pathway": "N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "N",
+      "N",
+      "NH",
+      "2",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 11
+    },
+    {
+     "id": "M35.5B",
+     "pathway": "Hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": true,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "N",
+      "N",
+      "H",
+      "N",
+      "NH2",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 11
+    },
+    {
+     "id": "M50.5A",
+     "pathway": "Hydrolysis and oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "N",
+      "H",
+      "N",
+      "N",
+      "O",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 11
+    },
+    {
+     "id": "M44",
+     "pathway": "M50.5A reduction",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "N",
+      "H",
+      "N",
+      "N",
+      "OH",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 11
+    },
+    {
+     "id": "M25.5",
+     "pathway": "M44 N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "HN",
+      "H",
+      "N",
+      "N",
+      "OH",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 13
+    },
+    {
+     "id": "M46.3",
+     "pathway": "Hydroxylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "OH",
+      "F",
+      "Cl",
+      "N",
+      "O",
+      "N",
+      "N",
+      "H",
+      "N",
+      "N",
+      "O",
+      "H",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 13
+    },
+    {
+     "id": "M23.8",
+     "pathway": "N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "HN",
+      "N",
+      "NH",
+      "2",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 13
+    },
+    {
+     "id": "M36.5",
+     "pathway": "Hydroxylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": true,
+      "MT": true
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "OH",
+      "N",
+      "N",
+      "N",
+      "H",
+      "N",
+      "O",
+      "N",
+      "O",
+      "H",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 13
+    },
+    {
+     "id": "M28.3",
+     "pathway": "Hydroxylation and N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "OH",
+      "N",
+      "N",
+      "NH2",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 13
+    },
+    {
+     "id": "M58.5",
+     "pathway": "Hydroxylation and Dehydration",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "S",
+      "HN",
+      "O",
+      "F",
+      "Cl",
+      "N",
+      "O",
+      "N",
+      "H",
+      "N",
+      "N",
+      "N",
+      "O",
+      "H",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 13
+    }
+   ]
+  },
+  {
+   "drug": "Fovinaciclib",
+   "caption_spelling": "Fovinaciclib",
+   "table": "S4",
+   "pages": [
+    14,
+    15
+   ],
+   "rows": [
+    {
+     "id": "Fovinaciclib",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "S",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "N",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 14
+    },
+    {
+     "id": "M534-1",
+     "pathway": "N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": true
+     },
+     "labels": [
+      "H",
+      "O",
+      "N",
+      "S",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "N",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 14
+    },
+    {
+     "id": "M534-2",
+     "pathway": "N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": true
+     },
+     "labels": [
+      "O",
+      "N",
+      "S",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "NH",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 14
+    },
+    {
+     "id": "M466",
+     "pathway": "N-dealkylation and oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "H",
+      "O",
+      "N",
+      "S",
+      "N",
+      "N",
+      "-2H",
+      "HN",
+      "N",
+      "OH",
+      "N",
+      "O"
+     ],
+     "shorthand": [
+      "-2H"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 3
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 14
+    },
+    {
+     "id": "M520",
+     "pathway": "N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": true
+     },
+     "labels": [
+      "H",
+      "O",
+      "N",
+      "S",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "NH",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 14
+    },
+    {
+     "id": "M564-2",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": true,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "S",
+      "O",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "N",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 2
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 14
+    },
+    {
+     "id": "M580",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "2O",
+      "O",
+      "N",
+      "S",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "N",
+      "N"
+     ],
+     "shorthand": [
+      "2O"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 1
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 14
+    },
+    {
+     "id": "M550-1",
+     "pathway": "N-dealkylation and oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "O",
+      "N",
+      "S",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "NH",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 2
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 14
+    },
+    {
+     "id": "M667-2",
+     "pathway": "Cysteine conjugation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "S",
+      "Cys",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "N",
+      "N"
+     ],
+     "shorthand": [
+      "Cys"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 2
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 15
+    },
+    {
+     "id": "M724-1, M724-2",
+     "pathway": "Glucuronidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "GluA",
+      "S",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "N",
+      "N"
+     ],
+     "shorthand": [
+      "GluA"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 2
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 15
+    },
+    {
+     "id": "M853",
+     "pathway": "Glutathione conjugation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "S",
+      "GSH",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "N",
+      "N",
+      "N"
+     ],
+     "shorthand": [
+      "GSH"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 2
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 15
+    }
+   ]
+  },
+  {
+   "drug": "Rezafungin",
+   "caption_spelling": "Rezafungin",
+   "table": "S5",
+   "pages": [
+    16
+   ],
+   "rows": [
+    {
+     "id": "Rezafungin",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N+",
+      "OHO",
+      "HO",
+      "HN",
+      "O",
+      "N",
+      "O",
+      "NH",
+      "OH",
+      "HO",
+      "O",
+      "NH",
+      "OO",
+      "HN",
+      "O",
+      "HO",
+      "HN",
+      "OO",
+      "OH",
+      "N",
+      "OH",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 16
+    },
+    {
+     "id": "Hydroxylpentyl rezafungin",
+     "pathway": "Hydroxylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N+",
+      "HO",
+      "HN",
+      "O",
+      "N",
+      "O",
+      "O",
+      "NH",
+      "HO",
+      "OH",
+      "HO",
+      "O",
+      "NH",
+      "OO",
+      "HN",
+      "O",
+      "HO",
+      "OH",
+      "HN",
+      "N",
+      "O",
+      "O",
+      "H",
+      "O",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 16
+    },
+    {
+     "id": "Hydroxy rezafungin sulfate conjugate",
+     "pathway": "Hydroxylation and Sulfation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N+",
+      "HOO",
+      "OS",
+      "HO",
+      "H",
+      "H",
+      "O",
+      "O",
+      "O",
+      "H",
+      "HH",
+      "N",
+      "N",
+      "OO",
+      "O",
+      "N",
+      "O",
+      "O",
+      "N",
+      "O",
+      "H",
+      "NH",
+      "H",
+      "N",
+      "O",
+      "OOH",
+      "O",
+      "O",
+      "N",
+      "H",
+      "H",
+      "O",
+      "O",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 16
+    },
+    {
+     "id": "Despentyl- rezafungin",
+     "pathway": "O-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N+",
+      "HO",
+      "HN",
+      "O",
+      "N",
+      "O",
+      "O",
+      "NH",
+      "HO",
+      "OH",
+      "HO",
+      "O",
+      "NH",
+      "OO",
+      "HN",
+      "OH",
+      "HO",
+      "HN",
+      "OO",
+      "OH",
+      "N",
+      "OH",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 16
+    }
+   ]
+  },
+  {
+   "drug": "Isavuconazole",
+   "caption_spelling": "Isavuconazoium",
+   "table": "S6",
+   "pages": [
+    17
+   ],
+   "rows": [
+    {
+     "id": "Isavuconazoium",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "F",
+      "N",
+      "N+",
+      "N",
+      "OH",
+      "N",
+      "S",
+      "O",
+      "O",
+      "N",
+      "N",
+      "O",
+      "SO42-",
+      "N",
+      "N",
+      "O",
+      "H2"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 17
+    },
+    {
+     "id": "Isavuconazole",
+     "pathway": "N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": true,
+      "MT": true
+     },
+     "labels": [
+      "F",
+      "F",
+      "N",
+      "N",
+      "N",
+      "OH",
+      "N",
+      "S",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 17
+    },
+    {
+     "id": "BAL8728",
+     "pathway": "Hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "N",
+      "O",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 17
+    },
+    {
+     "id": "M4",
+     "pathway": "Hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "NH",
+      "OH",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 17
+    },
+    {
+     "id": "M2",
+     "pathway": "Hydroxylated",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": true,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "F",
+      "OH",
+      "N",
+      "N",
+      "N",
+      "OH",
+      "N",
+      "S",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 17
+    },
+    {
+     "id": "M1",
+     "pathway": "Hydroxylated isavuconazole carbamoyl form",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "F",
+      "OH",
+      "N",
+      "N",
+      "N",
+      "OH",
+      "N",
+      "CONH2",
+      "S",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 17
+    },
+    {
+     "id": "M14",
+     "pathway": "Glucuronidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "F",
+      "GluA",
+      "N",
+      "N",
+      "N",
+      "OH",
+      "N",
+      "S",
+      "N"
+     ],
+     "shorthand": [
+      "GluA"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 17
+    },
+    {
+     "id": "M11",
+     "pathway": "N-acetylcysteine conjugate of hydroxylated",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "F",
+      "F",
+      "OH",
+      "N",
+      "NAC",
+      "N",
+      "N",
+      "OH",
+      "N",
+      "S",
+      "H",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 17
+    }
+   ]
+  },
+  {
+   "drug": "LY3202626",
+   "caption_spelling": "LY3202626",
+   "table": "S7",
+   "pages": [
+    18
+   ],
+   "rows": [
+    {
+     "id": "LY3202626",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "S",
+      "N",
+      "N",
+      "F",
+      "H2N",
+      "N",
+      "F",
+      "N",
+      "O",
+      "N",
+      "N",
+      "H",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 18
+    },
+    {
+     "id": "M1",
+     "pathway": "Hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "S",
+      "N",
+      "F",
+      "H2N",
+      "N",
+      "F",
+      "N",
+      "H2N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 18
+    },
+    {
+     "id": "M3",
+     "pathway": "Hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": true,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "OH",
+      "N",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 18
+    },
+    {
+     "id": "M2",
+     "pathway": "O-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": true,
+      "MT": true
+     },
+     "labels": [
+      "S",
+      "N",
+      "N",
+      "F",
+      "H2N",
+      "N",
+      "F",
+      "N",
+      "O",
+      "N",
+      "N",
+      "H",
+      "N",
+      "HO"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 18
+    },
+    {
+     "id": "M4",
+     "pathway": "M3 glycine conjugation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "OH",
+      "N",
+      "N",
+      "H",
+      "N",
+      "O",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 18
+    },
+    {
+     "id": "M5",
+     "pathway": "M1 N- Acetylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "S",
+      "N",
+      "F",
+      "H2N",
+      "N",
+      "F",
+      "N",
+      "HN",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 18
+    },
+    {
+     "id": "M16",
+     "pathway": "Dehydroxylation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "S",
+      "N",
+      "N",
+      "F",
+      "H2N",
+      "N",
+      "F",
+      "N",
+      "O",
+      "N",
+      "N",
+      "H",
+      "N"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 18
+    }
+   ]
+  },
+  {
+   "drug": "Iberdomide",
+   "caption_spelling": "Iberdomide",
+   "table": "S8",
+   "pages": [
+    19,
+    20
+   ],
+   "rows": [
+    {
+     "id": "Iberdomide",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "O",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 19
+    },
+    {
+     "id": "M1",
+     "pathway": "N-oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": true,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "O",
+      "O",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 19
+    },
+    {
+     "id": "M2",
+     "pathway": "Hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": true
+     },
+     "labels": [
+      "O",
+      "N",
+      "O",
+      "O",
+      "H2N",
+      "N",
+      "O",
+      "O",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 19
+    },
+    {
+     "id": "M4",
+     "pathway": "Hydrolysis and N-oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "O",
+      "O",
+      "O",
+      "H2N",
+      "N",
+      "O",
+      "O",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 19
+    },
+    {
+     "id": "M6",
+     "pathway": "Morpholino amino ethanol",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "OH",
+      "NH",
+      "O",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 19
+    },
+    {
+     "id": "M7",
+     "pathway": "Morpholino amino ethanol and hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "OH",
+      "NH",
+      "O",
+      "O",
+      "H2N",
+      "N",
+      "O",
+      "O",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 19
+    },
+    {
+     "id": "M11",
+     "pathway": "O-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": true
+     },
+     "labels": [
+      "OH",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 19
+    },
+    {
+     "id": "M14",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "OH",
+      "O",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 20
+    },
+    {
+     "id": "M10",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "OH",
+      "NH",
+      "O",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 20
+    },
+    {
+     "id": "M12",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": true,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "O",
+      "O",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 20
+    },
+    {
+     "id": "M9",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "2O",
+      "O",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [
+      "2O"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 20
+    },
+    {
+     "id": "M21a",
+     "pathway": "Oxidation and dehydrogenation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "N",
+      "2O",
+      "O",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [
+      "2O"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 20
+    },
+    {
+     "id": "M22",
+     "pathway": "decarboxylation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "HO",
+      "O",
+      "N",
+      "OH",
+      "O",
+      "O",
+      "HN",
+      "O",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 20
+    }
+   ]
+  },
+  {
+   "drug": "Opicapone",
+   "caption_spelling": "Opicapone",
+   "table": "S9",
+   "pages": [
+    21,
+    23
+   ],
+   "rows": [
+    {
+     "id": "Opicapone",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "OH",
+      "-O",
+      "N+",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "N+O-",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 21
+    },
+    {
+     "id": "BIA 9-1106",
+     "pathway": "Glucuronidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": true,
+      "MT": true
+     },
+     "labels": [
+      "Cl",
+      "GluA",
+      "O",
+      "-O",
+      "N+",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "N+O-",
+      "O"
+     ],
+     "shorthand": [
+      "GluA"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "one signal only, to be looked at",
+     "page": 21
+    },
+    {
+     "id": "BIA 9-1103",
+     "pathway": "Sulfation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "SO3",
+      "OH",
+      "-O",
+      "N+",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "N+O-",
+      "O"
+     ],
+     "shorthand": [
+      "SO3"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "one signal only, to be looked at",
+     "page": 21
+    },
+    {
+     "id": "BIA 9-1104",
+     "pathway": "O-methylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "OH",
+      "-O",
+      "N+",
+      "N",
+      "O",
+      "Cl",
+      "N",
+      "O",
+      "N+O-",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 21
+    },
+    {
+     "id": "BIA 9-1100",
+     "pathway": "O-methylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "O",
+      "-O",
+      "N+",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "N+O-",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 21
+    },
+    {
+     "id": "MWT 568",
+     "pathway": "O-methylation and cysteinylglycine conjugation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "CH2",
+      "OH",
+      "-O",
+      "N+",
+      "N",
+      "OH",
+      "S",
+      "N",
+      "O",
+      "N+O-",
+      "O",
+      "NH2",
+      "O",
+      "HN",
+      "O",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 21
+    },
+    {
+     "id": "MWT 687",
+     "pathway": "MWT 568 cysteine conjugation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "OH",
+      "Cl",
+      "CH2",
+      "N",
+      "OH",
+      "SH",
+      "H",
+      "-O",
+      "N+",
+      "N",
+      "OH",
+      "S",
+      "N",
+      "O",
+      "N+O-",
+      "O",
+      "NH2",
+      "O",
+      "HN",
+      "O",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 21
+    },
+    {
+     "id": "MWT 630",
+     "pathway": "O-methylation and cysteine conjugation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "OH",
+      "Cl",
+      "CH2",
+      "SH",
+      "N",
+      "H",
+      "-O",
+      "N+",
+      "N",
+      "OH",
+      "OH",
+      "S",
+      "N",
+      "O",
+      "N+O-",
+      "O",
+      "NH2",
+      "O",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 21
+    },
+    {
+     "id": "BIA 9-5049",
+     "pathway": "O-methylation and cysteine conjugation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "CH2",
+      "OH",
+      "-O",
+      "N+",
+      "N",
+      "OH",
+      "S",
+      "N",
+      "O",
+      "N+O-",
+      "O",
+      "NH2",
+      "O",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 21
+    },
+    {
+     "id": "BIA 9-1079",
+     "pathway": "Reduction",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": true
+     },
+     "labels": [
+      "Cl",
+      "OH",
+      "N",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "N+O-",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 23
+    },
+    {
+     "id": "M41",
+     "pathway": "Reduction",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "OH",
+      "N",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "+2H",
+      "NH2"
+     ],
+     "shorthand": [
+      "+2H"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 23
+    },
+    {
+     "id": "BIA 9-1101",
+     "pathway": "O-methylation and reduction",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "CH2",
+      "OH",
+      "N",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "N+O-",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 23
+    },
+    {
+     "id": "MWT 490",
+     "pathway": "BIA 9-1101 Sulfation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "CH2",
+      "OH",
+      "SO3",
+      "N",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "N+O-",
+      "O"
+     ],
+     "shorthand": [
+      "SO3"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "one signal only, to be looked at",
+     "page": 23
+    },
+    {
+     "id": "M4",
+     "pathway": "M41 N- Acetylation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "OH",
+      "N",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "+2H",
+      "NH",
+      "O"
+     ],
+     "shorthand": [
+      "+2H"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 23
+    },
+    {
+     "id": "MWT 424",
+     "pathway": "M4 O-methylation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "CH2",
+      "OH",
+      "N",
+      "N",
+      "OH",
+      "Cl",
+      "N",
+      "O",
+      "+2H",
+      "NH",
+      "O"
+     ],
+     "shorthand": [
+      "+2H"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 23
+    },
+    {
+     "id": "BIA 9-3752",
+     "pathway": "M4 Hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "OH",
+      "O",
+      "OH",
+      "HO",
+      "NH",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 23
+    },
+    {
+     "id": "BIA 9-3679",
+     "pathway": "M4 Hydrolysis",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "Cl",
+      "N",
+      "NH",
+      "2",
+      "Cl",
+      "NH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 23
+    }
+   ]
+  },
+  {
+   "drug": "Tinengotinib",
+   "caption_spelling": "Tinengotinib",
+   "table": "S10",
+   "pages": [
+    24,
+    25
+   ],
+   "rows": [
+    {
+     "id": "Tinengotinib",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "N",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 24
+    },
+    {
+     "id": "M570-1",
+     "pathway": "Glucuronidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "H",
+      "N",
+      "GluA",
+      "HN",
+      "N",
+      "Cl",
+      "N",
+      "N",
+      "O"
+     ],
+     "shorthand": [
+      "GluA"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 24
+    },
+    {
+     "id": "M382",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "O",
+      "N",
+      "N",
+      "H",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 24
+    },
+    {
+     "id": "M410-1",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": true,
+      "MT": true
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "N",
+      "N",
+      "O",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 24
+    },
+    {
+     "id": "M410-3",
+     "pathway": "Hydroxylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "OH",
+      "HN",
+      "N",
+      "Cl",
+      "N",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 24
+    },
+    {
+     "id": "M412-1",
+     "pathway": "oxidative cleavage of morpholine ring",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": false,
+      "MP": true,
+      "MT": true
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "HO",
+      "N",
+      "N",
+      "OH"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 24
+    },
+    {
+     "id": "M412-2",
+     "pathway": "oxidative cleavage of morpholine ring",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": true
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "N",
+      "N",
+      "H",
+      "O",
+      "HO"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 24
+    },
+    {
+     "id": "M426-2",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "N",
+      "N",
+      "O",
+      "2O"
+     ],
+     "shorthand": [
+      "2O"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 25
+    },
+    {
+     "id": "M513",
+     "pathway": "Cysteine conjugation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "H",
+      "N",
+      "Cys-2H",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "N",
+      "N",
+      "O"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "one signal only, to be looked at",
+     "page": 25
+    },
+    {
+     "id": "M602",
+     "pathway": "Oxidation and glucuronidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "N",
+      "N",
+      "O",
+      "2O",
+      "GluA"
+     ],
+     "shorthand": [
+      "2O",
+      "GluA"
+     ],
+     "why_not_a_structure": "position not stated and group abbreviated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 25
+    },
+    {
+     "id": "M588-1",
+     "pathway": "Glucuronidation of M412-1",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "HO",
+      "N",
+      "N",
+      "GluA",
+      "OH"
+     ],
+     "shorthand": [
+      "GluA"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 25
+    },
+    {
+     "id": "M588-2",
+     "pathway": "Glucuronidation of M412-2",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "H",
+      "N",
+      "N",
+      "HN",
+      "N",
+      "Cl",
+      "N",
+      "N",
+      "H",
+      "O",
+      "GluA",
+      "HO"
+     ],
+     "shorthand": [
+      "GluA"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 25
+    }
+   ]
+  },
+  {
+   "drug": "Nemiralisib",
+   "caption_spelling": "Nemiralisib",
+   "table": "S11",
+   "pages": [
+    26,
+    27
+   ],
+   "rows": [
+    {
+     "id": "Nemiralisib",
+     "pathway": "-",
+     "is_parent": true,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "N",
+      "O",
+      "N",
+      "N",
+      "N",
+      "H",
+      "HN"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 26
+    },
+    {
+     "id": "M1",
+     "pathway": "N-dealkylation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "HN",
+      "N",
+      "O",
+      "N",
+      "N",
+      "N",
+      "H",
+      "HN"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 26
+    },
+    {
+     "id": "M9",
+     "pathway": "N-dealkylation and sulfation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "O",
+      "O",
+      "S",
+      "N",
+      "N",
+      "OH",
+      "O",
+      "N",
+      "N",
+      "N",
+      "H",
+      "HN"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 26
+    },
+    {
+     "id": "M14",
+     "pathway": "Glucuronidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "N",
+      "O",
+      "N",
+      "GluA",
+      "N",
+      "N",
+      "H",
+      "HN"
+     ],
+     "shorthand": [
+      "GluA"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "one signal only, to be looked at",
+     "page": 26
+    },
+    {
+     "id": "M15",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "N",
+      "O",
+      "N",
+      "2O",
+      "N",
+      "-2H",
+      "N",
+      "H",
+      "HN"
+     ],
+     "shorthand": [
+      "-2H",
+      "2O"
+     ],
+     "why_not_a_structure": "position not stated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "one signal only, to be looked at",
+     "page": 26
+    },
+    {
+     "id": "M7",
+     "pathway": "Oxidation",
+     "is_parent": false,
+     "marks": {
+      "SM": false,
+      "GX": true,
+      "BT": true,
+      "MP": false,
+      "MT": true
+     },
+     "labels": [
+      "N",
+      "N",
+      "O",
+      "N",
+      "N",
+      "N",
+      "H",
+      "OH",
+      "HN"
+     ],
+     "shorthand": [],
+     "why_not_a_structure": "",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "drawn as one structure",
+     "page": 26
+    },
+    {
+     "id": "M6",
+     "pathway": "Oxidation and sulfation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "N",
+      "O",
+      "N",
+      "O",
+      "N",
+      "SO3",
+      "N",
+      "H",
+      "HN"
+     ],
+     "shorthand": [
+      "SO3"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 2,
+      "dashed": 0
+     },
+     "scoped": true,
+     "verdict": "a change of stated mass somewhere in a marked region",
+     "page": 27
+    },
+    {
+     "id": "M3",
+     "pathway": "Oxidation and Glucuronidation",
+     "is_parent": false,
+     "marks": {
+      "SM": true,
+      "GX": false,
+      "BT": false,
+      "MP": false,
+      "MT": false
+     },
+     "labels": [
+      "N",
+      "N",
+      "O",
+      "N",
+      "GluA",
+      "N",
+      "O",
+      "N",
+      "H",
+      "HN"
+     ],
+     "shorthand": [
+      "GluA"
+     ],
+     "why_not_a_structure": "group abbreviated",
+     "scoping": {
+      "brackets": 0,
+      "dashed": 0
+     },
+     "scoped": false,
+     "verdict": "one signal only, to be looked at",
+     "page": 27
+    }
+   ]
+  }
+ ],
+ "reading": "A row both signals call plain draws one structure and can be read off. A row both call marked does not: the document states a mass change and the region it happened in, so what it publishes is a formula and a neighbourhood, and a single structure read from it would be a position nobody measured. Where the two signals differ the row is listed and left undecided, because an abbreviation such as GluA is sometimes bonded to a drawn atom and sometimes to a dashed box, and only looking tells which."
+}

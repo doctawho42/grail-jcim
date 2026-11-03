@@ -1,0 +1,36 @@
+\begin{table*}[t]
+\centering\scriptsize
+\begin{threeparttable}
+\caption{Micro recall at a budget of 15 within each transformation class, on the comparison set's 2597 known metabolites; leading zeros are dropped.}
+\label{tab:si-chemistry}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+transformation class & refs & GRAIL exh. & GRAIL int. & MetaTox & SyGMa & MetaPred. & BioTrans. & GLORYx \\
+\midrule
+oxidation, one oxygen added & 596 & .68 & .57 & .71 & .61 & .58 & .67 & .74 \\
+other & 573 & .22 & .16 & .16 & .16 & .21 & .08 & .18 \\
+cleavage, two or more carbons lost & 531 & .67 & .63 & .44 & .51 & .52 & .38 & .45 \\
+glucuronidation & 280 & .76 & .73 & .82 & .84 & .77 & .65 & .85 \\
+demethylation & 132 & .78 & .89 & .78 & .94 & .79 & .87 & .93 \\
+dehydrogenation & 76 & .26 & .21 & .54 & .32 & .55 & .39 & .55 \\
+reduction & 75 & .76 & .55 & .53 & .73 & .61 & .64 & .72 \\
+sulfation & 74 & .38 & .74 & .85 & .82 & .43 & .41 & .89 \\
+oxidation to a carbonyl & 51 & .53 & .39 & .51 & .57 & .55 & .00 & .55 \\
+hydrolysis & 41 & .32 & .54 & .49 & .51 & .37 & .12 & .51 \\
+isomerisation, no formula change & 39 & .05 & .13 & .03 & .03 & .10 & .00 & .03 \\
+methylation & 32 & .19 & .12 & .38 & .69 & .72 & .38 & .72 \\
+acetylation & 31 & .06 & .03 & .55 & .77 & .58 & .35 & .81 \\
+oxidation, two oxygens added & 28 & .04 & .00 & .00 & .00 & .18 & .00 & .00 \\
+deamination & 15 & .33 & .47 & .60 & .07 & .73 & .00 & .07 \\
+glutathione conjugation & 10 & .00 & .00 & .00 & .00 & .00 & .00 & .00 \\
+oxidative demethylation$^{\dagger}$ & 6 & .83 & .67 & .50 & .33 & .50 & .17 & .17 \\
+glycine conjugation$^{\dagger}$ & 6 & .83 & .00 & .83 & 1.00 & .83 & .67 & 1.00 \\
+dehalogenation, fluorine$^{\dagger}$ & 1 & 1.00 & .00 & .00 & .00 & 1.00 & .00 & .00 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item A class is a change in molecular formula, so it groups mechanisms the annotation does not separate. $^{\dagger}$ marks the 3 classes holding fewer than 10 known metabolites, where one hit moves a cell by more than a tenth and no ordering across a row should be read. At this budget the arms differ in how often they have anything left to emit, so a row is in part a comparison of list lengths: the exhaustive arm on 0, the interactive arm on 181, MetaTox on 34, SyGMa on 15, MetaPredictor on 273, BioTransformer on 219, GLORYx on 48, of 291 (Table~\ref{tab:si-short}). Three of the 7 run out on more than half of the 291. Table~\ref{tab:si-chemistry-matched} repeats the split with each comparator's own length held instead of the budget.
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}

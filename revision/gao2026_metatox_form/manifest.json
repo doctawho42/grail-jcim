@@ -1,0 +1,70 @@
+{
+ "provenance": {
+  "script": "make_gao_metatox_form_input.py",
+  "script_path": "scripts/make_gao_metatox_form_input.py",
+  "source_sha256": "c8c1143f7355025c6b7669be9b3dc569376f71d364a3d6dc8fc34baaa29b0a9a",
+  "git_commit": "be95e62186fbcdcfb5f24ebfc75a3662fa40ebfc",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "revision/gao2026_reference_set/substrates.csv",
+   "exists": true,
+   "sha256_16": "a1094a538525bda6",
+   "bytes": 1337
+  },
+  {
+   "path": "revision/gao2026_reference_set/si_tables.json",
+   "exists": true,
+   "sha256_16": "4f88c7297e93813a",
+   "bytes": 65261
+  }
+ ],
+ "question": "what MetaTox returns on the eleven substrates of the radiolabelled human ADME benchmark, which scores five other predictors and not this one",
+ "n_substrates": 11,
+ "published_metabolites": {
+  "Encorafenib": 12,
+  "Fovinaciclib": 10,
+  "Iberdomide": 12,
+  "Isavuconazole": 7,
+  "LY3202626": 6,
+  "Nemiralisib": 7,
+  "Opicapone": 16,
+  "Pamiparib": 8,
+  "Rezafungin": 3,
+  "Sotorasib": 5,
+  "Tinengotinib": 11
+ },
+ "n_published_metabolites": 97,
+ "reference_set": {
+  "drawn_in_the_supporting_information": 92,
+  "readable_as_one_structure": {
+   "drawn as one structure": 53,
+   "a change of stated mass somewhere in a marked region": 22,
+   "one signal only, to be looked at": 17
+  },
+  "scored_without_a_table_here": [
+   "Sotorasib"
+  ]
+ },
+ "drawing": "the string the benchmark's own input scripts pass, copied and not canonicalised, because the five published columns were produced from it",
+ "redrawn_by_rdkit": {
+  "Encorafenib": "COC(=O)N[C@@H](C)CNc1nccc(-c2cn(C(C)C)nc2-c2cc(Cl)cc(NS(C)(=O)=O)c2F)n1",
+  "Fovinaciclib": "CN1CCN(C2CCN(c3ccc(Nc4ncc5sc(C(=O)N(C)C)c(C6CCCC6)c5n4)nc3)CC2)CC1",
+  "Iberdomide": "O=C1CC[C@H](N2Cc3c(OCc4ccc(CN5CCOCC5)cc4)cccc3C2=O)C(=O)N1",
+  "Isavuconazole": "CNCC(=O)OCc1cccnc1N(C)C(=O)OC(C)[n+]1cnn(C[C@](O)(c2cc(F)ccc2F)[C@@H](C)c2nc(-c3ccc(C#N)cc3)cs2)c1",
+  "LY3202626": "COc1cnc(C(=O)Nc2ccc(F)c([C@]34CN(c5ncc(F)cn5)C[C@H]3CSC(N)=N4)c2)cn1",
+  "Nemiralisib": "CC(C)N1CCN(Cc2cnc(-c3cc(-c4cccc5[nH]ccc45)cc4[nH]ncc34)o2)CC1",
+  "Opicapone": "Cc1c(Cl)c(C)[n+]([O-])c(Cl)c1-c1noc(-c2cc(O)c(O)c([N+](=O)[O-])c2)n1",
+  "Pamiparib": "C[C@]12CCCN1CC1=NNC(=O)c3cc(F)cc4[nH]c2c1c34",
+  "Rezafungin": "CCCCCOc1ccc(-c2ccc(-c3ccc(C(=O)N[C@H]4C[C@@H](O)[C@@H](OCC[N+](C)(C)C)NC(=O)[C@@H]5[C@@H](O)[C@@H](C)CN5C(=O)[C@H]([C@@H](C)O)NC(=O)[C@H]([C@H](O)[C@@H](O)c5ccc(O)cc5)NC(=O)[C@@H]5C[C@@H](O)CN5C(=O)[C@H]([C@@H](C)O)NC4=O)cc3)cc2)cc1",
+  "Sotorasib": "C=CC(=O)N1CCN(c2nc(=O)n(-c3c(C)ccnc3C(C)C)c3nc(-c4c(O)cccc4F)c(F)cc23)[C@@H](C)C1",
+  "Tinengotinib": "Cc1[nH]nc2c1N=C(c1ccccc1Cl)c1cnc(N3CCOCC3)cc1N2"
+ },
+ "unconfirmed_name_pairing": {
+  "published_table": "Fovinaciclib",
+  "deposit_files": "FCN-437c",
+  "status": "inferred from being the only unmatched name on either side, not confirmed"
+ },
+ "join": "the id, which is the drug name in the published table"
+}

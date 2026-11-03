@@ -1,0 +1,83 @@
+{
+ "provenance": {
+  "script": "external_reference_set.py",
+  "script_path": "scripts/external_reference_set.py",
+  "source_sha256": "787e103594d88f83883eec15c2561e8afd59259927e704565f8c3e7eaab72f23",
+  "git_commit": "e37713e4a90a6dac47d6422cf8b1cfc5b7ab067c",
+  "git_dirty": true
+ },
+ "what_this_is": "the worksheet for a machine-readable version of the known metabolites of the radiolabelled human ADME benchmark, whose paper publishes them as drawings",
+ "substrates_came_from": "artifacts/external/gao2026",
+ "counts_came_from": "results/external_budget_confound.json",
+ "nothing_here_was_guessed": "every substrate is the string the benchmark's own tool-input script passes to RDKit, and every metabolite count is the number its paper publishes; the metabolite structures are left empty for a chemist to draw",
+ "drugs": {
+  "Encorafenib": {
+   "substrate": "C[C@@H](CNC1=NC=CC(=N1)C2=CN(N=C2C3=C(C(=CC(=C3)Cl)NS(=O)(=O)C)F)C(C)C)NC(=O)OC",
+   "source_file": "Encorafenib.py",
+   "deposit_name": "Encorafenib",
+   "metabolites_published": 12
+  },
+  "Fovinaciclib": {
+   "substrate": "CN(CC1)CCN1C(CC2)CCN2C3=CC=C(NC4=NC(C(C5CCCC5)=C(C(N(C)C)=O)S6)=C6C=N4)N=C3",
+   "source_file": "FCN-437c.py",
+   "deposit_name": "FCN-437c",
+   "metabolites_published": 10,
+   "alias_reason": "the only name in the published table with no file in the deposit, matched to the only file in the deposit with no row in the published table; FCN-437c is the development code the deposit's scripts are named by. Confirm before the sheet is filled."
+  },
+  "Iberdomide": {
+   "substrate": "C1CC(=O)NC(=O)[C@H]1N2CC3=C(C2=O)C=CC=C3OCC4=CC=C(C=C4)CN5CCOCC5",
+   "source_file": "Iberdomide.py",
+   "deposit_name": "Iberdomide",
+   "metabolites_published": 12
+  },
+  "Isavuconazole": {
+   "substrate": "C[C@@H](C1=NC(=CS1)C2=CC=C(C=C2)C#N)[C@](CN3C=[N+](C=N3)C(C)OC(=O)N(C)C4=C(C=CC=N4)COC(=O)CNC)(C5=C(C=CC(=C5)F)F)O",
+   "source_file": "Isavuconazole.py",
+   "deposit_name": "Isavuconazole",
+   "metabolites_published": 7
+  },
+  "LY3202626": {
+   "substrate": "COC1=NC=C(N=C1)C(=O)NC2=CC(=C(C=C2)F)[C@]34CN(C[C@H]3CSC(=N4)N)C5=NC=C(C=N5)F",
+   "source_file": "LY3202626.py",
+   "deposit_name": "LY3202626",
+   "metabolites_published": 6
+  },
+  "Nemiralisib": {
+   "substrate": "CC(C)N1CCN(CC1)CC2=CN=C(O2)C3=C4C=NNC4=CC(=C3)C5=C6C=CNC6=CC=C5",
+   "source_file": "Nemiralisib.py",
+   "deposit_name": "Nemiralisib",
+   "metabolites_published": 7
+  },
+  "Opicapone": {
+   "substrate": "CC1=C(C(=[N+](C(=C1Cl)C)[O-])Cl)C2=NOC(=N2)C3=CC(=C(C(=C3)O)O)[N+](=O)[O-]",
+   "source_file": "Opicapone.py",
+   "deposit_name": "Opicapone",
+   "metabolites_published": 16
+  },
+  "Pamiparib": {
+   "substrate": "C[C@]12CCCN1CC3=NNC(=O)C4=C5C3=C2NC5=CC(=C4)F",
+   "source_file": "Pamiparib.py",
+   "deposit_name": "Pamiparib",
+   "metabolites_published": 8
+  },
+  "Rezafungin": {
+   "substrate": "CCCCCOC1=CC=C(C=C1)C2=CC=C(C=C2)C3=CC=C(C=C3)C(=O)N[C@H]4C[C@H]([C@H](NC(=O)[C@@H]5[C@H]([C@H](CN5C(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H]6C[C@H](CN6C(=O)[C@@H](NC4=O)[C@@H](C)O)O)[C@@H]([C@H](C7=CC=C(C=C7)O)O)O)[C@@H](C)O)C)O)OCC[N+](C)(C)C)O",
+   "source_file": "Rezafungin.py",
+   "deposit_name": "Rezafungin",
+   "metabolites_published": 3
+  },
+  "Sotorasib": {
+   "substrate": "C[C@H]1CN(CCN1C2=NC(=O)N(C3=NC(=C(C=C32)F)C4=C(C=CC=C4F)O)C5=C(C=CN=C5C(C)C)C)C(=O)C=C",
+   "source_file": "Sotorasib.py",
+   "deposit_name": "Sotorasib",
+   "metabolites_published": 5
+  },
+  "Tinengotinib": {
+   "substrate": "CC1=C2C(=NN1)NC3=CC(=NC=C3C(=N2)C4=CC=CC=C4Cl)N5CCOCC5",
+   "source_file": "Tinengotinib.py",
+   "deposit_name": "Tinengotinib",
+   "metabolites_published": 11
+  }
+ },
+ "metabolites_to_draw": 97
+}

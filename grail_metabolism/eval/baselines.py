@@ -1,0 +1,462 @@
+"""Diverse-subset-selection baselines over a reranker-scored candidate pool.
+
+Three selectors -- ``temperature_topp_select`` (BASE-01), ``dpp_greedy_select``
+(BASE-02), ``mmr_select`` (BASE-03) -- all implement one shared contract:
+
+    select(pool, k, method, **knob) -> List[str]
+
+``pool`` is ``List[Tuple[str, float]]`` (SMILES, raw reranker LOGIT score) in
+any order; the return is a RANKED list of SMILES (rank 0 = most preferred by
+the given method), of length >= k whenever the deduped pool supports it.
+
+Every selector's fingerprint/similarity computation routes through the ONE
+shared ``_pool_fingerprints``/``_tanimoto_kernel_matrix`` pair in this module,
+which reuse ``eval/diversity.py``'s exact Morgan r=2/2048 fingerprint
+convention (``AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=2048)``)
+-- no second fingerprint path. Dedup/identity routes through
+``grail_metabolism.metrics._tautomer_inchikey``, the SAME canonicalization
+source ``eval/diversity.py`` uses; this module does NOT define a second
+InChIKey/canonicalization function.
+
+Kept dependency-light like ``eval/diversity.py`` (RDKit only, no torch), with
+ONE deliberate, approved deviation: ``numpy`` is imported (already a pinned
+hard project dependency) for the vectorized softmax/argmax/incremental-Cholesky
+math the selection rules need. ``eval/diversity.py`` itself stays pure-Python +
+RDKit; this is a scoped exception for this module only.
+
+All scores in ``pool`` are expected to be RAW, unnormalized LOGITS, exactly as
+returned by ``BiEncoderReranker.forward`` (a bare ``nn.Linear(64, 1)`` head,
+no sigmoid). Temperature scaling divides the logit directly
+(``p_i \\propto exp(logit_i / T)``); it never inverse-sigmoids an
+assumed-probability input.
+"""
+
+from __future__ import annotations
+
+from typing import Iterable, List, Optional, Sequence, Tuple
+
+import numpy as np
+from rdkit import Chem
+from rdkit.Chem import AllChem, DataStructs
+
+from grail_metabolism.metrics import _tautomer_inchikey
+
+Pool = Sequence[Tuple[str, float]]
+
+
+def _pool_fingerprints(smiles_list: Sequence[str]) -> List:
+    """Morgan/ECFP4 (radius=2, nBits=2048) fingerprints for ``smiles_list``.
+
+    THE single fingerprint-construction path shared by ``dpp_greedy_select``
+    and ``mmr_select`` (and available to any future selector) -- never
+    redefine this per-selector. Verbatim call signature copied from
+    ``eval/diversity.py``'s internal fingerprinting (Pitfall 3 guard: a guard
+    test asserts this matches ``diversity.mean_pairwise_tanimoto`` on a fixed
+    pair). Unparseable SMILES are parsed-and-skipped
+    (``Chem.MolFromSmiles(s) is None``), mirroring ``diversity.py``'s
+    existing convention (T-02-01).
+    """
+    fps = []
+    for s in smiles_list:
+        mol = Chem.MolFromSmiles(s)
+        if mol is None:
+            continue
+        fps.append(AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=2048))
+    return fps
+
+
+def _tanimoto_kernel_matrix(fps: Sequence) -> np.ndarray:
+    """NxN Tanimoto similarity matrix over ``fps`` (diagonal 1.0).
+
+    Built via ``DataStructs.TanimotoSimilarity`` -- the same similarity
+    primitive ``eval/diversity.py``'s ``mean_pairwise_tanimoto``/
+    ``circles_count`` use. This, together with ``_pool_fingerprints``, is the
+    SINGLE fingerprint/similarity path shared by DPP and MMR.
+    """
+    n = len(fps)
+    S = np.eye(n, dtype=np.float64)
+    for i in range(n):
+        for j in range(i + 1, n):
+            sim = DataStructs.TanimotoSimilarity(fps[i], fps[j])
+            S[i, j] = sim
+            S[j, i] = sim
+    return S
+
+
+def _dedup_pool_score_aware(pool_smiles: Sequence[str], pool_scores: np.ndarray) -> Tuple[List[str], np.ndarray]:
+    """Score-aware tautomer-InChIKey dedup: keep the HIGHEST-scored member per group.
+
+    Groups ``pool_smiles`` by ``_tautomer_inchikey`` (the SAME canonicalization
+    ``eval/diversity.py`` folds into every metric before fingerprinting -- see
+    module docstring), and for each group keeps only the ``(smiles, score)``
+    pair with the maximal score, preserving relevance while collapsing
+    tautomer duplicates BEFORE any fingerprint/kernel is built. Without this,
+    two tautomers of the same molecule (near-0 Tanimoto under Morgan
+    fingerprints despite being the same molecule) are scored as maximally
+    dissimilar and both get selected as "diverse" (FIX A, adversarial review).
+
+    Order of the returned lists follows first-seen order of each group's
+    surviving representative (stable, not re-sorted by score) so downstream
+    callers' index bookkeeping stays simple.
+    """
+    best_idx_by_key: dict = {}
+    order: List[str] = []
+    for i, s in enumerate(pool_smiles):
+        key = _tautomer_inchikey(s)
+        if key not in best_idx_by_key:
+            best_idx_by_key[key] = i
+            order.append(key)
+        elif pool_scores[i] > pool_scores[best_idx_by_key[key]]:
+            best_idx_by_key[key] = i
+
+    kept_idx = [best_idx_by_key[key] for key in order]
+    smiles_out = [pool_smiles[i] for i in kept_idx]
+    scores_out = pool_scores[kept_idx]
+    return smiles_out, scores_out
+
+
+def _parse_and_dedup(pool: Pool) -> Tuple[List[str], np.ndarray]:
+    """The shared parse-filter + score-aware tautomer-dedup prefix used IDENTICALLY
+    by ``dpp_greedy_select`` and ``mmr_select`` (and by ``dedup_and_fingerprint``).
+
+    Drops unparseable SMILES (``Chem.MolFromSmiles(s) is None``) preserving order,
+    then collapses tautomer-InChIKey duplicates keeping the highest-scored member
+    (``_dedup_pool_score_aware``). Returns ``(smiles, scores)`` on the FINAL
+    distinct-molecule pool. Extracted so the fingerprint/kernel a caller precomputes
+    (via ``dedup_and_fingerprint``) is built over EXACTLY the same deduped order the
+    selectors derive internally -- which is what makes the cross-knob kernel reuse in
+    ``dpp_greedy_select``/``mmr_select`` safe (Plan 04-01 Task 3 / D-40-02).
+    """
+    smiles = [s for s, _ in pool]
+    scores = np.asarray([sc for _, sc in pool], dtype=np.float64)
+    parseable_idx = [i for i, s in enumerate(smiles) if Chem.MolFromSmiles(s) is not None]
+    smiles = [smiles[i] for i in parseable_idx]
+    scores = scores[parseable_idx]
+    if not smiles:
+        return [], np.asarray([], dtype=np.float64)
+    return _dedup_pool_score_aware(smiles, scores)
+
+
+def dedup_and_fingerprint(pool: Pool) -> Tuple[List[str], np.ndarray, List, np.ndarray]:
+    """Build the canonical prepared pool ONCE: ``(smiles, scores, fps, S)``.
+
+    Runs the shared ``_parse_and_dedup`` prefix, then the ONE shared
+    ``_pool_fingerprints`` + ``_tanimoto_kernel_matrix`` pair. ``S`` is the RAW
+    Tanimoto kernel with diagonal ``1.0`` (NOT regularized -- ``dpp_greedy_select``
+    regularizes a private COPY of its diagonal). The lambda-INDEPENDENT ``fps``/``S``
+    can be reused across an ENTIRE knob-sweep of DPP/MMR over this pool by passing
+    them into ``select(..., fps=fps, kernel=S)`` -- turning the O(N^2) kernel build
+    from once-per-knob-point into once-per-pool (Plan 04-01 Task 3 / D-40-02, H4).
+
+    Returns empty structures for a degenerate (empty / all-unparseable) pool.
+    """
+    smiles, scores = _parse_and_dedup(pool)
+    if not smiles:
+        return [], np.asarray([], dtype=np.float64), [], np.zeros((0, 0), dtype=np.float64)
+    fps = _pool_fingerprints(smiles)
+    if len(fps) != len(smiles):
+        # _pool_fingerprints re-parses and can drop entries; keep fps/S self-consistent
+        # by rebuilding smiles to the fingerprintable subset is out of scope here -- a
+        # mismatch means a caller-supplied reuse would be rejected by the length guard
+        # and the selector recomputes safely, so just return the mismatched fps and let
+        # the selector's own guard handle it.
+        return smiles, scores, fps, np.zeros((0, 0), dtype=np.float64)
+    S = _tanimoto_kernel_matrix(fps)
+    return smiles, scores, fps, S
+
+
+def _softmax(logits: np.ndarray) -> np.ndarray:
+    shifted = logits - np.max(logits)
+    exp = np.exp(shifted)
+    return exp / np.sum(exp)
+
+
+def _nucleus_truncate(probs: np.ndarray, p: float) -> List[int]:
+    """Indices (into ``probs``) surviving top-p nucleus truncation, sorted desc by prob."""
+    order = list(np.argsort(-probs))
+    cumulative = 0.0
+    support: List[int] = []
+    for idx in order:
+        support.append(int(idx))
+        cumulative += float(probs[idx])
+        if cumulative >= p:
+            break
+    return support
+
+
+def select(pool: Pool, k: int, method: str, **knob) -> List[str]:
+    """Shared dispatcher: ``select(pool, k, method, **knob) -> List[str]``.
+
+    ``pool`` is ``[(smiles, raw_logit_score), ...]`` in any order -- expects
+    RAW logits (unnormalized), as returned by ``BiEncoderReranker.forward``.
+    Returns a RANKED ``List[str]`` (rank 0 = most preferred), of length >= k
+    whenever the deduped pool supports it. Degenerate inputs (empty pool,
+    ``k <= 0``) return ``[]``; ``k`` at or beyond the distinct-pool size
+    returns the full deduped ranking.
+
+    ``method`` dispatches to one of ``temperature_topp_select`` /
+    ``dpp_greedy_select`` / ``mmr_select``; the corresponding **knob kwargs
+    are the method's own tunables (``T``/``p``/``rng`` for temperature/top-p,
+    ``theta``/``fps``/``eps``/``tol`` for DPP, ``lam``/``fps`` for MMR).
+    """
+    if not pool or k <= 0:
+        return []
+
+    # NOTE: dispatch is resolved by name against this module's globals (not a
+    # dict built from direct references) so `select()` stays usable for
+    # already-implemented methods even while a later-added selector (DPP/MMR)
+    # is still under construction earlier in this module's rollout.
+    dispatch_names = {
+        "temperature_topp": "temperature_topp_select",
+        "dpp": "dpp_greedy_select",
+        "mmr": "mmr_select",
+    }
+    if method not in dispatch_names:
+        raise ValueError(
+            f"select: unknown method {method!r} (expected one of {sorted(dispatch_names)})"
+        )
+    fn = globals()[dispatch_names[method]]
+    return fn(pool, k, **knob)
+
+
+def temperature_topp_select(
+    pool: Pool,
+    k: int,
+    T: float = 1.0,
+    p: float = 1.0,
+    rng: Optional[np.random.Generator] = None,
+) -> List[str]:
+    """Temperature/top-p (nucleus) stochastic selection over raw reranker logits (BASE-01).
+
+    Per D-BASE01-TEMPGRID: divides the raw logit by ``max(T, 1e-8)``,
+    softmaxes, nucleus-truncates the resulting distribution to the smallest
+    prefix (sorted descending by probability) whose cumulative mass >= ``p``,
+    then samples WITHOUT replacement from the surviving support, deduping
+    each pick by ``_tautomer_inchikey`` mid-loop, until ``k`` distinct
+    candidates are collected or the nucleus support is exhausted. Does NOT
+    inverse-sigmoid -- the input scores are already logit-space.
+
+    ``rng`` defaults to ``np.random.default_rng()`` when not supplied; pass a
+    seeded ``Generator`` for deterministic/reproducible tests.
+
+    Parses-and-skips unparseable SMILES up front (``Chem.MolFromSmiles(s) is
+    None``), mirroring DPP/MMR's ``_pool_fingerprints`` convention (FIX C,
+    adversarial review) -- without this guard, an unparseable SMILES survives
+    into the output because ``_tautomer_inchikey`` falls back to the raw
+    string on parse failure, letting this baseline pad its budget with junk
+    that DPP/MMR correctly drop.
+    """
+    if not pool or k <= 0:
+        return []
+
+    smiles = [s for s, _ in pool]
+    scores = np.asarray([sc for _, sc in pool], dtype=np.float64)
+
+    parseable_idx = [i for i, s in enumerate(smiles) if Chem.MolFromSmiles(s) is not None]
+    smiles = [smiles[i] for i in parseable_idx]
+    scores = scores[parseable_idx]
+    if not smiles:
+        return []
+
+    logits = scores / max(T, 1e-8)
+    probs = _softmax(logits)
+    support = _nucleus_truncate(probs, p)
+
+    if rng is None:
+        rng = np.random.default_rng()
+
+    remaining = list(support)
+    ranked: List[str] = []
+    seen_keys = set()
+    while remaining and len(ranked) < k:
+        remaining_probs = np.asarray([probs[i] for i in remaining], dtype=np.float64)
+        remaining_probs = remaining_probs / remaining_probs.sum()
+        choice_pos = int(rng.choice(len(remaining), p=remaining_probs))
+        idx = remaining.pop(choice_pos)
+        smi = smiles[idx]
+        key = _tautomer_inchikey(smi)
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+        ranked.append(smi)
+    return ranked
+
+
+def dpp_greedy_select(
+    pool: Pool,
+    k: int,
+    theta: float = 1.0,
+    fps: Optional[Sequence] = None,
+    kernel: Optional[np.ndarray] = None,
+    eps: float = 1e-8,
+    tol: float = 1e-6,
+) -> List[str]:
+    """DPP greedy MAP selection via incremental Cholesky (BASE-02).
+
+    Per D-BASE02-DPPKERNEL: ``L = diag(q).S.diag(q)`` with ``q_i = exp(theta *
+    relevance_logit_i)`` (the quality term) and ``S`` the Tanimoto similarity
+    kernel over the shared Morgan r=2/2048 fingerprint (``_pool_fingerprints``/
+    ``_tanimoto_kernel_matrix``). Greedy MAP inference follows Chen, Zhang and
+    Zhou (NeurIPS 2018, arXiv:1709.05135)'s incremental-Cholesky algorithm --
+    ``O(K^2 * N_pool)``, not the naive ``O(M^4)`` recompute-determinant
+    version.
+
+    Near-duplicate-exclusion + numerical-stability scheme (the load-bearing
+    correctness spec -- see D-BASE02-DPPKERNEL's rationale for why this is
+    NOT the naive fixed-epsilon-floor-plus-absolute-break sketch):
+
+    1. The SIMILARITY-kernel diagonal is regularized AT CONSTRUCTION to
+       ``S_ii = 1 + eps`` (NOT a uniform epsilon added to the whole marginal-
+       gain vector), keeping ``L`` positive-definite.
+    2. Each per-step marginal gain is CLIPPED to ``>= 0`` before the sqrt
+       (``d2j = max(d2[j], 0.0)``) -- this only touches items already at
+       ~0, preserving the TRUE relative ordering of genuine diversity.
+    3. The loop stops on a RELATIVE tolerance: ``d2_init_max`` is the max of
+       the initial marginal-gain vector, and the loop breaks when the argmax
+       remaining gain ``d2[j] <= tol * d2_init_max``. Redundant near-duplicate
+       items (gain at the jitter-noise floor) trip this stop; genuinely
+       diverse items (gain O(1)) do not -- so the selector actually EXCLUDES
+       near-duplicate regioisomers (returns FEWER than k on a redundant pool)
+       instead of merely avoiding NaN.
+
+    ``fps`` may be a precomputed fingerprint list, ONLY honored when its
+    length matches the final tautomer-deduped, parseable pool size exactly;
+    a caller-supplied ``fps`` of any other length is discarded and
+    fingerprints are recomputed via ``_pool_fingerprints`` on the final
+    filtered pool (FIX B, adversarial review) -- a stale ``fps`` from before
+    dedup/parse-filtering must never reach ``_tanimoto_kernel_matrix``, which
+    would otherwise broadcast-crash or silently corrupt the kernel.
+    """
+    if not pool or k <= 0:
+        return []
+
+    # Shared parse-filter + score-aware tautomer-dedup (FIX A + FIX C), IDENTICAL
+    # order to dedup_and_fingerprint so a caller-precomputed fps/kernel aligns.
+    smiles, scores = _parse_and_dedup(pool)
+    n = len(smiles)
+    if n == 0:
+        return []
+
+    # FIX B + Task 3 kernel-reuse: a valid caller kernel (matching the deduped pool) is used
+    # DIRECTLY and is sufficient on its own -- the kernel is theta-INDEPENDENT, so ONE build
+    # serves an entire theta knob-sweep (D-40-02/H4), and fps is only ever needed to BUILD a
+    # kernel. Otherwise (re)build from fps, rebuilding a stale/absent caller fps too.
+    if kernel is not None and getattr(kernel, "shape", None) == (n, n):
+        S = np.array(kernel, dtype=np.float64, copy=True)  # COPY: never mutate the shared cache
+    else:
+        if fps is None or len(fps) != n:
+            fps = _pool_fingerprints(smiles)
+            if len(fps) != n:
+                return []  # defensive: never feed a mismatched kernel
+        S = _tanimoto_kernel_matrix(fps)
+
+    q = np.exp(theta * scores)
+    # Regularize the SIMILARITY-kernel diagonal AT CONSTRUCTION (S_ii = 1+eps),
+    # NOT a uniform epsilon added to the whole d2 vector later.
+    np.fill_diagonal(S, 1.0 + eps)
+
+    selected: List[int] = []
+    ranked: List[str] = []
+    c = np.zeros((0, n), dtype=np.float64)  # accumulated Cholesky columns
+
+    # diag(L) under the regularized S: d2_i = q_i^2 * S_ii = q_i^2 * (1+eps)
+    d2 = (q * q) * (1.0 + eps)
+    d2_init_max = float(np.max(d2)) if n else 0.0
+
+    for _ in range(min(k, n)):
+        j = int(np.argmax(d2))
+        if d2_init_max <= 0.0 or d2[j] <= tol * d2_init_max:
+            break  # relative-tolerance stop: remaining gain is at the noise floor
+        d2j = max(float(d2[j]), 0.0)  # per-step gain clip (touches only ~0 items)
+        if c.shape[0]:
+            e = (q[j] * q * S[j, :] - c[:, j] @ c) / np.sqrt(d2j)
+        else:
+            e = (q[j] * q * S[j, :]) / np.sqrt(d2j)
+        c = np.vstack([c, e])
+        d2 = d2 - e ** 2
+        d2[j] = -np.inf  # never re-pick
+        selected.append(j)
+        ranked.append(smiles[j])
+
+    return ranked
+
+
+def mmr_select(
+    pool: Pool,
+    k: int,
+    lam: float = 0.5,
+    fps: Optional[Sequence] = None,
+    kernel: Optional[np.ndarray] = None,
+) -> List[str]:
+    """Maximal Marginal Relevance selection with a reconciled Rel/Sim scale (BASE-03).
+
+    Per D-BASE03-MMRSCALE: ``score(i) = lam * Rel(i) - (1 - lam) *
+    max_{j in selected} Sim(i, j)``. ``Rel`` is the raw reranker logit
+    min-max normalized to ``[0, 1]`` across the pool (``rel = (score -
+    score.min()) / max(score.max() - score.min(), 1e-8)``); ``Sim`` is
+    Tanimoto over the shared fingerprint (``_pool_fingerprints``/
+    ``_tanimoto_kernel_matrix``), already in ``[0, 1]`` -- NOT re-normalized.
+    Reconciling both terms to ``[0, 1]`` before combining is what makes
+    ``lam`` a meaningful relevance-vs-diversity dial.
+
+    ``lam=1.0`` recovers the reranker's own top-K ordering exactly (Rel-only
+    degenerate case); ``lam=0.0`` recovers a pure max-min diversity picker,
+    independent of relevance. Ties are broken deterministically (lexicographic
+    on ``_tautomer_inchikey``) for cross-seed reproducibility.
+
+    Maintains ``max_sim_to_selected`` as an incremental running-max
+    (``O(K * N_pool)``, not ``O(K^2 * N_pool)``), updated once per pick.
+
+    ``fps`` may be a precomputed fingerprint list, ONLY honored when its
+    length matches the final tautomer-deduped, parseable pool size exactly;
+    a caller-supplied ``fps`` of any other length is discarded and
+    fingerprints are recomputed via ``_pool_fingerprints`` on the final
+    filtered pool (FIX B, adversarial review).
+    """
+    if not pool or k <= 0:
+        return []
+
+    # Shared parse-filter + score-aware tautomer-dedup (FIX A), IDENTICAL order to
+    # DPP / dedup_and_fingerprint so a caller-precomputed fps/kernel aligns.
+    smiles, raw_scores = _parse_and_dedup(pool)
+    n = len(smiles)
+    if n == 0:
+        return []
+
+    span = max(float(raw_scores.max() - raw_scores.min()), 1e-8)
+    rel = (raw_scores - raw_scores.min()) / span
+
+    # FIX B + Task 3 kernel-reuse: a valid caller kernel is used DIRECTLY and is sufficient on
+    # its own (fps only ever BUILDS a kernel); the kernel is lam-INDEPENDENT so ONE build
+    # serves the whole lam knob-sweep (D-40-02/H4). MMR only READS S (no mutation), no copy.
+    if kernel is not None and getattr(kernel, "shape", None) == (n, n):
+        S = kernel
+    else:
+        if fps is None or len(fps) != n:
+            fps = _pool_fingerprints(smiles)
+            if len(fps) != n:
+                return []
+        S = _tanimoto_kernel_matrix(fps)
+    tie_keys = [_tautomer_inchikey(s) for s in smiles]
+
+    max_sim_to_selected = np.zeros(n, dtype=np.float64)
+    selected_mask = np.zeros(n, dtype=bool)
+    ranked: List[str] = []
+
+    for _ in range(min(k, n)):
+        mmr_score = lam * rel - (1.0 - lam) * max_sim_to_selected
+        best_j = None
+        best_key = None
+        for idx in range(n):
+            if selected_mask[idx]:
+                continue
+            key = (-float(mmr_score[idx]), tie_keys[idx])
+            if best_key is None or key < best_key:
+                best_key = key
+                best_j = idx
+        j = best_j
+        selected_mask[j] = True
+        ranked.append(smiles[j])
+        max_sim_to_selected = np.maximum(max_sim_to_selected, S[j, :])
+
+    return ranked

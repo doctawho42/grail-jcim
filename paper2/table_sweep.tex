@@ -1,0 +1,29 @@
+\begin{table*}[t]
+\centering
+\begin{threeparttable}
+\caption{Micro recall at each output budget on the 1170 substrates of the whole evaluated test set, carrying 2597 annotated metabolites.}
+\label{tab:sweep}
+\scriptsize
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{rrrrrrrrrr}
+\toprule
+$k$ & GRAIL exh. & GRAIL int. & MetaTox & SyGMa & MetaPred. & BioTrans. & GLORYx & GLxR d. & GLxR s. \\
+\midrule
+1 & 0.1070 & 0.1167 & 0.0420 & 0.1533 & 0.1621 & 0.0705 & 0.0836 & 0.0936 & 0.1205 \\
+3 & 0.2287 & 0.2472 & 0.1567 & 0.3134 & 0.3123 & 0.1787 & 0.2091 & 0.2333 & 0.2649 \\
+5 & 0.3057 & 0.3285 & 0.2499 & 0.4016 & 0.3939 & 0.2514 & 0.3123 & 0.3331 & 0.3577 \\
+8 & 0.3962 & 0.4024 & 0.3458 & 0.4575 & 0.4621 & 0.3231 & 0.4193 & 0.4182 & 0.4343 \\
+10 & 0.4390 & 0.4394 & 0.4085 & 0.4813 & 0.4840 & 0.3593 & 0.4682 & 0.4605 & 0.4771 \\
+15 & 0.5295 & 0.4875 & 0.5075 & 0.5137 & 0.4975 & 0.4186 & 0.5445 & 0.5306 & 0.5306 \\
+20 & 0.5834 & 0.5052 & 0.5522 & 0.5268 & 0.4979 & 0.4401 & 0.5845 & 0.5703 & 0.5645 \\
+30 & 0.6484 & 0.5144 & 0.6103 & 0.5341 & 0.4979 & 0.4482 & 0.6157 & 0.6057 & 0.5961 \\
+50 & 0.7174 & 0.5156 & 0.6438 & 0.5360 & 0.4979 & 0.4486 & 0.6307 & 0.6219 & 0.6203 \\
+\midrule
+\emph{mean emitted} & \emph{97.94} & \emph{17.07} & \emph{35.70} & \emph{80.73} & \emph{10.61} & \emph{11.08} & \emph{30.70} & \emph{30.52} & \emph{30.52} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item The last row gives the mean number of candidates each method emits, before any budget is applied: it is a property of the method and not of this table. These arms emit more than the widest budget shown, 50: GRAIL exh., SyGMa. A prediction equal to the substrate is dropped before the budget for every method alike. Figure~\ref{fig:sweep} plots these recalls and marks the budgets at which the difference from the strongest comparator separates.
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}

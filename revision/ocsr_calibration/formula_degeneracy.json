@@ -1,0 +1,247 @@
+{
+ "provenance": {
+  "script": "ocsr_calibration.py",
+  "script_path": "scripts/ocsr_calibration.py",
+  "source_sha256": "7345f335917c46e418fdc58939add23181d7bff8dba193fd1b9d0ea1d9167e2f",
+  "git_commit": "4971cc1fa336f2b58e8b8011e14b098db3231835",
+  "git_dirty": false
+ },
+ "inputs": [
+  {
+   "path": "docs/benchmark/data/gloryx_test.json",
+   "exists": true,
+   "sha256_16": "5e8df962a373eda0",
+   "bytes": 40564
+  }
+ ],
+ "what_this_is": "how often a reported molecular formula identifies which metabolite of a parent a drawing is, which is the strength of the one check in the transcription protocol that does not run through a recogniser",
+ "population": "the GLORYx reference metabolites, grouped by parent drug",
+ "n_rows": 205,
+ "n_references": 196,
+ "n_parents": 37,
+ "unparsed": [],
+ "pinned": 139,
+ "undecided": 57,
+ "rate_pinned": 0.7092,
+ "groups_by_size": {
+  "1": 139,
+  "3": 8,
+  "2": 11,
+  "7": 1,
+  "4": 1
+ },
+ "worst": {
+  "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+  "drug": "Everolimus",
+  "formula": "C53H83NO15",
+  "n": 7
+ },
+ "pooled_undecided": 57,
+ "collisions": [
+  {
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "drug": "Darunavir",
+   "formula": "C27H37N3O8S",
+   "members": [
+    "CC(C)(O)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+    "CC(C)CN(C[C@@H](O)[C@H](Cc1ccc(O)cc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+    "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)c(O)c1"
+   ]
+  },
+  {
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "drug": "Darunavir",
+   "formula": "C33H45N3O13S",
+   "members": [
+    "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(NC2OC(C(O)C(O)C2O)C(O)=O)cc1",
+    "CC(C)CN(C[C@@H](OC1OC(C(O)C(O)C1O)C(O)=O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1"
+   ]
+  },
+  {
+   "parent": "CC(C)c1c(C(=O)Nc2ccccc2)c(c3ccccc3)c(c4ccc(F)cc4)n1CC[C@@H](O)C[C@@H](O)CC(=O)O",
+   "drug": "Atorvastatin",
+   "formula": "C33H35FN2O6",
+   "members": [
+    "CC(C)c1c(C(=O)Nc2ccc(O)cc2)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1",
+    "CC(C)c1c(C(=O)Nc2ccccc2O)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1"
+   ]
+  },
+  {
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "drug": "Budesonide",
+   "formula": "C21H28O6",
+   "members": [
+    "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+    "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO"
+   ]
+  },
+  {
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "drug": "Budesonide",
+   "formula": "C21H30O6",
+   "members": [
+    "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+    "C[C@]12CC(O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+    "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(O)CO"
+   ]
+  },
+  {
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "drug": "Budesonide",
+   "formula": "C25H32O6",
+   "members": [
+    "CCCC1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+    "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4C(=O)C[C@]3(C)[C@@]2(O1)C(=O)CO"
+   ]
+  },
+  {
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "drug": "Budesonide",
+   "formula": "C25H34O7",
+   "members": [
+    "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+    "CCCC1O[C@@H]2C[C@H]3[C@@H]4CC(O)C5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO"
+   ]
+  },
+  {
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "drug": "Imatinib",
+   "formula": "C28H27N7O2",
+   "members": [
+    "Cc1ccc(NC(=O)c2ccc(CN3CCNC(=O)C3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+    "Cc1ccc(NC(=O)c2ccc(CN3CCNCC3=O)cc2)cc1Nc1nccc(n1)-c1cccnc1"
+   ]
+  },
+  {
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "drug": "Imatinib",
+   "formula": "C29H29N7O2",
+   "members": [
+    "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)C(=O)C1",
+    "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1=O"
+   ]
+  },
+  {
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "drug": "Imatinib",
+   "formula": "C29H31N7O2",
+   "members": [
+    "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)CC1",
+    "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+    "Cc1ccc(NC(=O)c2ccc(CN3CC[N+](C)([O-])CC3)cc2)cc1Nc1nccc(n1)-c1cccnc1"
+   ]
+  },
+  {
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "drug": "Everolimus",
+   "formula": "C52H81NO14",
+   "members": [
+    "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](O)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+    "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@@H](O)C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)CC[C@H]1OCCO",
+    "CO[C@H]1C[C@@H]2CC[C@@H](C)[C@@](O)(O2)C(=O)C(=O)N2CCCC[C@H]2C(=O)O[C@@H](CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C1/C)[C@H](C)C[C@@H]1CC[C@@H](OCCO)[C@H](O)C1"
+   ]
+  },
+  {
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "drug": "Everolimus",
+   "formula": "C53H83NO15",
+   "members": [
+    "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C(O)[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+    "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC(O)[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+    "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@](C)(O)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+    "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@]3(O)CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+    "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](CO)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+    "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@](C)(O)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+    "CO[C@@H]1C[C@H](C[C@@H](CO)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO"
+   ]
+  },
+  {
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "drug": "Osimertinib",
+   "formula": "C27H31N7O2",
+   "members": [
+    "CNCCN(C)c1cc(OC)c(Nc2nccc(n2)-c2cn(C)c3ccccc23)cc1NC(=O)C=C",
+    "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc1nccc(n1)-c1c[nH]c2ccccc12"
+   ]
+  },
+  {
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "drug": "Formoterol",
+   "formula": "C25H32N2O10",
+   "members": [
+    "COc1ccc(CC(C)NCC(O)c2ccc(OC3OC(C(O)C(O)C3O)C(O)=O)c(NC=O)c2)cc1",
+    "COc1ccc(CC(C)NCC(OC2OC(C(O)C(O)C2O)C(O)=O)c2ccc(O)c(NC=O)c2)cc1"
+   ]
+  },
+  {
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "drug": "Nilotinib ",
+   "formula": "C28H22F3N7O2",
+   "members": [
+    "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(cc(c1)C(F)(F)F)-n1cnc(CO)c1",
+    "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)cc(c1)C(F)(F)F",
+    "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)cc(c1)C(F)(F)F"
+   ]
+  },
+  {
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "drug": "Dasatinib",
+   "formula": "C22H26ClN7O3S",
+   "members": [
+    "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cc(O)cc2Cl)cc(n1)N1CCN(CCO)CC1",
+    "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CC[N+]([O-])(CCO)CC1",
+    "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(Cl)cccc2CO)cc(n1)N1CCN(CCO)CC1"
+   ]
+  },
+  {
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "drug": "Rivaroxaban",
+   "formula": "C19H18ClN3O6S",
+   "members": [
+    "OC1CN(C(=O)CO1)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+    "OC1COCC(=O)N1c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+    "OC1OCCN(C1=O)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+    "OC1[C@H](CNC(=O)c2ccc(Cl)s2)OC(=O)N1c1ccc(cc1)N1CCOCC1=O"
+   ]
+  },
+  {
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "drug": "Rivaroxaban",
+   "formula": "C19H20ClN3O6S",
+   "members": [
+    "OC(=O)COCCNc1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+    "OCCN(C(=O)CO)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O"
+   ]
+  },
+  {
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "drug": "Pomalidomide",
+   "formula": "C13H11N3O5",
+   "members": [
+    "Nc1c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c2ccc1O",
+    "Nc1ccc(O)c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+    "Nc1cccc2C(=O)N(C3CC(O)C(=O)NC3=O)C(=O)c12"
+   ]
+  },
+  {
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "drug": "Pomalidomide",
+   "formula": "C13H13N3O5",
+   "members": [
+    "NC(=O)C(CCC(O)=O)N1C(=O)c2cccc(N)c2C1=O",
+    "NC(=O)CCC(N1C(=O)c2cccc(N)c2C1=O)C(O)=O"
+   ]
+  },
+  {
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "drug": "Empagliflozin",
+   "formula": "C29H35ClO13",
+   "members": [
+    "OC[C@H]1O[C@H]([C@H](O)[C@@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+    "OC[C@H]1O[C@H]([C@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H](O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+    "O[C@H]1[C@H](O)[C@@H](COC2OC(C(O)C(O)C2O)C(O)=O)O[C@H]([C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1"
+   ]
+  }
+ ],
+ "reading": "A reference in a formula group of one is pinned by the reported formula alone: a structure read back with that formula is that metabolite or has a heavy atom wrong. A reference sharing its formula with a sibling is not, and for those the formula gate passes a swap, so they are the rows a chemist has to look at whatever a recogniser returns."
+}

@@ -1,0 +1,95 @@
+% The Journal of Chemical Information and Modeling, using the publisher's own class rather than
+% an approximation of it: achemso ships with TeX Live and jcisd8 is JCIM's CODEN.
+%
+% Submission type is Article. An Application Note would also admit this work by length -- the
+% category covers software and web servers under 5000 words -- but the contribution that carries
+% the paper is the declared evaluation protocol and the preregistration, including the
+% hypotheses that failed, and that is an Article's claim rather than a note's.
+\documentclass[journal=jcisd8,manuscript=article,layout=twocolumn]{achemso}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{microtype}
+% Cross-references into the Supporting Information resolve through the SI's own .aux rather than
+% through hand-typed table numbers. Nine such pointers were typed by hand and all nine were
+% wrong: the SI's table order changed five times and each pointer was bumped one insertion
+% behind. A literal that is wrong compiles silently; a \ref that cannot resolve prints ?? and
+% fails the build gate, which is the difference that matters.
+\usepackage{xr}
+\externaldocument[SI-]{si}
+\SectionNumbersOn
+% achemso heads the last page "TOC Graphic"; ACS asks for the graphic to be labelled
+% "For Table of Contents Only". The class does not change it per journal, so it is set here.
+\renewcommand*\tocentryname{For Table of Contents Only}
+\input{numbers}
+\input{markers}
+
+\author{Nikita L. Polomoshnov}
+\affiliation{Faculty of Bioengineering and Bioinformatics, Lomonosov Moscow State University,
+Leninskie Gory 1-73, Moscow 119234, Russia}
+\email{nikitapol@fbb.msu.ru}
+
+\author{Anastasia V. Rudik}
+\affiliation{Department of Bioinformatics, Institute of Biomedical Chemistry,
+Pogodinskaya Str. 10-8, Moscow 119121, Russia}
+
+% JCIM asks that a title be brief, "preferably 12 words or fewer". This is eleven. The requirement
+% that the software be named in the title belongs to the Application Note category and not to an
+% Article, which is what this is, so GRAIL is named in the abstract and not here.
+%
+% The title names the paper's two results. It previously named the release, "MetaTox 3.0:
+% Rule-Grounded Metabolite Structure Prediction with Declared Evaluation Axes", and that was the
+% single largest thing wrong with the manuscript. A title announcing a successor promises that
+% the successor is better, and Table~4 reports the comparison against the system it succeeds, at
+% the comparator's own list length, as +.0015 with an interval from -.0309 to +.0349. A reader
+% who assembles the title, that cell and the deployed arm's deficit has a reason to stop reading
+% that the paper cannot answer, because declaring the evaluation axes does not improve a service.
+%
+% The release is a fact about this work and keeps a sentence in the Introduction and an entry in
+% Data and Software Availability. What the title carries instead is what the measurements
+% support: the two decisions this field leaves undeclared, and the bound on what one application
+% of one template bank can reach.
+\title[Metabolite prediction under a declared evaluation]
+      {A Coverage Ceiling for Metabolite Prediction, and the Benchmark That Makes Systems Comparable}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Recall in metabolite-structure prediction turns on two choices made outside the model: how a
+returned structure is judged to match a known metabolite, and how many structures a system may
+return. Under their default settings the systems compared here emit between \numWholeemitMin{} and
+\numWholeemitMax{} structures per substrate, so their published recall figures sit on different
+scales. No two of them can be read against each other. We release what puts them on one scale: the
+per-substrate predictions of \numArmsTotalWord{} systems, \numComparatorsColumnsWord{} published
+predictors and two configurations of a rule-grounded system of our own (GRAIL), frozen on one set
+of \numWholeN{} drug-like substrates. The harness that scores them under five matching criteria
+and nine output budgets is released with them. On that grid the output budget reorders the field.
+SyGMa's \numSygmaRules{} curated rules, against this bank's \numBankRules{}, recover more than any
+other method at every budget to five. At the widest budgets the ordering follows how much each
+system emits, and holding every system to its own realised list length leaves
+\numMatchedSurviveWord{} wide-budget lead of \numMatchedComparatorsWord{} standing. The matching
+criterion moves a verdict at \numCritDefensibleMovedWord{} budget of \numCritBudgetsWord{}.
+We also bound what a bank of this kind can reach. One application of the whole
+\numBankRules{}-template bank recovers \numCeilingCoverage{} of known metabolites in a single
+step. Of the \numCeilingUncovered{} it misses, \numCeilingNovel{} need a transformation type the
+bank does not hold, \numCensusOnceSharePct{} of them in types the test split's annotation records
+exactly once. That tail is a property of the sources this field mines, and it points to human
+radiolabelled ADME studies as the corpus to mine next.
+\end{abstract}
+
+% For Table of Contents Only. Written by scripts/paper2_figures.py at exactly 3.25 by 1.75
+% inches and 300 dpi; fig_toc.tif and fig_toc.eps are the files to upload, and the pdf below is
+% only so pdflatex can place it here.
+\begin{tocentry}
+\includegraphics[width=3.25in]{fig_toc}
+\end{tocentry}
+
+\input{body}
+
+\bibliography{refs}
+
+\end{document}

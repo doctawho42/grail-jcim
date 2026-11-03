@@ -1,0 +1,140 @@
+"""Turn the artifact-derived numbers into LaTeX macros the manuscript uses by name.
+
+A number typed into prose can drift from its artifact and did, five times in an hour the last time
+prose was written here. A number the manuscript can only reach through a macro cannot: regenerating
+this file after a re-run changes the paper, and a stale paper fails to build rather than printing a
+stale figure.
+"""
+from __future__ import annotations
+
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+
+
+DIGITS = {"0": "Zero", "1": "One", "2": "Two", "3": "Three", "4": "Four", "5": "Five",
+          "6": "Six", "7": "Seven", "8": "Eight", "9": "Nine"}
+
+
+def name(key: str) -> str:
+    """A macro name from a dotted key.
+
+    TeX control sequences take letters only, so every digit is spelled out rather than dropped.
+    Dropping them collided h12 with h14 and cap1 with cap2, which the duplicate check caught and
+    a reader of the paper would not have.
+    """
+    words = [w for part in re.split(r"[._]", key)
+             for w in re.findall(r"[A-Za-z]+|[0-9]+", part)]
+    parts = []
+    for w in words:
+        if w.isdigit():
+            parts.append("".join(DIGITS[c] for c in w))
+        else:
+            parts.append(w.capitalize())
+    return "num" + "".join(parts)
+
+
+# A share that a table beside it prints as a percentage should not be a bare fraction in the
+# prose. The percentage form is generated for every fraction so a sentence can match the table it
+# points at without anyone typing the conversion.
+def pct(v) -> str:
+    s = f"{v * 100:.1f}".rstrip("0").rstrip(".")
+    return s + "\\%"
+
+
+# A difference or an interval bound is quoted beside others to four places, and stripping its
+# trailing zeros made one read as "+0.2" next to "+0.2932", which looks truncated rather than
+# exact. Differences keep four places; a registered threshold does not, because "0.05" is what
+# was registered and "0.0500" is not.
+# A recall level printed beside another recall level should carry the same number of
+# decimals: 0.5430 read against 0.4768, not 0.543. Recalls of a four-reference case study
+# are deliberately not in here, where four decimals would be precision the count cannot
+# carry.
+# A recall level keeps four decimals whichever side of a comparison it is on. "best" was
+# missing, so the arm a class is compared against printed 0.7643 while its own recall
+# printed 0.7429 and nobody could see the rule was one-sided until a value landed on 0.8.
+MEASURED = re.compile(r"(?:gap|diff|effect|lo|hi|stored|drawn|coverage|bank|other|best)\d*$")
+# A rule index is a name, not a quantity: "template 4,913" is wrong the way "page 1,024" is.
+INDEX = re.compile(r"(?:rule|rulehit|deamrule|ruleid|index)$")
+
+
+def fmt(v, key: str = ""):
+    if isinstance(v, bool):
+        return "yes" if v else "no"
+    if isinstance(v, float):
+        if abs(v) < 1 and MEASURED.search(key.split(".")[-1]):
+            return f"{v:.4f}"
+        s = f"{v:.4f}".rstrip("0").rstrip(".")
+        return s if s else "0"
+    if isinstance(v, int) and abs(v) >= 1000:
+        if INDEX.search(key.split(".")[-1]):
+            return str(v)
+        return f"{v:,}".replace(",", "{,}")
+    return str(v)
+
+
+# Numerals below ten read badly in a sentence, and the abstract had "under 5 matching criteria
+# and 9 output budgets". A word form is generated beside every small whole number so prose can
+# reach for it without anyone typing the word, which is the one way it could drift.
+# 0 is "none" rather than "no": the word appears as the object of a preposition ("differ in
+# none of them"), where "no" is ungrammatical.
+# The table stopped at twelve, and that is a silent trap rather than a style choice. A count
+# whose value leaves this range loses its \...Word macro without a word of warning, and the
+# manuscript is already pressed against the ceiling: \numGxarmJobsWord prints twelve in the
+# Supporting Information and three more cited word forms stand at eleven. The population axis
+# gaining a fourth comparator moves popdef.leadstotal from eleven to thirteen, which would have
+# deleted \numPopdefLeadstotalWord while si.tex cites it twice, and check_paper2_numbers.py would
+# have reported "macros used and not defined" with no hint that a dictionary was the cause.
+# Extending to twenty rather than to thirteen so the next count to cross the line does not
+# reopen this: the cost is that 21 integers elsewhere in the artefact gain a word form none of
+# them is cited in, against the 2,797 generated macros the manuscript already does not cite.
+# Extended to sixty when admitting a fifth comparator took two counts past twenty and their word
+# forms vanished. The gate caught it -- check_paper2_numbers reported two macros used and not
+# defined -- which is the trap the paragraph above describes happening for the second time. Built
+# rather than typed from twenty-one up, so the next arm cannot repeat it.
+_TENS = {2: "twenty", 3: "thirty", 4: "forty", 5: "fifty", 6: "sixty"}
+WORDS = {0: "none", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+         6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve",
+         13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen", 17: "seventeen",
+         18: "eighteen", 19: "nineteen", 20: "twenty"}
+for _t, _tw in _TENS.items():
+    WORDS[_t * 10] = _tw
+    for _u in range(1, 10):
+        WORDS[_t * 10 + _u] = f"{_tw}-{WORDS[_u]}"
+
+
+def main() -> int:
+    blob = json.loads((ROOT / "results/paper2_numbers.json").read_text())
+    nums = blob["numbers"]
+    seen, lines = {}, []
+    lines.append("% Generated by scripts/paper2_macros.py from results/paper2_numbers.json.")
+    lines.append("% Do not edit. A number that is not here may not appear in the manuscript.")
+    for k in sorted(nums):
+        m = name(k)
+        if m in seen:
+            raise SystemExit(f"macro collision: {k} and {seen[m]} both give \\{m}")
+        seen[m] = k
+        lines.append(f"\\newcommand{{\\{m}}}{{{fmt(nums[k], k)}}}  % {k}")
+        v = nums[k]
+        if isinstance(v, float) and 0.0 <= v <= 1.0:
+            share = m + "Pct"
+            if share not in seen:
+                seen[share] = k + " (as a percentage)"
+                lines.append(f"\\newcommand{{\\{share}}}{{{pct(v)}}}  % {k}, as a percentage")
+        if isinstance(v, int) and not isinstance(v, bool) and v in WORDS:
+            word = m + "Word"
+            if word in seen:
+                raise SystemExit(f"macro collision on the word form of {k}")
+            seen[word] = k + " (word form)"
+            lines.append(f"\\newcommand{{\\{word}}}{{{WORDS[v]}}}  % {k}, spelled")
+    (ROOT / "paper2" / "numbers.tex").write_text("\n".join(lines) + "\n")
+    print(f"wrote paper2/numbers.tex with {len(seen)} macros")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

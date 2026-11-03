@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\centering\scriptsize
+\begin{threeparttable}
+\caption{Micro precision at each budget on the comparison set, under the parent-drop convention Table~\ref{tab:sweep} uses.}
+\label{tab:si-precision}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{rrrrrrrr}
+\toprule
+$k$ & GRAIL\ exhaustive & GRAIL\ interactive & MetaTox & SyGMa & MetaPredictor & BioTransformer & GLORYx \\
+\midrule
+$1$ & .2376 & .2590 & .0932 & .3416 & .3608 & .1612 & .1861 \\
+$3$ & .1693 & .1832 & .1161 & .2329 & .2319 & .1389 & .1552 \\
+$5$ & .1358 & .1472 & .1111 & .1794 & .1758 & .1216 & .1392 \\
+$8$ & .1100 & .1165 & .0963 & .1283 & .1309 & .1056 & .1174 \\
+$10$ & .0975 & .1060 & .0914 & .1086 & .1151 & .1005 & .1056 \\
+$15$ & .0784 & .0906 & .0773 & .0784 & .1042 & .0949 & .0846 \\
+$20$ & .0648 & .0833 & .0653 & .0612 & .1041 & .0926 & .0720 \\
+$30$ & .0480 & .0765 & .0535 & .0431 & .1041 & .0908 & .0579 \\
+$50$ & .0319 & .0713 & .0450 & .0291 & .1041 & .0899 & .0495 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item Precision under an incomplete annotation is a lower bound and is not used here to order systems.
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}
