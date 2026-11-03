@@ -93,7 +93,7 @@ baselines = ["sygma"]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"
-build = "^1.2.2"
+build = "^1.6.1"
 twine = "^6.1.0"
 
 [tool.poetry.scripts]
