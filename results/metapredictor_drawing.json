@@ -1,0 +1,198 @@
+{
+ "provenance": {
+  "script": "metapredictor_drawing.py",
+  "script_path": "scripts/typed_edit/metapredictor_drawing.py",
+  "source_sha256": "b8a008abc35f05105b3671657bc063ae4c8a6c215c163e00e7d771a8ac690bf4",
+  "git_commit": "87f65e66cdeb4644a91e67b0f720949939fcc30a",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_implicit/w0.json",
+   "exists": true,
+   "sha256_16": "6a90b7bcc2b82562",
+   "bytes": 10103608
+  },
+  {
+   "path": "results/widepools_implicit/w1.json",
+   "exists": true,
+   "sha256_16": "dcb34d6ca5a7c690",
+   "bytes": 9923282
+  },
+  {
+   "path": "results/widepools_implicit/w2.json",
+   "exists": true,
+   "sha256_16": "2f7440497f05cd4a",
+   "bytes": 5621821
+  },
+  {
+   "path": "results/widepools_implicit/w3.json",
+   "exists": true,
+   "sha256_16": "c194bbb0bd7ec69e",
+   "bytes": 8229360
+  },
+  {
+   "path": "results/widepools_implicit/w4.json",
+   "exists": true,
+   "sha256_16": "504576d634e4bdb8",
+   "bytes": 5126437
+  },
+  {
+   "path": "results/widepools_implicit/w5.json",
+   "exists": true,
+   "sha256_16": "7f4c7cee307a726c",
+   "bytes": 3561735
+  }
+ ],
+ "difference": "MetaPredictor's recall with the substrate as a chemist draws it, minus its recall with the substrate as the corpus stores it",
+ "design": "only the substrates whose two drawings are different molecules were re-run; the rest keep their frozen predictions and contribute exactly zero to the paired difference, which is why re-running them would add nothing",
+ "substrates_re_run": 81,
+ "substrates_the_string_test_scored": 79,
+ "budgets": [
+  5,
+  10,
+  15,
+  20,
+  30,
+  50
+ ],
+ "bootstrap": {
+  "n": 10000,
+  "seed": 0
+ },
+ "by_population": {
+  "the whole comparison set": {
+   "n_substrates": 291,
+   "n_references": 665,
+   "by_budget": {
+    "5": {
+     "recall_as_stored": 0.3549,
+     "recall_as_drawn": 0.3579,
+     "difference": 0.003,
+     "ci95": [
+      -0.0113,
+      0.0179
+     ],
+     "excludes_zero": false
+    },
+    "10": {
+     "recall_as_stored": 0.4707,
+     "recall_as_drawn": 0.4812,
+     "difference": 0.0105,
+     "ci95": [
+      -0.0032,
+      0.0251
+     ],
+     "excludes_zero": false
+    },
+    "15": {
+     "recall_as_stored": 0.4797,
+     "recall_as_drawn": 0.4872,
+     "difference": 0.0075,
+     "ci95": [
+      -0.0049,
+      0.0211
+     ],
+     "excludes_zero": false
+    },
+    "20": {
+     "recall_as_stored": 0.4797,
+     "recall_as_drawn": 0.4872,
+     "difference": 0.0075,
+     "ci95": [
+      -0.0049,
+      0.0211
+     ],
+     "excludes_zero": false
+    },
+    "30": {
+     "recall_as_stored": 0.4797,
+     "recall_as_drawn": 0.4872,
+     "difference": 0.0075,
+     "ci95": [
+      -0.0049,
+      0.0211
+     ],
+     "excludes_zero": false
+    },
+    "50": {
+     "recall_as_stored": 0.4797,
+     "recall_as_drawn": 0.4872,
+     "difference": 0.0075,
+     "ci95": [
+      -0.0049,
+      0.0211
+     ],
+     "excludes_zero": false
+    }
+   }
+  },
+  "only the substrates the drawing changes": {
+   "n_substrates": 81,
+   "n_references": 198,
+   "by_budget": {
+    "5": {
+     "recall_as_stored": 0.3081,
+     "recall_as_drawn": 0.3182,
+     "difference": 0.0101,
+     "ci95": [
+      -0.037,
+      0.0621
+     ],
+     "excludes_zero": false
+    },
+    "10": {
+     "recall_as_stored": 0.404,
+     "recall_as_drawn": 0.4394,
+     "difference": 0.0354,
+     "ci95": [
+      -0.0104,
+      0.0829
+     ],
+     "excludes_zero": false
+    },
+    "15": {
+     "recall_as_stored": 0.4192,
+     "recall_as_drawn": 0.4444,
+     "difference": 0.0253,
+     "ci95": [
+      -0.0162,
+      0.0706
+     ],
+     "excludes_zero": false
+    },
+    "20": {
+     "recall_as_stored": 0.4192,
+     "recall_as_drawn": 0.4444,
+     "difference": 0.0253,
+     "ci95": [
+      -0.0162,
+      0.0706
+     ],
+     "excludes_zero": false
+    },
+    "30": {
+     "recall_as_stored": 0.4192,
+     "recall_as_drawn": 0.4444,
+     "difference": 0.0253,
+     "ci95": [
+      -0.0162,
+      0.0706
+     ],
+     "excludes_zero": false
+    },
+    "50": {
+     "recall_as_stored": 0.4192,
+     "recall_as_drawn": 0.4444,
+     "difference": 0.0253,
+     "ci95": [
+      -0.0162,
+      0.0706
+     ],
+     "excludes_zero": false
+    }
+   }
+  }
+ },
+ "reading": "The correction this comparator never received is now measured rather than bounded by a proxy, which matters because the one proxy available disagrees in direction with the other comparator for which both drawings could be run."
+}

@@ -1,0 +1,3144 @@
+{
+ "pinned": [
+  {
+   "artifact": "paper2/split_manifest.json",
+   "script": "freeze_split.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/aggregation_ablation.json",
+   "script": "aggregation_ablation.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/aggregation_ablation_validation.json",
+   "script": "aggregation_ablation.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/applicability_domain.json",
+   "script": "applicability_domain.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/bank_composition.json",
+   "script": "bank_composition.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/benchmark_report_depth2.json",
+   "script": "run_benchmark.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/biotransformer_arm.json",
+   "script": "biotransformer_arm.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/biotransformer_steps.json",
+   "script": "biotransformer_steps.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/blend_switch_scope.json",
+   "script": "blend_switch_scope.py",
+   "inferred": true,
+   "how": "producer at 2c8041392b59, the commit that added the artifact",
+   "status": "current"
+  },
+  {
+   "artifact": "results/budget_curve.json",
+   "script": "budget_curve.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/budget_dependent_schedules.json",
+   "script": "budget_dependent_schedules.py",
+   "inferred": true,
+   "how": "producer at 2c8041392b59, the commit that added the artifact",
+   "status": "current"
+  },
+  {
+   "artifact": "results/cascade_by_pairs.json",
+   "script": "cascade_by_pairs.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/case_study.json",
+   "script": "case_study.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/case_study_bupropion.json",
+   "script": "case_study.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/case_study_bupropion_drawn.json",
+   "script": "case_study.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/case_study_bupropion_exhaustive.json",
+   "script": "case_study.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/case_study_drawn.json",
+   "script": "case_study.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/case_study_exhaustive.json",
+   "script": "case_study.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/case_study_exhaustive_drawn.json",
+   "script": "case_study.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/ceiling_instrument_agreement.json",
+   "script": "ceiling_instrument_agreement.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/comparator_provenance.json",
+   "script": "comparator_provenance.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/comparison_set_members.json",
+   "script": "comparison_set_members.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/composite_instruments.json",
+   "script": "composite_instruments.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/containment_on_the_uncovered.json",
+   "script": "containment_on_the_uncovered.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/corpus_assembly.json",
+   "script": "corpus_assembly.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/cost_envelope.json",
+   "script": "cost_envelope.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/coverage_gap_types.json",
+   "script": "coverage_gap_types.py",
+   "inferred": true,
+   "how": "producer at 60d838018709, the last commit touching the artifact at which the producer existed",
+   "status": "current"
+  },
+  {
+   "artifact": "results/criterion_sweep_1170.json",
+   "script": "criterion_sweep.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/curated_provenance.json",
+   "script": "curated_provenance.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/curated_third_party.json",
+   "script": "curated_third_party.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/decompose_biotransformer.json",
+   "script": "decompose_biotransformer.py",
+   "how": "source at 821adf95a989",
+   "dirty_when_written": true,
+   "status": "cosmetic_only",
+   "detail": "the producer changed only in comments, docstrings or layout: the parse tree with docstrings removed is identical, so the numbers cannot have moved",
+   "diff_recovered_by": "source at 821adf95a989",
+   "diff": "--- decompose_biotransformer.py (as recorded)\n+++ decompose_biotransformer.py (now)\n@@ -16,6 +16,8 @@\n ratio below is exactly what its shipped configuration converts of what its templates could reach.\n \n-Scored on the 150 shared substrates, the only population where BioTransformer's predictions exist,\n-with GRAIL and SyGMa recomputed on the same substrates so the three rows are comparable.\n+Scored on the 150 shared substrates, with GRAIL and SyGMa recomputed on the same substrates so the\n+three rows are comparable. The population is the one this decomposition was written for and not a\n+statement about where BioTransformer can be run: it carries a ranked column on the whole\n+comparison set elsewhere in this work.\n \"\"\"\n from __future__ import annotations"
+  },
+  {
+   "artifact": "results/deployment_table.json",
+   "script": "deployment_table.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/deployment_table_1170.json",
+   "script": "deployment_table.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/dialect_census.json",
+   "script": "dialect_census.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/dialect_conditional.json",
+   "script": "dialect_conditional.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/dialect_sweep.json",
+   "script": "dialect_sweep.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/disclosure_inventory.json",
+   "script": "disclosure_inventory.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/drawing_equalised.json",
+   "script": "drawing_equalised.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/emission_grid.json",
+   "script": "emission_grid.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/emission_leaderboard.json",
+   "script": "emission_leaderboard.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/emission_rule_transfer.json",
+   "script": "emission_rule_transfer.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/error_by_chemistry_1170.json",
+   "script": "error_by_chemistry.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/external_budget_confound.json",
+   "script": "external_budget_confound.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/external_overlap_audit.json",
+   "script": "external_overlap_audit.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/four_method_291.json",
+   "script": "four_method_291.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/fusion_knobs.json",
+   "script": "fusion_knobs.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/gloryx_drop_set.json",
+   "script": "metxbiodb_drop_set.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/gloryx_service_preds.json",
+   "script": "gloryx_via_service.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was 20283cd90ddf, is now 13eadf57502c",
+   "diff_recovered_by": "the recorded digest, found in history at 7dd9ef31d20d",
+   "diff": "--- gloryx_via_service.py (as recorded)\n+++ gloryx_via_service.py (now)\n@@ -134,9 +134,45 @@\n \n \n-def population() -> list:\n-    \"\"\"The same substrates the other comparators are read on.\"\"\"\n-    from vs_metatox import population as pop\n-    subs, _, _ = pop()\n-    return subs\n+POPULATIONS = (\"comparison291\", \"evaluated1170\")\n+\n+\n+def population(name: str = \"comparison291\") -> list:\n+    \"\"\"The substrates of one named population, in a deterministic order.\n+\n+    The comparison set is taken from the accessor every other comparator is read through, so this\n+    column and theirs cannot drift apart. The evaluated set is the substrates the corpus holds\n+    references for, which is the denominator the re-tabulation uses.\n+\n+    An unknown name raises rather than falling back to a default: a population chosen by accident\n+    is the defect that makes two tables incomparable, and silently defaulting hides it.\n+    \"\"\"\n+    if name == \"comparison291\":\n+        from vs_metatox import population as pop\n+        subs, _, _ = pop()\n+        return subs\n+    if name == \"evaluated1170\":\n+        truth = json.loads((ROOT / \"results\" / \"test_references.json\").read_text())\n+        return sorted(truth)\n+    raise ValueError(f\"unknown population {name!r}; known populations are \"\n+                     f\"{', '.join(POPULATIONS)}\")\n+\n+\n+def pending(subs: list, held_path) -> list:\n+    \"\"\"Those substrates an existing output does not already carry, in the order given.\n+\n+    Phase 2 widens this column from the comparison set to the evaluated set, and the already\n+    published run covers the narrower one. Asking the operator's service again for molecules whose\n+    answers are already on disk is a cost to somebody else's machine for no information, so the\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/gloryxr_identity.json",
+   "script": "gloryxr_identity.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/grail_predictions_1170.json",
+   "script": "release_predictions.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/group_decode.json",
+   "script": "group_decode.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/group_scorer_selection.json",
+   "script": "train_group_scorer.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/group_scorer_selection_h12.json",
+   "script": "train_group_scorer.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/group_scorer_selection_h14.json",
+   "script": "train_group_scorer.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h10_verdict.json",
+   "script": "h10_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h11_grid.json",
+   "script": "h11_grid.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h12_verdict.json",
+   "script": "h12_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h12_verdict_validation.json",
+   "script": "h12_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h13_verdict.json",
+   "script": "h13_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h14_verdict.json",
+   "script": "h14_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h15_verdict.json",
+   "script": "h15_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h1_join_sensitivity.json",
+   "script": "h1_join_sensitivity.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h1_stratum.json",
+   "script": "build_h1_stratum.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h6_stratum.json",
+   "script": "build_h6_stratum.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h7_verdict.json",
+   "script": "h7_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h8_verdict.json",
+   "script": "h8_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/h9_verdict.json",
+   "script": "h9_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/hydrogen_dispatch__clean_test.json",
+   "script": "hydrogen_dispatch.py",
+   "how": "source at 95238192ab5e",
+   "dirty_when_written": true,
+   "status": "current"
+  },
+  {
+   "artifact": "results/hyperparameters.json",
+   "script": "hyperparameters.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/input_provenance.json",
+   "script": "audit_input_provenance.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/leakage_fix_report.json",
+   "script": "audit_leakage.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/licence_removal_cost__clean_test.json",
+   "script": "licence_removal_cost.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/match_scale_sweep.json",
+   "script": "match_scale_sweep.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/matched_length.json",
+   "script": "matched_length.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/matched_length_1170.json",
+   "script": "matched_length.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/metapredictor_beam_sweep.json",
+   "script": "metapredictor_beam_sweep.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/metapredictor_drawing.json",
+   "script": "metapredictor_drawing.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/metatox_mode.json",
+   "script": "metatox_mode.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/metatox_outside_submission.json",
+   "script": "metatox_outside_ingest.py",
+   "how": "recorded source digest",
+   "status": "input_changed",
+   "detail": "input moved: scripts/typed_edit/population_definition.py",
+   "diff_recovered_by": "the recorded digest, found in history at c38e7b6aef80",
+   "diff": "--- metatox_outside_ingest.py (as recorded)\n+++ metatox_outside_ingest.py (now)\n@@ -16,12 +16,16 @@\n old reason for the arm's absence is not merely stale, it is the wrong reason.\n \n-OUTPUT BUDGET, which is why the arm still does not join the axis. The submission README asked for\n-the same configuration as the first batch, in those words, and said why: two halves at different\n-budgets are two arms reported as one. They are not the same. The first batch returned 10,601 records\n-for 291 substrates; this one returns 229,106 for 879. Both counts are raw records -- the first\n-batch's ingest keeps every parseable record and filters none by score -- so the rates divide, and\n-the second batch emits about seven times more per substrate. Recall at every k moves with output\n-size, so a column half-scored at one budget and half at the other would be an artefact of the\n-budgets. That is measured here and recorded as a blocker rather than argued about.\n+OUTPUT BUDGET was the last ground for keeping the arm out, and it did not survive measurement. The\n+submission README asked for the same configuration as the first batch, in those words, and said why:\n+two halves at different budgets are two arms reported as one. An earlier version of this script put\n+the delivery at 260.64 predictions per substrate against 36.43 in the comparison set, a factor of\n+7.15, and recorded that as a blocker. The factor was an artefact of the comparison. 36.43 counts\n+structures de-duplicated by canonical SMILES inside scripts/metatox_smirks_ingest.py and 260.64\n+counted raw records, so the two numbers were never the same quantity. Measured the same way on both\n+halves the delivery gives 39.1877 against 36.4296, a ratio of 1.076. The same statistic, which no\n+code in this repository computed for any arm until this one was challenged, puts SyGMa at 1.1426 and\n+GLORYx at 1.0919 -- both further from 1.0 than MetaTox, and both already in the axis. All five are in\n+`peer_two_half_ratios`, and the blocker is in `withdrawn_blockers` with the four grounds that retired\n+it. The arm is in the axis, and admitting it costs this work two cells.\n \n THE TWO FILES DISAGREE, so both are recorded. all_meta_smirks returns 229,106 records over all 879"
+  },
+  {
+   "artifact": "results/metatox_smirks_preds_1170.json",
+   "script": "metatox_smirks_ingest.py",
+   "how": "recorded source digest",
+   "status": "cosmetic_only",
+   "detail": "the producer changed only in comments, docstrings or layout: the parse tree with docstrings removed is identical, so the numbers cannot have moved",
+   "diff_recovered_by": "the recorded digest, found in history at c38e7b6aef80",
+   "diff": "--- metatox_smirks_ingest.py (as recorded)\n+++ metatox_smirks_ingest.py (now)\n@@ -3,6 +3,9 @@\n \n The supplier's earlier delivery was layer 1 without the SMIRKS rules and returned 270 of the 291\n-submitted parents (results/grail_vs_metatox.json), which is why MetaTox appears in no table in this\n-paper. This is the SMIRKS variant, and it covers all 291.\n+submitted parents (results/grail_vs_metatox.json), and on that delivery the paper carried no MetaTox\n+column at all. This is the SMIRKS variant, it covers all 291, and it is what put MetaTox into the\n+manuscript: the arm is now a column in fourteen generated tables. This sentence said the opposite\n+for as long as it went unread, so the count is taken from the files rather than from memory --\n+grep -l MetaTox paper2/*table*.tex.\n \n The first delivery carries no substrates. Records are identified only as `<substrate index>_<metabolite"
+  },
+  {
+   "artifact": "results/metatox_smirks_preds_evaluated1170.json",
+   "script": "phase2_metatox_merge.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/metatox_tie_break_sensitivity.json",
+   "script": "metatox_tie_break_sensitivity.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/metxbiodb_drop_set.json",
+   "script": "metxbiodb_drop_set.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/mining_rarefaction.json",
+   "script": "mining_rarefaction.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/missing_types_in_train.json",
+   "script": "missing_types_in_train.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/mode_timings.json",
+   "script": "mode_timings.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/multiplicity.json",
+   "script": "multiplicity.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/multiseed_micro.json",
+   "script": "multiseed_micro.py",
+   "inferred": true,
+   "how": "producer at f9cdaca21a89, the commit that added the artifact",
+   "status": "current"
+  },
+  {
+   "artifact": "results/novel_type_census.json",
+   "script": "novel_type_census.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/number_provenance.json",
+   "script": "check_paper2_numbers.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/oracle_by_grouping.json",
+   "script": "oracle_by_grouping.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/parent_drop_effect.json",
+   "script": "parent_drop_effect.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/pool_cap_cost.json",
+   "script": "pool_cap_cost.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/pool_checkpoints.json",
+   "script": "pool_checkpoints.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/population_definition.json",
+   "script": "population_definition.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/precision_table_1170.json",
+   "script": "precision_table.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/ranking_ablation.json",
+   "script": "ranking_ablation.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/rdkit_version_drift.json",
+   "script": "rdkit_version_drift.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/reactant_size_census.json",
+   "script": "reactant_size_census.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/reference_audit.json",
+   "script": "reference_audit.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/reference_charge.json",
+   "script": "reference_charge.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/reference_source_coverage.json",
+   "script": "reference_source_coverage.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/references_are_multistep.json",
+   "script": "references_are_multistep.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/released_bank.json",
+   "script": "build_released_bank.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/released_default_threshold.json",
+   "script": "released_default_threshold.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/reproduce_from_descriptors.json",
+   "script": "reproduce_from_descriptors.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/retraining_spread.json",
+   "script": "retraining_spread.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/rulegate_survivors_summary.json",
+   "script": "rulegate_survivors_summary.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/scaffold_baseline.json",
+   "script": "scaffold_baseline.py",
+   "how": "source at a1b1d96ee9c0",
+   "dirty_when_written": true,
+   "status": "current"
+  },
+  {
+   "artifact": "results/scheduled_release_comparison.json",
+   "script": "bank_without_selection.py",
+   "how": "source at b410f7afad2c",
+   "dirty_when_written": true,
+   "status": "current"
+  },
+  {
+   "artifact": "results/scored_predictions.json",
+   "script": "dump_scored_predictions.py",
+   "inferred": true,
+   "how": "producer at c92ee386385b, the commit that added the artifact",
+   "status": "current"
+  },
+  {
+   "artifact": "results/seedpool_recipe.json",
+   "script": "seedpool_recipe.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/selection_ablation_deployed.json",
+   "script": "selection_verdict.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/selection_pools_deployed.json",
+   "script": "selection_ablation_deployed.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/setting_scope.json",
+   "script": "setting_scope.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/similarity_baseline.json",
+   "script": "similarity_baseline.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/site_agreement.json",
+   "script": "site_agreement.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/standardiser_versions.json",
+   "script": "standardiser_versions.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/stereo_headroom.json",
+   "script": "stereo_headroom.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/sygma_by_dialect.json",
+   "script": "sygma_by_dialect.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/sygma_depth_matched_reach.json",
+   "script": "sygma_depth_matched_reach.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/sygma_scenario_sweep.json",
+   "script": "sygma_scenario_sweep.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/tautomer_budget.json",
+   "script": "tautomer_budget.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/tautomer_near_miss.json",
+   "script": "tautomer_near_miss.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/test_reference_descriptors.json",
+   "script": "reference_descriptors.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/train_pools.json",
+   "script": "build_train_pools.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/typed_edit_known_pairs.json",
+   "script": "known_type_recovery.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/typed_edit_known_type_recovery.json",
+   "script": "known_type_recovery.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/typed_edit_relaxation.json",
+   "script": "relaxation_ladder.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/typed_edit_step0.json",
+   "script": "run_bank.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/typed_edit_type_carriers.json",
+   "script": "type_carrier_provenance.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/typed_edit_type_curve.json",
+   "script": "type_curve.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/uspto_type_overlap.json",
+   "script": "uspto_type_overlap.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was 81e44a0d3d8a, is now 23314d652a09",
+   "diff_recovered_by": "the recorded digest, found in history at 43f1e1dc3f46",
+   "diff": "--- uspto_type_overlap.py (as recorded)\n+++ uspto_type_overlap.py (now)\n@@ -111,4 +111,5 @@\n                               \"the two type vocabularies do not meet and the intersection above \"\n                               \"measures incomparability rather than absence\"},\n+           \"recovered_types\": sorted(hit_b),\n            \"examples_recoverable\": [json.loads(t) for t in hit_b[:8]]}\n     Path(args.out).write_text(json.dumps(rep, indent=1))"
+  },
+  {
+   "artifact": "results/val_pool_population.json",
+   "script": "val_pool_population.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/val_pools.json",
+   "script": "build_val_pools.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/what_each_arm_returns.json",
+   "script": "what_each_arm_returns.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/wide_pool_analysis_implicit.json",
+   "script": "wide_pool_analysis.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/withheld_template_carriers.json",
+   "script": "check_no_withheld_templates.py",
+   "how": "recorded source digest",
+   "status": "current"
+  },
+  {
+   "artifact": "results/worked_example_structures.json",
+   "script": "worked_example_structures.py",
+   "how": "recorded source digest",
+   "status": "current"
+  }
+ ],
+ "n_pinned": 139,
+ "n_pinned_stale": 3,
+ "sweep": {
+  "unstamped": 321,
+  "producer_changed": 44,
+  "current": 78,
+  "producer_unknown": 26,
+  "cosmetic_only": 8
+ },
+ "sweep_not_current": [
+  {
+   "artifact": "results/_gbs_backup.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/ablate_id_embedding.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/ablate_id_embedding_val.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/ablation_local_verdict.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/abstention_frontier.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregate_vs_output_size.json",
+   "script": "aggregate_vs_output_size.py",
+   "how": "source at cb1fa8a88a32",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 8b1d64f23b01, is now 7643b85c5f73",
+   "diff_recovered_by": "source at cb1fa8a88a32",
+   "diff": "--- aggregate_vs_output_size.py (as recorded)\n+++ aggregate_vs_output_size.py (now)\n@@ -161,4 +161,37 @@\n     print(f\"  monotone in output size: {monotone}\")\n \n+    # How much does the like-emitting null actually rule out? Counting verdicts says nothing on its\n+    # own -- the difference between a certified result and an uncertified one is not itself a\n+    # result, which is the reasoning this paper rejects elsewhere. So report the widest interval the\n+    # comparable pairs leave open: if it is wide relative to the reversals that do certify, the\n+    # partition is a description and not an identification, and the text must say so.\n+    widths = []\n+    for pop, p_ in rep[\"populations\"].items():\n+        for r in p_[\"pairs\"]:\n+            if not r[\"comparable\"]:\n+                continue\n+            for f in r[\"sign_flips\"]:\n+                for t in (\"1\", \"2\"):\n+                    ci = f[f\"ci_{t}\"]\n+                    if ci:\n+                        widths.append((round(ci[1] - ci[0], 4), pop, tuple(r[\"pair\"])))\n+    certified = [abs(f[\"delta_1\"]) for p_ in rep[\"populations\"].values() for r in p_[\"pairs\"]\n+                 for f in r[\"sign_flips\"] if f[\"certified_both_directions\"]]\n+    rep[\"power\"] = {\n+        \"widest_interval_among_comparable_pairs\": max(widths)[0] if widths else None,\n+        \"where\": {\"population\": max(widths)[1], \"pair\": list(max(widths)[2])} if widths else None,\n+        \"median_certified_reversal_size\": round(float(sorted(certified)[len(certified)//2]), 4)\n+                                          if certified else None,\n+        \"reading\": \"the like-emitting null is a failure to detect, not a demonstration of absence: \"\n+                   \"the widest interval it leaves open is of the same order as the reversals that \"\n+                   \"do certify\",\n+    }\n+    if widths:\n+        w, pop, pair = max(widths)\n+        print(f\"\\npower of the like-emitting null: widest interval {w} \"\n+              f\"({pop}, {pair[0]} vs {pair[1]})\")\n+        print(f\"  against a median certified reversal of {rep['power']['median_certified_reversal_size']}\")\n+        print(\"  -> the null cannot separate absence from lack of power\")\n+\n     tot_c = sum(v[\"certified_reversals_among_comparable\"] for _, v in verdicts)\n     tot_d = sum(v[\"certified_reversals_among_disparate\"] for _, v in verdicts)"
+  },
+  {
+   "artifact": "results/aggregation_shards/s0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards/s1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards/s2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards/s3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards/s4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards/s5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards_k30/s0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards_val/s0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards_val/s1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards_val/s2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards_val/s3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards_val/s4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/aggregation_shards_val/s5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/ai_statement_verdicts.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/anchor_certification.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/annotation_agreement.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/annotation_agreement_ci.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/annotation_agreement_criterion_audit.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/artifact_provenance.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bank_engine_replication.json",
+   "script": "bank_engine_replication.py",
+   "how": "source at c4b17e178e68",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was ece43348c83b, is now 443361d0487b",
+   "diff_recovered_by": "source at c4b17e178e68",
+   "diff": "--- bank_engine_replication.py (as recorded)\n+++ bank_engine_replication.py (now)\n@@ -14,7 +14,8 @@\n \n Same substrates, same matcher, same engine, one line different. The grail_full arm doubles as a\n-gate: with the switch in its deployed position it must reproduce the committed\n-results/reach_engine_vs_bank.json ceiling on these substrates, or this is not the engine the paper\n-reports. It also answers a question the paper currently leaves open -- whether the ceiling we\n+gate: with the switch in its deployed position it must reproduce the committed coverage ceiling\n+restricted to these substrates -- read from results/recall_factorization.json, the artifact the\n+published ceiling IS, rather than from a neighbouring file that happens to record one -- or this is\n+not the engine the paper reports. It also answers a question the paper currently leaves open -- whether the ceiling we\n publish understates what our own bank holds, and by how much.\n \"\"\"\n@@ -40,4 +41,6 @@\n from rdkit import Chem, RDLogger\n \n+from _population import (POPULATIONS, ceiling_target, load_population,\n+                         population_items, tagged_out)\n from engine_knobs import DEFAULT, apply_with\n from run_benchmark import _tautomer_recovered\n@@ -175,10 +178,10 @@\n     ap.add_argument(\"--banks\", nargs=\"+\", default=[\"sygma_175\", \"biotransformer\", \"grail_full\"])\n     ap.add_argument(\"--out\", default=str(ROOT / \"results\" / \"bank_engine_replication.json\"))\n+    ap.add_argument(\"--population\", default=\"clean_test\", choices=POPULATIONS,\n+                    help=\"subsample245 reproduces the committed artifact; clean_test is the split\")\n     args = ap.parse_args()\n-\n-    subs = [r[\"sub\"] for r in\n-            json.loads((ROOT / \"results/filter_vs_prior_ci.json\").read_text())[\"per_substrate\"]]\n-    truth = json.loads((ROOT / \"results/test_references.json\").read_text())\n-    items = [(s, truth[s]) for s in subs if truth.get(s)]\n+    args.out = tagged_out(args.out, args.population)\n+\n+    items = population_items(args.population)\n     workers = max(1, (os.cpu_count() or 4) - 2)\n \n@@ -189,5 +192,5 @@\n         # written after each bank so a long grail_full arm never loses the cheap ones\n         out_path.write_text(json.dumps(\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/bank_overlap_sygma.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bank_overlap_sygma__clean_test.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bank_without_selection.json",
+   "script": "bank_without_selection.py",
+   "how": "source at cb1fa8a88a32",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 4c47daaa3969, is now f780cfb7fcad",
+   "diff_recovered_by": "source at cb1fa8a88a32",
+   "diff": "--- bank_without_selection.py (as recorded)\n+++ bank_without_selection.py (now)\n@@ -48,5 +48,18 @@\n \n N_BOOT, SEED = 10000, 0\n-CEILING_SUBSET = 0.7284  # measured on these same 245 from recall_factorization.json\n+def ceiling_subset(subs) -> dict:\n+    \"\"\"The committed ceiling restricted to exactly these substrates, both aggregations.\n+\n+    Read from the artifact rather than frozen here. A literal is a snapshot of the answer at the\n+    moment it was written; this one sat at 0.7284 through a correction that took the same quantity\n+    to 0.8007, and the value it reported went on looking committed.\n+    \"\"\"\n+    rows = {r[\"sub\"]: r for r in\n+            json.loads((ROOT / \"results/recall_factorization.json\").read_text())[\"per_substrate\"]}\n+    hit = [rows[s] for s in subs if s in rows]\n+    micro = sum(r[\"Cfull\"] for r in hit) / max(sum(r[\"U\"] for r in hit), 1)\n+    macro = sum(r[\"Cfull\"] / r[\"U\"] for r in hit if r[\"U\"]) / max(len(hit), 1)\n+    return {\"n_matched\": len(hit), \"micro\": round(micro, 4), \"macro\": round(macro, 4),\n+            \"source\": \"results/recall_factorization.json, restricted to these substrates\"}\n \n \n@@ -148,6 +161,9 @@\n def main() -> int:\n     ap = argparse.ArgumentParser()\n+    # This script's subject is the frequency prior, so it needs the generator that carries one.\n+    # That is the priors run and not the deployed one, and the assertion below refuses anything\n+    # else. Every other analysis here loads the deployed pair; this is the stated exception.\n     ap.add_argument(\"--gen-ckpt\", default=str(ROOT / \"artifacts/full5000_priors/checkpoints/generator.pt\"))\n-    ap.add_argument(\"--filter-ckpt\", default=str(ROOT / \"artifacts/full5000_single/checkpoints/filter.pt\"))\n+    ap.add_argument(\"--filter-ckpt\", default=str(ROOT / \"artifacts/full5000_implicit/checkpoints/filter.pt\"))\n     ap.add_argument(\"--max-substrates\", type=int, default=250)\n     ap.add_argument(\"--sampling-seed\", type=int, default=42)\n@@ -203,5 +219,5 @@\n                       \"filter_ckpt\": _rel(args.filter_ckpt)},\n            \"n\": len(items), \"match\": \"inchikey_tautomer\",\n-           \"ceiling_on_this_subset\": CEILING_SUBSET, \"arms\": {}}\n+           \"ceiling_on_this_subset\": ceiling_subset([s for s, _ in items]), \"arms\": {}}\n \n     rng = np.random.default_rng(SEED)"
+  },
+  {
+   "artifact": "results/benchmark_report.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/benchmark_report_gap.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/biotransformer_allhuman_one_step_natural_drawing_preds.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/biotransformer_allhuman_one_step_preds.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/biotransformer_arm_as_published.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/biotransformer_fulltest_as_published.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/biotransformer_fulltest_preds.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/natural_to_corpus.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n1170.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n1170.json.run.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n1170_cm1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n1170_cm1.json.run.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n291.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n291.json.run.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n291_cm1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n291_cm1.json.run.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n291_natural.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n291_natural.json.run.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n291_natural_cm1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s1_n291_natural_cm1.json.run.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s2_n291.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s2_n291.json.run.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s2_n291_cm1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/bt_steps/preds_s2_n291_cm1.json.run.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/budget_curves.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/budget_matched_frontier.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/budget_matched_leaderboard.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/budget_report.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/cardinality_crossfit.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/cardinality_oracle.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/ceiling_by_provenance.json",
+   "script": "ceiling_by_provenance.py",
+   "how": "source at 4b3169e38c03",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was d0a734dc0a97, is now a5367dfb98f0",
+   "diff_recovered_by": "source at 4b3169e38c03",
+   "diff": "--- ceiling_by_provenance.py (as recorded)\n+++ ceiling_by_provenance.py (now)\n@@ -39,4 +39,6 @@\n \n sys.path.insert(0, str(ROOT / \"scripts\"))\n+from _population import POPULATIONS, ceiling_target, population_items, tagged_out\n+from engine_knobs import apply_with\n from grail_metabolism.utils.preparation import apply_rules_to_molecule\n from run_benchmark import _tautomer_recovered   # the paper's own per-substrate recovery count\n@@ -44,10 +46,13 @@\n RDLogger.DisableLog(\"rdApp.*\")\n N_BOOT, SEED = 10000, 0\n-# The union of the two subsets is the whole bank, so it must reproduce the ceiling already\n-# stored per substrate in recall_factorization.json for exactly these 245. Anything else\n-# means this pass applies rules differently from the one the paper reports.\n-CEILING_SUBSET, TOL = 0.7284, 0.002\n-_CUR: list = []\n-_MIN: list = []\n+# The union of the two subsets is the whole bank, so it must reproduce the ceiling already stored\n+# per substrate in recall_factorization.json for exactly these 245. Anything else means this pass\n+# applies rules differently from the one the paper reports.\n+#\n+# The target is READ from that artifact rather than frozen here. A literal goes stale the moment the\n+# measurement moves, and then the gate passes self-consistently on a superseded number, which is\n+# worse than failing: it certifies the old value silently. This gate held 0.7284 through a ceiling\n+# correction that took the same quantity to 0.8171.\n+TOL = 0.002\n \n \n@@ -86,6 +91,8 @@\n     if mol is None or not trues:\n         return (sub, 0, 0, 0, 0)\n-    pc = list(apply_rules_to_molecule(mol, _CUR, normalization_mode=\"canonical\").keys())\n-    pm = list(apply_rules_to_molecule(mol, _MIN, normalization_mode=\"canonical\").keys())\n+    # the ceiling's own primitives: hydrogens as the deployed generator fires rules, no validity\n+    # floor, so the union of the two subsets is the same object the ceiling measures\n+    pc = apply_with(mol, _CUR, False, \"canonical\", False)\n+    pm = apply_with(mol, _MIN, False, \"canonical\", False)\n     u, c_cur, _ = _tautomer_recovered(trues, pc, audit=False)\n     _, c_min, _ = _tautomer_recovered(trues, pm, audit=False)\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/ceiling_by_provenance__clean_test.json",
+   "script": "ceiling_by_provenance.py",
+   "how": "source at 2d258731daaf",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 9918944896e0, is now a5367dfb98f0",
+   "diff_recovered_by": "source at 2d258731daaf",
+   "diff": "--- ceiling_by_provenance.py (as recorded)\n+++ ceiling_by_provenance.py (now)\n@@ -39,5 +39,5 @@\n \n sys.path.insert(0, str(ROOT / \"scripts\"))\n-from _population import POPULATIONS, population_items, tagged_out\n+from _population import POPULATIONS, ceiling_target, population_items, tagged_out\n from engine_knobs import apply_with\n from grail_metabolism.utils.preparation import apply_rules_to_molecule\n@@ -55,15 +55,4 @@\n # correction that took the same quantity to 0.8171.\n TOL = 0.002\n-\n-\n-def ceiling_target(subs) -> float:\n-    \"\"\"The committed ceiling restricted to exactly these substrates, micro.\"\"\"\n-    rows = {r[\"sub\"]: r for r in\n-            json.loads((ROOT / \"results/recall_factorization.json\").read_text())[\"per_substrate\"]}\n-    hit = sum(rows[s][\"Cfull\"] for s in subs if s in rows)\n-    ref = sum(rows[s][\"U\"] for s in subs if s in rows)\n-    return hit / max(ref, 1)\n-_CUR: list = []\n-_MIN: list = []\n \n "
+  },
+  {
+   "artifact": "results/ceiling_convention_matched.json",
+   "script": "ceiling_convention_matched.py",
+   "status": "producer_unknown",
+   "detail": "commit a227873afa32 does not carry scripts/ceiling_convention_matched.py"
+  },
+  {
+   "artifact": "results/ceiling_external_validity.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/ceiling_gap_by_similarity.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/ceiling_gap_ci.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/ceiling_norm_check.json",
+   "script": "ceiling_norm_check.py",
+   "how": "source at 4b3169e38c03",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 9ca45b4ae3b5, is now 4f22524824a6",
+   "diff_recovered_by": "source at 4b3169e38c03",
+   "diff": "--- ceiling_norm_check.py (as recorded)\n+++ ceiling_norm_check.py (now)\n@@ -5,18 +5,17 @@\n rules two banks share. That gate is passed by a loop that is right about those rules and wrong about\n the other $7{,}429$, so the grail_full arm of scripts/bank_engine_replication.py needs a gate of its\n-own, and when it was first run it failed one: it returned $0.7302$ where the committed ceiling for\n-the same substrates is $0.7284$.\n+own -- and the first time it was given one, the gate failed for a reason that had nothing to do with\n+the loop: the two figures being compared had been produced under different normalisation modes, one\n+\"canonical\" and one \"standardize\", and nothing in either recorded which.\n \n-The failure was the gate's, not the loop's. The committed ceiling comes from\n-scripts/ceiling_by_provenance.py, which passes normalization_mode=\"canonical\", while the replication\n-arm ran under \"standardize\" -- the default of apply_rules_to_molecule itself. Two different\n-configurations were being compared. This script closes that by running the full bank under the\n-configuration the committed figure was actually measured in, and it must reproduce it exactly.\n+This script closes that hazard by measuring both modes itself, on one population, through one set of\n+primitives -- the ones the deployed generator fires rules with -- and gating the result against the\n+committed ceiling restricted to the same substrates, read out of the factorization artifact rather\n+than frozen here.\n \n The residue is worth keeping rather than rounding away. Across the $152$ shared rules the two\n normalisation modes are identical to four decimals, which is one of the three rows engine_knobs\n-reports; across all $7{,}581$ they differ by a single recovered reference. A knob can be inert on a\n-subset of a bank and not on the bank, so \"this choice does not matter\" is a claim about the rule set\n-it was measured on.\n+reports; across the whole bank they need not be. A knob can be inert on a subset of a bank and not\n+on the bank, so \"this choice does not matter\" is a claim about the rule set it was measured on.\n \"\"\"\n from __future__ import annotations\n@@ -37,4 +36,5 @@\n from rdkit import Chem, RDLogger\n \n+from _population import POPULATIONS, population_items, load_population, tagged_out\n from bank_engine_replication import load_bank\n from engine_knobs import apply_with\n@@ -42,7 +42,4 @@\n \n RDLogger.DisableLog(\"rdApp.*\")\n-# results/ceiling_by_provenance.json -> subsets.full.coverage, measured under normalization_mode\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/ceiling_seen_vs_unseen.json",
+   "script": "ceiling_seen_vs_unseen.py",
+   "status": "producer_unknown",
+   "detail": "commit 6e9e3908a43a does not carry scripts/ceiling_seen_vs_unseen.py"
+  },
+  {
+   "artifact": "results/citations_verified.json",
+   "script": "verify_citations.py",
+   "status": "unstamped",
+   "detail": "no digest and no commit to recover one"
+  },
+  {
+   "artifact": "results/claim_word_audit.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/clamp_verification.json",
+   "script": "verify_clamp.py",
+   "status": "producer_unknown",
+   "detail": "commit a227873afa32 does not carry scripts/verify_clamp.py"
+  },
+  {
+   "artifact": "results/closure_keys.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/comparator_acquisition.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/comparator_local_state.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/containment_test_types.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/containment_train_types.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/contraction_choice.json",
+   "script": "contraction_choice.py",
+   "status": "producer_unknown",
+   "detail": "commit d3649b53bc0e does not carry scripts/contraction_choice.py"
+  },
+  {
+   "artifact": "results/convention_census.json",
+   "script": "convention_census.py",
+   "status": "unstamped",
+   "detail": "no digest and no commit to recover one"
+  },
+  {
+   "artifact": "results/criterion_sweep.json",
+   "script": "criterion_sweep.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was 1dc59d70e4f8, is now 3fddf09ed865",
+   "diff_recovered_by": "source at eb05854a679e",
+   "diff": "--- criterion_sweep.py (as recorded)\n+++ criterion_sweep.py (now)\n@@ -36,4 +36,6 @@\n         sys.path.insert(0, _p)\n \n+from _control_population import absent_from, out_path, resolve  # noqa: E402\n+from _control_population import population as evaluation_population  # noqa: E402\n from _provenance import record_inputs, stamp  # noqa: E402\n \n@@ -75,9 +77,18 @@\n def main() -> int:\n     ap = argparse.ArgumentParser()\n-    ap.add_argument(\"--exhaustive\", default=\"results/widepools_implicit/w*.json\")\n-    ap.add_argument(\"--interactive\", default=str(ROOT / \"results/widepools_k30/all.json\"))\n-    ap.add_argument(\"--out\", default=str(ROOT / \"results/criterion_sweep.json\"))\n+    # The population names its own pools, its own comparator files and its own output, so the\n+    # three cannot be set to two different populations by accident. The three paths stay\n+    # overridable for a probe, which is the only reason they are still flags.\n+    ap.add_argument(\"--population\", default=\"comparison\", choices=(\"comparison\", \"whole\"))\n+    ap.add_argument(\"--exhaustive\", default=None)\n+    ap.add_argument(\"--interactive\", default=None)\n+    ap.add_argument(\"--out\", default=None)\n     ap.add_argument(\"--limit\", type=int, default=0, help=\"substrates, for a timing probe\")\n     args = ap.parse_args()\n+    spec = evaluation_population(args.population)\n+    args.exhaustive = args.exhaustive or spec[\"exhaustive\"]\n+    args.interactive = args.interactive or spec[\"interactive\"]\n+    args.out = args.out or out_path(\"criterion_sweep\", args.population)\n+    comparators = resolve(COMPARATORS, args.population)\n \n     from bank_without_selection import _key as _cached_tautomer_key\n@@ -99,6 +110,6 @@\n         return next(iter(_match_keys([smiles], crit)))\n \n-    big, refs_b = load(args.exhaustive)\n-    small, refs_s = load(args.interactive)\n+    big, refs_b = load(str(ROOT / args.exhaustive))\n+    small, refs_s = load(str(ROOT / args.interactive))\n     refs = {**refs_b, **refs_s}\n     _, truth, _ = population()\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/cross_method_decomposition.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/curator_vs_model.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/decompose_sygma.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/dispatch_paired_ci.json",
+   "script": "dispatch_paired_ci.py",
+   "how": "source at 4b3169e38c03",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 4c3d85d1adef, is now 14a6821898a6",
+   "diff_recovered_by": "source at 4b3169e38c03",
+   "diff": "--- dispatch_paired_ci.py (as recorded)\n+++ dispatch_paired_ci.py (now)\n@@ -33,4 +33,5 @@\n from rdkit import Chem, RDLogger\n \n+from _population import POPULATIONS, population_items, load_population, tagged_out\n from bank_engine_replication import load_bank\n from engine_knobs import DEFAULT, apply_with\n@@ -41,5 +42,6 @@\n N_BOOT, SEED = 10000, 0\n BANK = \"grail_full\"\n-# results/hydrogen_dispatch.json and results/bank_engine_replication.json\n+# results/hydrogen_dispatch.json and results/bank_engine_replication.json, both on the\n+# 245-substrate subsample; this pair gates that population and no other.\n COMMITTED = {\"dispatch\": 0.8148, \"implicit\": 0.7989}\n _CTX: dict = {}\n@@ -63,18 +65,38 @@\n         os.environ.setdefault(v, \"1\")\n     _CTX[\"rules\"], _CTX[\"wants\"] = rules, wants\n+    _CTX[\"want\"] = [r for r, w in zip(rules, wants) if w]\n+    _CTX[\"rest\"] = [r for r, w in zip(rules, wants) if not w]\n \n \n def _worker(item):\n+    \"\"\"All three arms of one rule set, from two passes over it, on one substrate.\n+\n+    The residual is dispatch minus the BETTER of the two global settings, and which of the two is\n+    better is not the same for every subset -- implicit wins on the whole bank and expanded wins on\n+    the curated part -- so both have to be measured rather than one assumed. Splitting the rule set\n+    into the templates that want the expansion and those that do not, and applying each subset under\n+    both conventions, gives all three arms by union from exactly two passes:\n+\n+        all-explicit = E(want) u E(rest)     all-implicit = I(want) u I(rest)\n+        dispatch     = E(want) u I(rest)\n+    \"\"\"\n     sub, trues = item\n     mol = Chem.MolFromSmiles(sub)\n     if mol is None or not trues:\n-        return sub, 0, 0, 0\n+        return sub, 0, 0, 0, 0\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/dispatch_paired_ci__clean_test__curated.json",
+   "script": "dispatch_paired_ci.py",
+   "how": "source at 9630e586ab71",
+   "dirty_when_written": false,
+   "status": "producer_changed",
+   "detail": "producer was 059dab2750df, is now 14a6821898a6",
+   "diff_recovered_by": "source at 9630e586ab71",
+   "diff": "--- dispatch_paired_ci.py (as recorded)\n+++ dispatch_paired_ci.py (now)\n@@ -156,5 +156,7 @@\n     # population and no other. Asserting them against a run on the full split would be a comparison\n     # across populations -- the defect this paper names -- dressed as a reproducibility check.\n-    if args.population == \"subsample245\":\n+    # ...and the whole bank only: the committed pair is a whole-bank measurement, so asserting it\n+    # against a subset arm compares two different rule sets as well as, possibly, two populations.\n+    if args.population == \"subsample245\" and args.subset == \"full\":\n         print(f\"\\ngate: dispatch {reach_d} against committed {COMMITTED['dispatch']}, \"\n               f\"implicit {reach_i} against {COMMITTED['implicit']}\")"
+  },
+  {
+   "artifact": "results/emission_crossfit.json",
+   "script": "emission_crossfit.py",
+   "status": "producer_unknown",
+   "detail": "commit 5c9e87251ce4 does not carry scripts/emission_crossfit.py"
+  },
+  {
+   "artifact": "results/engine_knobs.json",
+   "script": "engine_knobs.py",
+   "status": "producer_unknown",
+   "detail": "commit c49fcde23b14 does not carry scripts/engine_knobs.py"
+  },
+  {
+   "artifact": "results/engine_knobs__clean_test.json",
+   "script": "engine_knobs.py",
+   "how": "source at 25cb3bd72d41",
+   "dirty_when_written": false,
+   "status": "producer_changed",
+   "detail": "producer was df61e0c192ad, is now 124bfd998b2f",
+   "diff_recovered_by": "source at 25cb3bd72d41",
+   "diff": "--- engine_knobs.py (as recorded)\n+++ engine_knobs.py (now)\n@@ -53,4 +53,5 @@\n from grail_metabolism.metrics import _tautomer_inchikey as _tk\n from rdkit import Chem, RDLogger\n+from _contract import contract\n \n from grail_metabolism.utils.preparation import (\n@@ -106,10 +107,23 @@\n \n \n-def apply_with(mol, rules, add_hs: bool, norm: str, drop_invalid: bool) -> list[str]:\n-    \"\"\"The deployed loop with each discretionary step exposed as a switch.\"\"\"\n+def apply_with(mol, rules, add_hs: bool, norm: str, drop_invalid: bool,\n+               remove_hs: bool = False) -> list[str]:\n+    \"\"\"The deployed loop with each discretionary step exposed as a switch.\n+\n+    `remove_hs` completes the loop rather than varying it. Expanding a substrate and never\n+    contracting the product leaves the drawn hydrogen on the reacting atom, and what looked like a\n+    convention two banks could each defend is then partly a missing call: with the contraction the\n+    same templates return the products the unexpanded arm returns. The switch exists so the\n+    difference between an incomplete loop and a complete one can be measured rather than argued.\n+    \"\"\"\n     substrate = Chem.AddHs(Chem.Mol(mol)) if add_hs else Chem.Mol(mol)\n     seen = set()\n     for rule in rules:\n         for product in _iter_reaction_products(substrate, rule):\n+            if remove_hs:\n+                try:\n+                    product = contract(product)\n+                except Exception:\n+                    continue\n             try:\n                 smiles = Chem.MolToSmiles(product)"
+  },
+  {
+   "artifact": "results/ensemble_budget_matched.json",
+   "script": "ensemble_budget_matched.py",
+   "status": "producer_unknown",
+   "detail": "commit 45d1bca8917d does not carry scripts/ensemble_budget_matched.py"
+  },
+  {
+   "artifact": "results/error_by_chemistry.json",
+   "script": "error_by_chemistry.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was ad9fa414c84e, is now f54b69217287",
+   "diff_recovered_by": "source at eb05854a679e",
+   "diff": "--- error_by_chemistry.py (as recorded)\n+++ error_by_chemistry.py (now)\n@@ -21,4 +21,5 @@\n from __future__ import annotations\n \n+import argparse\n import glob\n import json\n@@ -33,8 +34,17 @@\n         sys.path.insert(0, _p)\n \n+from _control_population import absent_from, out_path, population, resolve  # noqa: E402\n from _provenance import record_inputs, stamp  # noqa: E402\n \n CAP = 100\n BUDGETS = (5, 15, 30)\n+COMPARATORS = {\n+    \"metatox\": (\"results/metatox_smirks_preds.json\", \"predictions\"),\n+    \"sygma\": (\"results/sygma_fulltest_predictions.json\", None),\n+    \"metapredictor\": (\"artifacts/tier2_1170/metapredictor_preds.json\", None),\n+    \"biotransformer\": (\"results/biotransformer_allhuman_one_step_preds.json\", None),\n+    # obtained from the service its authors operate; see gloryx_via_service.py\n+    \"gloryx\": (\"results/gloryx_service_preds.json\", \"predictions\"),\n+}\n \n # Formula deltas as {element: change}, with the name each one carries in this literature and what\n@@ -98,4 +108,14 @@\n \n def main() -> int:\n+    ap = argparse.ArgumentParser()\n+    # The population names its own pools, its own comparator files and its own output, so the\n+    # three cannot be set to two different populations by accident.\n+    ap.add_argument(\"--population\", default=\"comparison\", choices=(\"comparison\", \"whole\"))\n+    ap.add_argument(\"--out\", default=None)\n+    args = ap.parse_args()\n+    spec = population(args.population)\n+    args.out = args.out or out_path(\"error_by_chemistry\", args.population)\n+    comparators = resolve(COMPARATORS, args.population)\n+\n     from rdkit import Chem, RDLogger\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/evalretro_file_sizes.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/evalretro_ingest.json",
+   "script": "evalretro_ingest.py",
+   "how": "source at efa321fb77e6",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was c794525b0ad3, is now ad43658c0f3a",
+   "diff_recovered_by": "source at efa321fb77e6",
+   "diff": "--- evalretro_ingest.py (as recorded)\n+++ evalretro_ingest.py (now)\n@@ -36,4 +36,5 @@\n import argparse\n import csv\n+import itertools\n import json\n import pathlib\n@@ -197,4 +198,25 @@\n             \"test_csv\": str(csv_path.relative_to(ROOT))}\n \n+    # How far apart the populations actually are. The clustering threshold only says that two\n+    # files below it are not the same set; it does not say they share nothing, and calling them\n+    # disjoint without measuring it is the same unmeasured assertion this paper is about.\n+    prod_sets = {label: {product for _, _, product in\n+                         [(r[0], r[1], canonical_set(r[1])) for r in\n+                          csv.reader((ROOT / g[\"test_csv\"]).open())][1:]}\n+                 for label, g in report_groups.items()}\n+    overlap = {}\n+    for a_, b_ in itertools.combinations(sorted(prod_sets), 2):\n+        inter = prod_sets[a_] & prod_sets[b_]\n+        overlap[f\"{a_} n {b_}\"] = {\n+            \"shared\": len(inter),\n+            \"share_of_smaller\": round(len(inter) / max(min(len(prod_sets[a_]),\n+                                                           len(prod_sets[b_])), 1), 4)}\n+    if len(prod_sets) > 2:\n+        overlap[\"all\"] = {\"shared\": len(set.intersection(*prod_sets.values()))}\n+    print(\"\\n  how far apart the populations are, on canonical product sets\")\n+    for k, v in overlap.items():\n+        print(f\"    {k:22} {v['shared']:>5}\" + (f\"   {v['share_of_smaller']:.3f} of the smaller\"\n+                                                if \"share_of_smaller\" in v else \"\"))\n+\n     rep = {\"config\": {**_code_version(), \"source\": SOURCE,\n                       \"repo_split\": str(REPO_SPLIT.relative_to(ROOT)),\n@@ -202,5 +224,6 @@\n                       \"alignment\": \"reaction identified by (product, ground-truth reactants); \"\n                                    \"file order and index column never used\"},\n-           \"n_systems\": len(parsed), \"n_test_sets\": len(groups), \"clusters\": report_groups}\n+           \"n_systems\": len(parsed), \"n_test_sets\": len(groups), \"clusters\": report_groups,\n+           \"population_overlap\": overlap}\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/explicit_h_mechanism.json",
+   "script": "explicit_h_mechanism.py",
+   "status": "producer_unknown",
+   "detail": "commit c49fcde23b14 does not carry scripts/explicit_h_mechanism.py"
+  },
+  {
+   "artifact": "results/external_ceiling_split.json",
+   "script": "external_ceiling_split.py",
+   "status": "producer_unknown",
+   "detail": "commit 90f7b9726b07 does not carry scripts/external_ceiling_split.py"
+  },
+  {
+   "artifact": "results/external_exact_tests.json",
+   "script": "external_exact_tests.py",
+   "status": "producer_unknown",
+   "detail": "commit 1636323ce9dc does not carry scripts/external_exact_tests.py"
+  },
+  {
+   "artifact": "results/factorized_eval.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/factorized_eval_matched.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/factorized_eval_subset250.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/factorized_val.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/featurizer_convention.json",
+   "script": "featurizer_convention.py",
+   "status": "producer_unknown",
+   "detail": "commit b0587d9f629b does not carry scripts/featurizer_convention.py"
+  },
+  {
+   "artifact": "results/filter_compare_matched_sub800.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/filter_vs_prior_ci.json",
+   "script": "filter_vs_prior_ci.py",
+   "how": "source at 1d56fb8c3272",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 8393ba5564ed, is now 8a573ade4907",
+   "diff_recovered_by": "source at 1d56fb8c3272",
+   "diff": "--- filter_vs_prior_ci.py (as recorded)\n+++ filter_vs_prior_ci.py (now)\n@@ -38,4 +38,19 @@\n     sys.path.insert(0, str(ROOT))\n \n+\n+\n+def _code_version() -> dict:\n+    \"\"\"Which code wrote this artifact. The published selection_ablation.json carried fields the\n+    current script no longer emits, so it was written by an earlier version -- and nothing in it\n+    said so. Cap and seed pin the data; this pins the analysis.\"\"\"\n+    import subprocess\n+    def _git(*a):\n+        try:\n+            return subprocess.run([\"git\", *a], cwd=ROOT, capture_output=True, text=True,\n+                                  timeout=10).stdout.strip() or None\n+        except Exception:\n+            return None\n+    return {\"script\": pathlib.Path(__file__).name, \"git_commit\": _git(\"rev-parse\", \"HEAD\"),\n+            \"git_dirty\": bool(_git(\"status\", \"--porcelain\"))}\n \n def _rel(p) -> str:\n@@ -160,5 +175,5 @@\n     # reproduced from it. Committing a result file is necessary for regenerability and not\n     # sufficient.\n-    rep = {\"config\": {\"max_substrates\": args.max_substrates, \"sampling_seed\": args.sampling_seed,\n+    rep = {\"config\": {**_code_version(), \"max_substrates\": args.max_substrates, \"sampling_seed\": args.sampling_seed,\n                       \"top_k\": args.top_k, \"prior_strength\": args.prior_strength,\n                       \"filter_cap\": args.filter_cap, \"max_output\": args.max_output,"
+  },
+  {
+   "artifact": "results/fragility_from_table.json",
+   "script": "fragility_from_table.py",
+   "status": "producer_unknown",
+   "detail": "commit e0176ef152b0 does not carry scripts/fragility_from_table.py"
+  },
+  {
+   "artifact": "results/gapshards/shard0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gapshards/shard1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gapshards/shard2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gapshards/shard3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gapshards/shard4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gapshards/shard5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gflownet_seed0_overnight.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gflownet_seed1_overnight.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gflownet_seed2_overnight.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gflownet_set_endpoint.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gloryx_clean_subset.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gloryx_criterion_grid.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gloryx_criterion_ladder.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gloryx_oracle.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/gloryx_rank_flip_ci.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/grail_vs_metatox.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/every/s0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/every/s1a.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/every/s1b.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/every/s2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/every/s3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/every/s4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/every/s5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/surv/s0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/surv/s1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/surv/s2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/surv/s3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/surv/s4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h13/surv/s5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h15/s0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h15/s1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h15/s2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h15/s3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h15/s4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h15/s5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h1shards/s0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h1shards/s1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h1shards/s2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/h1shards/s3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/headroom_normalised.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/humanize_scan.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/hybrid_rerank.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/hybrid_rerank_full1170.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/hydrogen_dispatch.json",
+   "script": "hydrogen_dispatch.py",
+   "how": "source at df40e6da66ab",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was d8a0a3e1d516, is now 882e4a543feb",
+   "diff_recovered_by": "source at df40e6da66ab",
+   "diff": "--- hydrogen_dispatch.py (as recorded)\n+++ hydrogen_dispatch.py (now)\n@@ -47,4 +47,5 @@\n \n from rdkit import Chem, RDLogger\n+from _contract import contract\n \n from _population import POPULATIONS, population_items, load_population, tagged_out\n@@ -109,6 +110,5 @@\n     if complete:\n         try:\n-            product = Chem.RemoveHs(Chem.Mol(product), sanitize=False)\n-            Chem.SanitizeMol(product)\n+            product = contract(product)\n         except Exception:\n             return\n@@ -169,5 +169,10 @@\n     i_want = _apply(substrates, want, [False] * len(want))\n     i_rest = _apply(substrates, rest, [False] * len(rest))\n-    arms = {\"dispatch\": e_want | i_rest,\n+    # Dispatch sends a template to the expanded substrate; it does not thereby inherit the defect of\n+    # never contracting what comes back. Completing the loop is a correctness requirement and not a\n+    # convention, so the expanded half of the dispatch arm is the contracted one. Built from the\n+    # uncontracted half instead, dispatch would be measured under the unfinished loop on exactly the\n+    # templates it was introduced to help, and its residual would report that rather than the policy.\n+    arms = {\"dispatch\": c_want | i_rest,\n             \"explicit\": e_want | e_rest,\n             \"implicit\": i_want | i_rest,\n@@ -236,5 +241,9 @@\n     d = H - better\n     bt_d = np.array([d[j].sum() / max(U[j].sum(), 1) for j in idx])\n-    out = {\"n_rules\": len(rules), \"dispatched_to_expanded\": n_exp,\n+    # Banks are run one at a time and merged into one file, so an entry can outlive the code that\n+    # produced it. Recording the version per bank makes a mixed artifact detectable instead of\n+    # leaving it to be noticed, which is how the last two defects survived as long as they did.\n+    out = {\"measured_by\": _code_version(),\n+           \"n_rules\": len(rules), \"dispatched_to_expanded\": n_exp,\n            \"references\": int(U.sum()), \"recovered\": int(H.sum()), \"reach\": reach,\n            \"ci95\": [round(float(np.quantile(bt, .025)), 4),"
+  },
+  {
+   "artifact": "results/joint_ranker.json",
+   "script": "joint_ranker.py",
+   "status": "producer_unknown",
+   "detail": "commit fb5cf350326e does not carry scripts/joint_ranker.py"
+  },
+  {
+   "artifact": "results/joint_rerank.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/k30timed/s0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/k30timed/s1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/k30timed/s2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/k30timed/s3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/k30timed/s4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/k30timed/s5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/key_tables/canonical.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/key_tables/inchi_no_stereo.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/key_tables/inchikey.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/key_tables/inchikey_tautomer.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/key_tables/tanimoto1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/label_convention_audit.json",
+   "script": "label_convention_audit.py",
+   "how": "source at 8e9ef156f4af",
+   "dirty_when_written": false,
+   "status": "producer_changed",
+   "detail": "producer was bab8b6c1bca2, is now 1ab994b2c4fa",
+   "diff_recovered_by": "source at 8e9ef156f4af",
+   "diff": "--- label_convention_audit.py (as recorded)\n+++ label_convention_audit.py (now)\n@@ -36,4 +36,5 @@\n from rdkit import Chem, RDLogger\n \n+from _contract import contract\n from grail_metabolism.utils.preparation import (_clean_product_smiles, _iter_reaction_products,\n                                                 _normalize_smiles_cached, load_default_rules)\n@@ -66,9 +67,20 @@\n \n \n-def _productive(substrate, refs) -> set[int]:\n-    \"\"\"Indices of rules that yield an annotated metabolite from this presentation of the substrate.\"\"\"\n+def _productive(substrate, refs, contract_first=False) -> set[int]:\n+    \"\"\"Indices of rules that yield an annotated metabolite from this presentation of the substrate.\n+\n+    `contract_first` puts back the hydrogens an expansion drew before the product is read. Without\n+    it an expanded arm measures an unfinished loop as well as a convention, which is the split\n+    Section 4 of the paper reports; here it separates how much of the label disagreement is the\n+    convention from how much is the missing call.\n+    \"\"\"\n     out = set()\n     for i, rule in enumerate(_CTX[\"rules\"]):\n         for product in _iter_reaction_products(substrate, rule):\n+            if contract_first:\n+                try:\n+                    product = contract(product)\n+                except Exception:\n+                    continue\n             try:\n                 smiles = Chem.MolToSmiles(product)\n@@ -96,5 +108,5 @@\n     mol = Chem.MolFromSmiles(sub)\n     if mol is None or not refs:\n-        return sub, None, None\n+        return sub, None, None, None\n     keys = set()\n     for r in refs:\n@@ -106,8 +118,9 @@\n             keys.add(k)\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/label_density.json",
+   "script": "label_density.py",
+   "status": "producer_unknown",
+   "detail": "commit f4ca46c34ef8 does not carry scripts/label_density.py"
+  },
+  {
+   "artifact": "results/label_flip_inside_mask.json",
+   "script": "label_flip_inside_mask.py",
+   "status": "producer_unknown",
+   "detail": "commit 822211935dc8 does not carry scripts/label_flip_inside_mask.py"
+  },
+  {
+   "artifact": "results/match_sens_cache/score_BioTransformer_48eafb817e4af31c.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sens_cache/score_GRAIL_a8b21e4847b6844f.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sens_cache/score_GRAIL_fbcae19f5ca9fa4e.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sens_cache/score_MetaPredictor_44dee7e11e9196df.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sens_cache/score_MetaTrans_70af4e65c8f7e559.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sens_cache/score_SyGMa_921c89890079c832.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sens_cache/sygma_preds_a7bf90dad9de0e5b.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sens_cache/sygma_preds_eec2f782ff0bd023.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sensitivity.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sensitivity_3method.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sensitivity_4method.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sensitivity_5method.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sensitivity_fulln.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/match_sensitivity_fulln_paired.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/matchscale_partials/v0.0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/matchscale_partials/v0.25.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/metapredictor_1170.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/metapredictor_natural_drawing_preds.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/metapredictor_wide_beam_preds.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/metatox_complementarity.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/metatox_preds.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/metatox_smirks_preds.json",
+   "script": "metatox_smirks_ingest.py",
+   "how": "source at e5da75350e64",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was cd5cd5e7e0b2, is now 4800e3d3cd26",
+   "diff_recovered_by": "source at e5da75350e64",
+   "diff": "--- metatox_smirks_ingest.py (as recorded)\n+++ metatox_smirks_ingest.py (now)\n@@ -3,15 +3,36 @@\n \n The supplier's earlier delivery was layer 1 without the SMIRKS rules and returned 270 of the 291\n-submitted parents (results/grail_vs_metatox.json), which is why MetaTox appears in no table in this\n-paper. This is the SMIRKS variant, and it covers all 291.\n-\n-The file carries no substrates. Records are identified only as `<substrate index>_<metabolite\n+submitted parents (results/grail_vs_metatox.json), and on that delivery the paper carried no MetaTox\n+column at all. This is the SMIRKS variant, it covers all 291, and it is what put MetaTox into the\n+manuscript: the arm is now a column in fourteen generated tables. This sentence said the opposite\n+for as long as it went unread, so the count is taken from the files rather than from memory --\n+grep -l MetaTox paper2/*table*.tex.\n+\n+The first delivery carries no substrates. Records are identified only as `<substrate index>_<metabolite\n index>`, so the substrates have to be recovered from the submission order in\n results/metatox_input/substrate_map.csv. A positional join is exactly the kind of assumption that\n-silently produces a whole table of wrong numbers, so it is gated rather than assumed: a predicted\n-metabolite of a substrate should look like that substrate, and under an off-by-one or a shuffled\n-order it would not. The gate is the median Tanimoto between each substrate and its own predictions,\n-against the same statistic under a deliberately rotated assignment. If the true join is not far\n-above the rotated one, the join is wrong and nothing downstream means anything.\n+silently produces a whole table of wrong numbers, so it is gated: a predicted metabolite of a\n+substrate should look like that substrate, and under an off-by-one or a shuffled order it would not.\n+The gate is the median Tanimoto between each substrate and its own predictions, against the same\n+statistic under a deliberately rotated assignment.\n+\n+WHAT THAT GATE CAN AND CANNOT SEE, because an earlier version of this docstring claimed more than it\n+delivers. It is a median over substrates, so it is blind to a minority: the fraction that has to be\n+cross-assigned before it fires is (0.5 - q) / (1 - q), where q is the share of per-substrate medians\n+already below 0.5. Measured, that is 0.25 on the 291 and 0.31 on the 879 -- so roughly a quarter to\n+a third of either delivery could be mis-assigned with this statistic unmoved. It rules out a GLOBAL\n+shift or shuffle, which is what a positional join can plausibly get wrong, and nothing smaller.\n+\n+A minority mis-assignment is caught instead by an instrument that resolves per substrate, in\n+revision/tests/test_the_metatox_column_over_the_whole_population.py: each substrate's similarity to\n+its own predictions against several strangers' sets, with the pass rate of the half this paper\n+already reports as the bar. It catches a tenth of a delivery cross-assigned, where this gate needs a\n+third.\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/mined_rule_catalog_v2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/moses_keys/canonical.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/moses_keys/inchi_no_stereo.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/moses_keys/inchikey.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/moses_keys/inchikey_tautomer.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/moses_keys/tanimoto1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/moses_samples.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/moses_uniqueness.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/multiplicity_holm.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/multiseed_headline.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/multiseed_implicit.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/null_model_lift.json",
+   "script": "null_model_lift.py",
+   "how": "source at 033e9c81f112",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 6f4ec5073790, is now 6f47b34bab13",
+   "diff_recovered_by": "source at 033e9c81f112",
+   "diff": "--- null_model_lift.py (as recorded)\n+++ null_model_lift.py (now)\n@@ -20,7 +20,17 @@\n level of one, so a ranking factor near one is free there and earned only where the budget binds.\n \n-The demonstration is the sweep, not the number. Under recall the three methods take several orders\n-across the budget; the claim is that under lift they take fewer. The gate is that both aggregates\n-reproduce the committed micro recall at the field's $k=15$ before any of that is read.\n+That was the motivation, and half of it does not survive the measurement. Lift does NOT stabilise\n+the ordering: sweeping $k$ from 1 to 40, recall gives two orderings of the three methods and lift\n+also gives two. As a remedy for the budget confound this fails, and it is reported as a failure.\n+\n+What it does buy is a different split, and one that runs against us. Recall rewards a pool and an\n+ordering together; lift isolates the ordering. SyGMa's ranking recovers 2.9 times what a uniform\n+draw from its own 81-candidate pool would, while GRAIL reaches 1.06 and MetaPredictor 1.01 -- both\n+within a rounding of chance, because their pools are smaller than the budget and there is almost\n+nothing left to order. So a ranking factor near one is not evidence of ranking; it is evidence that\n+the budget never binds, and the two are indistinguishable in recall@$k$ but not here.\n+\n+The gate is that each method's micro recall@15 is reproduced from its own released pool before any\n+of this is read.\n \"\"\"\n from __future__ import annotations\n@@ -40,6 +50,12 @@\n \n KEYS = ROOT / \"results\" / \"key_tables\" / \"inchikey_tautomer.json\"\n-# committed micro recall@15 on the clean test split, each from its own artifact\n-GATES = {\"GRAIL\": (\"results/recall_factorization.json\", 0.2607),\n+# Micro recall@15 on the clean test split, recomputed from each method's released pool.\n+#\n+# GRAIL's gate is NOT results/recall_factorization.json's stored 0.2607. That figure is the deployed\n+# output's hit count after two monotonicity clamps pulled it down to a ceiling measured in a\n+# different hydrogen convention; a fresh run of the deployed pipeline returns 689 hits, 0.2653, and\n+# results/set_metrics_by_criterion.json -- computed from the same stored output by another script --\n+# agrees at 0.3395 macro. The gate is the reproducible number, not the published one.\n+GATES = {\"GRAIL\": (\"deployed pipeline re-run, results/clamp_verification.json\", 0.2653),\n          \"SyGMa\": (\"results/decompose_sygma.json\", 0.5137)}\n KS = tuple(range(1, 41))"
+  },
+  {
+   "artifact": "results/number_sources.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/ordering_stability.json",
+   "script": "ordering_stability.py",
+   "status": "producer_unknown",
+   "detail": "commit adc74870fc01 does not carry scripts/ordering_stability.py"
+  },
+  {
+   "artifact": "results/packing_predicts_order.json",
+   "script": "packing_predicts_order.py",
+   "how": "source at 2da1ab3e10da",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was a364ac1b68a4, is now b05cd5267243",
+   "diff_recovered_by": "source at 2da1ab3e10da",
+   "diff": "--- packing_predicts_order.py (as recorded)\n+++ packing_predicts_order.py (now)\n@@ -28,4 +28,5 @@\n import itertools\n import json\n+import sys\n from pathlib import Path\n \n@@ -107,4 +108,9 @@\n             if \"system_accuracy_by_cell\" in r:\n                 boards[f\"retrosynthesis, {r['n_systems']} systems\"] = r\n+    rx = ROOT / \"results/robust_order_retro_extrapolation.json\"\n+    if rx.exists():\n+        for name, r in json.loads(rx.read_text())[\"leaderboards\"].items():\n+            if \"system_accuracy_by_cell\" in r:\n+                boards[f\"retrosynthesis, {r['n_systems']} systems (extrapolation)\"] = r\n     rm = ROOT / \"results/robust_order_metabolite.json\"\n     if rm.exists():\n@@ -138,4 +144,9 @@\n     if not boards:\n         raise SystemExit(\"no robust-order artifact carrying per-cell accuracies\")\n+    # this file enumerates the boards for itself, so it is held against the one list\n+    sys.path.insert(0, str(Path(__file__).resolve().parent))\n+    from _boards import check_agreement\n+    check_agreement(len(boards), sum(b[\"n_pairs\"] for b in boards.values()),\n+                    \"packing_predicts_order.py\")\n \n     rep = {\"config\": {**_code_version(),"
+  },
+  {
+   "artifact": "results/pair_chemistry_ranker.json",
+   "script": "pair_chemistry_ranker.py",
+   "status": "producer_unknown",
+   "detail": "commit 4aa33c82dbe5 does not carry scripts/pair_chemistry_ranker.py"
+  },
+  {
+   "artifact": "results/pair_cost_benchmark.json",
+   "script": "pair_cost_benchmark.py",
+   "status": "producer_unknown",
+   "detail": "commit 003cfcee3da5 does not carry scripts/pair_cost_benchmark.py"
+  },
+  {
+   "artifact": "results/paper2_review.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/parent_sensitivity.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/permutation_check.json",
+   "script": "permutation_check.py",
+   "status": "producer_unknown",
+   "detail": "commit b94f6892691a does not carry scripts/permutation_check.py"
+  },
+  {
+   "artifact": "results/places_decomposition.json",
+   "script": "places_decomposition.py",
+   "how": "source at 2da1ab3e10da",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 5591c738d739, is now 9c21dbde1a3c",
+   "diff_recovered_by": "source at 2da1ab3e10da",
+   "diff": "--- places_decomposition.py (as recorded)\n+++ places_decomposition.py (now)\n@@ -32,4 +32,5 @@\n \n SOURCES = [(\"robust_order.json\", \"cluster0\"), (\"robust_order.json\", \"cluster1\"),\n+           (\"robust_order_retro_extrapolation.json\", \"extrapolation50k\"),\n            (\"robust_order_metabolite.json\", None), (\"robust_order_posebusters.json\", None),\n            (\"robust_order_wmt24_en-de.json\", None), (\"robust_order_wmt24_ja-zh.json\", None)]"
+  },
+  {
+   "artifact": "results/polish_audit.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/population_axis.json",
+   "script": "population_axis.py",
+   "how": "source at 2d6b5bbfb0a4",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was fa2fb39e2dd8, is now 1de3691955b7",
+   "diff_recovered_by": "source at 2d6b5bbfb0a4",
+   "diff": "--- population_axis.py (as recorded)\n+++ population_axis.py (now)\n@@ -150,4 +150,24 @@\n                   f\"{r[f'gap_{small}']:+.4f} -> {r[f'gap_{big}']:+.4f}\")\n \n+    # What this design could have detected, so the null is a bound and not an absence.\n+    try:\n+        from scipy.stats import norm\n+        zc = float(norm.ppf(1 - 0.05 / (2 * max(len(rows), 1))))\n+        zp = float(norm.ppf(0.80))\n+    except Exception:\n+        zc, zp = 3.5, 0.8416\n+    ses = []\n+    for r in rows:\n+        a_, b_ = r[\"pair\"].split(\" vs \")\n+        ds = vec[r[\"criterion\"]][\"shared\"][a_][r[\"metric\"]] - vec[r[\"criterion\"]][\"shared\"][b_][r[\"metric\"]]\n+        dc = vec[r[\"criterion\"]][\"rest\"][a_][r[\"metric\"]] - vec[r[\"criterion\"]][\"rest\"][b_][r[\"metric\"]]\n+        ses.append(float((ds[si].mean(axis=1) - dc[ci].mean(axis=1)).std(ddof=1)))\n+    ses.sort()\n+    mde = sorted((zc + zp) * x for x in ses)\n+    mde_rep = {\"median\": round(mde[len(mde) // 2], 4), \"smallest\": round(mde[0], 4),\n+               \"largest\": round(mde[-1], 4), \"power\": 0.80}\n+    print(f\"\\n  minimum detectable interaction at the family's Holm threshold, 80% power: \"\n+          f\"median {mde_rep['median']:.4f}, range {mde_rep['smallest']:.4f} to {mde_rep['largest']:.4f}\")\n+\n     ordered = sorted(rows, key=lambda r: r[\"interaction\"][\"p\"])\n     survivors = []\n@@ -179,4 +199,5 @@\n            \"n_shared\": n_shared, \"n_complement\": n_rest,\n            \"interactions_excluding_zero\": len(excl), \"holm_survivors\": len(survivors),\n+           \"minimum_detectable_interaction\": mde_rep,\n            \"median_gap_change\": round(med[len(med) // 2], 4),\n            \"by_metric\": by_metric, \"rows\": rows}"
+  },
+  {
+   "artifact": "results/precision_table.json",
+   "script": "precision_table.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was b93fc7d61563, is now ef30c2457f43",
+   "diff_recovered_by": "source at eb05854a679e",
+   "diff": "--- precision_table.py (as recorded)\n+++ precision_table.py (now)\n@@ -27,4 +27,5 @@\n         sys.path.insert(0, _p)\n \n+from _control_population import absent_from, out_path, population, resolve  # noqa: E402\n from _provenance import record_inputs, stamp  # noqa: E402\n \n@@ -49,15 +50,25 @@\n def main() -> int:\n     ap = argparse.ArgumentParser()\n-    ap.add_argument(\"--out\", default=str(ROOT / \"results/precision_table.json\"))\n+    # The population names its own pools, its own comparator files and its own output, so the\n+    # three cannot be set to two different populations by accident.\n+    ap.add_argument(\"--population\", default=\"comparison\", choices=(\"comparison\", \"whole\"))\n+    ap.add_argument(\"--out\", default=None)\n     args = ap.parse_args()\n+    spec = population(args.population)\n+    args.out = args.out or out_path(\"precision_table\", args.population)\n+    comparators = resolve(COMPARATORS, args.population)\n \n     from bank_without_selection import _dedup, _key as tautkey\n \n-    pools, refs = {}, {}\n-    read_from = sorted(glob.glob(str(ROOT / \"results/widepools_implicit/w*.json\")))\n-    for f in read_from:\n-        d = json.loads(Path(f).read_text())\n-        pools.update(d[\"pools\"]); refs.update(d[\"references\"])\n-    small = json.loads((ROOT / \"results/widepools_k30/all.json\").read_text())[\"pools\"]\n+    def load(pattern):\n+        pools, refs = {}, {}\n+        for f in sorted(glob.glob(str(ROOT / pattern))) or [str(ROOT / pattern)]:\n+            d = json.loads(Path(f).read_text())\n+            pools.update(d[\"pools\"]); refs.update(d[\"references\"])\n+        return pools, refs\n+\n+    pools, refs = load(spec[\"exhaustive\"])\n+    read_from = sorted(glob.glob(str(ROOT / spec[\"exhaustive\"])))\n+    small, _ = load(spec[\"interactive\"])\n     subs = sorted(s for s in pools if refs.get(s) and s in small)\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/prior_vs_learned.json",
+   "script": "prior_vs_learned.py",
+   "how": "source at 1d56fb8c3272",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 461149c8ba9f, is now 6f47af73b1ea",
+   "diff_recovered_by": "source at 1d56fb8c3272",
+   "diff": "--- prior_vs_learned.py (as recorded)\n+++ prior_vs_learned.py (now)\n@@ -38,4 +38,19 @@\n     sys.path.insert(0, str(ROOT))\n \n+\n+\n+def _code_version() -> dict:\n+    \"\"\"Which code wrote this artifact. The published selection_ablation.json carried fields the\n+    current script no longer emits, so it was written by an earlier version -- and nothing in it\n+    said so. Cap and seed pin the data; this pins the analysis.\"\"\"\n+    import subprocess\n+    def _git(*a):\n+        try:\n+            return subprocess.run([\"git\", *a], cwd=ROOT, capture_output=True, text=True,\n+                                  timeout=10).stdout.strip() or None\n+        except Exception:\n+            return None\n+    return {\"script\": pathlib.Path(__file__).name, \"git_commit\": _git(\"rev-parse\", \"HEAD\"),\n+            \"git_dirty\": bool(_git(\"status\", \"--porcelain\"))}\n \n def _rel(p) -> str:\n@@ -163,4 +178,13 @@\n \n \n+def _label_presentation() -> str:\n+    \"\"\"The presentation the training labels were built under, if the code still records it.\"\"\"\n+    try:\n+        from grail_metabolism.utils.preparation import LABEL_PRESENTATION\n+        return str(LABEL_PRESENTATION)\n+    except Exception:\n+        return \"unknown\"\n+\n+\n def main() -> int:\n     ap = argparse.ArgumentParser()\n@@ -179,4 +203,9 @@\n     ap.add_argument(\"--max-output\", type=int, default=15)\n     ap.add_argument(\"--threads\", type=int, default=4)\n+    ap.add_argument(\"--gen-ckpt\", type=str, default=None,\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/prior_vs_learned_propensity.json",
+   "script": "prior_vs_learned.py",
+   "how": "source at 1d56fb8c3272",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 461149c8ba9f, is now 6f47af73b1ea",
+   "diff_recovered_by": "source at 1d56fb8c3272",
+   "diff": "--- prior_vs_learned.py (as recorded)\n+++ prior_vs_learned.py (now)\n@@ -38,4 +38,19 @@\n     sys.path.insert(0, str(ROOT))\n \n+\n+\n+def _code_version() -> dict:\n+    \"\"\"Which code wrote this artifact. The published selection_ablation.json carried fields the\n+    current script no longer emits, so it was written by an earlier version -- and nothing in it\n+    said so. Cap and seed pin the data; this pins the analysis.\"\"\"\n+    import subprocess\n+    def _git(*a):\n+        try:\n+            return subprocess.run([\"git\", *a], cwd=ROOT, capture_output=True, text=True,\n+                                  timeout=10).stdout.strip() or None\n+        except Exception:\n+            return None\n+    return {\"script\": pathlib.Path(__file__).name, \"git_commit\": _git(\"rev-parse\", \"HEAD\"),\n+            \"git_dirty\": bool(_git(\"status\", \"--porcelain\"))}\n \n def _rel(p) -> str:\n@@ -163,4 +178,13 @@\n \n \n+def _label_presentation() -> str:\n+    \"\"\"The presentation the training labels were built under, if the code still records it.\"\"\"\n+    try:\n+        from grail_metabolism.utils.preparation import LABEL_PRESENTATION\n+        return str(LABEL_PRESENTATION)\n+    except Exception:\n+        return \"unknown\"\n+\n+\n def main() -> int:\n     ap = argparse.ArgumentParser()\n@@ -179,4 +203,9 @@\n     ap.add_argument(\"--max-output\", type=int, default=15)\n     ap.add_argument(\"--threads\", type=int, default=4)\n+    ap.add_argument(\"--gen-ckpt\", type=str, default=None,\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/product_reappearance.json",
+   "script": "product_reappearance.py",
+   "status": "producer_unknown",
+   "detail": "commit 34187ebd9383 does not carry scripts/product_reappearance.py"
+  },
+  {
+   "artifact": "results/propensity_weights.json",
+   "script": "propensity_weights.py",
+   "status": "producer_unknown",
+   "detail": "commit d3d6498ad8d1 does not carry scripts/propensity_weights.py"
+  },
+  {
+   "artifact": "results/prose_metrics.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/prose_rate_corpus.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/provenance_knob_attribution.json",
+   "script": "provenance_knob_attribution.py",
+   "status": "producer_unknown",
+   "detail": "commit 4b3169e38c03 does not carry scripts/provenance_knob_attribution.py"
+  },
+  {
+   "artifact": "results/prune_and_rerank_val.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/pu_propensity_bounds.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rank_flip_ci.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rank_flip_ci_metatrans_sygma.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/reach_engine_vs_bank.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/reach_engine_vs_bank__clean_test.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/recall_factorization.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/recall_factorization_expanded_convention.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/recall_factorization_matched.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/recall_factorization_rerun.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/redesign_gate_a.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/redesign_gate_c.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/reference_closure.json",
+   "script": "reference_closure.py",
+   "status": "producer_unknown",
+   "detail": "commit 11a103f586d3 does not carry scripts/reference_closure.py"
+  },
+  {
+   "artifact": "results/reranker_gate_bi.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/resolution_floor.json",
+   "script": "retro_leaderboard.py",
+   "how": "source at c128b916332d",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 479910f638f1, is now 27aaec9c0bcb",
+   "diff_recovered_by": "source at c128b916332d",
+   "diff": "--- retro_leaderboard.py (as recorded)\n+++ retro_leaderboard.py (now)\n@@ -39,4 +39,6 @@\n from pathlib import Path\n \n+import math\n+\n import numpy as np\n \n@@ -53,4 +55,20 @@\n KS = (1, 3, 5, 10)\n N_BOOT, SEED = 10000, 0\n+\n+\n+def _paired_p(d) -> float:\n+    \"\"\"The same test ``robust_order._paired_p`` applies, on the same kind of data.\n+\n+    A bootstrap tail cannot resolve past $1/B$, and Holm compares the $i$-th smallest against\n+    $\\\\alpha/(m-i)$. With a family of this size every surviving test sat exactly on that floor, so\n+    the count was of empty tails rather than of separated effects and moved with $B$ alone. And\n+    this board scores each reaction $0$ or $1$, so the paired difference is a matched difference of\n+    proportions whose exact conditional test is the sign test on the discordant pairs; a normal\n+    approximation errs low exactly in the tail Holm compares against. Both are imported rather than\n+    restated, so a repair to one is a repair to both.\n+    \"\"\"\n+    from robust_order import _paired_p as _shared  # imported here: robust_order imports this module\n+\n+    return _shared(d)\n \n \n@@ -121,4 +139,6 @@\n     ap = argparse.ArgumentParser()\n     ap.add_argument(\"--cluster\", default=\"cluster0\")\n+    ap.add_argument(\"--ingest\", default=\"results/evalretro_ingest.json\",\n+                    help=\"the ingest naming this cluster's systems and test csv\")\n     ap.add_argument(\"--dir\", default=str(ROOT / \"grail_metabolism\" / \"data\" / \"evalretro\"))\n     ap.add_argument(\"--max-rank\", type=int, default=10)\n@@ -128,5 +148,5 @@\n     out = args.out or str(ROOT / \"results\" / f\"retro_leaderboard_{args.cluster}.json\")\n \n  ... diff truncated"
+  },
+  {
+   "artifact": "results/resource_cache_profile.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/retro_extrapolation_ingest.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/retro_extrapolation_population.json",
+   "script": "retro_extrapolation_ingest.py",
+   "how": "source at 73e81d95b8dd",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 119c0ffac3d4, is now 60a1706e23de",
+   "diff_recovered_by": "source at 73e81d95b8dd",
+   "diff": "--- retro_extrapolation_ingest.py (as recorded)\n+++ retro_extrapolation_ingest.py (now)\n@@ -100,5 +100,5 @@\n     with open(test_csv, \"w\", newline=\"\") as fh:\n         w = csv.writer(fh)\n-        w.writerow([\"target\", \"REACTANT\"])\n+        w.writerow([\"PRODUCT\", \"REACTANT\"])\n         for prod in order:\n             w.writerow([prod, reactants[prod]])\n@@ -107,9 +107,12 @@\n     norm.mkdir(exist_ok=True)\n     for k, name in SYSTEMS.items():\n-        rows_out = [{\"preds\": per_system[k].get(prod, [])} for prod in order]\n+        rows_out = [{\"product\": prod, \"preds\": per_system[k].get(prod, [])} for prod in order]\n         (norm / f\"{name}.json\").write_text(json.dumps(rows_out))\n \n     ingest_path = ROOT / \"results\" / \"retro_extrapolation_ingest.json\"\n     ingest_path.write_text(json.dumps({\n+        \"config\": {\"source\": str(SRC.relative_to(ROOT)),\n+                   \"note\": \"the release reshaped to the form robust_order.py and \"\n+                           \"retro_leaderboard.py already read\"},\n         \"clusters\": {\"extrapolation50k\": {\n             \"systems\": [SYSTEMS[k] for k in SYSTEMS],"
+  },
+  {
+   "artifact": "results/retro_leaderboard_cluster0.json",
+   "script": "retro_leaderboard.py",
+   "how": "source at 0aa044ec2020",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 5d99bf59defe, is now 27aaec9c0bcb",
+   "diff_recovered_by": "source at 0aa044ec2020",
+   "diff": "--- retro_leaderboard.py (as recorded)\n+++ retro_leaderboard.py (now)\n@@ -58,15 +58,17 @@\n \n def _paired_p(d) -> float:\n-    \"\"\"Two-sided p for a paired mean from the normal approximation, which has no floor.\n+    \"\"\"The same test ``robust_order._paired_p`` applies, on the same kind of data.\n \n     A bootstrap tail cannot resolve past $1/B$, and Holm compares the $i$-th smallest against\n     $\\\\alpha/(m-i)$. With a family of this size every surviving test sat exactly on that floor, so\n-    the count was of empty tails rather than of separated effects and moved with $B$ alone.\n+    the count was of empty tails rather than of separated effects and moved with $B$ alone. And\n+    this board scores each reaction $0$ or $1$, so the paired difference is a matched difference of\n+    proportions whose exact conditional test is the sign test on the discordant pairs; a normal\n+    approximation errs low exactly in the tail Holm compares against. Both are imported rather than\n+    restated, so a repair to one is a repair to both.\n     \"\"\"\n-    n = len(d)\n-    se = float(np.std(d, ddof=1)) / np.sqrt(n)\n-    if se == 0.0:\n-        return 1.0\n-    return float(math.erfc(abs(float(np.mean(d))) / se / np.sqrt(2.0)))\n+    from robust_order import _paired_p as _shared  # imported here: robust_order imports this module\n+\n+    return _shared(d)\n \n \n@@ -137,4 +139,6 @@\n     ap = argparse.ArgumentParser()\n     ap.add_argument(\"--cluster\", default=\"cluster0\")\n+    ap.add_argument(\"--ingest\", default=\"results/evalretro_ingest.json\",\n+                    help=\"the ingest naming this cluster's systems and test csv\")\n     ap.add_argument(\"--dir\", default=str(ROOT / \"grail_metabolism\" / \"data\" / \"evalretro\"))\n     ap.add_argument(\"--max-rank\", type=int, default=10)\n@@ -144,5 +148,5 @@\n     out = args.out or str(ROOT / \"results\" / f\"retro_leaderboard_{args.cluster}.json\")\n \n-    ingest = json.loads((ROOT / \"results/evalretro_ingest.json\").read_text())\n+    ingest = json.loads((ROOT / args.ingest).read_text())\n     meta = ingest[\"clusters\"][args.cluster]\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/retro_leaderboard_cluster1.json",
+   "script": "retro_leaderboard.py",
+   "how": "source at 2cfcccda9518",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 479910f638f1, is now 27aaec9c0bcb",
+   "diff_recovered_by": "source at 2cfcccda9518",
+   "diff": "--- retro_leaderboard.py (as recorded)\n+++ retro_leaderboard.py (now)\n@@ -39,4 +39,6 @@\n from pathlib import Path\n \n+import math\n+\n import numpy as np\n \n@@ -53,4 +55,20 @@\n KS = (1, 3, 5, 10)\n N_BOOT, SEED = 10000, 0\n+\n+\n+def _paired_p(d) -> float:\n+    \"\"\"The same test ``robust_order._paired_p`` applies, on the same kind of data.\n+\n+    A bootstrap tail cannot resolve past $1/B$, and Holm compares the $i$-th smallest against\n+    $\\\\alpha/(m-i)$. With a family of this size every surviving test sat exactly on that floor, so\n+    the count was of empty tails rather than of separated effects and moved with $B$ alone. And\n+    this board scores each reaction $0$ or $1$, so the paired difference is a matched difference of\n+    proportions whose exact conditional test is the sign test on the discordant pairs; a normal\n+    approximation errs low exactly in the tail Holm compares against. Both are imported rather than\n+    restated, so a repair to one is a repair to both.\n+    \"\"\"\n+    from robust_order import _paired_p as _shared  # imported here: robust_order imports this module\n+\n+    return _shared(d)\n \n \n@@ -121,4 +139,6 @@\n     ap = argparse.ArgumentParser()\n     ap.add_argument(\"--cluster\", default=\"cluster0\")\n+    ap.add_argument(\"--ingest\", default=\"results/evalretro_ingest.json\",\n+                    help=\"the ingest naming this cluster's systems and test csv\")\n     ap.add_argument(\"--dir\", default=str(ROOT / \"grail_metabolism\" / \"data\" / \"evalretro\"))\n     ap.add_argument(\"--max-rank\", type=int, default=10)\n@@ -128,5 +148,5 @@\n     out = args.out or str(ROOT / \"results\" / f\"retro_leaderboard_{args.cluster}.json\")\n \n  ... diff truncated"
+  },
+  {
+   "artifact": "results/retro_population_axis.json",
+   "script": "retro_leaderboard.py",
+   "how": "source at 2d6b5bbfb0a4",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 479910f638f1, is now 27aaec9c0bcb",
+   "diff_recovered_by": "source at 2d6b5bbfb0a4",
+   "diff": "--- retro_leaderboard.py (as recorded)\n+++ retro_leaderboard.py (now)\n@@ -39,4 +39,6 @@\n from pathlib import Path\n \n+import math\n+\n import numpy as np\n \n@@ -53,4 +55,20 @@\n KS = (1, 3, 5, 10)\n N_BOOT, SEED = 10000, 0\n+\n+\n+def _paired_p(d) -> float:\n+    \"\"\"The same test ``robust_order._paired_p`` applies, on the same kind of data.\n+\n+    A bootstrap tail cannot resolve past $1/B$, and Holm compares the $i$-th smallest against\n+    $\\\\alpha/(m-i)$. With a family of this size every surviving test sat exactly on that floor, so\n+    the count was of empty tails rather than of separated effects and moved with $B$ alone. And\n+    this board scores each reaction $0$ or $1$, so the paired difference is a matched difference of\n+    proportions whose exact conditional test is the sign test on the discordant pairs; a normal\n+    approximation errs low exactly in the tail Holm compares against. Both are imported rather than\n+    restated, so a repair to one is a repair to both.\n+    \"\"\"\n+    from robust_order import _paired_p as _shared  # imported here: robust_order imports this module\n+\n+    return _shared(d)\n \n \n@@ -121,4 +139,6 @@\n     ap = argparse.ArgumentParser()\n     ap.add_argument(\"--cluster\", default=\"cluster0\")\n+    ap.add_argument(\"--ingest\", default=\"results/evalretro_ingest.json\",\n+                    help=\"the ingest naming this cluster's systems and test csv\")\n     ap.add_argument(\"--dir\", default=str(ROOT / \"grail_metabolism\" / \"data\" / \"evalretro\"))\n     ap.add_argument(\"--max-rank\", type=int, default=10)\n@@ -128,5 +148,5 @@\n     out = args.out or str(ROOT / \"results\" / f\"retro_leaderboard_{args.cluster}.json\")\n \n  ... diff truncated"
+  },
+  {
+   "artifact": "results/retro_provenance.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/retro_template_convention.json",
+   "script": "retro_template_convention.py",
+   "status": "producer_unknown",
+   "detail": "commit b0587d9f629b does not carry scripts/retro_template_convention.py"
+  },
+  {
+   "artifact": "results/retro_transfer.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/retro_transfer_preds.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rhea_type_overlap.json",
+   "script": "rhea_type_overlap.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was 08e3888934fd, is now 641e6eade997",
+   "diff_recovered_by": "source at c9a495bd9cb0",
+   "diff": "--- rhea_type_overlap.py (as recorded)\n+++ rhea_type_overlap.py (now)\n@@ -116,4 +116,5 @@\n            \"sanity\": {\"bank_types_rhea_also_has\": len(bank_types & rhea_types),\n                       \"note\": \"a zero here would mean the two type vocabularies do not meet\"},\n+           \"recovered_types\": sorted(hit),\n            \"examples_recoverable\": [json.loads(t) for t in hit[:8]]}\n     Path(args.out).write_text(json.dumps(rep, indent=1))"
+  },
+  {
+   "artifact": "results/robust_order.json",
+   "script": "robust_order.py",
+   "how": "source at 0aa044ec2020",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 62e87d1b950f, is now 15b145248918",
+   "diff_recovered_by": "source at 0aa044ec2020",
+   "diff": "--- robust_order.py (as recorded)\n+++ robust_order.py (now)\n@@ -66,5 +66,5 @@\n \n def _paired_p(d) -> float:\n-    \"\"\"Two-sided p for a paired mean, from the normal approximation to its sampling distribution.\n+    \"\"\"Two-sided p for a paired comparison: exact where the data are hits, normal where they are not.\n \n     Not from the bootstrap draws. A resampled tail cannot resolve past $1/B$, so a bootstrap p is\n@@ -74,7 +74,34 @@\n     count and not of the data. The floor was in place when this was written and did exactly that on\n     a $1368$-test family. The intervals stay bootstrap; only the $p$ used for multiplicity is\n-    analytic, and the two agree on every family small enough for the floor not to bind.\n+    analytic.\n+\n+    Where a board scores each item $0$ or $1$ --- every chemistry and docking board here --- the\n+    paired difference takes three values and its mean is a difference of proportions on matched\n+    items, for which the exact conditional test is the sign test on the discordant pairs. That\n+    matters at these thresholds and not elsewhere: Holm is comparing against $10^{-6}$ to\n+    $10^{-3}$, which is precisely the tail where a normal approximation to a mean of few discordant\n+    items is least reliable, and it errs low. On the docking board the exact $p$ runs $1.3$ to\n+    $1.6$ times the approximate one, enough to move three tests across that board's own cutoff. So\n+    the exact test is used wherever the data admit it, and the approximation only where the scores\n+    are continuous and no exact conditional test is available.\n     \"\"\"\n+    d = np.asarray(d, dtype=float)\n     n = len(d)\n+    if n == 0:\n+        return 1.0\n+    if np.all(np.isin(d, (-1.0, 0.0, 1.0))):\n+        pos = int((d > 0).sum())\n+        neg = int((d < 0).sum())\n+        k = pos + neg\n+        if k == 0:\n+            return 1.0\n+        # Two-sided exact binomial at p=1/2, summed in log space: a board with thousands of\n+        # discordant items overflows the direct form, since 2**k leaves the float range at k=1024.\n+        lo = min(pos, neg)\n+        log2 = math.log(2.0)\n+        tail = math.fsum(math.exp(math.lgamma(k + 1) - math.lgamma(i + 1)\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/robust_order_retro_extrapolation.json",
+   "script": "robust_order.py",
+   "how": "source at 2da1ab3e10da",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was ad3a41b55a98, is now 15b145248918",
+   "diff_recovered_by": "source at 2da1ab3e10da",
+   "diff": "--- robust_order.py (as recorded)\n+++ robust_order.py (now)\n@@ -323,6 +323,10 @@\n \n \n-def retro_leaderboard(cluster: str, directory: Path, max_rank: int, workers: int) -> dict:\n-    ingest = json.loads((ROOT / \"results/evalretro_ingest.json\").read_text())\n+def retro_leaderboard(cluster: str, directory: Path, max_rank: int, workers: int,\n+                      ingest_path: str = \"results/evalretro_ingest.json\") -> dict:\n+    \"\"\"Score one board. The ingest file is a parameter so a second release can be scored by this\n+    same function rather than by a second implementation of it: the criteria, the budgets and the\n+    estimator then agree with the boards already surveyed by construction.\"\"\"\n+    ingest = json.loads((ROOT / ingest_path).read_text())\n     meta = ingest[\"clusters\"][cluster]\n     systems, rows = meta[\"systems\"], list(csv.DictReader(open(ROOT / meta[\"test_csv\"])))\n@@ -372,4 +376,6 @@\n     ap.add_argument(\"--dir\", default=str(ROOT / \"grail_metabolism\" / \"data\" / \"evalretro\"))\n     ap.add_argument(\"--clusters\", default=\"cluster0,cluster1\")\n+    ap.add_argument(\"--ingest\", default=\"results/evalretro_ingest.json\",\n+                    help=\"the ingest that names each cluster's systems and test csv\")\n     ap.add_argument(\"--max-rank\", type=int, default=10)\n     ap.add_argument(\"--workers\", type=int, default=6)\n@@ -384,5 +390,5 @@\n            \"leaderboards\": {}}\n     for cluster in args.clusters.split(\",\"):\n-        r = retro_leaderboard(cluster, Path(args.dir), args.max_rank, args.workers)\n+        r = retro_leaderboard(cluster, Path(args.dir), args.max_rank, args.workers, args.ingest)\n         rep[\"leaderboards\"][cluster] = r\n         print(f\"\\n{cluster}: {r['n_systems']} systems, {r['n_cells']} cells, {r['n_pairs']} pairs\")"
+  },
+  {
+   "artifact": "results/rule_collapse.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rule_collapse_cache.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rule_dedup_provable.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rule_embed_decomp.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rule_prune_probe.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rule_train_positives.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/baseline/generator_training.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/baseline/metrics.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/candfilter/filter_training.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/candfilter/generator_training.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/candfilter/metrics.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/diffreadout/filter_training.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/diffreadout/generator_training.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/diffreadout/metrics.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/lambda8/generator_training.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/lambda8/metrics.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/typeid/filter_training.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/typeid/generator_training.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/rulegate_cpu/typeid/metrics.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed0.json",
+   "script": "build_wide_pools.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was 9b6f17965d4a, is now 5ec39f72c745",
+   "diff_recovered_by": "source at 7bbcdeeecf0d",
+   "diff": "--- build_wide_pools.py (as recorded)\n+++ build_wide_pools.py (now)\n@@ -201,6 +201,16 @@\n         return h.hexdigest()[:16]\n \n+    # A shard is stamped for the same reason the merge is. It was not, and the asymmetry was\n+    # invisible because a merged pool inherits the merge's stamp: only the shards that are USED\n+    # unmerged carry the gap forward, and those are exactly the single-shard runs that produce a\n+    # whole population at once. Three of them feed the seed spread, and until this line existed\n+    # no file in the tree recorded that this script had made them.\n     Path(args.out).write_text(json.dumps(\n-        {\"slice\": [args.start, args.end or len(subs)], \"top_k\": args.top_k,\n+        {\"provenance\": stamp(__file__),\n+         \"match\": \"inchikey_tautomer\",\n+         \"note\": (\"one shard; candidates in rank order by filter x generator, deduplicated by \"\n+                  \"match key, first SMILES kept. top_k is the rule budget: the whole bank is the \"\n+                  \"selector-free arm, the value the checkpoint records is the trained one\"),\n+         \"slice\": [args.start, args.end or len(subs)], \"top_k\": args.top_k,\n          \"present\": args.present, \"population\": args.population,\n          \"checkpoints\": {\"generator\": {\"path\": _rel(args.gen_ckpt),"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed0/w0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed0/w1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed0/w2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed0/w3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed0/w4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed0/w5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed1.json",
+   "script": "build_wide_pools.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was 9b6f17965d4a, is now 5ec39f72c745",
+   "diff_recovered_by": "source at 6d7dbbfe957a",
+   "diff": "--- build_wide_pools.py (as recorded)\n+++ build_wide_pools.py (now)\n@@ -201,6 +201,16 @@\n         return h.hexdigest()[:16]\n \n+    # A shard is stamped for the same reason the merge is. It was not, and the asymmetry was\n+    # invisible because a merged pool inherits the merge's stamp: only the shards that are USED\n+    # unmerged carry the gap forward, and those are exactly the single-shard runs that produce a\n+    # whole population at once. Three of them feed the seed spread, and until this line existed\n+    # no file in the tree recorded that this script had made them.\n     Path(args.out).write_text(json.dumps(\n-        {\"slice\": [args.start, args.end or len(subs)], \"top_k\": args.top_k,\n+        {\"provenance\": stamp(__file__),\n+         \"match\": \"inchikey_tautomer\",\n+         \"note\": (\"one shard; candidates in rank order by filter x generator, deduplicated by \"\n+                  \"match key, first SMILES kept. top_k is the rule budget: the whole bank is the \"\n+                  \"selector-free arm, the value the checkpoint records is the trained one\"),\n+         \"slice\": [args.start, args.end or len(subs)], \"top_k\": args.top_k,\n          \"present\": args.present, \"population\": args.population,\n          \"checkpoints\": {\"generator\": {\"path\": _rel(args.gen_ckpt),"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed1/w0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed1/w1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed1/w2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed1/w3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed1/w4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed1/w5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed2.json",
+   "script": "build_wide_pools.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was 9b6f17965d4a, is now 5ec39f72c745",
+   "diff_recovered_by": "source at 6d7dbbfe957a",
+   "diff": "--- build_wide_pools.py (as recorded)\n+++ build_wide_pools.py (now)\n@@ -201,6 +201,16 @@\n         return h.hexdigest()[:16]\n \n+    # A shard is stamped for the same reason the merge is. It was not, and the asymmetry was\n+    # invisible because a merged pool inherits the merge's stamp: only the shards that are USED\n+    # unmerged carry the gap forward, and those are exactly the single-shard runs that produce a\n+    # whole population at once. Three of them feed the seed spread, and until this line existed\n+    # no file in the tree recorded that this script had made them.\n     Path(args.out).write_text(json.dumps(\n-        {\"slice\": [args.start, args.end or len(subs)], \"top_k\": args.top_k,\n+        {\"provenance\": stamp(__file__),\n+         \"match\": \"inchikey_tautomer\",\n+         \"note\": (\"one shard; candidates in rank order by filter x generator, deduplicated by \"\n+                  \"match key, first SMILES kept. top_k is the rule budget: the whole bank is the \"\n+                  \"selector-free arm, the value the checkpoint records is the trained one\"),\n+         \"slice\": [args.start, args.end or len(subs)], \"top_k\": args.top_k,\n          \"present\": args.present, \"population\": args.population,\n          \"checkpoints\": {\"generator\": {\"path\": _rel(args.gen_ckpt),"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed2/w0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed2/w1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed2/w2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed2/w3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed2/w4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/exhaustive_seed2/w5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/interactive_seed0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/interactive_seed1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/seedpools/interactive_seed2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/selection_ablation.json",
+   "script": "selection_ablation.py",
+   "how": "source at 1d56fb8c3272",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 7623e93a973b, is now 9a2a34c95080",
+   "diff_recovered_by": "source at 1d56fb8c3272",
+   "diff": "--- selection_ablation.py (as recorded)\n+++ selection_ablation.py (now)\n@@ -35,4 +35,19 @@\n     sys.path.insert(0, str(ROOT))\n \n+\n+\n+def _code_version() -> dict:\n+    \"\"\"Which code wrote this artifact. The published selection_ablation.json carried fields the\n+    current script no longer emits, so it was written by an earlier version -- and nothing in it\n+    said so. Cap and seed pin the data; this pins the analysis.\"\"\"\n+    import subprocess\n+    def _git(*a):\n+        try:\n+            return subprocess.run([\"git\", *a], cwd=ROOT, capture_output=True, text=True,\n+                                  timeout=10).stdout.strip() or None\n+        except Exception:\n+            return None\n+    return {\"script\": pathlib.Path(__file__).name, \"git_commit\": _git(\"rev-parse\", \"HEAD\"),\n+            \"git_dirty\": bool(_git(\"status\", \"--porcelain\"))}\n \n def _rel(p) -> str:\n@@ -53,5 +68,5 @@\n # SyGMa + ceiling references (macro/oracle tautomer, full clean test), for context in the table.\n SYGMA_15 = 0.572\n-CEILING = 0.735\n+CEILING = json.loads((ROOT / \"results/recall_factorization.json\").read_text())[\"macro_coverage_bank\"]\n DEPLOYED_15 = 0.330\n KS = [5, 10, 15]\n@@ -142,5 +157,5 @@\n     # with the cap and seed that drew it. Recorded here because they were not: recovering the n=245\n     # set behind the published figures took a search over caps (see paper/SELF_CLAIMS.md row 2).\n-    \"config\": {\"max_substrates\": args.max_substrates, \"sampling_seed\": args.sampling_seed,\n+    \"config\": {**_code_version(), \"max_substrates\": args.max_substrates, \"sampling_seed\": args.sampling_seed,\n                \"split\": args.split, \"use_clean_splits\": True, \"standardize\": False,\n                \"rules_path\": \"grail_metabolism/resources/extended_smirks.txt\",\n@@ -149,5 +164,6 @@\n                \"rank_by\": args.rank_by, \"gen_ckpt\": _rel(args.gen_ckpt),\n                \"filter_ckpt\": _rel(args.filter_ckpt)},\n-        \"split\": args.split, \"n\": len(items), \"prior_strength\": args.prior_strength, \"rank_by\": args.rank_by,\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/selection_ablation_prior300.json",
+   "script": "selection_ablation.py",
+   "how": "source at 1d56fb8c3272",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 7623e93a973b, is now 9a2a34c95080",
+   "diff_recovered_by": "source at 1d56fb8c3272",
+   "diff": "--- selection_ablation.py (as recorded)\n+++ selection_ablation.py (now)\n@@ -35,4 +35,19 @@\n     sys.path.insert(0, str(ROOT))\n \n+\n+\n+def _code_version() -> dict:\n+    \"\"\"Which code wrote this artifact. The published selection_ablation.json carried fields the\n+    current script no longer emits, so it was written by an earlier version -- and nothing in it\n+    said so. Cap and seed pin the data; this pins the analysis.\"\"\"\n+    import subprocess\n+    def _git(*a):\n+        try:\n+            return subprocess.run([\"git\", *a], cwd=ROOT, capture_output=True, text=True,\n+                                  timeout=10).stdout.strip() or None\n+        except Exception:\n+            return None\n+    return {\"script\": pathlib.Path(__file__).name, \"git_commit\": _git(\"rev-parse\", \"HEAD\"),\n+            \"git_dirty\": bool(_git(\"status\", \"--porcelain\"))}\n \n def _rel(p) -> str:\n@@ -53,5 +68,5 @@\n # SyGMa + ceiling references (macro/oracle tautomer, full clean test), for context in the table.\n SYGMA_15 = 0.572\n-CEILING = 0.735\n+CEILING = json.loads((ROOT / \"results/recall_factorization.json\").read_text())[\"macro_coverage_bank\"]\n DEPLOYED_15 = 0.330\n KS = [5, 10, 15]\n@@ -142,5 +157,5 @@\n     # with the cap and seed that drew it. Recorded here because they were not: recovering the n=245\n     # set behind the published figures took a search over caps (see paper/SELF_CLAIMS.md row 2).\n-    \"config\": {\"max_substrates\": args.max_substrates, \"sampling_seed\": args.sampling_seed,\n+    \"config\": {**_code_version(), \"max_substrates\": args.max_substrates, \"sampling_seed\": args.sampling_seed,\n                \"split\": args.split, \"use_clean_splits\": True, \"standardize\": False,\n                \"rules_path\": \"grail_metabolism/resources/extended_smirks.txt\",\n@@ -149,5 +164,6 @@\n                \"rank_by\": args.rank_by, \"gen_ckpt\": _rel(args.gen_ckpt),\n                \"filter_ckpt\": _rel(args.filter_ckpt)},\n-        \"split\": args.split, \"n\": len(items), \"prior_strength\": args.prior_strength, \"rank_by\": args.rank_by,\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/selection_ablation_ranksignal.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/set_metrics_by_criterion.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/setsize_headroom.json",
+   "script": "setsize_headroom.py",
+   "how": "source at 5c9e87251ce4",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was cdd40c5cde65, is now db95da4ab126",
+   "diff_recovered_by": "source at 5c9e87251ce4",
+   "diff": "--- setsize_headroom.py (as recorded)\n+++ setsize_headroom.py (now)\n@@ -64,4 +64,25 @@\n     f = 2 * p * r / (p + r) if (p + r) else 0.0\n     return p, r, f\n+\n+\n+# The architectural question is not whether fewer is better but whether HOW MANY should depend on\n+# the substrate. A global constant answers no; a rule relative to the pool answers yes only if it\n+# beats the best constant. The gap rule emits while a candidate scores within a factor of the\n+# leader, which is what normalising over siblings does at inference. It is module level so that the\n+# cross-fitting check selects the same rule this script reports rather than a copy of it.\n+def gap_rule(alpha):\n+    def f(sub, row):\n+        cs = row[\"candidates\"]\n+        if not cs:\n+            return 1\n+        top = cs[0][\"combined\"]\n+        n_ = 1\n+        for c in cs[1:]:\n+            if c[\"combined\"] >= alpha * top:\n+                n_ += 1\n+            else:\n+                break\n+        return n_\n+    return f\n \n \n@@ -165,23 +186,4 @@\n         return int(round(min(max(float(x @ beta), 1.0), 15.0)))\n \n-    # The architectural question is not whether fewer is better but whether HOW MANY should depend\n-    # on the substrate. A global constant answers no; a rule relative to the pool answers yes only\n-    # if it beats the best constant. The gap rule emits while a candidate scores within a factor of\n-    # the leader, which is what normalising over siblings does at inference.\n-    def gap_rule(alpha):\n-        def f(sub, row):\n-            cs = row[\"candidates\"]\n-            if not cs:\n-                return 1\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/setsize_headroom__inchikey_all.json",
+   "script": "setsize_headroom.py",
+   "how": "source at 11a103f586d3",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 9cbbf9f935b3, is now db95da4ab126",
+   "diff_recovered_by": "source at 11a103f586d3",
+   "diff": "--- setsize_headroom.py (as recorded)\n+++ setsize_headroom.py (now)\n@@ -64,4 +64,25 @@\n     f = 2 * p * r / (p + r) if (p + r) else 0.0\n     return p, r, f\n+\n+\n+# The architectural question is not whether fewer is better but whether HOW MANY should depend on\n+# the substrate. A global constant answers no; a rule relative to the pool answers yes only if it\n+# beats the best constant. The gap rule emits while a candidate scores within a factor of the\n+# leader, which is what normalising over siblings does at inference. It is module level so that the\n+# cross-fitting check selects the same rule this script reports rather than a copy of it.\n+def gap_rule(alpha):\n+    def f(sub, row):\n+        cs = row[\"candidates\"]\n+        if not cs:\n+            return 1\n+        top = cs[0][\"combined\"]\n+        n_ = 1\n+        for c in cs[1:]:\n+            if c[\"combined\"] >= alpha * top:\n+                n_ += 1\n+            else:\n+                break\n+        return n_\n+    return f\n \n \n@@ -165,23 +186,4 @@\n         return int(round(min(max(float(x @ beta), 1.0), 15.0)))\n \n-    # The architectural question is not whether fewer is better but whether HOW MANY should depend\n-    # on the substrate. A global constant answers no; a rule relative to the pool answers yes only\n-    # if it beats the best constant. The gap rule emits while a candidate scores within a factor of\n-    # the leader, which is what normalising over siblings does at inference.\n-    def gap_rule(alpha):\n-        def f(sub, row):\n-            cs = row[\"candidates\"]\n-            if not cs:\n-                return 1\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/setsize_headroom__tautomer_metabolites.json",
+   "script": "setsize_headroom.py",
+   "how": "source at df40e6da66ab",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was cdd40c5cde65, is now db95da4ab126",
+   "diff_recovered_by": "source at df40e6da66ab",
+   "diff": "--- setsize_headroom.py (as recorded)\n+++ setsize_headroom.py (now)\n@@ -64,4 +64,25 @@\n     f = 2 * p * r / (p + r) if (p + r) else 0.0\n     return p, r, f\n+\n+\n+# The architectural question is not whether fewer is better but whether HOW MANY should depend on\n+# the substrate. A global constant answers no; a rule relative to the pool answers yes only if it\n+# beats the best constant. The gap rule emits while a candidate scores within a factor of the\n+# leader, which is what normalising over siblings does at inference. It is module level so that the\n+# cross-fitting check selects the same rule this script reports rather than a copy of it.\n+def gap_rule(alpha):\n+    def f(sub, row):\n+        cs = row[\"candidates\"]\n+        if not cs:\n+            return 1\n+        top = cs[0][\"combined\"]\n+        n_ = 1\n+        for c in cs[1:]:\n+            if c[\"combined\"] >= alpha * top:\n+                n_ += 1\n+            else:\n+                break\n+        return n_\n+    return f\n \n \n@@ -165,23 +186,4 @@\n         return int(round(min(max(float(x @ beta), 1.0), 15.0)))\n \n-    # The architectural question is not whether fewer is better but whether HOW MANY should depend\n-    # on the substrate. A global constant answers no; a rule relative to the pool answers yes only\n-    # if it beats the best constant. The gap rule emits while a candidate scores within a factor of\n-    # the leader, which is what normalising over siblings does at inference.\n-    def gap_rule(alpha):\n-        def f(sub, row):\n-            cs = row[\"candidates\"]\n-            if not cs:\n-                return 1\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/setsize_headroom__tautomer_parents.json",
+   "script": "setsize_headroom.py",
+   "how": "source at df40e6da66ab",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was cdd40c5cde65, is now db95da4ab126",
+   "diff_recovered_by": "source at df40e6da66ab",
+   "diff": "--- setsize_headroom.py (as recorded)\n+++ setsize_headroom.py (now)\n@@ -64,4 +64,25 @@\n     f = 2 * p * r / (p + r) if (p + r) else 0.0\n     return p, r, f\n+\n+\n+# The architectural question is not whether fewer is better but whether HOW MANY should depend on\n+# the substrate. A global constant answers no; a rule relative to the pool answers yes only if it\n+# beats the best constant. The gap rule emits while a candidate scores within a factor of the\n+# leader, which is what normalising over siblings does at inference. It is module level so that the\n+# cross-fitting check selects the same rule this script reports rather than a copy of it.\n+def gap_rule(alpha):\n+    def f(sub, row):\n+        cs = row[\"candidates\"]\n+        if not cs:\n+            return 1\n+        top = cs[0][\"combined\"]\n+        n_ = 1\n+        for c in cs[1:]:\n+            if c[\"combined\"] >= alpha * top:\n+                n_ += 1\n+            else:\n+                break\n+        return n_\n+    return f\n \n \n@@ -165,23 +186,4 @@\n         return int(round(min(max(float(x @ beta), 1.0), 15.0)))\n \n-    # The architectural question is not whether fewer is better but whether HOW MANY should depend\n-    # on the substrate. A global constant answers no; a rule relative to the pool answers yes only\n-    # if it beats the best constant. The gap rule emits while a candidate scores within a factor of\n-    # the leader, which is what normalising over siblings does at inference.\n-    def gap_rule(alpha):\n-        def f(sub, row):\n-            cs = row[\"candidates\"]\n-            if not cs:\n-                return 1\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/som_prior_reeval.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/stopping_rule.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/sygma_fulltest_predictions.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/sygma_robust.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/sygma_standardised_predictions.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/tautomer_limit_audit.json",
+   "script": "tautomer_limit_audit.py",
+   "status": "producer_unknown",
+   "detail": "commit 03031714c963 does not carry scripts/tautomer_limit_audit.py"
+  },
+  {
+   "artifact": "results/test_references.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/train_val_substrate_keys.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/training_reports.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/trainpools/s0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/trainpools/s1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/trainpools/s2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/trainpools/s3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/trainpools/s4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/trainpools/s5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/trainpools/s6.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/trainpools/s7.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/transfer_confound.json",
+   "script": "transfer_confound.py",
+   "how": "source at f4ca46c34ef8",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was 69d2a5e12381, is now c34844793777",
+   "diff_recovered_by": "source at f4ca46c34ef8",
+   "diff": "--- transfer_confound.py (as recorded)\n+++ transfer_confound.py (now)\n@@ -6,4 +6,10 @@\n falls with distance from the training set, the axis is chemistry difficulty and no transfer claim\n can rest on it.\n+\n+This printed its table to stdout and wrote nothing for as long as the appendix quoted four of its\n+numbers, so none of them was checkable against the record. It writes the table now. Note what the\n+written table shows that the paper's two-endpoint contrast does not: mean reference-set size across\n+the five strata is not monotone in similarity, so \"reference sets shrink the same way\" is a\n+statement about the endpoints and the appendix now says so.\n \"\"\"\n import json, numpy as np\n@@ -35,8 +41,34 @@\n print(f\"{'stratum':>16}{'n':>6}{'bank coverage':>16}{'|refs|':>9}\")\n B = [0, .3, .4, .5, .6, 1.01]\n+strata = []\n for i in range(len(B)-1):\n     m = (sim >= B[i]) & (sim < B[i+1])\n     if m.sum() < 20: continue\n+    strata.append({'lo': B[i], 'hi': B[i+1], 'n': int(m.sum()),\n+                   'bank_coverage': round(float(cov[m].mean()), 4),\n+                   'mean_n_refs': round(float(nref[m].mean()), 2)})\n     print(f'  [{B[i]:.2f},{B[i+1]:.2f}){m.sum():6}{cov[m].mean():16.4f}{nref[m].mean():9.2f}')\n-print(f'\\nslope of BANK COVERAGE on similarity: {np.polyfit(sim, cov, 1)[0]:+.4f}')\n-print(f'corr(similarity, |refs|): {np.corrcoef(sim, nref)[0,1]:+.3f}')\n+slope = float(np.polyfit(sim, cov, 1)[0]); corr = float(np.corrcoef(sim, nref)[0, 1])\n+print(f'\\nslope of BANK COVERAGE on similarity: {slope:+.4f}')\n+print(f'corr(similarity, |refs|): {corr:+.3f}')\n+\n+import subprocess\n+def _git(*a):\n+    try:\n+        return subprocess.run(['git', *a], cwd=R, capture_output=True, text=True,\n+                              timeout=10).stdout.strip() or None\n+    except Exception:\n+        return None\n+OUT = R / 'results' / 'transfer_confound.json'\n+OUT.write_text(json.dumps({\n+    'config': {'script': 'transfer_confound.py', 'git_commit': _git('rev-parse', 'HEAD'),\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/transfer_stratified.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/truncation_binding.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_gapshards/a0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_gapshards/a1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_gapshards/a2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_gapshards/a3a.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_gapshards/a3b.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_gapshards/a3c.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_gapshards/a3d.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_gapshards/a4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_gapshards/a5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_primitive_census.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/typed_edit_recovery_partial.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/union_ranker.json",
+   "script": "union_ranker.py",
+   "status": "producer_unknown",
+   "detail": "commit aca41d0beee8 does not carry scripts/union_ranker.py"
+  },
+  {
+   "artifact": "results/valpool_shards/v0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpool_shards/v1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpool_shards/v2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpool_shards/v3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpool_shards/v4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpool_shards/v5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w1_49_63.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w1_63_77.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w1_77_83.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w1_84_87.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w1_87_90.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w1_90_93.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w1_93_96.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w1_96_98.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools/w5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/valpools_k30/all.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/wide_pool_analysis.json",
+   "script": "wide_pool_analysis.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was ed476b264a7e, is now 76bcbdc069a0",
+   "diff_recovered_by": "the tree was dirty when written, the recorded digest is in no commit that touches scripts/typed_edit/wide_pool_analysis.py, so the source at e56560b587b1 is the nearest committed version and not exactly what ran",
+   "diff": "--- wide_pool_analysis.py (as recorded)\n+++ wide_pool_analysis.py (now)\n@@ -33,5 +33,7 @@\n         sys.path.insert(0, _p)\n \n-from _provenance import stamp  # noqa: E402\n+from _provenance import record_inputs, stamp  # noqa: E402\n+\n+from _rrf import rrf_order  # noqa: E402\n \n from rdkit import Chem, RDLogger  # noqa: E402\n@@ -51,6 +53,11 @@\n \n \n+def hits(keys, real, k=None):\n+    \"\"\"Number of references recovered in the first k, which micro and macro both need.\"\"\"\n+    return len(set(keys[:k] if k else keys) & real)\n+\n+\n def rec(keys, real, k=None):\n-    return len(set(keys[:k] if k else keys) & real) / len(real) if real else 0.0\n+    return hits(keys, real, k) / len(real) if real else 0.0\n \n \n@@ -58,8 +65,19 @@\n     ap = argparse.ArgumentParser()\n     ap.add_argument(\"--out\", default=str(ROOT / \"results\" / \"wide_pool_analysis.json\"))\n+    ap.add_argument(\"--pools\", default=\"\",\n+                    help=\"glob of pool shards; empty reads the single merged POOLS file\")\n     args = ap.parse_args()\n \n-    blob = json.loads(POOLS.read_text())\n-    pools, refs = blob[\"pools\"], blob[\"references\"]\n+    if args.pools:\n+        import glob as _glob\n+        pools, refs, src = {}, {}, args.pools\n+        read = [Path(f) for f in sorted(_glob.glob(args.pools))]\n+        for f in read:\n+            d = json.loads(f.read_text())\n+            pools.update(d[\"pools\"]); refs.update(d[\"references\"])\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/wide_pools.json",
+   "script": "build_wide_pools.py",
+   "how": "recorded source digest",
+   "status": "producer_changed",
+   "detail": "producer was 9f3f5adca657, is now 5ec39f72c745",
+   "diff_recovered_by": "the recorded digest, found in history at e56560b587b1",
+   "diff": "--- build_wide_pools.py (as recorded)\n+++ build_wide_pools.py (now)\n@@ -41,10 +41,10 @@\n \n \n-def merge(pattern, out):\n+def merge(pattern, out, which=\"comparison\"):\n     paths = sorted(glob.glob(pattern))\n     if not paths:\n         print(\"no shard matched\", file=sys.stderr)\n         return 1\n-    pools, refs, slices = {}, {}, []\n+    pools, refs, slices, stamps, shown = {}, {}, [], [], set()\n     for p in paths:\n         d = json.loads(Path(p).read_text())\n@@ -52,6 +52,27 @@\n         refs.update(d[\"references\"])\n         slices.append(tuple(d[\"slice\"]))\n+        stamps.append(d.get(\"checkpoints\"))\n+        shown.add(d.get(\"present\", \"stored\"))\n         print(f\"  + {Path(p).name}: {d['slice']} {len(d['pools'])} substrates\", file=sys.stderr)\n-    subs, _, _ = population()\n+    # Shards built by different models, or from different presentations of the substrate, must\n+    # not merge into one pool. Nothing downstream can see the seam: a merged file records one\n+    # set of checkpoints and the reader takes it for the whole.\n+    def key(c):\n+        return None if not c else tuple(sorted((k, (v or {}).get(\"sha256_16\"))\n+                                               for k, v in c.items()))\n+    distinct = {key(c) for c in stamps}\n+    if len(distinct) > 1:\n+        print(f\"FAIL: the shards were not all scored by one pair of checkpoints: {distinct}\",\n+              file=sys.stderr)\n+        return 1\n+    if len(shown) > 1:\n+        print(f\"FAIL: the shards do not agree on how the substrate was presented: {shown}\",\n+              file=sys.stderr)\n+        return 1\n+    if which == \"evaluated-test\":\n+        truth = json.loads((ROOT / \"results/test_references.json\").read_text())\n+        subs = sorted(s for s in truth if truth[s])\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/widepools/w0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools/w1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools/w2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools/w3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools/w4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools/w5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_fulltest/w0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_fulltest/w1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_fulltest/w2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_fulltest/w3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_fulltest/w4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_fulltest/w5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_k30/all.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_k30_fulltest/w0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_k30_fulltest/w1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_k30_fulltest/w2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_k30_fulltest/w3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_k30_fulltest/w4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_k30_fulltest/w5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_k30_std/all.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_ship/w0.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_ship/w1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_ship/w2.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_ship/w3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_ship/w4.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_ship/w5.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std/w1.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std/w3.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p0_12.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p12_24.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p146_158.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p158_170.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p170_182.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p182_194.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p194_206.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p206_218.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p218_219.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p24_36.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p36_48.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p48_60.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p60_72.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/widepools_std_fine/p72_73.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  },
+  {
+   "artifact": "results/wmt_official_clusters.json",
+   "script": "wmt_official_clusters.py",
+   "how": "source at 2c5d9613041c",
+   "dirty_when_written": true,
+   "status": "producer_changed",
+   "detail": "producer was f5dd903daed9, is now e8453e8f61ac",
+   "diff_recovered_by": "source at 2c5d9613041c",
+   "diff": "--- wmt_official_clusters.py (as recorded)\n+++ wmt_official_clusters.py (now)\n@@ -50,4 +50,9 @@\n BOARDS = [(\"en-de\", \"mqm_generalMT2024_ende.tsv\", \"results/robust_order_wmt24_en-de.json\"),\n           (\"ja-zh\", \"mqm_generalMT2024_jazh.tsv\", \"results/robust_order_wmt24_ja-zh.json\")]\n+# The task ships the same clustering for its lighter protocol, in four waves covering nine further\n+# language pairs, and runs it through the same load_data/get_pvalues/get_clusters. Leaving those out\n+# would confine the external check to two boards of nineteen for no reason but the file layout.\n+ESA_WAVES = [f\"esa_generalMT2024_wave{i}.csv\" for i in range(4)]\n+ESA_MIN_ANNOTATIONS = 100  # calculate_clusters.py skips a pair below this\n \n \n@@ -142,7 +147,42 @@\n \n \n+def esa_boards(tools) -> dict:\n+    \"\"\"Their clustering on the \\textsc{esa} waves, per language pair, as their own script runs it.\"\"\"\n+    import pandas as pd\n+\n+    frames = [tools.load_data(str(HUMEVAL / w)) for w in ESA_WAVES]\n+    df = pd.concat(frames)\n+    # their main() averages repeated ratings of one segment before testing, and only then\n+    sub = df.groupby([\"annot_id\", \"lp\", \"system_id\", \"orig_segment_id\"])\n+    if len(sub) != len(df):\n+        df = sub.agg({\"overall\": \"mean\"}).reset_index()\n+\n+    out = {}\n+    for lp in sorted(df[\"lp\"].unique()):\n+        d = df[df[\"lp\"] == lp].copy()\n+        if d.groupby(\"system_id\")[\"annot_id\"].count().mean() < ESA_MIN_ANNOTATIONS:\n+            continue\n+        # the domain of a segment, from the same file attach_resources reads\n+        docs = _domains(lp)\n+        # orig_segment_id is doc-segment-lp and the lp itself carries a hyphen, so the language\n+        # pair is stripped from the tail before the segment index is read off\n+        seg = [int(s[: -(len(lp) + 1)].rsplit(\"-\", 1)[-1]) + 1 for s in d[\"orig_segment_id\"]]\n+        d[\"domain_name\"] = [docs[i][0] for i in seg]\n+        per_domain = d.groupby([\"system_id\", \"domain_name\"])[\"overall\"].mean().reset_index()\n+        avg = (per_domain.groupby(\"system_id\")[\"overall\"].mean().reset_index()\n+               .sort_values(\"overall\", ascending=False))\n  ... diff truncated"
+  },
+  {
+   "artifact": "results/xdomain_retro_protocol.json",
+   "status": "unstamped",
+   "detail": "no provenance block: nothing records which code wrote this"
+  }
+ ],
+ "files_below_the_top_level": 224,
+ "of_those_named_as_an_input_by_a_pinned_artifact": 73,
+ "named_inputs": [
+  "results/aggregation_shards/s0.json",
+  "results/aggregation_shards/s1.json",
+  "results/aggregation_shards/s2.json",
+  "results/aggregation_shards/s3.json",
+  "results/aggregation_shards/s4.json",
+  "results/aggregation_shards/s5.json",
+  "results/aggregation_shards_val/s0.json",
+  "results/aggregation_shards_val/s1.json",
+  "results/aggregation_shards_val/s2.json",
+  "results/aggregation_shards_val/s3.json",
+  "results/aggregation_shards_val/s4.json",
+  "results/aggregation_shards_val/s5.json",
+  "results/bt_steps/preds_s1_n1170_cm1.json",
+  "results/bt_steps/preds_s1_n291_cm1.json",
+  "results/bt_steps/preds_s2_n291_cm1.json",
+  "results/rulegate_cpu/baseline/metrics.json",
+  "results/rulegate_cpu/candfilter/metrics.json",
+  "results/rulegate_cpu/diffreadout/metrics.json",
+  "results/rulegate_cpu/lambda8/metrics.json",
+  "results/rulegate_cpu/typeid/metrics.json",
+  "results/seedpools/exhaustive_seed0.json",
+  "results/seedpools/exhaustive_seed1.json",
+  "results/seedpools/exhaustive_seed2.json",
+  "results/seedpools/interactive_seed0.json",
+  "results/seedpools/interactive_seed1.json",
+  "results/seedpools/interactive_seed2.json",
+  "results/valpool_shards/v0.json",
+  "results/valpool_shards/v1.json",
+  "results/valpool_shards/v2.json",
+  "results/valpool_shards/v3.json",
+  "results/valpool_shards/v4.json",
+  "results/valpool_shards/v5.json",
+  "results/valpools_k10/all.json",
+  "results/valpools_k20/all.json",
+  "results/valpools_k30/all.json",
+  "results/valpools_k50/all.json",
+  "results/valpools_k7581/all.json",
+  "results/widepools_fulltest/w0.json",
+  "results/widepools_fulltest/w1.json",
+  "results/widepools_fulltest/w2.json",
+  "results/widepools_fulltest/w3.json",
+  "results/widepools_fulltest/w4.json",
+  "results/widepools_fulltest/w5.json",
+  "results/widepools_implicit/w0.json",
+  "results/widepools_implicit/w1.json",
+  "results/widepools_implicit/w2.json",
+  "results/widepools_implicit/w3.json",
+  "results/widepools_implicit/w4.json",
+  "results/widepools_implicit/w5.json",
+  "results/widepools_k30/all.json",
+  "results/widepools_k30_fulltest/w0.json",
+  "results/widepools_k30_fulltest/w1.json",
+  "results/widepools_k30_fulltest/w2.json",
+  "results/widepools_k30_fulltest/w3.json",
+  "results/widepools_k30_fulltest/w4.json",
+  "results/widepools_k30_fulltest/w5.json",
+  "results/widepools_k30_std/all.json",
+  "results/widepools_std/w1.json",
+  "results/widepools_std/w3.json",
+  "results/widepools_std_fine/p0_12.json",
+  "results/widepools_std_fine/p12_24.json",
+  "results/widepools_std_fine/p146_158.json",
+  "results/widepools_std_fine/p158_170.json",
+  "results/widepools_std_fine/p170_182.json",
+  "results/widepools_std_fine/p182_194.json",
+  "results/widepools_std_fine/p194_206.json",
+  "results/widepools_std_fine/p206_218.json",
+  "results/widepools_std_fine/p218_219.json",
+  "results/widepools_std_fine/p24_36.json",
+  "results/widepools_std_fine/p36_48.json",
+  "results/widepools_std_fine/p48_60.json",
+  "results/widepools_std_fine/p60_72.json",
+  "results/widepools_std_fine/p72_73.json"
+ ]
+}

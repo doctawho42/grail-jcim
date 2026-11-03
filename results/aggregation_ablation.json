@@ -1,0 +1,388 @@
+{
+ "provenance": {
+  "script": "aggregation_ablation.py",
+  "script_path": "scripts/typed_edit/aggregation_ablation.py",
+  "source_sha256": "8bdb4b3877bb5eda037acc4e0c0c38fc2fe4d960bc256086b9a80769d02b14e7",
+  "git_commit": "25fb2f284164bbe980e38c710a42b851f9c6f1cc",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_implicit/w0.json",
+   "exists": true,
+   "sha256_16": "6a90b7bcc2b82562",
+   "bytes": 10103608
+  },
+  {
+   "path": "results/widepools_implicit/w1.json",
+   "exists": true,
+   "sha256_16": "dcb34d6ca5a7c690",
+   "bytes": 9923282
+  },
+  {
+   "path": "results/widepools_implicit/w2.json",
+   "exists": true,
+   "sha256_16": "2f7440497f05cd4a",
+   "bytes": 5621821
+  },
+  {
+   "path": "results/widepools_implicit/w3.json",
+   "exists": true,
+   "sha256_16": "c194bbb0bd7ec69e",
+   "bytes": 8229360
+  },
+  {
+   "path": "results/widepools_implicit/w4.json",
+   "exists": true,
+   "sha256_16": "504576d634e4bdb8",
+   "bytes": 5126437
+  },
+  {
+   "path": "results/widepools_implicit/w5.json",
+   "exists": true,
+   "sha256_16": "7f4c7cee307a726c",
+   "bytes": 3561735
+  },
+  {
+   "path": "results/aggregation_shards/s0.json",
+   "exists": true,
+   "sha256_16": "8fd388e593d54325",
+   "bytes": 3579574
+  },
+  {
+   "path": "results/aggregation_shards/s1.json",
+   "exists": true,
+   "sha256_16": "a0969c6e6dd8ac28",
+   "bytes": 4567465
+  },
+  {
+   "path": "results/aggregation_shards/s2.json",
+   "exists": true,
+   "sha256_16": "ea16037216be2764",
+   "bytes": 3136687
+  },
+  {
+   "path": "results/aggregation_shards/s3.json",
+   "exists": true,
+   "sha256_16": "503c2967ec7a9202",
+   "bytes": 2304867
+  },
+  {
+   "path": "results/aggregation_shards/s4.json",
+   "exists": true,
+   "sha256_16": "06c03e77c2da1c22",
+   "bytes": 3556906
+  },
+  {
+   "path": "results/aggregation_shards/s5.json",
+   "exists": true,
+   "sha256_16": "d45b173e063f1336",
+   "bytes": 3618986
+  }
+ ],
+ "question": "whether the deployed noisy-or aggregation, whose independence assumption this bank violates by construction, changes the comparison against the alternatives the implementation offers",
+ "population": {
+  "name": "comparison",
+  "n_substrates": 291,
+  "n_references": 665,
+  "pools": "results/widepools_implicit/w*.json"
+ },
+ "join": {
+  "candidates_scored_by_both": 171299,
+  "candidates_the_pool_does_not_carry": 358,
+  "note": "the filter is a function of substrate and product and does not depend on the aggregation, so its frozen scores are joined by structure rather than recomputed; a candidate absent from the pool is dropped from every arm alike"
+ },
+ "ranking": "reciprocal rank fusion of the two component scores over the pool capped at 100 by generator score, parent dropped, as everywhere else",
+ "bootstrap": {
+  "n": 10000,
+  "seed": 0
+ },
+ "deployed": "noisy_or",
+ "reproduces_the_published_arm": "the deployed rule re-derived here matches the whole-bank column of results/deployment_table.json at every budget, which is what certifies the re-run is on the deployed model and not a neighbouring checkpoint",
+ "by_rule": {
+  "noisy_or": {
+   "mean_ranked": 98.1,
+   "recall": {
+    "1": 0.0992,
+    "3": 0.2301,
+    "5": 0.3113,
+    "8": 0.4165,
+    "10": 0.4556,
+    "15": 0.5353,
+    "20": 0.5865,
+    "30": 0.6526,
+    "50": 0.7023
+   }
+  },
+  "max": {
+   "mean_ranked": 98.1,
+   "recall": {
+    "1": 0.1233,
+    "3": 0.2617,
+    "5": 0.3429,
+    "8": 0.4271,
+    "10": 0.4662,
+    "15": 0.5263,
+    "20": 0.5699,
+    "30": 0.6226,
+    "50": 0.6782
+   },
+   "minus_noisy_or": {
+    "1": {
+     "difference": 0.0241,
+     "ci95": [
+      0.0029,
+      0.0464
+     ],
+     "excludes_zero": true
+    },
+    "3": {
+     "difference": 0.0316,
+     "ci95": [
+      0.0031,
+      0.0607
+     ],
+     "excludes_zero": true
+    },
+    "5": {
+     "difference": 0.0316,
+     "ci95": [
+      0.0016,
+      0.0623
+     ],
+     "excludes_zero": true
+    },
+    "8": {
+     "difference": 0.0105,
+     "ci95": [
+      -0.0195,
+      0.0405
+     ],
+     "excludes_zero": false
+    },
+    "10": {
+     "difference": 0.0105,
+     "ci95": [
+      -0.0172,
+      0.0383
+     ],
+     "excludes_zero": false
+    },
+    "15": {
+     "difference": -0.009,
+     "ci95": [
+      -0.0339,
+      0.0162
+     ],
+     "excludes_zero": false
+    },
+    "20": {
+     "difference": -0.0165,
+     "ci95": [
+      -0.0416,
+      0.0084
+     ],
+     "excludes_zero": false
+    },
+    "30": {
+     "difference": -0.0301,
+     "ci95": [
+      -0.0601,
+      -0.0032
+     ],
+     "excludes_zero": true
+    },
+    "50": {
+     "difference": -0.0241,
+     "ci95": [
+      -0.0542,
+      0.0016
+     ],
+     "excludes_zero": false
+    }
+   }
+  },
+  "mean": {
+   "mean_ranked": 98.1,
+   "recall": {
+    "1": 0.0917,
+    "3": 0.203,
+    "5": 0.2947,
+    "8": 0.385,
+    "10": 0.4256,
+    "15": 0.4932,
+    "20": 0.5474,
+    "30": 0.5985,
+    "50": 0.6586
+   },
+   "minus_noisy_or": {
+    "1": {
+     "difference": -0.0075,
+     "ci95": [
+      -0.0289,
+      0.0131
+     ],
+     "excludes_zero": false
+    },
+    "3": {
+     "difference": -0.0271,
+     "ci95": [
+      -0.0574,
+      0.003
+     ],
+     "excludes_zero": false
+    },
+    "5": {
+     "difference": -0.0165,
+     "ci95": [
+      -0.0476,
+      0.0161
+     ],
+     "excludes_zero": false
+    },
+    "8": {
+     "difference": -0.0316,
+     "ci95": [
+      -0.0652,
+      0.0016
+     ],
+     "excludes_zero": false
+    },
+    "10": {
+     "difference": -0.0301,
+     "ci95": [
+      -0.0637,
+      0.0018
+     ],
+     "excludes_zero": false
+    },
+    "15": {
+     "difference": -0.0421,
+     "ci95": [
+      -0.0772,
+      -0.0087
+     ],
+     "excludes_zero": true
+    },
+    "20": {
+     "difference": -0.0391,
+     "ci95": [
+      -0.0731,
+      -0.0075
+     ],
+     "excludes_zero": true
+    },
+    "30": {
+     "difference": -0.0541,
+     "ci95": [
+      -0.0892,
+      -0.0242
+     ],
+     "excludes_zero": true
+    },
+    "50": {
+     "difference": -0.0436,
+     "ci95": [
+      -0.0795,
+      -0.0157
+     ],
+     "excludes_zero": true
+    }
+   }
+  },
+  "hybrid": {
+   "mean_ranked": 98.1,
+   "recall": {
+    "1": 0.1278,
+    "3": 0.2692,
+    "5": 0.3639,
+    "8": 0.4556,
+    "10": 0.4842,
+    "15": 0.5474,
+    "20": 0.5955,
+    "30": 0.6391,
+    "50": 0.7008
+   },
+   "minus_noisy_or": {
+    "1": {
+     "difference": 0.0286,
+     "ci95": [
+      0.0097,
+      0.0483
+     ],
+     "excludes_zero": true
+    },
+    "3": {
+     "difference": 0.0391,
+     "ci95": [
+      0.0161,
+      0.064
+     ],
+     "excludes_zero": true
+    },
+    "5": {
+     "difference": 0.0526,
+     "ci95": [
+      0.0271,
+      0.0787
+     ],
+     "excludes_zero": true
+    },
+    "8": {
+     "difference": 0.0391,
+     "ci95": [
+      0.017,
+      0.0628
+     ],
+     "excludes_zero": true
+    },
+    "10": {
+     "difference": 0.0286,
+     "ci95": [
+      0.0064,
+      0.0519
+     ],
+     "excludes_zero": true
+    },
+    "15": {
+     "difference": 0.012,
+     "ci95": [
+      -0.0066,
+      0.0314
+     ],
+     "excludes_zero": false
+    },
+    "20": {
+     "difference": 0.009,
+     "ci95": [
+      -0.0103,
+      0.0284
+     ],
+     "excludes_zero": false
+    },
+    "30": {
+     "difference": -0.0135,
+     "ci95": [
+      -0.0317,
+      0.0048
+     ],
+     "excludes_zero": false
+    },
+    "50": {
+     "difference": -0.0015,
+     "ci95": [
+      -0.0121,
+      0.0093
+     ],
+     "excludes_zero": false
+    }
+   }
+  }
+ },
+ "rules_that_separate_from_the_deployed_one_at_any_budget": [
+  "hybrid",
+  "max",
+  "mean"
+ ],
+ "reading": "The independence the deployed rule assumes is false in this bank, so the question is not whether the assumption holds but whether anything turns on it. A maximum counts a candidate once however many near-duplicate templates restate it, which is the correction the violation argues for."
+}

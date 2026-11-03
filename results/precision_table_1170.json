@@ -1,0 +1,135 @@
+{
+ "provenance": {
+  "script": "precision_table.py",
+  "script_path": "scripts/typed_edit/precision_table.py",
+  "source_sha256": "ef30c2457f43755c2db7552c37003c00735fab80b94a8cd67daf65620647e237",
+  "git_commit": "dcbc91c65e274116174f951b0b4871497d46d945",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_fulltest/w0.json",
+   "exists": true,
+   "sha256_16": "ed662e8726ac76e9",
+   "bytes": 43757389
+  },
+  {
+   "path": "results/widepools_fulltest/w1.json",
+   "exists": true,
+   "sha256_16": "419bf41f39b3fed2",
+   "bytes": 52949285
+  },
+  {
+   "path": "results/widepools_fulltest/w2.json",
+   "exists": true,
+   "sha256_16": "602da3c00ae89c49",
+   "bytes": 29961988
+  },
+  {
+   "path": "results/widepools_fulltest/w3.json",
+   "exists": true,
+   "sha256_16": "1aa19bcfbe959b52",
+   "bytes": 32901245
+  },
+  {
+   "path": "results/widepools_fulltest/w4.json",
+   "exists": true,
+   "sha256_16": "e83d855ab49737c0",
+   "bytes": 18906244
+  },
+  {
+   "path": "results/widepools_fulltest/w5.json",
+   "exists": true,
+   "sha256_16": "c57af5fc143e2e4e",
+   "bytes": 16394235
+  }
+ ],
+ "population": {
+  "n": 1170,
+  "source": "the whole evaluated test set: every test substrate with a known metabolite",
+  "comparators_absent": []
+ },
+ "definition": "hits divided by the predictions inside the window, so an arm whose list is shorter than the budget is not charged for the empty slots",
+ "caveat": "under incomplete annotation an unannotated but real metabolite counts as a false positive, so every figure is pessimistic by an unknown amount and an arm emitting fewer candidates is flattered",
+ "parent_dropped": true,
+ "cap": 100,
+ "precision_micro": {
+  "GRAIL exhaustive": {
+   "1": 0.2376,
+   "3": 0.1693,
+   "5": 0.1358,
+   "8": 0.11,
+   "10": 0.0975,
+   "15": 0.0784,
+   "20": 0.0648,
+   "30": 0.048,
+   "50": 0.0319
+  },
+  "GRAIL interactive": {
+   "1": 0.259,
+   "3": 0.1832,
+   "5": 0.1472,
+   "8": 0.1165,
+   "10": 0.106,
+   "15": 0.0906,
+   "20": 0.0833,
+   "30": 0.0765,
+   "50": 0.0713
+  },
+  "MetaTox": {
+   "1": 0.0932,
+   "3": 0.1161,
+   "5": 0.1111,
+   "8": 0.0963,
+   "10": 0.0914,
+   "15": 0.0773,
+   "20": 0.0653,
+   "30": 0.0535,
+   "50": 0.045
+  },
+  "SyGMa": {
+   "1": 0.3416,
+   "3": 0.2329,
+   "5": 0.1794,
+   "8": 0.1283,
+   "10": 0.1086,
+   "15": 0.0784,
+   "20": 0.0612,
+   "30": 0.0431,
+   "50": 0.0291
+  },
+  "MetaPredictor": {
+   "1": 0.3608,
+   "3": 0.2319,
+   "5": 0.1758,
+   "8": 0.1309,
+   "10": 0.1151,
+   "15": 0.1042,
+   "20": 0.1041,
+   "30": 0.1041,
+   "50": 0.1041
+  },
+  "BioTransformer": {
+   "1": 0.1612,
+   "3": 0.1389,
+   "5": 0.1216,
+   "8": 0.1056,
+   "10": 0.1005,
+   "15": 0.0949,
+   "20": 0.0926,
+   "30": 0.0908,
+   "50": 0.0899
+  },
+  "GLORYx": {
+   "1": 0.1861,
+   "3": 0.1552,
+   "5": 0.1392,
+   "8": 0.1174,
+   "10": 0.1056,
+   "15": 0.0846,
+   "20": 0.072,
+   "30": 0.0579,
+   "50": 0.0495
+  }
+ }
+}

@@ -1,0 +1,1535 @@
+{
+ "provenance": {
+  "script": "dialect_sweep.py",
+  "script_path": "scripts/typed_edit/dialect_sweep.py",
+  "source_sha256": "04276608c34649df4f3280032783113889649e96ffb133db6392dc79f4016442",
+  "git_commit": "85f8a68ee0d74ba5db9971ecea1ce368449bd2cb",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_implicit/w0.json",
+   "exists": true,
+   "sha256_16": "6a90b7bcc2b82562",
+   "bytes": 10103608
+  },
+  {
+   "path": "results/widepools_implicit/w1.json",
+   "exists": true,
+   "sha256_16": "dcb34d6ca5a7c690",
+   "bytes": 9923282
+  },
+  {
+   "path": "results/widepools_implicit/w2.json",
+   "exists": true,
+   "sha256_16": "2f7440497f05cd4a",
+   "bytes": 5621821
+  },
+  {
+   "path": "results/widepools_implicit/w3.json",
+   "exists": true,
+   "sha256_16": "c194bbb0bd7ec69e",
+   "bytes": 8229360
+  },
+  {
+   "path": "results/widepools_implicit/w4.json",
+   "exists": true,
+   "sha256_16": "504576d634e4bdb8",
+   "bytes": 5126437
+  },
+  {
+   "path": "results/widepools_implicit/w5.json",
+   "exists": true,
+   "sha256_16": "7f4c7cee307a726c",
+   "bytes": 3561735
+  },
+  {
+   "path": "results/widepools_std/w1.json",
+   "exists": true,
+   "sha256_16": "237fde08f72bda2a",
+   "bytes": 9988865
+  },
+  {
+   "path": "results/widepools_std/w3.json",
+   "exists": true,
+   "sha256_16": "03356e615eaff5c0",
+   "bytes": 6084290
+  },
+  {
+   "path": "results/widepools_std_fine/p0_12.json",
+   "exists": true,
+   "sha256_16": "fb5c769d4a397819",
+   "bytes": 1520800
+  },
+  {
+   "path": "results/widepools_std_fine/p12_24.json",
+   "exists": true,
+   "sha256_16": "edfbc5e23a03db2f",
+   "bytes": 3716636
+  },
+  {
+   "path": "results/widepools_std_fine/p146_158.json",
+   "exists": true,
+   "sha256_16": "0c27237385682669",
+   "bytes": 2159042
+  },
+  {
+   "path": "results/widepools_std_fine/p158_170.json",
+   "exists": true,
+   "sha256_16": "f763dc9a5835844c",
+   "bytes": 2247552
+  },
+  {
+   "path": "results/widepools_std_fine/p170_182.json",
+   "exists": true,
+   "sha256_16": "fdd8f77696dd4e17",
+   "bytes": 1665068
+  },
+  {
+   "path": "results/widepools_std_fine/p182_194.json",
+   "exists": true,
+   "sha256_16": "6b9e5eb335c6587c",
+   "bytes": 1832734
+  },
+  {
+   "path": "results/widepools_std_fine/p194_206.json",
+   "exists": true,
+   "sha256_16": "fffeaa368270197f",
+   "bytes": 1023571
+  },
+  {
+   "path": "results/widepools_std_fine/p206_218.json",
+   "exists": true,
+   "sha256_16": "e9afdbc14c019877",
+   "bytes": 1243152
+  },
+  {
+   "path": "results/widepools_std_fine/p218_219.json",
+   "exists": true,
+   "sha256_16": "f6a804286c35ef01",
+   "bytes": 57582
+  },
+  {
+   "path": "results/widepools_std_fine/p24_36.json",
+   "exists": true,
+   "sha256_16": "b563bd639f32f05f",
+   "bytes": 3163950
+  },
+  {
+   "path": "results/widepools_std_fine/p36_48.json",
+   "exists": true,
+   "sha256_16": "bb9f6e833a48e329",
+   "bytes": 1515950
+  },
+  {
+   "path": "results/widepools_std_fine/p48_60.json",
+   "exists": true,
+   "sha256_16": "969ff9f6c75f7812",
+   "bytes": 1691577
+  },
+  {
+   "path": "results/widepools_std_fine/p60_72.json",
+   "exists": true,
+   "sha256_16": "fcb78f5af63a8aa0",
+   "bytes": 2976604
+  },
+  {
+   "path": "results/widepools_std_fine/p72_73.json",
+   "exists": true,
+   "sha256_16": "7aa6374e146ba964",
+   "bytes": 467605
+  },
+  {
+   "path": "results/widepools_k30/all.json",
+   "exists": true,
+   "sha256_16": "10c1e00851597eb3",
+   "bytes": 1115215
+  },
+  {
+   "path": "results/widepools_k30_std/all.json",
+   "exists": true,
+   "sha256_16": "2ed15dca98fb544e",
+   "bytes": 1104016
+  }
+ ],
+ "n": 291,
+ "budgets": [
+  1,
+  3,
+  5,
+  8,
+  10,
+  15,
+  20,
+  30,
+  50
+ ],
+ "match": "inchikey_tautomer",
+ "cap": 100,
+ "n_boot": 10000,
+ "seed": 0,
+ "effect_on_each_arm": {
+  "GRAIL exhaustive": {
+   "1": {
+    "stored": 0.0992,
+    "standardised": 0.1008,
+    "difference": 0.0015,
+    "ci95": [
+     -0.0063,
+     0.0093
+    ],
+    "separates": false
+   },
+   "3": {
+    "stored": 0.2301,
+    "standardised": 0.2286,
+    "difference": -0.0015,
+    "ci95": [
+     -0.0108,
+     0.0074
+    ],
+    "separates": false
+   },
+   "5": {
+    "stored": 0.3113,
+    "standardised": 0.3053,
+    "difference": -0.006,
+    "ci95": [
+     -0.0145,
+     0.0017
+    ],
+    "separates": false
+   },
+   "8": {
+    "stored": 0.4165,
+    "standardised": 0.409,
+    "difference": -0.0075,
+    "ci95": [
+     -0.0192,
+     0.0033
+    ],
+    "separates": false
+   },
+   "10": {
+    "stored": 0.4556,
+    "standardised": 0.4511,
+    "difference": -0.0045,
+    "ci95": [
+     -0.0134,
+     0.0045
+    ],
+    "separates": false
+   },
+   "15": {
+    "stored": 0.5353,
+    "standardised": 0.5248,
+    "difference": -0.0105,
+    "ci95": [
+     -0.0215,
+     0.0
+    ],
+    "separates": false
+   },
+   "20": {
+    "stored": 0.5865,
+    "standardised": 0.5835,
+    "difference": -0.003,
+    "ci95": [
+     -0.0102,
+     0.0042
+    ],
+    "separates": false
+   },
+   "30": {
+    "stored": 0.6526,
+    "standardised": 0.6436,
+    "difference": -0.009,
+    "ci95": [
+     -0.0165,
+     -0.0029
+    ],
+    "separates": true
+   },
+   "50": {
+    "stored": 0.7023,
+    "standardised": 0.6977,
+    "difference": -0.0045,
+    "ci95": [
+     -0.0125,
+     0.0032
+    ],
+    "separates": false
+   }
+  },
+  "GRAIL interactive": {
+   "1": {
+    "stored": 0.1053,
+    "standardised": 0.1008,
+    "difference": -0.0045,
+    "ci95": [
+     -0.0128,
+     0.0031
+    ],
+    "separates": false
+   },
+   "3": {
+    "stored": 0.2406,
+    "standardised": 0.2391,
+    "difference": -0.0015,
+    "ci95": [
+     -0.0124,
+     0.009
+    ],
+    "separates": false
+   },
+   "5": {
+    "stored": 0.3203,
+    "standardised": 0.3203,
+    "difference": 0.0,
+    "ci95": [
+     -0.0126,
+     0.0126
+    ],
+    "separates": false
+   },
+   "8": {
+    "stored": 0.4015,
+    "standardised": 0.3955,
+    "difference": -0.006,
+    "ci95": [
+     -0.0205,
+     0.0069
+    ],
+    "separates": false
+   },
+   "10": {
+    "stored": 0.4331,
+    "standardised": 0.4301,
+    "difference": -0.003,
+    "ci95": [
+     -0.0149,
+     0.0084
+    ],
+    "separates": false
+   },
+   "15": {
+    "stored": 0.4797,
+    "standardised": 0.4767,
+    "difference": -0.003,
+    "ci95": [
+     -0.014,
+     0.0079
+    ],
+    "separates": false
+   },
+   "20": {
+    "stored": 0.4872,
+    "standardised": 0.4857,
+    "difference": -0.0015,
+    "ci95": [
+     -0.012,
+     0.0093
+    ],
+    "separates": false
+   },
+   "30": {
+    "stored": 0.4902,
+    "standardised": 0.4887,
+    "difference": -0.0015,
+    "ci95": [
+     -0.012,
+     0.0093
+    ],
+    "separates": false
+   },
+   "50": {
+    "stored": 0.4902,
+    "standardised": 0.4887,
+    "difference": -0.0015,
+    "ci95": [
+     -0.012,
+     0.0093
+    ],
+    "separates": false
+   }
+  }
+ },
+ "coverage_ceiling": {
+  "stored": {
+   "recovered": 539,
+   "of": 665,
+   "coverage": 0.8105
+  },
+  "standardised": {
+   "recovered": 534,
+   "of": 665,
+   "coverage": 0.803
+  },
+  "difference": {
+   "value": -0.0075,
+   "ci95": [
+    -0.0176,
+    0.0016
+   ],
+   "separates": false
+  },
+  "note": "measured on the comparison set rather than the full evaluated split, because the uncapped exhaustive pool for this population exists in both drawings and the full split's does not in the second"
+ },
+ "verdicts": {
+  "GRAIL exhaustive vs MetaTox": {
+   "1": {
+    "stored": {
+     "difference": 0.0586,
+     "ci95": [
+      0.0334,
+      0.0854
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0602,
+     "ci95": [
+      0.0354,
+      0.0861
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "3": {
+    "stored": {
+     "difference": 0.0977,
+     "ci95": [
+      0.0638,
+      0.1334
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0962,
+     "ci95": [
+      0.0627,
+      0.1314
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "5": {
+    "stored": {
+     "difference": 0.0932,
+     "ci95": [
+      0.0526,
+      0.1343
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0872,
+     "ci95": [
+      0.047,
+      0.1284
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "8": {
+    "stored": {
+     "difference": 0.1053,
+     "ci95": [
+      0.062,
+      0.1488
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0977,
+     "ci95": [
+      0.0562,
+      0.1394
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "10": {
+    "stored": {
+     "difference": 0.0677,
+     "ci95": [
+      0.0275,
+      0.1083
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0632,
+     "ci95": [
+      0.0227,
+      0.1028
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "15": {
+    "stored": {
+     "difference": 0.0211,
+     "ci95": [
+      -0.0214,
+      0.063
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0105,
+     "ci95": [
+      -0.0318,
+      0.0512
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "20": {
+    "stored": {
+     "difference": 0.0346,
+     "ci95": [
+      -0.0044,
+      0.0733
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0316,
+     "ci95": [
+      -0.0051,
+      0.0686
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "30": {
+    "stored": {
+     "difference": 0.0511,
+     "ci95": [
+      0.0175,
+      0.0858
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0421,
+     "ci95": [
+      0.01,
+      0.0759
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "50": {
+    "stored": {
+     "difference": 0.0752,
+     "ci95": [
+      0.045,
+      0.1053
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0707,
+     "ci95": [
+      0.0417,
+      0.1003
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   }
+  },
+  "GRAIL exhaustive vs SyGMa": {
+   "1": {
+    "stored": {
+     "difference": -0.0541,
+     "ci95": [
+      -0.0849,
+      -0.0248
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0526,
+     "ci95": [
+      -0.0835,
+      -0.023
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "3": {
+    "stored": {
+     "difference": -0.0586,
+     "ci95": [
+      -0.0948,
+      -0.0234
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0602,
+     "ci95": [
+      -0.0967,
+      -0.0251
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "5": {
+    "stored": {
+     "difference": -0.0632,
+     "ci95": [
+      -0.1,
+      -0.0268
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0692,
+     "ci95": [
+      -0.1067,
+      -0.032
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "8": {
+    "stored": {
+     "difference": -0.0105,
+     "ci95": [
+      -0.0508,
+      0.0303
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.018,
+     "ci95": [
+      -0.057,
+      0.0212
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "10": {
+    "stored": {
+     "difference": 0.0,
+     "ci95": [
+      -0.0396,
+      0.0401
+     ],
+     "separates": false,
+     "sign": 0
+    },
+    "standardised": {
+     "difference": -0.0045,
+     "ci95": [
+      -0.0429,
+      0.0341
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "15": {
+    "stored": {
+     "difference": 0.0511,
+     "ci95": [
+      0.0134,
+      0.0908
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0406,
+     "ci95": [
+      0.0035,
+      0.0783
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "20": {
+    "stored": {
+     "difference": 0.0872,
+     "ci95": [
+      0.052,
+      0.1241
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0842,
+     "ci95": [
+      0.0493,
+      0.121
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "30": {
+    "stored": {
+     "difference": 0.1459,
+     "ci95": [
+      0.1091,
+      0.1841
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.1368,
+     "ci95": [
+      0.1009,
+      0.1741
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "50": {
+    "stored": {
+     "difference": 0.191,
+     "ci95": [
+      0.1518,
+      0.2308
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.1865,
+     "ci95": [
+      0.1473,
+      0.2271
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   }
+  },
+  "GRAIL exhaustive vs MetaPredictor": {
+   "1": {
+    "stored": {
+     "difference": -0.0406,
+     "ci95": [
+      -0.0689,
+      -0.0126
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0391,
+     "ci95": [
+      -0.0678,
+      -0.0114
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "3": {
+    "stored": {
+     "difference": -0.0466,
+     "ci95": [
+      -0.0829,
+      -0.0112
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0481,
+     "ci95": [
+      -0.0845,
+      -0.0131
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "5": {
+    "stored": {
+     "difference": -0.0436,
+     "ci95": [
+      -0.0861,
+      -0.0041
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0496,
+     "ci95": [
+      -0.0918,
+      -0.0094
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "8": {
+    "stored": {
+     "difference": -0.018,
+     "ci95": [
+      -0.0642,
+      0.025
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0256,
+     "ci95": [
+      -0.0706,
+      0.017
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "10": {
+    "stored": {
+     "difference": -0.015,
+     "ci95": [
+      -0.0596,
+      0.0268
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0195,
+     "ci95": [
+      -0.0632,
+      0.0223
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "15": {
+    "stored": {
+     "difference": 0.0556,
+     "ci95": [
+      0.0149,
+      0.0955
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0451,
+     "ci95": [
+      0.0043,
+      0.0855
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "20": {
+    "stored": {
+     "difference": 0.1068,
+     "ci95": [
+      0.0658,
+      0.1471
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.1038,
+     "ci95": [
+      0.0624,
+      0.1443
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "30": {
+    "stored": {
+     "difference": 0.1729,
+     "ci95": [
+      0.1263,
+      0.2188
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.1639,
+     "ci95": [
+      0.118,
+      0.2098
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "50": {
+    "stored": {
+     "difference": 0.2226,
+     "ci95": [
+      0.1724,
+      0.2717
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.218,
+     "ci95": [
+      0.1679,
+      0.2672
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   }
+  },
+  "GRAIL interactive vs MetaTox": {
+   "1": {
+    "stored": {
+     "difference": 0.0647,
+     "ci95": [
+      0.0399,
+      0.091
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0602,
+     "ci95": [
+      0.0358,
+      0.0862
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "3": {
+    "stored": {
+     "difference": 0.1083,
+     "ci95": [
+      0.072,
+      0.1461
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.1068,
+     "ci95": [
+      0.0708,
+      0.1446
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "5": {
+    "stored": {
+     "difference": 0.1023,
+     "ci95": [
+      0.062,
+      0.1443
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.1023,
+     "ci95": [
+      0.0627,
+      0.1433
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "8": {
+    "stored": {
+     "difference": 0.0902,
+     "ci95": [
+      0.0488,
+      0.1322
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0842,
+     "ci95": [
+      0.0438,
+      0.1248
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "10": {
+    "stored": {
+     "difference": 0.0451,
+     "ci95": [
+      0.0031,
+      0.086
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.0421,
+     "ci95": [
+      0.0017,
+      0.0809
+     ],
+     "separates": true,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "15": {
+    "stored": {
+     "difference": -0.0346,
+     "ci95": [
+      -0.0762,
+      0.0065
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0376,
+     "ci95": [
+      -0.0776,
+      0.0017
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "20": {
+    "stored": {
+     "difference": -0.0647,
+     "ci95": [
+      -0.105,
+      -0.0251
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0662,
+     "ci95": [
+      -0.1043,
+      -0.0285
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "30": {
+    "stored": {
+     "difference": -0.1113,
+     "ci95": [
+      -0.1523,
+      -0.0706
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.1128,
+     "ci95": [
+      -0.1522,
+      -0.0732
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "50": {
+    "stored": {
+     "difference": -0.1368,
+     "ci95": [
+      -0.1846,
+      -0.0917
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.1383,
+     "ci95": [
+      -0.1846,
+      -0.0941
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   }
+  },
+  "GRAIL interactive vs SyGMa": {
+   "1": {
+    "stored": {
+     "difference": -0.0481,
+     "ci95": [
+      -0.0761,
+      -0.0207
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0526,
+     "ci95": [
+      -0.081,
+      -0.0244
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "3": {
+    "stored": {
+     "difference": -0.0481,
+     "ci95": [
+      -0.082,
+      -0.0155
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0496,
+     "ci95": [
+      -0.0828,
+      -0.0178
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "5": {
+    "stored": {
+     "difference": -0.0541,
+     "ci95": [
+      -0.0899,
+      -0.0199
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0541,
+     "ci95": [
+      -0.0895,
+      -0.0199
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "8": {
+    "stored": {
+     "difference": -0.0256,
+     "ci95": [
+      -0.062,
+      0.0113
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0316,
+     "ci95": [
+      -0.0674,
+      0.0045
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "10": {
+    "stored": {
+     "difference": -0.0226,
+     "ci95": [
+      -0.0585,
+      0.0137
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0256,
+     "ci95": [
+      -0.0604,
+      0.0103
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "15": {
+    "stored": {
+     "difference": -0.0045,
+     "ci95": [
+      -0.0408,
+      0.0326
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0075,
+     "ci95": [
+      -0.0438,
+      0.0296
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "20": {
+    "stored": {
+     "difference": -0.012,
+     "ci95": [
+      -0.0501,
+      0.0272
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0135,
+     "ci95": [
+      -0.052,
+      0.0258
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "30": {
+    "stored": {
+     "difference": -0.0165,
+     "ci95": [
+      -0.0556,
+      0.0233
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.018,
+     "ci95": [
+      -0.0571,
+      0.0221
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "50": {
+    "stored": {
+     "difference": -0.0211,
+     "ci95": [
+      -0.0597,
+      0.019
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0226,
+     "ci95": [
+      -0.0613,
+      0.0176
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   }
+  },
+  "GRAIL interactive vs MetaPredictor": {
+   "1": {
+    "stored": {
+     "difference": -0.0346,
+     "ci95": [
+      -0.0615,
+      -0.0079
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0391,
+     "ci95": [
+      -0.0672,
+      -0.0121
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "3": {
+    "stored": {
+     "difference": -0.0361,
+     "ci95": [
+      -0.0736,
+      0.0
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0376,
+     "ci95": [
+      -0.0738,
+      -0.0015
+     ],
+     "separates": true,
+     "sign": -1
+    },
+    "verdict_moves": true
+   },
+   "5": {
+    "stored": {
+     "difference": -0.0346,
+     "ci95": [
+      -0.0775,
+      0.0066
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0346,
+     "ci95": [
+      -0.0773,
+      0.0062
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "8": {
+    "stored": {
+     "difference": -0.0331,
+     "ci95": [
+      -0.0785,
+      0.0112
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0391,
+     "ci95": [
+      -0.0835,
+      0.0041
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "10": {
+    "stored": {
+     "difference": -0.0376,
+     "ci95": [
+      -0.0816,
+      0.0071
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "standardised": {
+     "difference": -0.0406,
+     "ci95": [
+      -0.0837,
+      0.0027
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "15": {
+    "stored": {
+     "difference": 0.0,
+     "ci95": [
+      -0.0452,
+      0.0458
+     ],
+     "separates": false,
+     "sign": 0
+    },
+    "standardised": {
+     "difference": -0.003,
+     "ci95": [
+      -0.0482,
+      0.0421
+     ],
+     "separates": false,
+     "sign": -1
+    },
+    "verdict_moves": false
+   },
+   "20": {
+    "stored": {
+     "difference": 0.0075,
+     "ci95": [
+      -0.0373,
+      0.0526
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.006,
+     "ci95": [
+      -0.0383,
+      0.0508
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "30": {
+    "stored": {
+     "difference": 0.0105,
+     "ci95": [
+      -0.034,
+      0.0555
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.009,
+     "ci95": [
+      -0.0351,
+      0.0536
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "verdict_moves": false
+   },
+   "50": {
+    "stored": {
+     "difference": 0.0105,
+     "ci95": [
+      -0.034,
+      0.0555
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "standardised": {
+     "difference": 0.009,
+     "ci95": [
+      -0.0351,
+      0.0536
+     ],
+     "separates": false,
+     "sign": 1
+    },
+    "verdict_moves": false
+   }
+  }
+ },
+ "verdict_cells": 54,
+ "verdict_cells_that_move": 1,
+ "comparators_held_fixed": [
+  "MetaTox",
+  "MetaPredictor",
+  "SyGMa"
+ ],
+ "why_held_fixed": "MetaTox is a web service and MetaPredictor a frozen delivery, so neither can be re-run here; SyGMa is swept separately in results/sygma_by_dialect.json",
+ "reading": "difference is standardised minus stored, so a positive value is recall the corpus's drawing was denying the arm"
+}

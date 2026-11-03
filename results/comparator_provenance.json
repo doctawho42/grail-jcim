@@ -1,0 +1,76 @@
+{
+ "provenance": {
+  "script": "comparator_provenance.py",
+  "script_path": "scripts/typed_edit/comparator_provenance.py",
+  "source_sha256": "70baab707cad91f9aedd687788662d362c02e76c3509722561201a229b4ccc41",
+  "git_commit": "74ab37037116fd35b0dfd93da7f8ff6761475581",
+  "git_dirty": true
+ },
+ "comparators": {
+  "SyGMa": {
+   "kind": "installed Python package",
+   "version": "1.1.0",
+   "configuration": "scenario [[phase1, 1], [phase2, 1]], one cycle of each ruleset",
+   "predictions": "results/sygma_fulltest_predictions.json",
+   "version_note": "read from the installed module at run time",
+   "predictions_sha256": "b012db873a24bb87cddfdbee6b92daa1c95bab4470d3d9c815e058ffc783dfd6",
+   "predictions_first_in_the_repository": "2026-07-27"
+  },
+  "MetaTox": {
+   "kind": "web service",
+   "version": null,
+   "configuration": "SMIRKS rules, all 291 parents returned, ranked by the method's own Pa for the Metabolite class, descending -- the configuration recorded in the scored artifact's own config field",
+   "predictions": "results/metatox_smirks_preds.json",
+   "a_second_run_exists_and_feeds_nothing": "results/metatox_preds.json is a separate run in a different configuration -- layer 1 only, without the SMIRKS-rule variant, per the supplier's note. It carries 248 substrates as TOP-LEVEL keys and has no `predictions` envelope, so reading it through the accessor every other comparator uses returns nothing rather than failing; that is how a reader mistakes it for empty. No published number comes from it: deployment_table.py and the four-method population both read the SMIRKS artifact above. This record described that side analysis as though it were the column, with the wrong file and the wrong configuration, and the error outlived a session in which it was diagnosed and reported as fixed, because nothing compared the record against its source",
+   "version_note": "the service publishes no version string to a user, so none can be recorded; the submission set and the returned predictions are pinned instead, and the service is the one running at way2drug.com on the date below",
+   "predictions_sha256": "136d4bdc323a73725dde146b470b921a8cea3fd5be3faf2b715f5c0204a56a64",
+   "predictions_first_in_the_repository": "2026-08-07"
+  },
+  "MetaPredictor": {
+   "kind": "source checkout, run locally",
+   "version": null,
+   "configuration": "two-stage translation on CPU, the repository's own predict script",
+   "predictions": "artifacts/tier2/metapredictor_preds.json",
+   "version_note": "the upstream release carries no version string; the checkout used is in the repository under artifacts/tier2/metapredictor_src",
+   "predictions_sha256": "6250fbcf1701d06db927d7cabf0010dbd514468ffd130f1431012856e50d0f7f",
+   "predictions_first_in_the_repository": "2026-07-13"
+  },
+  "BioTransformer": {
+   "kind": "jar",
+   "version": "3.0",
+   "build": "20230525",
+   "configuration": "the shipped metabolic reaction database, unmodified",
+   "predictions": "artifacts/tier2/biotransformer_preds.json",
+   "version_note": "the jar's own build stamp, with its digest in paper2/split_manifest.json",
+   "predictions_sha256": "28e6c684945275cfce2422ee4a810e2b3b0633e660ba23042b3a711b8e324b71",
+   "predictions_first_in_the_repository": "2026-07-13"
+  },
+  "GLORYx": {
+   "kind": "web service, the one its own authors operate",
+   "version": "0.0.26",
+   "configuration": "phase 1 and phase 2, the service's default",
+   "predictions": "results/gloryx_service_preds.json",
+   "version_note": "this is the only arm not run on this machine. Its source is public and GPL-3 and its command line takes an SDF in batch, so submission cost is not what kept it out; what does is that the FAME 3 models it needs are not distributed with it and its README directs a user to the FAME 3 authors for them. So this column comes from the service, which reports a module version, and that version is recorded beside the job identifiers the run used. The successor GLORYxR installs and runs and ships no production model either, but its dumps were supplied privately by its first author for this work, so GLORYxR is additionally run locally as its own arm in both site-of-metabolism modes. Those columns are recorded in revision/T_gloryxr.csv and not beside this one: the local arm emits no stereochemistry at all, so it is comparable to this service column under the stereo-insensitive criteria only",
+   "service": "https://nerdd.univie.ac.at/api/gloryx",
+   "jobs": [
+    "b842a8ad-eece-4c24-b855-abc80b91e6a5",
+    "c6af2508-2856-434a-a60b-ca5232191cdc",
+    "8aba1a37-c1b6-4bc9-aafc-87befe681538",
+    "c599fc84-b895-4e3e-9a2b-66903dc3ea29",
+    "476a63e1-fe32-414b-ab02-6f2bde18bb26",
+    "26fa2ea0-a730-4a75-9d49-65e121622972",
+    "46491698-866b-4921-9cf2-c541186e043c",
+    "58d868bf-c6d2-48fe-8bff-d0573e9f0110",
+    "667a85a7-825b-434d-94a6-dd73ff52e6a8",
+    "40a65710-e760-41dd-b350-ae2a35122d18",
+    "55d0adbe-9719-440e-9ade-fb057a0823db",
+    "52a3fa1d-fa2a-46f1-8131-1a2e923888ec"
+   ],
+   "predictions_sha256": "61383272c0066045743a374c9215d4ab3a734649150a6ce7bd53cf033b184cd3",
+   "predictions_first_in_the_repository": "2026-09-04"
+  }
+ },
+ "n_comparators": 5,
+ "n_carrying_a_version_string": 3,
+ "reading": "3 of 5 comparators expose a version string. For the others the record is the frozen predictions, their digest, and the date they entered this repository, which bounds the run. A service that publishes no version cannot be pinned by one, and reporting the bound is the honest alternative to inventing it."
+}

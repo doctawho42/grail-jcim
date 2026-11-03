@@ -1,0 +1,137 @@
+{
+ "provenance": {
+  "script": "h14_verdict.py",
+  "script_path": "scripts/typed_edit/h14_verdict.py",
+  "source_sha256": "da69ab1b86c5c999c984e8a9dcdd74ac25a13a52e3c6040d08e501ead1f7e5ca",
+  "git_commit": "895718aef04ed1892500a49e3c3d29139474bd3e",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_implicit/w0.json",
+   "exists": true,
+   "sha256_16": "6a90b7bcc2b82562",
+   "bytes": 10103608
+  },
+  {
+   "path": "results/widepools_implicit/w1.json",
+   "exists": true,
+   "sha256_16": "dcb34d6ca5a7c690",
+   "bytes": 9923282
+  },
+  {
+   "path": "results/widepools_implicit/w2.json",
+   "exists": true,
+   "sha256_16": "2f7440497f05cd4a",
+   "bytes": 5621821
+  },
+  {
+   "path": "results/widepools_implicit/w3.json",
+   "exists": true,
+   "sha256_16": "c194bbb0bd7ec69e",
+   "bytes": 8229360
+  },
+  {
+   "path": "results/widepools_implicit/w4.json",
+   "exists": true,
+   "sha256_16": "504576d634e4bdb8",
+   "bytes": 5126437
+  },
+  {
+   "path": "results/widepools_implicit/w5.json",
+   "exists": true,
+   "sha256_16": "7f4c7cee307a726c",
+   "bytes": 3561735
+  }
+ ],
+ "hypothesis": "H14",
+ "registered_threshold": 0.02,
+ "budget": 100,
+ "k": 15,
+ "population": {
+  "n": 291,
+  "n_references": 665.0,
+  "source": "the 291 of results/four_method_291.json"
+ },
+ "aggregation": "micro, ratio of sums",
+ "model": {
+  "selected_on": "validation under this composition",
+  "hidden": 256,
+  "lr": 0.001,
+  "dropout": 0.0,
+  "val_recall@15": 0.520259319286872,
+  "val_cap_baseline": 0.5024311183144247
+ },
+ "recall_micro": {
+  "1": {
+   "gate": 0.0992,
+   "cap": 0.0992,
+   "gate_oracle": 0.0992,
+   "three_way": 0.1068
+  },
+  "5": {
+   "gate": 0.3143,
+   "cap": 0.3113,
+   "gate_oracle": 0.3173,
+   "three_way": 0.3323
+  },
+  "10": {
+   "gate": 0.4406,
+   "cap": 0.4556,
+   "gate_oracle": 0.4451,
+   "three_way": 0.4586
+  },
+  "15": {
+   "gate": 0.5158,
+   "cap": 0.5353,
+   "gate_oracle": 0.5173,
+   "three_way": 0.5293
+  },
+  "20": {
+   "gate": 0.5519,
+   "cap": 0.5835,
+   "gate_oracle": 0.5459,
+   "three_way": 0.582
+  },
+  "30": {
+   "gate": 0.6105,
+   "cap": 0.6526,
+   "gate_oracle": 0.606,
+   "three_way": 0.6496
+  },
+  "50": {
+   "gate": 0.6571,
+   "cap": 0.7053,
+   "gate_oracle": 0.6917,
+   "three_way": 0.6977
+  }
+ },
+ "primary_gate_minus_cap": {
+  "gap": -0.0195,
+  "ci95": [
+   -0.0389,
+   -0.0029
+  ],
+  "excludes_zero": true
+ },
+ "ceiling_of_this_gate": {
+  "gap": -0.018,
+  "ci95": [
+   -0.0388,
+   0.0028
+  ],
+  "excludes_zero": false
+ },
+ "gate_minus_three_way": {
+  "gap": -0.0135,
+  "ci95": [
+   -0.0373,
+   0.0092
+  ],
+  "excludes_zero": false
+ },
+ "share_of_ceiling_taken": null,
+ "ceiling_is_negative": true,
+ "ceiling_note": "a perfect group ranking used as this gate is itself worse than the H9 cap, so the design is bounded below the thing it must beat and no scorer reaches the threshold through it",
+ "verdict": "failed"
+}

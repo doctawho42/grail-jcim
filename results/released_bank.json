@@ -1,0 +1,56 @@
+{
+ "provenance": {
+  "script": "build_released_bank.py",
+  "script_path": "scripts/build_released_bank.py",
+  "source_sha256": "82b8376e6480a61040b8c864de67ca4732e716d21ceb59b5df2920e639274465",
+  "git_commit": "c0e420e2e19d3e3b87d2814d24a8b921cf5bf56b",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "grail_metabolism/resources/extended_smirks.txt",
+   "exists": true,
+   "sha256_16": "40643d60de93f4db",
+   "bytes": 1321831
+  },
+  {
+   "path": "grail_metabolism/resources/external/bt_database_metabolicReactions.json",
+   "exists": true,
+   "sha256_16": "9bbfa5b8c0fd3d06",
+   "bytes": 779284
+  }
+ ],
+ "what_this_is": "the rule bank with every template BioTransformer's published set also contains removed, which is the bank this repository redistributes",
+ "why": "BioTransformer's README requires explicit permission for redistribution and that permission has not been sought; one of its files is CC BY-NC-SA 4.0, which no GPL release can carry. Neither is settleable here.",
+ "measured_bank": {
+  "path": "grail_metabolism/resources/extended_smirks.txt",
+  "templates": 7581,
+  "sha256_16": "40643d60de93f4db"
+ },
+ "released_bank": {
+  "path": "grail_metabolism/resources/extended_smirks_released.txt",
+  "templates": 6970,
+  "sha256_16": "2b1af7118cee2104"
+ },
+ "removed": 611,
+ "per_published_file": {
+  "core": {
+   "present": true,
+   "templates_in_the_bank": 611,
+   "of_them_only_in_this_file": 611
+  },
+  "ENVMICRO": {
+   "present": true,
+   "templates_in_the_bank": 2,
+   "of_them_only_in_this_file": 0
+  },
+  "standardisation": {
+   "present": true,
+   "templates_in_the_bank": 0,
+   "of_them_only_in_this_file": 0
+  }
+ },
+ "the_noncommercial_file": "BioTransformer's environmental-microbial set is CC BY-NC-SA 4.0, which no GPL release can carry. Its templates in this bank are identified here rather than declared, and all of them are also in the core set, so the core removal already takes them: nothing under that licence reaches the released bank.",
+ "cost": "zero references on the evaluated test set; every reference these templates reach is reached by another template in the bank, priced in results/licence_removal_cost__clean_test.json",
+ "how_to_rebuild_the_measured_bank": "obtain BioTransformer's reaction database from its own project and re-add every template of it that this bank contained; the measured bank's digest above confirms the result"
+}

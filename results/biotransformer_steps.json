@@ -1,0 +1,257 @@
+{
+ "provenance": {
+  "script": "biotransformer_steps.py",
+  "script_path": "scripts/typed_edit/biotransformer_steps.py",
+  "source_sha256": "a03307bd2bb88aae7bd62c75f39737a6b177edb114085eed5d6925d3b9e941d9",
+  "git_commit": "eb05854a679e8d1a3f3a5f0efb4adc175e5b0e4f",
+  "git_dirty": true
+ },
+ "question": "what BioTransformer's one declared knob does, and what running it twice revealed about the arms already reported",
+ "reproduction": {
+  "whole_test_set": {
+   "fresh_parents": 1159,
+   "frozen_parents": 1170,
+   "shared": 1159,
+   "list_identical": 486,
+   "set_identical": 492,
+   "differ": 667,
+   "frozen_strict_subset_of_fresh": 74,
+   "frozen_strict_superset_of_fresh": 593,
+   "neither_contains_the_other": 0,
+   "metabolites_frozen": 18647,
+   "metabolites_fresh": 18503,
+   "frozen_structures_the_rerun_never_produces": 929,
+   "distinct_structures_frozen": 12703,
+   "distinct_structures_fresh": 12564
+  },
+  "comparison_set": {
+   "fresh_parents": 290,
+   "frozen_parents": 291,
+   "shared": 290,
+   "list_identical": 220,
+   "set_identical": 220,
+   "differ": 70,
+   "frozen_strict_subset_of_fresh": 2,
+   "frozen_strict_superset_of_fresh": 1,
+   "neither_contains_the_other": 67,
+   "metabolites_frozen": 4407,
+   "metabolites_fresh": 4439,
+   "frozen_structures_the_rerun_never_produces": 461,
+   "distinct_structures_frozen": 3033,
+   "distinct_structures_fresh": 3076
+  }
+ },
+ "failures": {
+  "comparison_set": {
+   "n": 291,
+   "failures": 1,
+   "baseline_rate": 0.0034,
+   "strata": {
+    "phosphorus": {
+     "in_population": 11,
+     "in_failures": 0,
+     "rate_in_stratum": 0.0,
+     "enrichment": 0.0,
+     "ceiling": 26.45
+    },
+    "sulfur": {
+     "in_population": 61,
+     "in_failures": 1,
+     "rate_in_stratum": 0.0164,
+     "enrichment": 4.77,
+     "ceiling": 4.77
+    },
+    "imidic_acid": {
+     "in_population": 47,
+     "in_failures": 0,
+     "rate_in_stratum": 0.0,
+     "enrichment": 0.0,
+     "ceiling": 6.19
+    },
+    "charged_ring_nitrogen": {
+     "in_population": 20,
+     "in_failures": 0,
+     "rate_in_stratum": 0.0,
+     "enrichment": 0.0,
+     "ceiling": 14.55
+    }
+   }
+  },
+  "whole_test_set": {
+   "n": 1170,
+   "frozen_empties": 107,
+   "of_those_a_crash": 11,
+   "of_those_a_genuine_empty": 96,
+   "crashes_not_empty_in_frozen": 0,
+   "crash_share_of_population": 0.0094,
+   "references_the_crashes_carry": 1
+  }
+ },
+ "steps_two": {
+  "attempted": 291,
+  "completed": 286,
+  "crashed_or_timed_out": 5,
+  "paired_with_steps_one": 286,
+  "steps_one_set_contained_in_steps_two": 286,
+  "generation_one_structures_lost": 0,
+  "mean_emitted_steps_one": 15.3,
+  "mean_emitted_steps_two": 216.7,
+  "one_step_emission_of_lost_substrates": {
+   "n": 4,
+   "median": 15.0,
+   "mean": 15.5
+  },
+  "one_step_emission_of_completed_substrates": {
+   "n": 286,
+   "median": 14.0,
+   "mean": 15.3
+  },
+  "emission_ratio": 14.2
+ },
+ "inputs": [
+  {
+   "path": "results/bt_steps/preds_s1_n291_cm1.json",
+   "exists": true,
+   "sha256_16": "37c6837a6e25dfe5",
+   "bytes": 303202
+  },
+  {
+   "path": "results/bt_steps/preds_s2_n291_cm1.json",
+   "exists": true,
+   "sha256_16": "cc549d4ddbe41ac4",
+   "bytes": 4796524
+  },
+  {
+   "path": "results/bt_steps/preds_s1_n1170_cm1.json",
+   "exists": true,
+   "sha256_16": "584828414ecdf5bc",
+   "bytes": 1314356
+  },
+  {
+   "path": "results/biotransformer_arm_as_published.json",
+   "exists": true,
+   "sha256_16": "1cdc5ab9898e0f99",
+   "bytes": 291972
+  },
+  {
+   "path": "results/biotransformer_fulltest_as_published.json",
+   "exists": true,
+   "sha256_16": "380c63453f55b4ea",
+   "bytes": 1289962
+  }
+ ],
+ "recall_micro": {
+  "population": {
+   "comparison_set": 291,
+   "paired_for_the_steps_contrast": 286
+  },
+  "biotransformer_as_printed": {
+   "1": 0.0722,
+   "3": 0.194,
+   "5": 0.2752,
+   "8": 0.3414,
+   "10": 0.3759,
+   "15": 0.4286,
+   "20": 0.4421,
+   "30": 0.4466,
+   "50": 0.4481
+  },
+  "biotransformer_per_parent": {
+   "1": 0.0722,
+   "3": 0.194,
+   "5": 0.2752,
+   "8": 0.3414,
+   "10": 0.3759,
+   "15": 0.4286,
+   "20": 0.4421,
+   "30": 0.4466,
+   "50": 0.4481
+  },
+  "steps_one_paired": {
+   "1": 0.0731,
+   "3": 0.1948,
+   "5": 0.277,
+   "8": 0.344,
+   "10": 0.379,
+   "15": 0.4307,
+   "20": 0.4429,
+   "30": 0.4475,
+   "50": 0.449
+  },
+  "steps_two_paired": {
+   "1": 0.0731,
+   "3": 0.1963,
+   "5": 0.2801,
+   "8": 0.3486,
+   "10": 0.3866,
+   "15": 0.446,
+   "20": 0.4658,
+   "30": 0.4779,
+   "50": 0.4886
+  },
+  "correction_delta": {
+   "1": 0.0,
+   "3": 0.0,
+   "5": 0.0,
+   "8": 0.0,
+   "10": 0.0,
+   "15": 0.0,
+   "20": 0.0,
+   "30": 0.0,
+   "50": 0.0
+  },
+  "steps_delta": {
+   "1": 0.0,
+   "3": 0.0015,
+   "5": 0.0031,
+   "8": 0.0046,
+   "10": 0.0076,
+   "15": 0.0153,
+   "20": 0.0229,
+   "30": 0.0304,
+   "50": 0.0396
+  },
+  "largest_correction": 0.0,
+  "largest_steps_gain": 0.0396
+ },
+ "cost": {
+  "steps_one_1170": {
+   "substrates": 1170,
+   "hours": 1.69,
+   "per_minute": 11.53,
+   "workers": 5,
+   "timeout_s": 1800,
+   "flags": [
+    "-k",
+    "pred",
+    "-b",
+    "allHuman",
+    "-cm",
+    "1",
+    "-s",
+    "1"
+   ],
+   "cyp450_mode": "1"
+  },
+  "steps_two_291": {
+   "substrates": 291,
+   "hours": 2.43,
+   "per_minute": 1.99,
+   "workers": 5,
+   "timeout_s": 1800,
+   "flags": [
+    "-k",
+    "pred",
+    "-b",
+    "allHuman",
+    "-cm",
+    "1",
+    "-s",
+    "2"
+   ],
+   "cyp450_mode": "1"
+  },
+  "steps_two_1170_projected_hours": 10,
+  "not_run": "steps=2 over the whole evaluated test set"
+ }
+}

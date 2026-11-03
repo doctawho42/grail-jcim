@@ -1,0 +1,186 @@
+{
+ "provenance": {
+  "script": "oracle_by_grouping.py",
+  "script_path": "scripts/typed_edit/oracle_by_grouping.py",
+  "source_sha256": "d831c504c06569cc6b6a15389d4df4480b3334f19038fc66a3a2fad206f74a9a",
+  "git_commit": "249f1cdb8f05e4571331cbc2e21ae4085771e9bd",
+  "git_dirty": false
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_implicit/w0.json",
+   "exists": true,
+   "sha256_16": "6a90b7bcc2b82562",
+   "bytes": 10103608
+  },
+  {
+   "path": "results/widepools_implicit/w1.json",
+   "exists": true,
+   "sha256_16": "dcb34d6ca5a7c690",
+   "bytes": 9923282
+  },
+  {
+   "path": "results/widepools_implicit/w2.json",
+   "exists": true,
+   "sha256_16": "2f7440497f05cd4a",
+   "bytes": 5621821
+  },
+  {
+   "path": "results/widepools_implicit/w3.json",
+   "exists": true,
+   "sha256_16": "c194bbb0bd7ec69e",
+   "bytes": 8229360
+  },
+  {
+   "path": "results/widepools_implicit/w4.json",
+   "exists": true,
+   "sha256_16": "504576d634e4bdb8",
+   "bytes": 5126437
+  },
+  {
+   "path": "results/widepools_implicit/w5.json",
+   "exists": true,
+   "sha256_16": "7f4c7cee307a726c",
+   "bytes": 3561735
+  }
+ ],
+ "population": {
+  "n": 291,
+  "n_references": 665.0,
+  "source": "the 291 of results/four_method_291.json"
+ },
+ "aggregation": "micro, ratio of sums",
+ "k": 15,
+ "cap": 100,
+ "cap_note": "every arm including the fusion baseline is computed on the capped pool, so the three partitions are compared on the set the deployed configuration actually ranks",
+ "note": "every arm blocks its groups, which is what the oracle over a partition means; the fusion arm interleaves and is the baseline all three are read against",
+ "untyped_candidates": 1179,
+ "groups_per_substrate": {
+  "formula": 41.5,
+  "type": 51.4,
+  "both": 53.7,
+  "random_matched": 51.4
+ },
+ "recall_micro": {
+  "1": {
+   "fusion": 0.0992,
+   "formula": 0.2767,
+   "type": 0.3158,
+   "both": 0.3188,
+   "random_matched": 0.3083
+  },
+  "5": {
+   "fusion": 0.3113,
+   "formula": 0.4902,
+   "type": 0.5459,
+   "both": 0.5549,
+   "random_matched": 0.5023
+  },
+  "10": {
+   "fusion": 0.4541,
+   "formula": 0.597,
+   "type": 0.6556,
+   "both": 0.6556,
+   "random_matched": 0.5985
+  },
+  "15": {
+   "fusion": 0.5353,
+   "formula": 0.6571,
+   "type": 0.7143,
+   "both": 0.7173,
+   "random_matched": 0.6617
+  },
+  "20": {
+   "fusion": 0.5835,
+   "formula": 0.7068,
+   "type": 0.7293,
+   "both": 0.7353,
+   "random_matched": 0.6902
+  },
+  "30": {
+   "fusion": 0.6526,
+   "formula": 0.7429,
+   "type": 0.7429,
+   "both": 0.7459,
+   "random_matched": 0.7188
+  },
+  "50": {
+   "fusion": 0.7053,
+   "formula": 0.7504,
+   "type": 0.7504,
+   "both": 0.7504,
+   "random_matched": 0.7444
+  }
+ },
+ "headroom_over_fusion": {
+  "formula": {
+   "gap": 0.1218,
+   "ci95": [
+    0.082,
+    0.1644
+   ],
+   "excludes_zero": true
+  },
+  "type": {
+   "gap": 0.1789,
+   "ci95": [
+    0.1417,
+    0.2179
+   ],
+   "excludes_zero": true
+  },
+  "both": {
+   "gap": 0.182,
+   "ci95": [
+    0.1473,
+    0.2186
+   ],
+   "excludes_zero": true
+  },
+  "random_matched": {
+   "gap": 0.1263,
+   "ci95": [
+    0.0753,
+    0.1763
+   ],
+   "excludes_zero": true
+  }
+ },
+ "contrasts_between_arms": {
+  "type-random_matched": {
+   "gap": 0.0526,
+   "ci95": [
+    0.0259,
+    0.0837
+   ],
+   "excludes_zero": true
+  },
+  "formula-random_matched": {
+   "gap": -0.0045,
+   "ci95": [
+    -0.0399,
+    0.0325
+   ],
+   "excludes_zero": false
+  },
+  "type-formula": {
+   "gap": 0.0571,
+   "ci95": [
+    0.0328,
+    0.0846
+   ],
+   "excludes_zero": true
+  },
+  "both-type": {
+   "gap": 0.003,
+   "ci95": [
+    0.0,
+    0.0092
+   ],
+   "excludes_zero": false
+  }
+ },
+ "reproducibility": "pair_to_type runs an MCS under a wall-clock timeout and returns None when it is cancelled, so the typing is load-dependent and this artifact is not byte-reproducible. Two runs on the same machine differed in 2 of ~29,100 typings; every headroom and every k=15 figure was identical to four decimals, and the only cell that moved was random_matched at k=1, by 0.0015",
+ "control_note": "random_matched is a random partition whose group-size multiset is exactly type's on each substrate, so it holds granularity fixed and carries no chemistry; type-random_matched is the test of whether the advantage is the transformation or the count of groups",
+ "reading": "headroom under type comparable to or larger than under formula means the signal is about the transformation and is reachable through the typed label space H1 registers; headroom under formula alone means it is about elemental composition and belongs in the filter's features"
+}

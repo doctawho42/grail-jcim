@@ -1,0 +1,462 @@
+{
+ "provenance": {
+  "script": "similarity_baseline.py",
+  "script_path": "scripts/typed_edit/similarity_baseline.py",
+  "source_sha256": "50bbe552079ee013260435c586f1fb0e2709574b149df6e74b1794f24afc3d46",
+  "git_commit": "895718aef04ed1892500a49e3c3d29139474bd3e",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_implicit/w0.json",
+   "exists": true,
+   "sha256_16": "6a90b7bcc2b82562",
+   "bytes": 10103608
+  },
+  {
+   "path": "results/widepools_implicit/w1.json",
+   "exists": true,
+   "sha256_16": "dcb34d6ca5a7c690",
+   "bytes": 9923282
+  },
+  {
+   "path": "results/widepools_implicit/w2.json",
+   "exists": true,
+   "sha256_16": "2f7440497f05cd4a",
+   "bytes": 5621821
+  },
+  {
+   "path": "results/widepools_implicit/w3.json",
+   "exists": true,
+   "sha256_16": "c194bbb0bd7ec69e",
+   "bytes": 8229360
+  },
+  {
+   "path": "results/widepools_implicit/w4.json",
+   "exists": true,
+   "sha256_16": "504576d634e4bdb8",
+   "bytes": 5126437
+  },
+  {
+   "path": "results/widepools_implicit/w5.json",
+   "exists": true,
+   "sha256_16": "7f4c7cee307a726c",
+   "bytes": 3561735
+  },
+  {
+   "path": "results/val_pools.json",
+   "exists": true,
+   "sha256_16": "b8a8c204834a2f70",
+   "bytes": 48646521
+  }
+ ],
+ "aggregation": "micro, ratio of sums",
+ "cap": 100,
+ "n_boot": 10000,
+ "seed": 0,
+ "note": "every arm re-ranks one pool, so pool, matching and budget are fixed and only the order varies; the fusion arm is the deployed ranking",
+ "by_population": {
+  "comparison set": {
+   "population": {
+    "n": 291,
+    "n_references": 665.0,
+    "source": "comparison set"
+   },
+   "recall_micro": {
+    "fusion": {
+     "1": 0.0992,
+     "5": 0.3113,
+     "10": 0.4556,
+     "15": 0.5353,
+     "30": 0.6526,
+     "50": 0.7023
+    },
+    "similarity": {
+     "1": 0.0316,
+     "5": 0.0902,
+     "10": 0.1654,
+     "15": 0.2406,
+     "30": 0.388,
+     "50": 0.5579
+    },
+    "dissimilarity": {
+     "1": 0.0,
+     "5": 0.0135,
+     "10": 0.0466,
+     "15": 0.0632,
+     "30": 0.1083,
+     "50": 0.2105
+    },
+    "random": {
+     "1": 0.0075,
+     "5": 0.0286,
+     "10": 0.0707,
+     "15": 0.1128,
+     "30": 0.2241,
+     "50": 0.3609
+    }
+   },
+   "fusion_minus": {
+    "similarity": {
+     "1": {
+      "gap": 0.0677,
+      "ci95": [
+       0.043,
+       0.0946
+      ],
+      "separates": true
+     },
+     "5": {
+      "gap": 0.2211,
+      "ci95": [
+       0.1807,
+       0.2665
+      ],
+      "separates": true
+     },
+     "10": {
+      "gap": 0.2902,
+      "ci95": [
+       0.2455,
+       0.3405
+      ],
+      "separates": true
+     },
+     "15": {
+      "gap": 0.2947,
+      "ci95": [
+       0.2484,
+       0.3455
+      ],
+      "separates": true
+     },
+     "30": {
+      "gap": 0.2647,
+      "ci95": [
+       0.2201,
+       0.3114
+      ],
+      "separates": true
+     },
+     "50": {
+      "gap": 0.1444,
+      "ci95": [
+       0.1078,
+       0.1846
+      ],
+      "separates": true
+     }
+    },
+    "dissimilarity": {
+     "1": {
+      "gap": 0.0992,
+      "ci95": [
+       0.0777,
+       0.1248
+      ],
+      "separates": true
+     },
+     "5": {
+      "gap": 0.2977,
+      "ci95": [
+       0.2599,
+       0.339
+      ],
+      "separates": true
+     },
+     "10": {
+      "gap": 0.409,
+      "ci95": [
+       0.3622,
+       0.4589
+      ],
+      "separates": true
+     },
+     "15": {
+      "gap": 0.4722,
+      "ci95": [
+       0.4272,
+       0.5206
+      ],
+      "separates": true
+     },
+     "30": {
+      "gap": 0.5444,
+      "ci95": [
+       0.4883,
+       0.6016
+      ],
+      "separates": true
+     },
+     "50": {
+      "gap": 0.4917,
+      "ci95": [
+       0.4361,
+       0.5487
+      ],
+      "separates": true
+     }
+    },
+    "random": {
+     "1": {
+      "gap": 0.0917,
+      "ci95": [
+       0.069,
+       0.1183
+      ],
+      "separates": true
+     },
+     "5": {
+      "gap": 0.2827,
+      "ci95": [
+       0.2432,
+       0.3257
+      ],
+      "separates": true
+     },
+     "10": {
+      "gap": 0.385,
+      "ci95": [
+       0.3359,
+       0.4376
+      ],
+      "separates": true
+     },
+     "15": {
+      "gap": 0.4226,
+      "ci95": [
+       0.3748,
+       0.4725
+      ],
+      "separates": true
+     },
+     "30": {
+      "gap": 0.4286,
+      "ci95": [
+       0.3801,
+       0.4784
+      ],
+      "separates": true
+     },
+     "50": {
+      "gap": 0.3414,
+      "ci95": [
+       0.295,
+       0.3891
+      ],
+      "separates": true
+     }
+    }
+   },
+   "verdict_at_k": {
+    "1": "the deployed ranking separates from an untrained similarity ordering",
+    "5": "the deployed ranking separates from an untrained similarity ordering",
+    "10": "the deployed ranking separates from an untrained similarity ordering",
+    "15": "the deployed ranking separates from an untrained similarity ordering",
+    "30": "the deployed ranking separates from an untrained similarity ordering",
+    "50": "the deployed ranking separates from an untrained similarity ordering"
+   }
+  },
+  "validation draw": {
+   "population": {
+    "n": 293,
+    "n_references": 655.0,
+    "source": "validation draw"
+   },
+   "recall_micro": {
+    "fusion": {
+     "1": 0.1053,
+     "5": 0.287,
+     "10": 0.3939,
+     "15": 0.4748,
+     "30": 0.6046,
+     "50": 0.6855
+    },
+    "similarity": {
+     "1": 0.029,
+     "5": 0.1115,
+     "10": 0.2046,
+     "15": 0.2748,
+     "30": 0.4351,
+     "50": 0.6046
+    },
+    "dissimilarity": {
+     "1": 0.0,
+     "5": 0.0061,
+     "10": 0.0168,
+     "15": 0.0351,
+     "30": 0.0794,
+     "50": 0.1634
+    },
+    "random": {
+     "1": 0.0076,
+     "5": 0.0351,
+     "10": 0.0794,
+     "15": 0.1191,
+     "30": 0.2565,
+     "50": 0.4092
+    }
+   },
+   "fusion_minus": {
+    "similarity": {
+     "1": {
+      "gap": 0.0763,
+      "ci95": [
+       0.0507,
+       0.1061
+      ],
+      "separates": true
+     },
+     "5": {
+      "gap": 0.1756,
+      "ci95": [
+       0.1263,
+       0.2306
+      ],
+      "separates": true
+     },
+     "10": {
+      "gap": 0.1893,
+      "ci95": [
+       0.1355,
+       0.2509
+      ],
+      "separates": true
+     },
+     "15": {
+      "gap": 0.2,
+      "ci95": [
+       0.1427,
+       0.265
+      ],
+      "separates": true
+     },
+     "30": {
+      "gap": 0.1695,
+      "ci95": [
+       0.118,
+       0.2276
+      ],
+      "separates": true
+     },
+     "50": {
+      "gap": 0.0809,
+      "ci95": [
+       0.0434,
+       0.1228
+      ],
+      "separates": true
+     }
+    },
+    "dissimilarity": {
+     "1": {
+      "gap": 0.1053,
+      "ci95": [
+       0.0808,
+       0.1345
+      ],
+      "separates": true
+     },
+     "5": {
+      "gap": 0.2809,
+      "ci95": [
+       0.233,
+       0.3351
+      ],
+      "separates": true
+     },
+     "10": {
+      "gap": 0.3771,
+      "ci95": [
+       0.3199,
+       0.4389
+      ],
+      "separates": true
+     },
+     "15": {
+      "gap": 0.4397,
+      "ci95": [
+       0.379,
+       0.5037
+      ],
+      "separates": true
+     },
+     "30": {
+      "gap": 0.5252,
+      "ci95": [
+       0.4565,
+       0.5958
+      ],
+      "separates": true
+     },
+     "50": {
+      "gap": 0.5221,
+      "ci95": [
+       0.4474,
+       0.5956
+      ],
+      "separates": true
+     }
+    },
+    "random": {
+     "1": {
+      "gap": 0.0977,
+      "ci95": [
+       0.0731,
+       0.1272
+      ],
+      "separates": true
+     },
+     "5": {
+      "gap": 0.2519,
+      "ci95": [
+       0.2044,
+       0.3074
+      ],
+      "separates": true
+     },
+     "10": {
+      "gap": 0.3145,
+      "ci95": [
+       0.2571,
+       0.3799
+      ],
+      "separates": true
+     },
+     "15": {
+      "gap": 0.3557,
+      "ci95": [
+       0.295,
+       0.4228
+      ],
+      "separates": true
+     },
+     "30": {
+      "gap": 0.3481,
+      "ci95": [
+       0.2863,
+       0.4149
+      ],
+      "separates": true
+     },
+     "50": {
+      "gap": 0.2763,
+      "ci95": [
+       0.23,
+       0.3299
+      ],
+      "separates": true
+     }
+    }
+   },
+   "verdict_at_k": {
+    "1": "the deployed ranking separates from an untrained similarity ordering",
+    "5": "the deployed ranking separates from an untrained similarity ordering",
+    "10": "the deployed ranking separates from an untrained similarity ordering",
+    "15": "the deployed ranking separates from an untrained similarity ordering",
+    "30": "the deployed ranking separates from an untrained similarity ordering",
+    "50": "the deployed ranking separates from an untrained similarity ordering"
+   }
+  }
+ }
+}

@@ -1,0 +1,152 @@
+{
+  "provenance": {
+    "script": "match_scale_sweep.py",
+    "script_path": "scripts/typed_edit/match_scale_sweep.py",
+    "source_sha256": "36f8cea65b1b2dc5d76c41dd51d78485528f35fac048c4ad7f494c66c805a6d2",
+    "git_commit": "9e10e6f5c870999a9809f49713abb0b2f79c8287",
+    "git_dirty": false
+  },
+  "inputs": [
+    {
+      "path": "results/val_pools.json",
+      "exists": true,
+      "sha256_16": "b8a8c204834a2f70",
+      "bytes": 48646521
+    }
+  ],
+  "generator": "artifacts/full5000_implicit (deployed), match_scale overridden at inference",
+  "population": {
+    "split": "validation",
+    "n_substrates": 293,
+    "n_references": 655
+  },
+  "bootstrap": {
+    "n": 10000,
+    "seed": 0
+  },
+  "cap": 100,
+  "top_k": 7581,
+  "deployed_match_scale": 0.25,
+  "by_match_scale": {
+    "0.0": {
+      "recall": {
+        "1": 0.1115,
+        "3": 0.2168,
+        "5": 0.2916,
+        "8": 0.3771,
+        "10": 0.4092,
+        "15": 0.4748,
+        "20": 0.5344,
+        "30": 0.6076,
+        "50": 0.6931
+      },
+      "mean_ranked": 97.2,
+      "vs_deployed": {
+        "1": {
+          "delta": 0.0061,
+          "ci95": [
+            -0.0017,
+            0.0153
+          ],
+          "excludes_zero": false
+        },
+        "3": {
+          "delta": -0.0076,
+          "ci95": [
+            -0.0164,
+            0.0
+          ],
+          "excludes_zero": false
+        },
+        "5": {
+          "delta": 0.0046,
+          "ci95": [
+            -0.0043,
+            0.0146
+          ],
+          "excludes_zero": false
+        },
+        "8": {
+          "delta": 0.0122,
+          "ci95": [
+            0.0016,
+            0.0243
+          ],
+          "excludes_zero": true
+        },
+        "10": {
+          "delta": 0.0137,
+          "ci95": [
+            0.0049,
+            0.0248
+          ],
+          "excludes_zero": true
+        },
+        "15": {
+          "delta": -0.0015,
+          "ci95": [
+            -0.0122,
+            0.0079
+          ],
+          "excludes_zero": false
+        },
+        "20": {
+          "delta": 0.0031,
+          "ci95": [
+            -0.0029,
+            0.0097
+          ],
+          "excludes_zero": false
+        },
+        "30": {
+          "delta": 0.0031,
+          "ci95": [
+            -0.0041,
+            0.0107
+          ],
+          "excludes_zero": false
+        },
+        "50": {
+          "delta": 0.0076,
+          "ci95": [
+            0.0,
+            0.0161
+          ],
+          "excludes_zero": false
+        }
+      }
+    },
+    "0.25": {
+      "recall": {
+        "1": 0.1053,
+        "3": 0.2244,
+        "5": 0.287,
+        "8": 0.3649,
+        "10": 0.3954,
+        "15": 0.4763,
+        "20": 0.5313,
+        "30": 0.6046,
+        "50": 0.6855
+      },
+      "mean_ranked": 97.2
+    }
+  },
+  "reproduces_registered_arm": {
+    "reference": "results/aggregation_ablation_validation.json",
+    "matches": false,
+    "mismatches": {
+      "8": [
+        0.3649,
+        0.3634
+      ],
+      "10": [
+        0.3954,
+        0.3939
+      ],
+      "15": [
+        0.4763,
+        0.4748
+      ]
+    }
+  }
+}

@@ -1,0 +1,687 @@
+{
+ "provenance": {
+  "script": "parent_drop_effect.py",
+  "script_path": "scripts/typed_edit/parent_drop_effect.py",
+  "source_sha256": "24ea8004e1fc2ea0f2c791fc649abe0a9c1f505d3fdfa2f1e331d46b9a49fcc5",
+  "git_commit": "eb05854a679e8d1a3f3a5f0efb4adc175e5b0e4f",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_implicit/w0.json",
+   "exists": true,
+   "sha256_16": "6a90b7bcc2b82562",
+   "bytes": 10103608
+  },
+  {
+   "path": "results/widepools_implicit/w1.json",
+   "exists": true,
+   "sha256_16": "dcb34d6ca5a7c690",
+   "bytes": 9923282
+  },
+  {
+   "path": "results/widepools_implicit/w2.json",
+   "exists": true,
+   "sha256_16": "2f7440497f05cd4a",
+   "bytes": 5621821
+  },
+  {
+   "path": "results/widepools_implicit/w3.json",
+   "exists": true,
+   "sha256_16": "c194bbb0bd7ec69e",
+   "bytes": 8229360
+  },
+  {
+   "path": "results/widepools_implicit/w4.json",
+   "exists": true,
+   "sha256_16": "504576d634e4bdb8",
+   "bytes": 5126437
+  },
+  {
+   "path": "results/widepools_implicit/w5.json",
+   "exists": true,
+   "sha256_16": "7f4c7cee307a726c",
+   "bytes": 3561735
+  },
+  {
+   "path": "results/widepools_k30/all.json",
+   "exists": true,
+   "sha256_16": "10c1e00851597eb3",
+   "bytes": 1115215
+  },
+  {
+   "path": "results/metatox_smirks_preds.json",
+   "exists": true,
+   "sha256_16": "136d4bdc323a7372",
+   "bytes": 1989212
+  },
+  {
+   "path": "results/sygma_fulltest_predictions.json",
+   "exists": true,
+   "sha256_16": "b012db873a24bb87",
+   "bytes": 8324075
+  },
+  {
+   "path": "artifacts/tier2_1170/metapredictor_preds.json",
+   "exists": true,
+   "sha256_16": "8e30e383c99e655b",
+   "bytes": 869435
+  },
+  {
+   "path": "results/biotransformer_allhuman_one_step_preds.json",
+   "exists": true,
+   "sha256_16": "37c6837a6e25dfe5",
+   "bytes": 303202
+  }
+ ],
+ "population": {
+  "n": 291,
+  "n_references": 665.0,
+  "source": "the comparison set"
+ },
+ "aggregation": "micro, ratio of sums",
+ "cap": 100,
+ "n_boot": 10000,
+ "seed": 0,
+ "convention": "a prediction whose tautomer key equals the substrate's is removed before the budget is applied",
+ "parent_returned": {
+  "GRAIL exhaustive": {
+   "substrates_returning_the_parent": 239,
+   "of": 291,
+   "share": 0.8213,
+   "median_rank_when_returned": 33,
+   "within_top_15": 26
+  },
+  "GRAIL interactive": {
+   "substrates_returning_the_parent": 26,
+   "of": 291,
+   "share": 0.0893,
+   "median_rank_when_returned": 9,
+   "within_top_15": 23
+  },
+  "MetaTox": {
+   "substrates_returning_the_parent": 14,
+   "of": 291,
+   "share": 0.0481,
+   "median_rank_when_returned": 13,
+   "within_top_15": 8
+  },
+  "SyGMa": {
+   "substrates_returning_the_parent": 0,
+   "of": 291,
+   "share": 0.0,
+   "median_rank_when_returned": null,
+   "within_top_15": 0
+  },
+  "MetaPredictor": {
+   "substrates_returning_the_parent": 52,
+   "of": 291,
+   "share": 0.1787,
+   "median_rank_when_returned": 6,
+   "within_top_15": 51
+  },
+  "BioTransformer": {
+   "substrates_returning_the_parent": 0,
+   "of": 291,
+   "share": 0.0,
+   "median_rank_when_returned": null,
+   "within_top_15": 0
+  }
+ },
+ "substrates_whose_own_key_is_a_reference": 2,
+ "effect": {
+  "GRAIL exhaustive": {
+   "1": {
+    "with_convention": 0.0992,
+    "without": 0.0992,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "3": {
+    "with_convention": 0.2301,
+    "without": 0.2301,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "5": {
+    "with_convention": 0.3113,
+    "without": 0.3113,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "8": {
+    "with_convention": 0.4165,
+    "without": 0.4135,
+    "effect": 0.003,
+    "ci95": [
+     0.0,
+     0.0078
+    ],
+    "separates": false
+   },
+   "10": {
+    "with_convention": 0.4556,
+    "without": 0.4541,
+    "effect": 0.0015,
+    "ci95": [
+     0.0,
+     0.0048
+    ],
+    "separates": false
+   },
+   "15": {
+    "with_convention": 0.5353,
+    "without": 0.5353,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "20": {
+    "with_convention": 0.5865,
+    "without": 0.5835,
+    "effect": 0.003,
+    "ci95": [
+     0.0,
+     0.0077
+    ],
+    "separates": false
+   },
+   "30": {
+    "with_convention": 0.6526,
+    "without": 0.6526,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "50": {
+    "with_convention": 0.7023,
+    "without": 0.7053,
+    "effect": -0.003,
+    "ci95": [
+     -0.0075,
+     0.0
+    ],
+    "separates": false
+   }
+  },
+  "GRAIL interactive": {
+   "1": {
+    "with_convention": 0.1053,
+    "without": 0.1053,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "3": {
+    "with_convention": 0.2406,
+    "without": 0.2406,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "5": {
+    "with_convention": 0.3203,
+    "without": 0.3188,
+    "effect": 0.0015,
+    "ci95": [
+     0.0,
+     0.0049
+    ],
+    "separates": false
+   },
+   "8": {
+    "with_convention": 0.4015,
+    "without": 0.4015,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "10": {
+    "with_convention": 0.4331,
+    "without": 0.4331,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "15": {
+    "with_convention": 0.4797,
+    "without": 0.4797,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "20": {
+    "with_convention": 0.4872,
+    "without": 0.4872,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "30": {
+    "with_convention": 0.4902,
+    "without": 0.4902,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "50": {
+    "with_convention": 0.4902,
+    "without": 0.4902,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   }
+  },
+  "MetaTox": {
+   "1": {
+    "with_convention": 0.0406,
+    "without": 0.0406,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "3": {
+    "with_convention": 0.1323,
+    "without": 0.1323,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "5": {
+    "with_convention": 0.218,
+    "without": 0.218,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "8": {
+    "with_convention": 0.3113,
+    "without": 0.3113,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "10": {
+    "with_convention": 0.388,
+    "without": 0.388,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "15": {
+    "with_convention": 0.5143,
+    "without": 0.5143,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "20": {
+    "with_convention": 0.5519,
+    "without": 0.5519,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "30": {
+    "with_convention": 0.6015,
+    "without": 0.6015,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "50": {
+    "with_convention": 0.6271,
+    "without": 0.6271,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   }
+  },
+  "SyGMa": {
+   "1": {
+    "with_convention": 0.1534,
+    "without": 0.1534,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "3": {
+    "with_convention": 0.2887,
+    "without": 0.2887,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "5": {
+    "with_convention": 0.3744,
+    "without": 0.3744,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "8": {
+    "with_convention": 0.4271,
+    "without": 0.4271,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "10": {
+    "with_convention": 0.4556,
+    "without": 0.4556,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "15": {
+    "with_convention": 0.4842,
+    "without": 0.4842,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "20": {
+    "with_convention": 0.4992,
+    "without": 0.4992,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "30": {
+    "with_convention": 0.5068,
+    "without": 0.5068,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "50": {
+    "with_convention": 0.5113,
+    "without": 0.5113,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   }
+  },
+  "MetaPredictor": {
+   "1": {
+    "with_convention": 0.1398,
+    "without": 0.1398,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "3": {
+    "with_convention": 0.2767,
+    "without": 0.2737,
+    "effect": 0.003,
+    "ci95": [
+     0.0,
+     0.0078
+    ],
+    "separates": false
+   },
+   "5": {
+    "with_convention": 0.3549,
+    "without": 0.3519,
+    "effect": 0.003,
+    "ci95": [
+     0.0,
+     0.008
+    ],
+    "separates": false
+   },
+   "8": {
+    "with_convention": 0.4346,
+    "without": 0.4346,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "10": {
+    "with_convention": 0.4707,
+    "without": 0.4677,
+    "effect": 0.003,
+    "ci95": [
+     0.0,
+     0.0078
+    ],
+    "separates": false
+   },
+   "15": {
+    "with_convention": 0.4797,
+    "without": 0.4797,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "20": {
+    "with_convention": 0.4797,
+    "without": 0.4797,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "30": {
+    "with_convention": 0.4797,
+    "without": 0.4797,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "50": {
+    "with_convention": 0.4797,
+    "without": 0.4797,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   }
+  },
+  "BioTransformer": {
+   "1": {
+    "with_convention": 0.0722,
+    "without": 0.0722,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "3": {
+    "with_convention": 0.194,
+    "without": 0.194,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "5": {
+    "with_convention": 0.2752,
+    "without": 0.2752,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "8": {
+    "with_convention": 0.3414,
+    "without": 0.3414,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "10": {
+    "with_convention": 0.3759,
+    "without": 0.3759,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "15": {
+    "with_convention": 0.4286,
+    "without": 0.4286,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "20": {
+    "with_convention": 0.4421,
+    "without": 0.4421,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "30": {
+    "with_convention": 0.4466,
+    "without": 0.4466,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   },
+   "50": {
+    "with_convention": 0.4481,
+    "without": 0.4481,
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "separates": false
+   }
+  }
+ },
+ "reading": "the effect is what the convention gives an arm: positive where dropping the parent promotes a hit into the window, negative where the parent was itself an annotated reference"
+}

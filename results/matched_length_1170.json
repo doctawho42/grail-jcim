@@ -1,0 +1,442 @@
+{
+ "provenance": {
+  "script": "matched_length.py",
+  "script_path": "scripts/typed_edit/matched_length.py",
+  "source_sha256": "11814be1b841574e963b7a66a294137073b2bba88a036a3941658882d162ec58",
+  "git_commit": "dcbc91c65e274116174f951b0b4871497d46d945",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/metatox_smirks_preds.json",
+   "exists": true,
+   "sha256_16": "136d4bdc323a7372",
+   "bytes": 1989212
+  },
+  {
+   "path": "results/sygma_fulltest_predictions.json",
+   "exists": true,
+   "sha256_16": "b012db873a24bb87",
+   "bytes": 8324075
+  },
+  {
+   "path": "artifacts/tier2_1170/metapredictor_preds.json",
+   "exists": true,
+   "sha256_16": "8e30e383c99e655b",
+   "bytes": 869435
+  },
+  {
+   "path": "results/biotransformer_allhuman_one_step_preds.json",
+   "exists": true,
+   "sha256_16": "37c6837a6e25dfe5",
+   "bytes": 303202
+  },
+  {
+   "path": "results/gloryx_service_preds.json",
+   "exists": true,
+   "sha256_16": "61383272c0066045",
+   "bytes": 1605631
+  },
+  {
+   "path": "results/sygma_standardised_predictions.json",
+   "exists": true,
+   "sha256_16": "864eaa25466d839f",
+   "bytes": 706150
+  },
+  {
+   "path": "results/gloryxr_local_preds_default.json",
+   "exists": true,
+   "sha256_16": "9ab7b9b403e05acc",
+   "bytes": 6491506
+  },
+  {
+   "path": "results/gloryxr_local_preds_strict.json",
+   "exists": true,
+   "sha256_16": "ce5e08d8393be100",
+   "bytes": 6490990
+  }
+ ],
+ "population": {
+  "n_substrates": 1170,
+  "n_references": 2597,
+  "note": "the whole evaluated test set: every test substrate with a known metabolite",
+  "comparators_absent": [
+   "sygma on the standardised drawing"
+  ]
+ },
+ "design": "for each substrate, both arms are truncated to the number of candidates the comparator returned on that substrate, after deduplication, after dropping a prediction equal to the substrate, and after truncating the comparator's own list at 105; so the two are read over the same number of slots on every substrate and not on average",
+ "cap_on_the_comparator_list": 105,
+ "why_the_cap": "this work's pool is capped at 100, so slots beyond that could not be filled by either of its arms and the comparison there would measure the pool cap rather than the ordering; the contrast without the cap is reported for every pair so the choice is priced",
+ "aggregation": "micro, ratio of sums",
+ "bootstrap": {
+  "n": 10000,
+  "seed": 0
+ },
+ "contrasts": {
+  "whole bank - metatox": {
+   "recall_ours": 0.643,
+   "recall_theirs": 0.6623,
+   "gap": -0.0193,
+   "ci95": [
+    -0.0375,
+    -0.0004
+   ],
+   "excludes_zero": true,
+   "mean_slots": 34.96,
+   "median_slots": 31,
+   "substrates_where_the_comparator_returned_nothing": 1,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.0212,
+    "ci95": [
+     -0.0392,
+     -0.0025
+    ],
+    "excludes_zero": true,
+    "mean_slots": 35.7,
+    "mean_slots_uncapped": 35.7,
+    "substrates_the_cap_binds_on": 27,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 5,
+    "verdict_unchanged": true
+   }
+  },
+  "trained budget - metatox": {
+   "recall_ours": 0.5094,
+   "recall_theirs": 0.6623,
+   "gap": -0.1529,
+   "ci95": [
+    -0.1747,
+    -0.1312
+   ],
+   "excludes_zero": true,
+   "mean_slots": 34.96,
+   "median_slots": 31,
+   "substrates_where_the_comparator_returned_nothing": 1,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.1548,
+    "ci95": [
+     -0.1766,
+     -0.1335
+    ],
+    "excludes_zero": true,
+    "mean_slots": 35.7,
+    "mean_slots_uncapped": 35.7,
+    "substrates_the_cap_binds_on": 27,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 5,
+    "verdict_unchanged": true
+   }
+  },
+  "whole bank - sygma": {
+   "recall_ours": 0.7058,
+   "recall_theirs": 0.5391,
+   "gap": 0.1667,
+   "ci95": [
+    0.1488,
+    0.1852
+   ],
+   "excludes_zero": true,
+   "mean_slots": 59.65,
+   "median_slots": 57,
+   "substrates_where_the_comparator_returned_nothing": 5,
+   "without_the_cap_on_the_comparator": {
+    "gap": 0.1667,
+    "ci95": [
+     0.1488,
+     0.1852
+    ],
+    "excludes_zero": true,
+    "mean_slots": 80.73,
+    "mean_slots_uncapped": 80.73,
+    "substrates_the_cap_binds_on": 218,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "trained budget - sygma": {
+   "recall_ours": 0.5114,
+   "recall_theirs": 0.5391,
+   "gap": -0.0277,
+   "ci95": [
+    -0.0486,
+    -0.0065
+   ],
+   "excludes_zero": true,
+   "mean_slots": 59.65,
+   "median_slots": 57,
+   "substrates_where_the_comparator_returned_nothing": 5,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.0277,
+    "ci95": [
+     -0.0486,
+     -0.0065
+    ],
+    "excludes_zero": true,
+    "mean_slots": 80.73,
+    "mean_slots_uncapped": 80.73,
+    "substrates_the_cap_binds_on": 218,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "whole bank - metapredictor": {
+   "recall_ours": 0.4463,
+   "recall_theirs": 0.4979,
+   "gap": -0.0516,
+   "ci95": [
+    -0.0745,
+    -0.029
+   ],
+   "excludes_zero": true,
+   "mean_slots": 10.61,
+   "median_slots": 11,
+   "substrates_where_the_comparator_returned_nothing": 3,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.0516,
+    "ci95": [
+     -0.0745,
+     -0.029
+    ],
+    "excludes_zero": true,
+    "mean_slots": 10.61,
+    "mean_slots_uncapped": 10.61,
+    "substrates_the_cap_binds_on": 0,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "trained budget - metapredictor": {
+   "recall_ours": 0.4432,
+   "recall_theirs": 0.4979,
+   "gap": -0.0547,
+   "ci95": [
+    -0.0767,
+    -0.0321
+   ],
+   "excludes_zero": true,
+   "mean_slots": 10.61,
+   "median_slots": 11,
+   "substrates_where_the_comparator_returned_nothing": 3,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.0547,
+    "ci95": [
+     -0.0767,
+     -0.0321
+    ],
+    "excludes_zero": true,
+    "mean_slots": 10.61,
+    "mean_slots_uncapped": 10.61,
+    "substrates_the_cap_binds_on": 0,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "whole bank - biotransformer": {
+   "recall_ours": 0.434,
+   "recall_theirs": 0.4486,
+   "gap": -0.0146,
+   "ci95": [
+    -0.0362,
+    0.0074
+   ],
+   "excludes_zero": false,
+   "mean_slots": 11.08,
+   "median_slots": 10,
+   "substrates_where_the_comparator_returned_nothing": 35,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.0146,
+    "ci95": [
+     -0.0362,
+     0.0074
+    ],
+    "excludes_zero": false,
+    "mean_slots": 11.08,
+    "mean_slots_uncapped": 11.08,
+    "substrates_the_cap_binds_on": 0,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "trained budget - biotransformer": {
+   "recall_ours": 0.4151,
+   "recall_theirs": 0.4486,
+   "gap": -0.0335,
+   "ci95": [
+    -0.056,
+    -0.0111
+   ],
+   "excludes_zero": true,
+   "mean_slots": 11.08,
+   "median_slots": 10,
+   "substrates_where_the_comparator_returned_nothing": 35,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.0335,
+    "ci95": [
+     -0.056,
+     -0.0111
+    ],
+    "excludes_zero": true,
+    "mean_slots": 11.08,
+    "mean_slots_uncapped": 11.08,
+    "substrates_the_cap_binds_on": 0,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "whole bank - gloryx": {
+   "recall_ours": 0.6223,
+   "recall_theirs": 0.633,
+   "gap": -0.0108,
+   "ci95": [
+    -0.0294,
+    0.0085
+   ],
+   "excludes_zero": false,
+   "mean_slots": 30.41,
+   "median_slots": 28,
+   "substrates_where_the_comparator_returned_nothing": 4,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.0108,
+    "ci95": [
+     -0.0294,
+     0.0085
+    ],
+    "excludes_zero": false,
+    "mean_slots": 30.7,
+    "mean_slots_uncapped": 30.7,
+    "substrates_the_cap_binds_on": 18,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "trained budget - gloryx": {
+   "recall_ours": 0.5037,
+   "recall_theirs": 0.633,
+   "gap": -0.1294,
+   "ci95": [
+    -0.1517,
+    -0.1068
+   ],
+   "excludes_zero": true,
+   "mean_slots": 30.41,
+   "median_slots": 28,
+   "substrates_where_the_comparator_returned_nothing": 4,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.1294,
+    "ci95": [
+     -0.1517,
+     -0.1068
+    ],
+    "excludes_zero": true,
+    "mean_slots": 30.7,
+    "mean_slots_uncapped": 30.7,
+    "substrates_the_cap_binds_on": 18,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "whole bank - gloryxr_default": {
+   "recall_ours": 0.6234,
+   "recall_theirs": 0.6265,
+   "gap": -0.0031,
+   "ci95": [
+    -0.0218,
+    0.0163
+   ],
+   "excludes_zero": false,
+   "mean_slots": 30.23,
+   "median_slots": 27,
+   "substrates_where_the_comparator_returned_nothing": 1,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.0031,
+    "ci95": [
+     -0.0218,
+     0.0163
+    ],
+    "excludes_zero": false,
+    "mean_slots": 30.52,
+    "mean_slots_uncapped": 30.52,
+    "substrates_the_cap_binds_on": 18,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "trained budget - gloryxr_default": {
+   "recall_ours": 0.5052,
+   "recall_theirs": 0.6265,
+   "gap": -0.1213,
+   "ci95": [
+    -0.1439,
+    -0.0989
+   ],
+   "excludes_zero": true,
+   "mean_slots": 30.23,
+   "median_slots": 27,
+   "substrates_where_the_comparator_returned_nothing": 1,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.1213,
+    "ci95": [
+     -0.1439,
+     -0.0989
+    ],
+    "excludes_zero": true,
+    "mean_slots": 30.52,
+    "mean_slots_uncapped": 30.52,
+    "substrates_the_cap_binds_on": 18,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "whole bank - gloryxr_strict": {
+   "recall_ours": 0.6234,
+   "recall_theirs": 0.6265,
+   "gap": -0.0031,
+   "ci95": [
+    -0.0218,
+    0.0163
+   ],
+   "excludes_zero": false,
+   "mean_slots": 30.23,
+   "median_slots": 27,
+   "substrates_where_the_comparator_returned_nothing": 1,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.0031,
+    "ci95": [
+     -0.0218,
+     0.0163
+    ],
+    "excludes_zero": false,
+    "mean_slots": 30.52,
+    "mean_slots_uncapped": 30.52,
+    "substrates_the_cap_binds_on": 18,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  },
+  "trained budget - gloryxr_strict": {
+   "recall_ours": 0.5052,
+   "recall_theirs": 0.6265,
+   "gap": -0.1213,
+   "ci95": [
+    -0.1439,
+    -0.0989
+   ],
+   "excludes_zero": true,
+   "mean_slots": 30.23,
+   "median_slots": 27,
+   "substrates_where_the_comparator_returned_nothing": 1,
+   "without_the_cap_on_the_comparator": {
+    "gap": -0.1213,
+    "ci95": [
+     -0.1439,
+     -0.0989
+    ],
+    "excludes_zero": true,
+    "mean_slots": 30.52,
+    "mean_slots_uncapped": 30.52,
+    "substrates_the_cap_binds_on": 18,
+    "annotated_metabolites_the_comparator_placed_past_the_cut": 0,
+    "verdict_unchanged": true
+   }
+  }
+ },
+ "reading": "A nominal budget is not a length. This asks the question the budget axis was introduced to ask, with the length taken from the comparator rather than from the experiment: what remains is ordering, and what disappears was list length."
+}

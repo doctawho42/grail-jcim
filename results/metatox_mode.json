@@ -1,0 +1,532 @@
+{
+ "provenance": {
+  "script": "metatox_mode.py",
+  "script_path": "scripts/typed_edit/metatox_mode.py",
+  "source_sha256": "8469a45c53ea5f18a851f7f94a372c455ab5f45ac7148824c6ad3b4e0bd2d718",
+  "git_commit": "6dea9a355476d1b1ede9357deb8f20e8131fcbae",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/metatox_smirks_preds.json",
+   "exists": true,
+   "sha256_16": "136d4bdc323a7372",
+   "bytes": 1989212
+  },
+  {
+   "path": "results/metatox_preds.json",
+   "exists": true,
+   "sha256_16": "dbd9390da3cd2c89",
+   "bytes": 172954
+  },
+  {
+   "path": "results/deployment_table.json",
+   "exists": true,
+   "sha256_16": "f812b5f01223745e",
+   "bytes": 53179
+  }
+ ],
+ "question": "what the comparator's own declared choice of mode is worth, swept the way this paper sweeps the other comparators' declared knobs",
+ "modes": {
+  "smirks": "the SMIRKS-rule mode, which is the mode the reported column is",
+  "default": "the mode the service applies when the submitter chooses none"
+ },
+ "population": {
+  "declared_comparison_set": 291,
+  "covered_by_both_modes": 248,
+  "not_covered_by_the_default_mode": 43,
+  "n_references": 599,
+  "note": "the sweep is read on the substrates both submissions came back for, which is NOT the population the rest of the paper reports; no further default-mode submission is available"
+ },
+ "mean_emitted_on_that_population": {
+  "smirks": 32.38,
+  "default": 11.21
+ },
+ "control": {
+  "what": "the MetaTox column of results/deployment_table.json over the 291 declared substrates",
+  "reproduced": true
+ },
+ "bootstrap": {
+  "n": 10000,
+  "seed": 0
+ },
+ "contrasts": {
+  "whole bank": {
+   "smirks": {
+    "1": {
+     "recall_ours": 0.0918,
+     "recall_theirs": 0.0434,
+     "gap": 0.0484,
+     "ci95": [
+      0.0225,
+      0.0751
+     ],
+     "excludes_zero": true
+    },
+    "3": {
+     "recall_ours": 0.2287,
+     "recall_theirs": 0.1336,
+     "gap": 0.0952,
+     "ci95": [
+      0.0605,
+      0.1321
+     ],
+     "excludes_zero": true
+    },
+    "5": {
+     "recall_ours": 0.3072,
+     "recall_theirs": 0.2237,
+     "gap": 0.0835,
+     "ci95": [
+      0.0409,
+      0.1275
+     ],
+     "excludes_zero": true
+    },
+    "8": {
+     "recall_ours": 0.409,
+     "recall_theirs": 0.3189,
+     "gap": 0.0902,
+     "ci95": [
+      0.0443,
+      0.1349
+     ],
+     "excludes_zero": true
+    },
+    "10": {
+     "recall_ours": 0.4508,
+     "recall_theirs": 0.3923,
+     "gap": 0.0584,
+     "ci95": [
+      0.0149,
+      0.1002
+     ],
+     "excludes_zero": true
+    },
+    "15": {
+     "recall_ours": 0.5326,
+     "recall_theirs": 0.5259,
+     "gap": 0.0067,
+     "ci95": [
+      -0.0381,
+      0.0503
+     ],
+     "excludes_zero": false
+    },
+    "20": {
+     "recall_ours": 0.586,
+     "recall_theirs": 0.5626,
+     "gap": 0.0234,
+     "ci95": [
+      -0.0175,
+      0.064
+     ],
+     "excludes_zero": false
+    },
+    "30": {
+     "recall_ours": 0.6578,
+     "recall_theirs": 0.6077,
+     "gap": 0.0501,
+     "ci95": [
+      0.0149,
+      0.0859
+     ],
+     "excludes_zero": true
+    },
+    "50": {
+     "recall_ours": 0.7112,
+     "recall_theirs": 0.6344,
+     "gap": 0.0768,
+     "ci95": [
+      0.0456,
+      0.1099
+     ],
+     "excludes_zero": true
+    }
+   },
+   "default": {
+    "1": {
+     "recall_ours": 0.0918,
+     "recall_theirs": 0.1152,
+     "gap": -0.0234,
+     "ci95": [
+      -0.0546,
+      0.0076
+     ],
+     "excludes_zero": false
+    },
+    "3": {
+     "recall_ours": 0.2287,
+     "recall_theirs": 0.2287,
+     "gap": 0.0,
+     "ci95": [
+      -0.0445,
+      0.0452
+     ],
+     "excludes_zero": false
+    },
+    "5": {
+     "recall_ours": 0.3072,
+     "recall_theirs": 0.2821,
+     "gap": 0.025,
+     "ci95": [
+      -0.0227,
+      0.072
+     ],
+     "excludes_zero": false
+    },
+    "8": {
+     "recall_ours": 0.409,
+     "recall_theirs": 0.3439,
+     "gap": 0.0651,
+     "ci95": [
+      0.0138,
+      0.1167
+     ],
+     "excludes_zero": true
+    },
+    "10": {
+     "recall_ours": 0.4508,
+     "recall_theirs": 0.3539,
+     "gap": 0.0968,
+     "ci95": [
+      0.0456,
+      0.1485
+     ],
+     "excludes_zero": true
+    },
+    "15": {
+     "recall_ours": 0.5326,
+     "recall_theirs": 0.3756,
+     "gap": 0.1569,
+     "ci95": [
+      0.1043,
+      0.2103
+     ],
+     "excludes_zero": true
+    },
+    "20": {
+     "recall_ours": 0.586,
+     "recall_theirs": 0.3756,
+     "gap": 0.2104,
+     "ci95": [
+      0.1581,
+      0.2648
+     ],
+     "excludes_zero": true
+    },
+    "30": {
+     "recall_ours": 0.6578,
+     "recall_theirs": 0.3756,
+     "gap": 0.2821,
+     "ci95": [
+      0.2299,
+      0.3378
+     ],
+     "excludes_zero": true
+    },
+    "50": {
+     "recall_ours": 0.7112,
+     "recall_theirs": 0.3756,
+     "gap": 0.3356,
+     "ci95": [
+      0.2837,
+      0.3927
+     ],
+     "excludes_zero": true
+    }
+   }
+  },
+  "trained budget": {
+   "smirks": {
+    "1": {
+     "recall_ours": 0.0952,
+     "recall_theirs": 0.0434,
+     "gap": 0.0518,
+     "ci95": [
+      0.0258,
+      0.0783
+     ],
+     "excludes_zero": true
+    },
+    "3": {
+     "recall_ours": 0.2237,
+     "recall_theirs": 0.1336,
+     "gap": 0.0902,
+     "ci95": [
+      0.0533,
+      0.1282
+     ],
+     "excludes_zero": true
+    },
+    "5": {
+     "recall_ours": 0.3088,
+     "recall_theirs": 0.2237,
+     "gap": 0.0851,
+     "ci95": [
+      0.0433,
+      0.1273
+     ],
+     "excludes_zero": true
+    },
+    "8": {
+     "recall_ours": 0.3907,
+     "recall_theirs": 0.3189,
+     "gap": 0.0718,
+     "ci95": [
+      0.0287,
+      0.1167
+     ],
+     "excludes_zero": true
+    },
+    "10": {
+     "recall_ours": 0.4257,
+     "recall_theirs": 0.3923,
+     "gap": 0.0334,
+     "ci95": [
+      -0.0103,
+      0.0766
+     ],
+     "excludes_zero": false
+    },
+    "15": {
+     "recall_ours": 0.4758,
+     "recall_theirs": 0.5259,
+     "gap": -0.0501,
+     "ci95": [
+      -0.0926,
+      -0.0055
+     ],
+     "excludes_zero": true
+    },
+    "20": {
+     "recall_ours": 0.4841,
+     "recall_theirs": 0.5626,
+     "gap": -0.0785,
+     "ci95": [
+      -0.1199,
+      -0.0365
+     ],
+     "excludes_zero": true
+    },
+    "30": {
+     "recall_ours": 0.4875,
+     "recall_theirs": 0.6077,
+     "gap": -0.1202,
+     "ci95": [
+      -0.1635,
+      -0.076
+     ],
+     "excludes_zero": true
+    },
+    "50": {
+     "recall_ours": 0.4875,
+     "recall_theirs": 0.6344,
+     "gap": -0.1469,
+     "ci95": [
+      -0.199,
+      -0.097
+     ],
+     "excludes_zero": true
+    }
+   },
+   "default": {
+    "1": {
+     "recall_ours": 0.0952,
+     "recall_theirs": 0.1152,
+     "gap": -0.02,
+     "ci95": [
+      -0.0524,
+      0.0113
+     ],
+     "excludes_zero": false
+    },
+    "3": {
+     "recall_ours": 0.2237,
+     "recall_theirs": 0.2287,
+     "gap": -0.005,
+     "ci95": [
+      -0.0481,
+      0.0371
+     ],
+     "excludes_zero": false
+    },
+    "5": {
+     "recall_ours": 0.3088,
+     "recall_theirs": 0.2821,
+     "gap": 0.0267,
+     "ci95": [
+      -0.0218,
+      0.0734
+     ],
+     "excludes_zero": false
+    },
+    "8": {
+     "recall_ours": 0.3907,
+     "recall_theirs": 0.3439,
+     "gap": 0.0467,
+     "ci95": [
+      -0.003,
+      0.0953
+     ],
+     "excludes_zero": false
+    },
+    "10": {
+     "recall_ours": 0.4257,
+     "recall_theirs": 0.3539,
+     "gap": 0.0718,
+     "ci95": [
+      0.0216,
+      0.1224
+     ],
+     "excludes_zero": true
+    },
+    "15": {
+     "recall_ours": 0.4758,
+     "recall_theirs": 0.3756,
+     "gap": 0.1002,
+     "ci95": [
+      0.0516,
+      0.1507
+     ],
+     "excludes_zero": true
+    },
+    "20": {
+     "recall_ours": 0.4841,
+     "recall_theirs": 0.3756,
+     "gap": 0.1085,
+     "ci95": [
+      0.0605,
+      0.1588
+     ],
+     "excludes_zero": true
+    },
+    "30": {
+     "recall_ours": 0.4875,
+     "recall_theirs": 0.3756,
+     "gap": 0.1119,
+     "ci95": [
+      0.0645,
+      0.1621
+     ],
+     "excludes_zero": true
+    },
+    "50": {
+     "recall_ours": 0.4875,
+     "recall_theirs": 0.3756,
+     "gap": 0.1119,
+     "ci95": [
+      0.0645,
+      0.1621
+     ],
+     "excludes_zero": true
+    }
+   }
+  }
+ },
+ "verdicts_the_mode_moves": {
+  "whole bank": [
+   {
+    "k": "1",
+    "under_the_reported_mode": "leads",
+    "under_the_other_mode": "undecided",
+    "gap_reported": 0.0484,
+    "gap_other": -0.0234
+   },
+   {
+    "k": "3",
+    "under_the_reported_mode": "leads",
+    "under_the_other_mode": "undecided",
+    "gap_reported": 0.0952,
+    "gap_other": 0.0
+   },
+   {
+    "k": "5",
+    "under_the_reported_mode": "leads",
+    "under_the_other_mode": "undecided",
+    "gap_reported": 0.0835,
+    "gap_other": 0.025
+   },
+   {
+    "k": "15",
+    "under_the_reported_mode": "undecided",
+    "under_the_other_mode": "leads",
+    "gap_reported": 0.0067,
+    "gap_other": 0.1569
+   },
+   {
+    "k": "20",
+    "under_the_reported_mode": "undecided",
+    "under_the_other_mode": "leads",
+    "gap_reported": 0.0234,
+    "gap_other": 0.2104
+   }
+  ],
+  "trained budget": [
+   {
+    "k": "1",
+    "under_the_reported_mode": "leads",
+    "under_the_other_mode": "undecided",
+    "gap_reported": 0.0518,
+    "gap_other": -0.02
+   },
+   {
+    "k": "3",
+    "under_the_reported_mode": "leads",
+    "under_the_other_mode": "undecided",
+    "gap_reported": 0.0902,
+    "gap_other": -0.005
+   },
+   {
+    "k": "5",
+    "under_the_reported_mode": "leads",
+    "under_the_other_mode": "undecided",
+    "gap_reported": 0.0851,
+    "gap_other": 0.0267
+   },
+   {
+    "k": "8",
+    "under_the_reported_mode": "leads",
+    "under_the_other_mode": "undecided",
+    "gap_reported": 0.0718,
+    "gap_other": 0.0467
+   },
+   {
+    "k": "10",
+    "under_the_reported_mode": "undecided",
+    "under_the_other_mode": "leads",
+    "gap_reported": 0.0334,
+    "gap_other": 0.0718
+   },
+   {
+    "k": "15",
+    "under_the_reported_mode": "trails",
+    "under_the_other_mode": "leads",
+    "gap_reported": -0.0501,
+    "gap_other": 0.1002
+   },
+   {
+    "k": "20",
+    "under_the_reported_mode": "trails",
+    "under_the_other_mode": "leads",
+    "gap_reported": -0.0785,
+    "gap_other": 0.1085
+   },
+   {
+    "k": "30",
+    "under_the_reported_mode": "trails",
+    "under_the_other_mode": "leads",
+    "gap_reported": -0.1202,
+    "gap_other": 0.1119
+   },
+   {
+    "k": "50",
+    "under_the_reported_mode": "trails",
+    "under_the_other_mode": "leads",
+    "gap_reported": -0.1469,
+    "gap_other": 0.1119
+   }
+  ]
+ },
+ "reading": "a row of verdicts_the_mode_moves is a budget at which the choice of mode decides whether this work's arm leads, trails or neither. A gap that moves without crossing is not listed, because the paper claims nothing from a gap whose interval covers zero."
+}

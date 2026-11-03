@@ -1,0 +1,6127 @@
+{
+ "config": {
+  "script": "robust_order.py",
+  "git_commit": "0aa044ec2020f3fb23e62ef0c2b9299c9c7289f0",
+  "git_dirty": true,
+  "n_boot": 10000,
+  "seed": 0,
+  "grid": {
+   "criteria": [
+    "canonical",
+    "nostereo",
+    "inchikey",
+    "tautomer"
+   ],
+   "budgets": [
+    1,
+    3,
+    5,
+    10
+   ]
+  },
+  "note": "domination is the intersection of the per-cell orders; certified domination additionally requires every per-cell interval to exclude zero"
+ },
+ "leaderboards": {
+  "cluster0": {
+   "system_accuracy_by_cell": {
+    "g2retro": {
+     "('canonical', 1)": 0.5147,
+     "('canonical', 3)": 0.7223,
+     "('canonical', 5)": 0.7828,
+     "('canonical', 10)": 0.8368,
+     "('nostereo', 1)": 0.5291,
+     "('nostereo', 3)": 0.7405,
+     "('nostereo', 5)": 0.8026,
+     "('nostereo', 10)": 0.8578,
+     "('inchikey', 1)": 0.5147,
+     "('inchikey', 3)": 0.7223,
+     "('inchikey', 5)": 0.7828,
+     "('inchikey', 10)": 0.8368,
+     "('tautomer', 1)": 0.5309,
+     "('tautomer', 3)": 0.7431,
+     "('tautomer', 5)": 0.806,
+     "('tautomer', 10)": 0.8622
+    },
+    "gln": {
+     "('canonical', 1)": 0.5247,
+     "('canonical', 3)": 0.6897,
+     "('canonical', 5)": 0.7556,
+     "('canonical', 10)": 0.8368,
+     "('nostereo', 1)": 0.5377,
+     "('nostereo', 3)": 0.7019,
+     "('nostereo', 5)": 0.768,
+     "('nostereo', 10)": 0.8494,
+     "('inchikey', 1)": 0.5247,
+     "('inchikey', 3)": 0.6897,
+     "('inchikey', 5)": 0.7556,
+     "('inchikey', 10)": 0.8368,
+     "('tautomer', 1)": 0.5397,
+     "('tautomer', 3)": 0.7049,
+     "('tautomer', 5)": 0.7712,
+     "('tautomer', 10)": 0.852
+    },
+    "graph2smiles": {
+     "('canonical', 1)": 0.5293,
+     "('canonical', 3)": 0.6611,
+     "('canonical', 5)": 0.6945,
+     "('canonical', 10)": 0.7235,
+     "('nostereo', 1)": 0.5571,
+     "('nostereo', 3)": 0.6795,
+     "('nostereo', 5)": 0.7113,
+     "('nostereo', 10)": 0.7379,
+     "('inchikey', 1)": 0.5293,
+     "('inchikey', 3)": 0.6611,
+     "('inchikey', 5)": 0.6945,
+     "('inchikey', 10)": 0.7235,
+     "('tautomer', 1)": 0.5595,
+     "('tautomer', 3)": 0.6819,
+     "('tautomer', 5)": 0.7137,
+     "('tautomer', 10)": 0.7399
+    },
+    "graphretro": {
+     "('canonical', 1)": 0.5377,
+     "('canonical', 3)": 0.6769,
+     "('canonical', 5)": 0.7155,
+     "('canonical', 10)": 0.7447,
+     "('nostereo', 1)": 0.5501,
+     "('nostereo', 3)": 0.6927,
+     "('nostereo', 5)": 0.7325,
+     "('nostereo', 10)": 0.762,
+     "('inchikey', 1)": 0.5377,
+     "('inchikey', 3)": 0.6769,
+     "('inchikey', 5)": 0.7155,
+     "('inchikey', 10)": 0.7447,
+     "('tautomer', 1)": 0.5555,
+     "('tautomer', 3)": 0.7005,
+     "('tautomer', 5)": 0.7407,
+     "('tautomer', 10)": 0.7704
+    },
+    "localretro": {
+     "('canonical', 1)": 0.5339,
+     "('canonical', 3)": 0.7694,
+     "('canonical', 5)": 0.8424,
+     "('canonical', 10)": 0.91,
+     "('nostereo', 1)": 0.5469,
+     "('nostereo', 3)": 0.7878,
+     "('nostereo', 5)": 0.8622,
+     "('nostereo', 10)": 0.9302,
+     "('inchikey', 1)": 0.5339,
+     "('inchikey', 3)": 0.7694,
+     "('inchikey', 5)": 0.8424,
+     "('inchikey', 10)": 0.91,
+     "('tautomer', 1)": 0.5495,
+     "('tautomer', 3)": 0.7912,
+     "('tautomer', 5)": 0.8646,
+     "('tautomer', 10)": 0.932
+    },
+    "retroformer": {
+     "('canonical', 1)": 0.5325,
+     "('canonical', 3)": 0.7061,
+     "('canonical', 5)": 0.7614,
+     "('canonical', 10)": 0.8192,
+     "('nostereo', 1)": 0.5541,
+     "('nostereo', 3)": 0.7217,
+     "('nostereo', 5)": 0.7756,
+     "('nostereo', 10)": 0.8322,
+     "('inchikey', 1)": 0.5325,
+     "('inchikey', 3)": 0.7063,
+     "('inchikey', 5)": 0.7616,
+     "('inchikey', 10)": 0.8194,
+     "('tautomer', 1)": 0.5559,
+     "('tautomer', 3)": 0.7241,
+     "('tautomer', 5)": 0.7776,
+     "('tautomer', 10)": 0.8344
+    },
+    "retroxpert": {
+     "('canonical', 1)": 0.4467,
+     "('canonical', 3)": 0.5981,
+     "('canonical', 5)": 0.6441,
+     "('canonical', 10)": 0.6941,
+     "('nostereo', 1)": 0.4619,
+     "('nostereo', 3)": 0.6101,
+     "('nostereo', 5)": 0.6555,
+     "('nostereo', 10)": 0.7029,
+     "('inchikey', 1)": 0.4467,
+     "('inchikey', 3)": 0.5983,
+     "('inchikey', 5)": 0.6443,
+     "('inchikey', 10)": 0.6941,
+     "('tautomer', 1)": 0.4631,
+     "('tautomer', 3)": 0.6115,
+     "('tautomer', 5)": 0.6569,
+     "('tautomer', 10)": 0.7053
+    }
+   },
+   "n_items": 4999,
+   "published_order": [
+    "graphretro",
+    "localretro",
+    "retroformer",
+    "graph2smiles",
+    "gln",
+    "g2retro",
+    "retroxpert"
+   ],
+   "published_cell": "('canonical', 1)",
+   "n_systems": 7,
+   "n_cells": 16,
+   "n_pairs": 21,
+   "n_dominating": 8,
+   "n_separated_in_every_cell": 7,
+   "n_contested": 9,
+   "n_contested_after_correction": 8,
+   "contested_after_correction": [
+    "gln over g2retro",
+    "graph2smiles over g2retro",
+    "graph2smiles over gln",
+    "graphretro over g2retro",
+    "graphretro over gln",
+    "graphretro over localretro",
+    "graphretro over retroformer",
+    "retroformer over g2retro"
+   ],
+   "multiplicity": {
+    "family_size": 336,
+    "alpha": 0.05,
+    "n_tests_surviving": 245,
+    "n_reversals_surviving": 79,
+    "largest_surviving_reversal_p": 0.00043,
+    "p_values": [
+     3.338386300259617e-281,
+     2.3486317917447267e-280,
+     5.926011188114114e-235,
+     5.926011188114114e-235,
+     1.0125959336122214e-234,
+     9.156858316391315e-233,
+     6.910530645686377e-211,
+     1.322327131316983e-209,
+     3.554807987179668e-197,
+     3.554807987179668e-197,
+     7.798965324821274e-193,
+     9.516669660586422e-189,
+     9.516669660586422e-189,
+     2.90191166940716e-185,
+     5.096212266519616e-185,
+     1.829325689116712e-184,
+     2.126097629452696e-148,
+     3.8928936614992015e-146,
+     2.4154435579990904e-134,
+     5.092607720535242e-134,
+     1.792754422096765e-132,
+     5.073885028569294e-132,
+     5.501646009376877e-126,
+     5.168495192610654e-123,
+     1.2811669753352741e-120,
+     1.2811669753352741e-120,
+     4.521634389637061e-109,
+     4.561989591286808e-109,
+     4.992621065195866e-107,
+     8.898335885045426e-105,
+     1.9358500319610543e-103,
+     7.295883724732275e-101,
+     7.295883724732275e-101,
+     1.334450690919542e-100,
+     1.334450690919542e-100,
+     8.377810745570155e-99,
+     8.377810745570155e-99,
+     7.863995622496408e-97,
+     1.552580190203241e-93,
+     2.020818521019525e-93,
+     1.3570918083740065e-92,
+     8.363901955841967e-92,
+     5.289827294090998e-89,
+     8.191161344152508e-89,
+     3.535166376232389e-87,
+     6.2924735038764094e-86,
+     9.950729543414445e-86,
+     1.6298233881604655e-82,
+     2.326509367466e-76,
+     1.4932588946668665e-75,
+     8.250221191270779e-75,
+     2.1290687881883186e-74,
+     4.964815294317374e-73,
+     7.51788304841232e-72,
+     1.1187222089597024e-71,
+     1.244159794209117e-71,
+     3.88263858977876e-71,
+     3.88263858977876e-71,
+     1.1018869403334974e-70,
+     1.1018869403334974e-70,
+     2.543875980797139e-68,
+     2.543875980797139e-68,
+     3.961768097270847e-68,
+     1.2049829072588108e-67,
+     1.4736992122525947e-67,
+     2.9216249244173176e-67,
+     5.474492112996004e-67,
+     4.377489902552308e-66,
+     7.960379320803236e-64,
+     1.0240012675836694e-62,
+     1.0240012675836694e-62,
+     1.0531300020375001e-62,
+     2.8553318591503834e-62,
+     3.1097137047833926e-62,
+     3.378542158640721e-62,
+     2.3535734653338362e-61,
+     1.2515427845344488e-60,
+     2.209506996185244e-59,
+     2.209506996185244e-59,
+     1.1094731655374694e-58,
+     1.2300575493326633e-58,
+     1.6133806685216533e-58,
+     5.324907551954874e-58,
+     8.573775014980926e-58,
+     8.573775014980926e-58,
+     1.7593052603582934e-57,
+     2.0398947001574563e-57,
+     2.0398947001574563e-57,
+     2.671602987074003e-57,
+     6.750749571690082e-57,
+     1.0172225639743971e-56,
+     1.79502159644623e-55,
+     2.1546220544793557e-55,
+     8.382134225859002e-55,
+     9.613573398631435e-54,
+     9.613573398631435e-54,
+     3.748704716552164e-53,
+     3.748704716552164e-53,
+     7.041658343909532e-52,
+     7.945970386004122e-50,
+     7.945970386004122e-50,
+     3.812074938034811e-48,
+     5.74299996676078e-48,
+     2.0230834502346775e-47,
+     4.371194349131414e-47,
+     8.60633812087385e-47,
+     1.0946431808360092e-46,
+     1.0946431808360092e-46,
+     2.431217955039551e-45,
+     3.5913672308651844e-45,
+     3.877838376441998e-44,
+     3.3547923244388907e-43,
+     1.586910773838981e-42,
+     4.5467285326117884e-41,
+     4.5467285326117884e-41,
+     5.843580496543785e-41,
+     3.244154860325345e-40,
+     3.244154860325345e-40,
+     5.575313995184459e-40,
+     6.807559332802873e-40,
+     1.751493598274339e-39,
+     2.9070750184238338e-39,
+     4.6029648651331814e-39,
+     2.8331233565283666e-38,
+     1.5420043151372318e-36,
+     6.196148203742067e-35,
+     6.196148203742067e-35,
+     1.240916170185794e-34,
+     1.240916170185794e-34,
+     6.7860891196260645e-34,
+     2.5206290014136844e-33,
+     2.5206290014136844e-33,
+     3.660930281471362e-33,
+     6.263157338980741e-33,
+     1.0935885282850798e-32,
+     1.0935885282850798e-32,
+     5.047277153903075e-32,
+     8.774782219245885e-32,
+     8.642352174289465e-31,
+     2.6023169800480974e-30,
+     3.506397943448421e-30,
+     1.291089736749431e-29,
+     1.291089736749431e-29,
+     1.7950071969958345e-29,
+     2.282446999508144e-29,
+     2.282446999508144e-29,
+     4.8175246836540364e-29,
+     1.0171665700309818e-28,
+     2.2465256169565115e-28,
+     4.051800197196868e-28,
+     4.0672201257451925e-28,
+     5.013897628626023e-28,
+     5.498848752010728e-28,
+     6.314759054694806e-28,
+     5.051138287196395e-27,
+     7.5419740758698e-27,
+     7.5419740758698e-27,
+     1.3871792707033626e-26,
+     1.853900551813995e-26,
+     2.3857348111807834e-26,
+     3.5450646659665204e-26,
+     5.898770812453142e-26,
+     1.4923949658507298e-25,
+     2.862524248162354e-25,
+     5.930043218896257e-25,
+     7.914820666087221e-25,
+     9.821669301820475e-25,
+     5.971910918711233e-24,
+     3.289392107827852e-22,
+     4.156341992100702e-22,
+     6.611299556396676e-21,
+     6.611299556396676e-21,
+     1.1003422110218131e-20,
+     1.5355117418550753e-20,
+     2.4688374020962298e-20,
+     3.139673636261729e-20,
+     1.3598743599357704e-19,
+     1.3598743599357704e-19,
+     1.4869125760114888e-19,
+     1.4869125760114888e-19,
+     1.959266518922227e-19,
+     2.2290787776719063e-19,
+     2.633791662247535e-19,
+     3.7406282106846545e-19,
+     1.0532493274424527e-18,
+     6.665490189726905e-18,
+     1.9895080925855977e-17,
+     3.171204157717499e-16,
+     3.797271040156923e-16,
+     1.0206603021511324e-15,
+     1.0206603021511324e-15,
+     1.2707399775543046e-15,
+     8.065026730285325e-15,
+     2.942608572458268e-14,
+     3.625413957519804e-14,
+     1.1801380699739946e-13,
+     1.1801380699739946e-13,
+     1.9830682299646458e-13,
+     2.463248036507379e-13,
+     3.661831495876218e-12,
+     4.081043225785647e-12,
+     4.1297371935394615e-12,
+     4.955597622378439e-12,
+     4.955597622378439e-12,
+     7.499625177734867e-12,
+     9.056359762269658e-12,
+     9.832543953783177e-11,
+     1.3409707296627807e-09,
+     2.045131225025765e-09,
+     2.045131225025765e-09,
+     2.2189621979225986e-09,
+     9.5174312076375e-09,
+     1.1370998379654145e-08,
+     2.5308367708841717e-08,
+     5.105699482871618e-08,
+     8.158521271553613e-08,
+     1.1238047665100467e-07,
+     3.4806317868138464e-07,
+     3.4806317868138464e-07,
+     4.925394630100549e-07,
+     3.0470544322237326e-06,
+     4.127040057155424e-06,
+     4.360571122108822e-06,
+     5.877325829213784e-06,
+     5.959445023262259e-06,
+     5.959445023262259e-06,
+     8.637867638561888e-06,
+     8.637867638561888e-06,
+     9.522537547780885e-06,
+     1.1960175854403441e-05,
+     1.2441787885660995e-05,
+     1.360131801903588e-05,
+     1.641177005246607e-05,
+     1.641177005246607e-05,
+     2.7380083061907035e-05,
+     4.0676260155949295e-05,
+     5.9718082921438975e-05,
+     0.0002010061403739861,
+     0.0003568995930346703,
+     0.0003830800837556905,
+     0.0003830800837556905,
+     0.00041961451042077006,
+     0.00043215797468463483,
+     0.00047170870695465415,
+     0.00047170870695465415,
+     0.0006143646115031387,
+     0.000645204765527669,
+     0.0007305250165641239,
+     0.0011158476261346987,
+     0.0014298008364084188,
+     0.0014956551068098173,
+     0.0015489204794939702,
+     0.0015574250305239684,
+     0.001634299520837073,
+     0.0017913028178250575,
+     0.0022460240243185863,
+     0.002331049889127241,
+     0.002362279040778522,
+     0.002362279040778522,
+     0.002461602189852842,
+     0.002461602189852842,
+     0.0026336425636098925,
+     0.0029777643231896607,
+     0.0032525998131627512,
+     0.0037284562188628647,
+     0.004392453293301019,
+     0.005066255051898128,
+     0.005066255051898128,
+     0.006155840179718897,
+     0.007501411626145146,
+     0.00867172254507098,
+     0.00948619051030924,
+     0.010351056686032289,
+     0.012742806443850955,
+     0.012742806443850955,
+     0.01276960404295794,
+     0.013979793593877311,
+     0.01611950164117788,
+     0.017828753921693734,
+     0.02306842836945495,
+     0.02306842836945495,
+     0.024958929170203287,
+     0.037065901908873475,
+     0.037065901908873475,
+     0.05437632290451539,
+     0.057441089023549476,
+     0.06430408045838265,
+     0.06430408045838265,
+     0.06607798467938332,
+     0.06607798467938332,
+     0.07994873361897012,
+     0.12169418645250266,
+     0.13877937019393832,
+     0.14773849311716428,
+     0.14907997181677685,
+     0.16404537347304543,
+     0.16404537347304543,
+     0.17285098836802665,
+     0.17285098836802665,
+     0.1756004845807021,
+     0.1852547602654906,
+     0.21742927899435865,
+     0.2253638940213513,
+     0.23025226863298495,
+     0.23025226863298495,
+     0.23577932229576437,
+     0.26184358028686955,
+     0.26184358028686955,
+     0.27592518574471114,
+     0.30144496239689306,
+     0.30857228475746623,
+     0.33502158283926914,
+     0.33954916200587654,
+     0.3562058807080281,
+     0.3912313975952911,
+     0.4697600286645105,
+     0.4697600286645105,
+     0.5192333660500914,
+     0.5192333660500914,
+     0.5217244007992751,
+     0.5217244007992751,
+     0.5339823831816193,
+     0.5678054599732011,
+     0.5755951516899586,
+     0.5789161588300159,
+     0.5928364457946534,
+     0.5928364457946534,
+     0.6254255195911982,
+     0.6254255195911982,
+     0.6442359566886232,
+     0.6588272506426102,
+     0.8533185203239047,
+     0.8533185203239047,
+     0.9765783509662077,
+     1.0,
+     1.0
+    ],
+    "reversal_tests": [
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('nostereo', 10)",
+      "p": 7.798965324821274e-193
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('canonical', 10)",
+      "p": 9.516669660586422e-189
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('inchikey', 10)",
+      "p": 9.516669660586422e-189
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('tautomer', 10)",
+      "p": 1.829325689116712e-184
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('nostereo', 5)",
+      "p": 1.9358500319610543e-103
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('canonical', 5)",
+      "p": 1.334450690919542e-100
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('inchikey', 5)",
+      "p": 1.334450690919542e-100
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('tautomer', 5)",
+      "p": 7.863995622496408e-97
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('tautomer', 10)",
+      "p": 3.535166376232389e-87
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('nostereo', 10)",
+      "p": 1.6298233881604655e-82
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('tautomer', 10)",
+      "p": 4.964815294317374e-73
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('nostereo', 10)",
+      "p": 1.1187222089597024e-71
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('canonical', 10)",
+      "p": 1.1018869403334974e-70
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('inchikey', 10)",
+      "p": 1.1018869403334974e-70
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('canonical', 10)",
+      "p": 2.543875980797139e-68
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('inchikey', 10)",
+      "p": 2.543875980797139e-68
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('nostereo', 10)",
+      "p": 2.8553318591503834e-62
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('tautomer', 10)",
+      "p": 1.2300575493326633e-58
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('canonical', 10)",
+      "p": 8.573775014980926e-58
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('inchikey', 10)",
+      "p": 8.573775014980926e-58
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('nostereo', 3)",
+      "p": 7.041658343909532e-52
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('canonical', 3)",
+      "p": 7.945970386004122e-50
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('inchikey', 3)",
+      "p": 7.945970386004122e-50
+     },
+     {
+      "pair": "graphretro over localretro",
+      "cell": "('tautomer', 3)",
+      "p": 3.812074938034811e-48
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('tautomer', 5)",
+      "p": 5.74299996676078e-48
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('nostereo', 5)",
+      "p": 8.60633812087385e-47
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('canonical', 10)",
+      "p": 1.0946431808360092e-46
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('inchikey', 10)",
+      "p": 1.0946431808360092e-46
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('nostereo', 10)",
+      "p": 1.586910773838981e-42
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('canonical', 5)",
+      "p": 4.5467285326117884e-41
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('inchikey', 5)",
+      "p": 4.5467285326117884e-41
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('tautomer', 10)",
+      "p": 2.8331233565283666e-38
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('nostereo', 5)",
+      "p": 8.774782219245885e-32
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('inchikey', 10)",
+      "p": 2.6023169800480974e-30
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('canonical', 10)",
+      "p": 3.506397943448421e-30
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('canonical', 5)",
+      "p": 1.291089736749431e-29
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('inchikey', 5)",
+      "p": 1.291089736749431e-29
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('tautomer', 5)",
+      "p": 4.0672201257451925e-28
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('nostereo', 10)",
+      "p": 5.013897628626023e-28
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('tautomer', 10)",
+      "p": 5.971910918711233e-24
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('canonical', 5)",
+      "p": 6.611299556396676e-21
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('inchikey', 5)",
+      "p": 6.611299556396676e-21
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('tautomer', 3)",
+      "p": 1.1003422110218131e-20
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('nostereo', 3)",
+      "p": 1.5355117418550753e-20
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('canonical', 3)",
+      "p": 1.3598743599357704e-19
+     },
+     {
+      "pair": "graph2smiles over g2retro",
+      "cell": "('inchikey', 3)",
+      "p": 1.3598743599357704e-19
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('tautomer', 5)",
+      "p": 2.633791662247535e-19
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('nostereo', 5)",
+      "p": 1.0532493274424527e-18
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('nostereo', 3)",
+      "p": 8.065026730285325e-15
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('canonical', 3)",
+      "p": 1.1801380699739946e-13
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('inchikey', 3)",
+      "p": 1.1801380699739946e-13
+     },
+     {
+      "pair": "graphretro over g2retro",
+      "cell": "('tautomer', 3)",
+      "p": 4.1297371935394615e-12
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('inchikey', 5)",
+      "p": 7.499625177734867e-12
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('canonical', 5)",
+      "p": 9.056359762269658e-12
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('nostereo', 5)",
+      "p": 9.832543953783177e-11
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('nostereo', 3)",
+      "p": 1.3409707296627807e-09
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('canonical', 5)",
+      "p": 2.045131225025765e-09
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('inchikey', 5)",
+      "p": 2.045131225025765e-09
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('tautomer', 3)",
+      "p": 2.2189621979225986e-09
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('tautomer', 5)",
+      "p": 9.5174312076375e-09
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('nostereo', 5)",
+      "p": 1.1370998379654145e-08
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('tautomer', 5)",
+      "p": 2.5308367708841717e-08
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('nostereo', 5)",
+      "p": 1.1238047665100467e-07
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('canonical', 3)",
+      "p": 3.4806317868138464e-07
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('inchikey', 3)",
+      "p": 3.4806317868138464e-07
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('tautomer', 10)",
+      "p": 4.925394630100549e-07
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('tautomer', 5)",
+      "p": 3.0470544322237326e-06
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('nostereo', 10)",
+      "p": 4.127040057155424e-06
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('tautomer', 5)",
+      "p": 4.360571122108822e-06
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('canonical', 5)",
+      "p": 8.637867638561888e-06
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('inchikey', 5)",
+      "p": 8.637867638561888e-06
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('nostereo', 5)",
+      "p": 9.522537547780885e-06
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('inchikey', 3)",
+      "p": 1.1960175854403441e-05
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('nostereo', 3)",
+      "p": 1.2441787885660995e-05
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('canonical', 3)",
+      "p": 1.360131801903588e-05
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('canonical', 3)",
+      "p": 1.641177005246607e-05
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('inchikey', 3)",
+      "p": 1.641177005246607e-05
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('tautomer', 3)",
+      "p": 0.0003568995930346703
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('tautomer', 3)",
+      "p": 0.00043215797468463483
+     },
+     {
+      "pair": "graph2smiles over gln",
+      "cell": "('nostereo', 3)",
+      "p": 0.0006143646115031387
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('canonical', 5)",
+      "p": 0.000645204765527669
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('inchikey', 5)",
+      "p": 0.0007305250165641239
+     },
+     {
+      "pair": "retroformer over gln",
+      "cell": "('tautomer', 10)",
+      "p": 0.0011158476261346987
+     },
+     {
+      "pair": "retroformer over gln",
+      "cell": "('canonical', 10)",
+      "p": 0.0014298008364084188
+     },
+     {
+      "pair": "retroformer over gln",
+      "cell": "('nostereo', 10)",
+      "p": 0.0014956551068098173
+     },
+     {
+      "pair": "retroformer over gln",
+      "cell": "('inchikey', 10)",
+      "p": 0.001634299520837073
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('canonical', 10)",
+      "p": 0.002331049889127241
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('inchikey', 10)",
+      "p": 0.0026336425636098925
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('tautomer', 3)",
+      "p": 0.0029777643231896607
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('nostereo', 3)",
+      "p": 0.0032525998131627512
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('canonical', 3)",
+      "p": 0.01276960404295794
+     },
+     {
+      "pair": "retroformer over g2retro",
+      "cell": "('inchikey', 3)",
+      "p": 0.013979793593877311
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('tautomer', 10)",
+      "p": 0.057441089023549476
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('canonical', 3)",
+      "p": 0.06430408045838265
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('inchikey', 3)",
+      "p": 0.06430408045838265
+     },
+     {
+      "pair": "gln over g2retro",
+      "cell": "('nostereo', 10)",
+      "p": 0.12169418645250266
+     },
+     {
+      "pair": "localretro over graph2smiles",
+      "cell": "('nostereo', 1)",
+      "p": 0.13877937019393832
+     },
+     {
+      "pair": "localretro over graph2smiles",
+      "cell": "('tautomer', 1)",
+      "p": 0.14773849311716428
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('nostereo', 3)",
+      "p": 0.1852547602654906
+     },
+     {
+      "pair": "localretro over retroformer",
+      "cell": "('nostereo', 1)",
+      "p": 0.27592518574471114
+     },
+     {
+      "pair": "graphretro over graph2smiles",
+      "cell": "('nostereo', 1)",
+      "p": 0.30857228475746623
+     },
+     {
+      "pair": "localretro over retroformer",
+      "cell": "('tautomer', 1)",
+      "p": 0.33502158283926914
+     },
+     {
+      "pair": "graphretro over gln",
+      "cell": "('tautomer', 3)",
+      "p": 0.5339823831816193
+     },
+     {
+      "pair": "graphretro over graph2smiles",
+      "cell": "('tautomer', 1)",
+      "p": 0.5678054599732011
+     },
+     {
+      "pair": "retroformer over graph2smiles",
+      "cell": "('tautomer', 1)",
+      "p": 0.5755951516899586
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('nostereo', 1)",
+      "p": 0.5789161588300159
+     },
+     {
+      "pair": "retroformer over graph2smiles",
+      "cell": "('nostereo', 1)",
+      "p": 0.6442359566886232
+     },
+     {
+      "pair": "graphretro over retroformer",
+      "cell": "('tautomer', 1)",
+      "p": 0.9765783509662077
+     }
+    ]
+   },
+   "tiers_distinguished": 3,
+   "tiers_ci95": [
+    3,
+    3
+   ],
+   "distinct_orderings_across_the_grid": 4,
+   "robustness": 0.381,
+   "robustness_ci95": [
+    0.3333,
+    0.5238
+   ],
+   "separated_share": 0.3333,
+   "reversed_by_some_cell": 13,
+   "reversed_with_an_interval": 9,
+   "n_unresolved": 4,
+   "unresolved": [
+    "graphretro over graph2smiles",
+    "localretro over graph2smiles",
+    "localretro over retroformer",
+    "retroformer over graph2smiles"
+   ],
+   "dominating_but_not_separated_everywhere": 1,
+   "n_resolved_in_the_published_cell": 10,
+   "robustness_among_resolved": 0.7,
+   "sub_grids": {
+    "criteria only, at the published budget": {
+     "n_cells": 4,
+     "n_dominating": 16,
+     "share": 0.7619,
+     "n_separated_in_every_cell": 10,
+     "tiers": 5,
+     "distinct_orderings": 2
+    },
+    "budgets only, at the published criterion": {
+     "n_cells": 4,
+     "n_dominating": 12,
+     "share": 0.5714,
+     "n_separated_in_every_cell": 7,
+     "tiers": 4,
+     "distinct_orderings": 3
+    },
+    "the product": {
+     "n_cells": 16,
+     "n_dominating": 8,
+     "share": 0.381,
+     "n_separated_in_every_cell": 7,
+     "tiers": 3,
+     "distinct_orderings": 4
+    }
+   },
+   "per_cell_orders": {
+    "('canonical', 1)": [
+     "graphretro",
+     "localretro",
+     "retroformer",
+     "graph2smiles",
+     "gln",
+     "g2retro",
+     "retroxpert"
+    ],
+    "('canonical', 3)": [
+     "localretro",
+     "g2retro",
+     "retroformer",
+     "gln",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('canonical', 5)": [
+     "localretro",
+     "g2retro",
+     "retroformer",
+     "gln",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('canonical', 10)": [
+     "localretro",
+     "g2retro",
+     "gln",
+     "retroformer",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('nostereo', 1)": [
+     "graph2smiles",
+     "retroformer",
+     "graphretro",
+     "localretro",
+     "gln",
+     "g2retro",
+     "retroxpert"
+    ],
+    "('nostereo', 3)": [
+     "localretro",
+     "g2retro",
+     "retroformer",
+     "gln",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('nostereo', 5)": [
+     "localretro",
+     "g2retro",
+     "retroformer",
+     "gln",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('nostereo', 10)": [
+     "localretro",
+     "g2retro",
+     "gln",
+     "retroformer",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('inchikey', 1)": [
+     "graphretro",
+     "localretro",
+     "retroformer",
+     "graph2smiles",
+     "gln",
+     "g2retro",
+     "retroxpert"
+    ],
+    "('inchikey', 3)": [
+     "localretro",
+     "g2retro",
+     "retroformer",
+     "gln",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('inchikey', 5)": [
+     "localretro",
+     "g2retro",
+     "retroformer",
+     "gln",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('inchikey', 10)": [
+     "localretro",
+     "g2retro",
+     "gln",
+     "retroformer",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('tautomer', 1)": [
+     "graph2smiles",
+     "retroformer",
+     "graphretro",
+     "localretro",
+     "gln",
+     "g2retro",
+     "retroxpert"
+    ],
+    "('tautomer', 3)": [
+     "localretro",
+     "g2retro",
+     "retroformer",
+     "gln",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('tautomer', 5)": [
+     "localretro",
+     "g2retro",
+     "retroformer",
+     "gln",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ],
+    "('tautomer', 10)": [
+     "localretro",
+     "g2retro",
+     "gln",
+     "retroformer",
+     "graphretro",
+     "graph2smiles",
+     "retroxpert"
+    ]
+   },
+   "pairs": {
+    "gln over g2retro": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('tautomer', 3)",
+      "('tautomer', 5)"
+     ],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('nostereo', 1)",
+      "('inchikey', 1)",
+      "('tautomer', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.01,
+       "ci95": [
+        -0.004,
+        0.024
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0326,
+       "ci95": [
+        -0.045,
+        -0.02
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 5)": {
+       "margin": -0.0272,
+       "ci95": [
+        -0.039,
+        -0.0152
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": 0.0,
+       "ci95": [
+        -0.0104,
+        0.0106
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0086,
+       "ci95": [
+        -0.0054,
+        0.023
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.0386,
+       "ci95": [
+        -0.051,
+        -0.0258
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 5)": {
+       "margin": -0.0346,
+       "ci95": [
+        -0.0464,
+        -0.0228
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.0084,
+       "ci95": [
+        -0.0186,
+        0.0022
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.01,
+       "ci95": [
+        -0.004,
+        0.024
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.0326,
+       "ci95": [
+        -0.045,
+        -0.02
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 5)": {
+       "margin": -0.0272,
+       "ci95": [
+        -0.039,
+        -0.0152
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": 0.0,
+       "ci95": [
+        -0.0104,
+        0.0106
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0088,
+       "ci95": [
+        -0.005,
+        0.023
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.0382,
+       "ci95": [
+        -0.0506,
+        -0.0256
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 5)": {
+       "margin": -0.0348,
+       "ci95": [
+        -0.0466,
+        -0.023
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.0102,
+       "ci95": [
+        -0.0204,
+        0.0002
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": true
+    },
+    "graph2smiles over g2retro": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0146,
+       "ci95": [
+        0.0014,
+        0.0282
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0612,
+       "ci95": [
+        -0.0742,
+        -0.0478
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 5)": {
+       "margin": -0.0882,
+       "ci95": [
+        -0.1012,
+        -0.0754
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": -0.1132,
+       "ci95": [
+        -0.1258,
+        -0.1004
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": 0.028,
+       "ci95": [
+        0.015,
+        0.0412
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.061,
+       "ci95": [
+        -0.0734,
+        -0.0482
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 5)": {
+       "margin": -0.0912,
+       "ci95": [
+        -0.1036,
+        -0.079
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.1198,
+       "ci95": [
+        -0.1318,
+        -0.1076
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0146,
+       "ci95": [
+        0.0014,
+        0.0282
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.0612,
+       "ci95": [
+        -0.0742,
+        -0.0478
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 5)": {
+       "margin": -0.0882,
+       "ci95": [
+        -0.1012,
+        -0.0754
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": -0.1132,
+       "ci95": [
+        -0.1258,
+        -0.1004
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0286,
+       "ci95": [
+        0.0154,
+        0.0418
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.0612,
+       "ci95": [
+        -0.0736,
+        -0.0484
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 5)": {
+       "margin": -0.0922,
+       "ci95": [
+        -0.1046,
+        -0.08
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.1222,
+       "ci95": [
+        -0.134,
+        -0.11
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": true
+    },
+    "graphretro over g2retro": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.023,
+       "ci95": [
+        0.0102,
+        0.0358
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0454,
+       "ci95": [
+        -0.057,
+        -0.0334
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 5)": {
+       "margin": -0.0672,
+       "ci95": [
+        -0.0788,
+        -0.0554
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": -0.092,
+       "ci95": [
+        -0.103,
+        -0.0806
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": 0.021,
+       "ci95": [
+        0.0082,
+        0.034
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.0478,
+       "ci95": [
+        -0.0596,
+        -0.0354
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 5)": {
+       "margin": -0.07,
+       "ci95": [
+        -0.0816,
+        -0.0578
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.0958,
+       "ci95": [
+        -0.1068,
+        -0.0842
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.023,
+       "ci95": [
+        0.0102,
+        0.0358
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.0454,
+       "ci95": [
+        -0.057,
+        -0.0334
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 5)": {
+       "margin": -0.0672,
+       "ci95": [
+        -0.0788,
+        -0.0554
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": -0.092,
+       "ci95": [
+        -0.103,
+        -0.0806
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0246,
+       "ci95": [
+        0.0116,
+        0.0376
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.0426,
+       "ci95": [
+        -0.0542,
+        -0.0304
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 5)": {
+       "margin": -0.0652,
+       "ci95": [
+        -0.0766,
+        -0.0532
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.0918,
+       "ci95": [
+        -0.1028,
+        -0.0806
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": true
+    },
+    "localretro over g2retro": {
+     "dominates": true,
+     "separated_in_every_cell": true,
+     "contested": false,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0192,
+       "ci95": [
+        0.0062,
+        0.0326
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.047,
+       "ci95": [
+        0.0354,
+        0.0586
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.0596,
+       "ci95": [
+        0.0492,
+        0.0702
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.0732,
+       "ci95": [
+        0.0642,
+        0.0824
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0178,
+       "ci95": [
+        0.0044,
+        0.0314
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.0472,
+       "ci95": [
+        0.0354,
+        0.059
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.0596,
+       "ci95": [
+        0.0492,
+        0.0702
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.0724,
+       "ci95": [
+        0.0634,
+        0.0816
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0192,
+       "ci95": [
+        0.0062,
+        0.0326
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.047,
+       "ci95": [
+        0.0354,
+        0.0586
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.0596,
+       "ci95": [
+        0.0492,
+        0.0702
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.0732,
+       "ci95": [
+        0.0642,
+        0.0824
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0186,
+       "ci95": [
+        0.0052,
+        0.0324
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.048,
+       "ci95": [
+        0.0364,
+        0.0596
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.0586,
+       "ci95": [
+        0.0482,
+        0.0692
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.0698,
+       "ci95": [
+        0.061,
+        0.0788
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "retroformer over g2retro": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0178,
+       "ci95": [
+        0.004,
+        0.0316
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0162,
+       "ci95": [
+        -0.0288,
+        -0.0034
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 5)": {
+       "margin": -0.0214,
+       "ci95": [
+        -0.0338,
+        -0.0092
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": -0.0176,
+       "ci95": [
+        -0.0286,
+        -0.0064
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": 0.025,
+       "ci95": [
+        0.0114,
+        0.0386
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.0188,
+       "ci95": [
+        -0.0314,
+        -0.0064
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 5)": {
+       "margin": -0.027,
+       "ci95": [
+        -0.039,
+        -0.015
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.0256,
+       "ci95": [
+        -0.0362,
+        -0.0148
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0178,
+       "ci95": [
+        0.004,
+        0.0316
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.016,
+       "ci95": [
+        -0.0286,
+        -0.0032
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 5)": {
+       "margin": -0.0212,
+       "ci95": [
+        -0.0336,
+        -0.009
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": -0.0174,
+       "ci95": [
+        -0.0284,
+        -0.006
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": 0.025,
+       "ci95": [
+        0.0114,
+        0.0384
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.019,
+       "ci95": [
+        -0.0316,
+        -0.0064
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 5)": {
+       "margin": -0.0284,
+       "ci95": [
+        -0.0404,
+        -0.0166
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.0278,
+       "ci95": [
+        -0.0384,
+        -0.0172
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": true
+    },
+    "g2retro over retroxpert": {
+     "dominates": true,
+     "separated_in_every_cell": true,
+     "contested": false,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.068,
+       "ci95": [
+        0.0534,
+        0.0828
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.1242,
+       "ci95": [
+        0.11,
+        0.1386
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.1386,
+       "ci95": [
+        0.125,
+        0.1522
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.1426,
+       "ci95": [
+        0.1294,
+        0.1556
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0672,
+       "ci95": [
+        0.0526,
+        0.082
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.1304,
+       "ci95": [
+        0.1164,
+        0.1444
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.147,
+       "ci95": [
+        0.1338,
+        0.1602
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.1548,
+       "ci95": [
+        0.142,
+        0.1676
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.068,
+       "ci95": [
+        0.0534,
+        0.0828
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.124,
+       "ci95": [
+        0.1098,
+        0.1384
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.1384,
+       "ci95": [
+        0.1248,
+        0.152
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.1426,
+       "ci95": [
+        0.1294,
+        0.1556
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0678,
+       "ci95": [
+        0.053,
+        0.0826
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.1316,
+       "ci95": [
+        0.1174,
+        0.1458
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.149,
+       "ci95": [
+        0.1358,
+        0.1624
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.1568,
+       "ci95": [
+        0.144,
+        0.1696
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "graph2smiles over gln": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('inchikey', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0046,
+       "ci95": [
+        -0.0086,
+        0.018
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0286,
+       "ci95": [
+        -0.0416,
+        -0.0158
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 5)": {
+       "margin": -0.061,
+       "ci95": [
+        -0.0734,
+        -0.0484
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": -0.1132,
+       "ci95": [
+        -0.1254,
+        -0.101
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0194,
+       "ci95": [
+        0.0064,
+        0.0326
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.0224,
+       "ci95": [
+        -0.035,
+        -0.0098
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 5)": {
+       "margin": -0.0566,
+       "ci95": [
+        -0.069,
+        -0.0442
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.1114,
+       "ci95": [
+        -0.1236,
+        -0.0994
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0046,
+       "ci95": [
+        -0.0086,
+        0.018
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.0286,
+       "ci95": [
+        -0.0416,
+        -0.0158
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 5)": {
+       "margin": -0.061,
+       "ci95": [
+        -0.0734,
+        -0.0484
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": -0.1132,
+       "ci95": [
+        -0.1254,
+        -0.101
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0198,
+       "ci95": [
+        0.0068,
+        0.033
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.023,
+       "ci95": [
+        -0.0356,
+        -0.0102
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 5)": {
+       "margin": -0.0574,
+       "ci95": [
+        -0.0698,
+        -0.0452
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.112,
+       "ci95": [
+        -0.124,
+        -0.1
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": true
+    },
+    "graphretro over gln": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('nostereo', 1)",
+      "('inchikey', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.013,
+       "ci95": [
+        -0.0006,
+        0.0266
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0128,
+       "ci95": [
+        -0.0262,
+        0.0006
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": -0.04,
+       "ci95": [
+        -0.053,
+        -0.0268
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": -0.092,
+       "ci95": [
+        -0.1044,
+        -0.0796
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0124,
+       "ci95": [
+        -0.0014,
+        0.0258
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.0092,
+       "ci95": [
+        -0.0226,
+        0.0044
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": -0.0354,
+       "ci95": [
+        -0.0482,
+        -0.0222
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.0874,
+       "ci95": [
+        -0.0998,
+        -0.075
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.013,
+       "ci95": [
+        -0.0006,
+        0.0266
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.0128,
+       "ci95": [
+        -0.0262,
+        0.0006
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": -0.04,
+       "ci95": [
+        -0.053,
+        -0.0268
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": -0.092,
+       "ci95": [
+        -0.1044,
+        -0.0796
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0158,
+       "ci95": [
+        0.002,
+        0.0292
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.0044,
+       "ci95": [
+        -0.0176,
+        0.009
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": -0.0304,
+       "ci95": [
+        -0.0432,
+        -0.0174
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.0816,
+       "ci95": [
+        -0.0938,
+        -0.0692
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": true
+    },
+    "localretro over gln": {
+     "dominates": true,
+     "separated_in_every_cell": false,
+     "contested": false,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('nostereo', 1)",
+      "('inchikey', 1)",
+      "('tautomer', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0092,
+       "ci95": [
+        -0.0036,
+        0.0222
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.0796,
+       "ci95": [
+        0.0678,
+        0.0912
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.0868,
+       "ci95": [
+        0.0758,
+        0.098
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.0732,
+       "ci95": [
+        0.0638,
+        0.0824
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0092,
+       "ci95": [
+        -0.0038,
+        0.022
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.0858,
+       "ci95": [
+        0.0742,
+        0.0974
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.0942,
+       "ci95": [
+        0.0832,
+        0.1052
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.0808,
+       "ci95": [
+        0.0716,
+        0.09
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0092,
+       "ci95": [
+        -0.0036,
+        0.0222
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.0796,
+       "ci95": [
+        0.0678,
+        0.0912
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.0868,
+       "ci95": [
+        0.0758,
+        0.098
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.0732,
+       "ci95": [
+        0.0638,
+        0.0824
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0098,
+       "ci95": [
+        -0.0032,
+        0.0226
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.0862,
+       "ci95": [
+        0.0744,
+        0.0978
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.0934,
+       "ci95": [
+        0.0824,
+        0.1046
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.08,
+       "ci95": [
+        0.0708,
+        0.0892
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "retroformer over gln": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('canonical', 10)",
+      "('nostereo', 10)",
+      "('inchikey', 10)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 10)",
+      "('nostereo', 10)",
+      "('inchikey', 10)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('canonical', 5)",
+      "('nostereo', 5)",
+      "('inchikey', 1)",
+      "('inchikey', 5)",
+      "('tautomer', 5)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0078,
+       "ci95": [
+        -0.0054,
+        0.0206
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.0164,
+       "ci95": [
+        0.0044,
+        0.0286
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.0058,
+       "ci95": [
+        -0.006,
+        0.0178
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": -0.0176,
+       "ci95": [
+        -0.0282,
+        -0.007
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0164,
+       "ci95": [
+        0.0034,
+        0.0292
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.0198,
+       "ci95": [
+        0.0078,
+        0.032
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.0076,
+       "ci95": [
+        -0.004,
+        0.0192
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": -0.0172,
+       "ci95": [
+        -0.0276,
+        -0.0066
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0078,
+       "ci95": [
+        -0.0054,
+        0.0206
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.0166,
+       "ci95": [
+        0.0046,
+        0.0288
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.006,
+       "ci95": [
+        -0.0058,
+        0.0178
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": -0.0174,
+       "ci95": [
+        -0.028,
+        -0.0068
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0162,
+       "ci95": [
+        0.0032,
+        0.029
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.0192,
+       "ci95": [
+        0.0072,
+        0.0314
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.0064,
+       "ci95": [
+        -0.0052,
+        0.018
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": -0.0176,
+       "ci95": [
+        -0.028,
+        -0.0072
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": false
+    },
+    "gln over retroxpert": {
+     "dominates": true,
+     "separated_in_every_cell": true,
+     "contested": false,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.078,
+       "ci95": [
+        0.0642,
+        0.092
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.0916,
+       "ci95": [
+        0.0778,
+        0.1052
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.1114,
+       "ci95": [
+        0.098,
+        0.1248
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.1426,
+       "ci95": [
+        0.1296,
+        0.1556
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0758,
+       "ci95": [
+        0.062,
+        0.0898
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.0918,
+       "ci95": [
+        0.0782,
+        0.1056
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.1124,
+       "ci95": [
+        0.099,
+        0.1258
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.1464,
+       "ci95": [
+        0.1334,
+        0.1592
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.078,
+       "ci95": [
+        0.0642,
+        0.092
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.0914,
+       "ci95": [
+        0.0776,
+        0.105
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.1112,
+       "ci95": [
+        0.0978,
+        0.1246
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.1426,
+       "ci95": [
+        0.1296,
+        0.1556
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0766,
+       "ci95": [
+        0.0628,
+        0.0906
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.0934,
+       "ci95": [
+        0.0798,
+        0.107
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.1142,
+       "ci95": [
+        0.1008,
+        0.1276
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.1466,
+       "ci95": [
+        0.1334,
+        0.1594
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "graphretro over graph2smiles": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": false,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('nostereo', 1)",
+      "('tautomer', 1)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('nostereo', 3)",
+      "('inchikey', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0084,
+       "ci95": [
+        -0.0048,
+        0.0218
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.0158,
+       "ci95": [
+        0.0024,
+        0.0292
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.021,
+       "ci95": [
+        0.0076,
+        0.0344
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.0212,
+       "ci95": [
+        0.0078,
+        0.0346
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": -0.007,
+       "ci95": [
+        -0.02,
+        0.0062
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.0132,
+       "ci95": [
+        0.0,
+        0.0264
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.0212,
+       "ci95": [
+        0.008,
+        0.0342
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.024,
+       "ci95": [
+        0.0106,
+        0.0372
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0084,
+       "ci95": [
+        -0.0048,
+        0.0218
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.0158,
+       "ci95": [
+        0.0024,
+        0.0292
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.021,
+       "ci95": [
+        0.0076,
+        0.0344
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.0212,
+       "ci95": [
+        0.0078,
+        0.0346
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": -0.004,
+       "ci95": [
+        -0.017,
+        0.009
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.0186,
+       "ci95": [
+        0.0054,
+        0.0318
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.027,
+       "ci95": [
+        0.014,
+        0.04
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.0304,
+       "ci95": [
+        0.0174,
+        0.0434
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "localretro over graph2smiles": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": false,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('nostereo', 1)",
+      "('tautomer', 1)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('inchikey', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0046,
+       "ci95": [
+        -0.0086,
+        0.018
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.1082,
+       "ci95": [
+        0.0958,
+        0.1206
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.1478,
+       "ci95": [
+        0.1356,
+        0.16
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.1864,
+       "ci95": [
+        0.1744,
+        0.1982
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": -0.0102,
+       "ci95": [
+        -0.0234,
+        0.0032
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.1082,
+       "ci95": [
+        0.096,
+        0.1204
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.1508,
+       "ci95": [
+        0.139,
+        0.1628
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.1922,
+       "ci95": [
+        0.1808,
+        0.2036
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0046,
+       "ci95": [
+        -0.0086,
+        0.018
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.1082,
+       "ci95": [
+        0.0958,
+        0.1206
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.1478,
+       "ci95": [
+        0.1356,
+        0.16
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.1864,
+       "ci95": [
+        0.1744,
+        0.1982
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": -0.01,
+       "ci95": [
+        -0.0232,
+        0.0034
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.1092,
+       "ci95": [
+        0.0972,
+        0.1212
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.1508,
+       "ci95": [
+        0.139,
+        0.1626
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.192,
+       "ci95": [
+        0.1806,
+        0.2034
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "retroformer over graph2smiles": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": false,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('nostereo', 1)",
+      "('tautomer', 1)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('inchikey', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0032,
+       "ci95": [
+        -0.0086,
+        0.015
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.045,
+       "ci95": [
+        0.033,
+        0.057
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.0668,
+       "ci95": [
+        0.0552,
+        0.079
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.0956,
+       "ci95": [
+        0.0838,
+        0.1072
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": -0.003,
+       "ci95": [
+        -0.0146,
+        0.009
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.0422,
+       "ci95": [
+        0.0304,
+        0.054
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.0642,
+       "ci95": [
+        0.0528,
+        0.076
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.0942,
+       "ci95": [
+        0.0826,
+        0.106
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0032,
+       "ci95": [
+        -0.0086,
+        0.015
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.0452,
+       "ci95": [
+        0.0332,
+        0.0574
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.067,
+       "ci95": [
+        0.0554,
+        0.0792
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.0958,
+       "ci95": [
+        0.084,
+        0.1076
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": -0.0036,
+       "ci95": [
+        -0.0154,
+        0.0082
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.0422,
+       "ci95": [
+        0.0304,
+        0.054
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.0638,
+       "ci95": [
+        0.0524,
+        0.0758
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.0944,
+       "ci95": [
+        0.0828,
+        0.106
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "graph2smiles over retroxpert": {
+     "dominates": true,
+     "separated_in_every_cell": true,
+     "contested": false,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0826,
+       "ci95": [
+        0.0694,
+        0.096
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.063,
+       "ci95": [
+        0.0498,
+        0.0766
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.0504,
+       "ci95": [
+        0.0376,
+        0.0636
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.0294,
+       "ci95": [
+        0.017,
+        0.042
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0952,
+       "ci95": [
+        0.082,
+        0.1086
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.0694,
+       "ci95": [
+        0.0564,
+        0.0826
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.0558,
+       "ci95": [
+        0.0432,
+        0.069
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.035,
+       "ci95": [
+        0.0226,
+        0.0476
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0826,
+       "ci95": [
+        0.0694,
+        0.096
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.0628,
+       "ci95": [
+        0.0496,
+        0.0764
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.0502,
+       "ci95": [
+        0.0374,
+        0.0634
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.0294,
+       "ci95": [
+        0.017,
+        0.042
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0964,
+       "ci95": [
+        0.0832,
+        0.1098
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.0704,
+       "ci95": [
+        0.0572,
+        0.0838
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.0568,
+       "ci95": [
+        0.044,
+        0.0698
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.0346,
+       "ci95": [
+        0.022,
+        0.0472
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "graphretro over localretro": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('nostereo', 1)",
+      "('inchikey', 1)",
+      "('tautomer', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0038,
+       "ci95": [
+        -0.0096,
+        0.017
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0924,
+       "ci95": [
+        -0.1044,
+        -0.0802
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 5)": {
+       "margin": -0.1268,
+       "ci95": [
+        -0.1382,
+        -0.1152
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": -0.1652,
+       "ci95": [
+        -0.1762,
+        -0.154
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0032,
+       "ci95": [
+        -0.0104,
+        0.0164
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.095,
+       "ci95": [
+        -0.1072,
+        -0.0826
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 5)": {
+       "margin": -0.1296,
+       "ci95": [
+        -0.1412,
+        -0.118
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.1682,
+       "ci95": [
+        -0.1794,
+        -0.1568
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0038,
+       "ci95": [
+        -0.0096,
+        0.017
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.0924,
+       "ci95": [
+        -0.1044,
+        -0.0802
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 5)": {
+       "margin": -0.1268,
+       "ci95": [
+        -0.1382,
+        -0.1152
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": -0.1652,
+       "ci95": [
+        -0.1762,
+        -0.154
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": 0.006,
+       "ci95": [
+        -0.0076,
+        0.0192
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.0906,
+       "ci95": [
+        -0.1026,
+        -0.0782
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 5)": {
+       "margin": -0.1238,
+       "ci95": [
+        -0.1354,
+        -0.1122
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.1616,
+       "ci95": [
+        -0.1726,
+        -0.1504
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": true
+    },
+    "graphretro over retroformer": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 1)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 1)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('inchikey', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0052,
+       "ci95": [
+        -0.0082,
+        0.0188
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0292,
+       "ci95": [
+        -0.0424,
+        -0.016
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 5)": {
+       "margin": -0.0458,
+       "ci95": [
+        -0.0588,
+        -0.0328
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": -0.0744,
+       "ci95": [
+        -0.087,
+        -0.0618
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": -0.004,
+       "ci95": [
+        -0.0174,
+        0.0094
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.029,
+       "ci95": [
+        -0.0422,
+        -0.0158
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 5)": {
+       "margin": -0.043,
+       "ci95": [
+        -0.0558,
+        -0.03
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.0702,
+       "ci95": [
+        -0.0824,
+        -0.0576
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0052,
+       "ci95": [
+        -0.0082,
+        0.0188
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.0294,
+       "ci95": [
+        -0.0426,
+        -0.0162
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 5)": {
+       "margin": -0.046,
+       "ci95": [
+        -0.059,
+        -0.033
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": -0.0746,
+       "ci95": [
+        -0.0872,
+        -0.062
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": -0.0004,
+       "ci95": [
+        -0.0138,
+        0.013
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.0236,
+       "ci95": [
+        -0.0366,
+        -0.0104
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 5)": {
+       "margin": -0.0368,
+       "ci95": [
+        -0.0496,
+        -0.0238
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.064,
+       "ci95": [
+        -0.0762,
+        -0.0516
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": true
+    },
+    "graphretro over retroxpert": {
+     "dominates": true,
+     "separated_in_every_cell": true,
+     "contested": false,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.091,
+       "ci95": [
+        0.0768,
+        0.1054
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.0788,
+       "ci95": [
+        0.0646,
+        0.0932
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.0714,
+       "ci95": [
+        0.0572,
+        0.086
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.0506,
+       "ci95": [
+        0.0364,
+        0.065
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0882,
+       "ci95": [
+        0.074,
+        0.1026
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.0826,
+       "ci95": [
+        0.0684,
+        0.097
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.077,
+       "ci95": [
+        0.0628,
+        0.0912
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.059,
+       "ci95": [
+        0.045,
+        0.0734
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.091,
+       "ci95": [
+        0.0768,
+        0.1054
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.0786,
+       "ci95": [
+        0.0642,
+        0.093
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.0712,
+       "ci95": [
+        0.0568,
+        0.0858
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.0506,
+       "ci95": [
+        0.0364,
+        0.065
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0924,
+       "ci95": [
+        0.0782,
+        0.1066
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.089,
+       "ci95": [
+        0.0748,
+        0.1034
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.0838,
+       "ci95": [
+        0.0698,
+        0.098
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.065,
+       "ci95": [
+        0.0512,
+        0.0792
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "localretro over retroformer": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": false,
+     "resolved_in_the_published_cell": false,
+     "cells_that_reverse_it": [
+      "('nostereo', 1)",
+      "('tautomer', 1)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 1)",
+      "('inchikey', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0014,
+       "ci95": [
+        -0.011,
+        0.014
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.0632,
+       "ci95": [
+        0.0512,
+        0.075
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.081,
+       "ci95": [
+        0.0698,
+        0.0922
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.0908,
+       "ci95": [
+        0.0806,
+        0.1008
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": -0.0072,
+       "ci95": [
+        -0.0196,
+        0.0054
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.066,
+       "ci95": [
+        0.0542,
+        0.0776
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.0866,
+       "ci95": [
+        0.0758,
+        0.0974
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.098,
+       "ci95": [
+        0.0884,
+        0.1074
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0014,
+       "ci95": [
+        -0.011,
+        0.014
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.063,
+       "ci95": [
+        0.0512,
+        0.0748
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.0808,
+       "ci95": [
+        0.0696,
+        0.092
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.0906,
+       "ci95": [
+        0.0806,
+        0.1004
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": -0.0064,
+       "ci95": [
+        -0.0188,
+        0.0062
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.067,
+       "ci95": [
+        0.0554,
+        0.0786
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.087,
+       "ci95": [
+        0.0762,
+        0.0976
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.0976,
+       "ci95": [
+        0.0882,
+        0.107
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "localretro over retroxpert": {
+     "dominates": true,
+     "separated_in_every_cell": true,
+     "contested": false,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0872,
+       "ci95": [
+        0.0734,
+        0.1012
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.1712,
+       "ci95": [
+        0.1578,
+        0.1846
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.1982,
+       "ci95": [
+        0.185,
+        0.2114
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.2158,
+       "ci95": [
+        0.203,
+        0.2286
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.085,
+       "ci95": [
+        0.0712,
+        0.0992
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.1776,
+       "ci95": [
+        0.1642,
+        0.191
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.2066,
+       "ci95": [
+        0.1938,
+        0.2196
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.2272,
+       "ci95": [
+        0.2146,
+        0.2396
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0872,
+       "ci95": [
+        0.0734,
+        0.1012
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.171,
+       "ci95": [
+        0.1574,
+        0.1846
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.198,
+       "ci95": [
+        0.1848,
+        0.2114
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.2158,
+       "ci95": [
+        0.203,
+        0.2286
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0864,
+       "ci95": [
+        0.0726,
+        0.1006
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.1796,
+       "ci95": [
+        0.166,
+        0.1932
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.2076,
+       "ci95": [
+        0.1946,
+        0.2206
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.2266,
+       "ci95": [
+        0.214,
+        0.239
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    },
+    "retroformer over retroxpert": {
+     "dominates": true,
+     "separated_in_every_cell": true,
+     "contested": false,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0858,
+       "ci95": [
+        0.0724,
+        0.0992
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": 0.108,
+       "ci95": [
+        0.0946,
+        0.1216
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.1172,
+       "ci95": [
+        0.1044,
+        0.13
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.125,
+       "ci95": [
+        0.1128,
+        0.1376
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0922,
+       "ci95": [
+        0.0788,
+        0.1056
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.1116,
+       "ci95": [
+        0.0982,
+        0.1252
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.12,
+       "ci95": [
+        0.1072,
+        0.133
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.1292,
+       "ci95": [
+        0.117,
+        0.1418
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0858,
+       "ci95": [
+        0.0724,
+        0.0992
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": 0.108,
+       "ci95": [
+        0.0946,
+        0.1216
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.1172,
+       "ci95": [
+        0.1044,
+        0.13
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.1252,
+       "ci95": [
+        0.113,
+        0.1378
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0928,
+       "ci95": [
+        0.0794,
+        0.1064
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.1126,
+       "ci95": [
+        0.0992,
+        0.1262
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.1206,
+       "ci95": [
+        0.1076,
+        0.1336
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.129,
+       "ci95": [
+        0.1166,
+        0.1414
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    }
+   }
+  },
+  "cluster1": {
+   "system_accuracy_by_cell": {
+    "chemformer": {
+     "('canonical', 1)": 0.5389,
+     "('canonical', 3)": 0.6094,
+     "('canonical', 5)": 0.6184,
+     "('canonical', 10)": 0.624,
+     "('nostereo', 1)": 0.55,
+     "('nostereo', 3)": 0.6206,
+     "('nostereo', 5)": 0.6303,
+     "('nostereo', 10)": 0.6359,
+     "('inchikey', 1)": 0.5389,
+     "('inchikey', 3)": 0.6094,
+     "('inchikey', 5)": 0.6184,
+     "('inchikey', 10)": 0.624,
+     "('tautomer', 1)": 0.5532,
+     "('tautomer', 3)": 0.624,
+     "('tautomer', 5)": 0.6339,
+     "('tautomer', 10)": 0.6395
+    },
+    "gta": {
+     "('canonical', 1)": 0.5177,
+     "('canonical', 3)": 0.6782,
+     "('canonical', 5)": 0.7483,
+     "('canonical', 10)": 0.8177,
+     "('nostereo', 1)": 0.5403,
+     "('nostereo', 3)": 0.6969,
+     "('nostereo', 5)": 0.7666,
+     "('nostereo', 10)": 0.8322,
+     "('inchikey', 1)": 0.5177,
+     "('inchikey', 3)": 0.6784,
+     "('inchikey', 5)": 0.7485,
+     "('inchikey', 10)": 0.8179,
+     "('tautomer', 1)": 0.5442,
+     "('tautomer', 3)": 0.7015,
+     "('tautomer', 5)": 0.7708,
+     "('tautomer', 10)": 0.835
+    },
+    "tiedtransformer": {
+     "('canonical', 1)": 0.4707,
+     "('canonical', 3)": 0.6786,
+     "('canonical', 5)": 0.7427,
+     "('canonical', 10)": 0.7983,
+     "('nostereo', 1)": 0.4807,
+     "('nostereo', 3)": 0.6929,
+     "('nostereo', 5)": 0.7565,
+     "('nostereo', 10)": 0.8109,
+     "('inchikey', 1)": 0.4707,
+     "('inchikey', 3)": 0.6786,
+     "('inchikey', 5)": 0.7427,
+     "('inchikey', 10)": 0.7983,
+     "('tautomer', 1)": 0.4839,
+     "('tautomer', 3)": 0.6973,
+     "('tautomer', 5)": 0.7613,
+     "('tautomer', 10)": 0.8145
+    }
+   },
+   "n_items": 4982,
+   "published_order": [
+    "chemformer",
+    "gta",
+    "tiedtransformer"
+   ],
+   "published_cell": "('canonical', 1)",
+   "n_systems": 3,
+   "n_cells": 16,
+   "n_pairs": 3,
+   "n_dominating": 0,
+   "n_separated_in_every_cell": 0,
+   "n_contested": 2,
+   "n_contested_after_correction": 2,
+   "contested_after_correction": [
+    "chemformer over gta",
+    "chemformer over tiedtransformer"
+   ],
+   "multiplicity": {
+    "family_size": 48,
+    "alpha": 0.05,
+    "n_tests_surviving": 38,
+    "n_reversals_surviving": 24,
+    "largest_surviving_reversal_p": 0.0,
+    "p_values": [
+     6.999131674721609e-202,
+     2.566664760522621e-201,
+     3.848428125993019e-195,
+     6.931789866990387e-195,
+     6.467727289922258e-140,
+     1.1643660430170298e-139,
+     2.7788835622937195e-139,
+     2.7788835622937195e-139,
+     1.829267636827491e-107,
+     2.5243716239770495e-106,
+     5.0436366088758555e-95,
+     8.153333032873674e-95,
+     4.583916249977484e-75,
+     3.9953207025574716e-74,
+     5.5092167141606094e-73,
+     5.5092167141606094e-73,
+     8.25999061473987e-36,
+     7.203940676603834e-35,
+     2.515331053735972e-28,
+     3.3975620787408884e-28,
+     1.575969896275053e-26,
+     6.050304688458884e-26,
+     3.845526327303612e-24,
+     3.845526327303612e-24,
+     2.0633479825949952e-23,
+     2.2472596943856853e-23,
+     5.194276797373133e-23,
+     5.194276797373133e-23,
+     9.284975278676087e-20,
+     1.9286588512664678e-19,
+     1.2714231474792275e-12,
+     1.2714231474792275e-12,
+     5.3421374932750214e-05,
+     9.729946931957023e-05,
+     0.0002169603086124815,
+     0.00024945211277691416,
+     0.0010834982281476189,
+     0.0010834982281476189,
+     0.08737608735658982,
+     0.10877703174411174,
+     0.13480355093593768,
+     0.16216770355576887,
+     0.3290576247160718,
+     0.34633489362230757,
+     0.5121845242177983,
+     0.5328435095121874,
+     0.9736155421848675,
+     0.9999999999997488
+    ],
+    "reversal_tests": [
+     {
+      "pair": "chemformer over gta",
+      "cell": "('nostereo', 10)",
+      "p": 6.999131674721609e-202
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('tautomer', 10)",
+      "p": 2.566664760522621e-201
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('inchikey', 10)",
+      "p": 3.848428125993019e-195
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('canonical', 10)",
+      "p": 6.931789866990387e-195
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('tautomer', 10)",
+      "p": 6.467727289922258e-140
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('nostereo', 10)",
+      "p": 1.1643660430170298e-139
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('canonical', 10)",
+      "p": 2.7788835622937195e-139
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('inchikey', 10)",
+      "p": 2.7788835622937195e-139
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('tautomer', 5)",
+      "p": 1.829267636827491e-107
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('nostereo', 5)",
+      "p": 2.5243716239770495e-106
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('inchikey', 5)",
+      "p": 5.0436366088758555e-95
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('canonical', 5)",
+      "p": 8.153333032873674e-95
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('tautomer', 5)",
+      "p": 4.583916249977484e-75
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('nostereo', 5)",
+      "p": 3.9953207025574716e-74
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('canonical', 5)",
+      "p": 5.5092167141606094e-73
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('inchikey', 5)",
+      "p": 5.5092167141606094e-73
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('tautomer', 3)",
+      "p": 8.25999061473987e-36
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('nostereo', 3)",
+      "p": 7.203940676603834e-35
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('inchikey', 3)",
+      "p": 2.515331053735972e-28
+     },
+     {
+      "pair": "chemformer over gta",
+      "cell": "('canonical', 3)",
+      "p": 3.3975620787408884e-28
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('tautomer', 3)",
+      "p": 1.575969896275053e-26
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('nostereo', 3)",
+      "p": 6.050304688458884e-26
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('canonical', 3)",
+      "p": 3.845526327303612e-24
+     },
+     {
+      "pair": "chemformer over tiedtransformer",
+      "cell": "('inchikey', 3)",
+      "p": 3.845526327303612e-24
+     },
+     {
+      "pair": "gta over tiedtransformer",
+      "cell": "('canonical', 3)",
+      "p": 0.9736155421848675
+     },
+     {
+      "pair": "gta over tiedtransformer",
+      "cell": "('inchikey', 3)",
+      "p": 0.9999999999997488
+     }
+    ]
+   },
+   "tiers_distinguished": 1,
+   "tiers_ci95": [
+    1,
+    2
+   ],
+   "distinct_orderings_across_the_grid": 3,
+   "robustness": 0.0,
+   "robustness_ci95": [
+    0.0,
+    0.3333
+   ],
+   "separated_share": 0.0,
+   "reversed_by_some_cell": 3,
+   "reversed_with_an_interval": 2,
+   "n_unresolved": 1,
+   "unresolved": [
+    "gta over tiedtransformer"
+   ],
+   "dominating_but_not_separated_everywhere": 0,
+   "n_resolved_in_the_published_cell": 3,
+   "robustness_among_resolved": 0.0,
+   "sub_grids": {
+    "criteria only, at the published budget": {
+     "n_cells": 4,
+     "n_dominating": 3,
+     "share": 1.0,
+     "n_separated_in_every_cell": 2,
+     "tiers": 3,
+     "distinct_orderings": 1
+    },
+    "budgets only, at the published criterion": {
+     "n_cells": 4,
+     "n_dominating": 0,
+     "share": 0.0,
+     "n_separated_in_every_cell": 0,
+     "tiers": 1,
+     "distinct_orderings": 3
+    },
+    "the product": {
+     "n_cells": 16,
+     "n_dominating": 0,
+     "share": 0.0,
+     "n_separated_in_every_cell": 0,
+     "tiers": 1,
+     "distinct_orderings": 3
+    }
+   },
+   "per_cell_orders": {
+    "('canonical', 1)": [
+     "chemformer",
+     "gta",
+     "tiedtransformer"
+    ],
+    "('canonical', 3)": [
+     "tiedtransformer",
+     "gta",
+     "chemformer"
+    ],
+    "('canonical', 5)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ],
+    "('canonical', 10)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ],
+    "('nostereo', 1)": [
+     "chemformer",
+     "gta",
+     "tiedtransformer"
+    ],
+    "('nostereo', 3)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ],
+    "('nostereo', 5)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ],
+    "('nostereo', 10)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ],
+    "('inchikey', 1)": [
+     "chemformer",
+     "gta",
+     "tiedtransformer"
+    ],
+    "('inchikey', 3)": [
+     "tiedtransformer",
+     "gta",
+     "chemformer"
+    ],
+    "('inchikey', 5)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ],
+    "('inchikey', 10)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ],
+    "('tautomer', 1)": [
+     "chemformer",
+     "gta",
+     "tiedtransformer"
+    ],
+    "('tautomer', 3)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ],
+    "('tautomer', 5)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ],
+    "('tautomer', 10)": [
+     "gta",
+     "tiedtransformer",
+     "chemformer"
+    ]
+   },
+   "pairs": {
+    "chemformer over gta": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [
+      "('nostereo', 1)",
+      "('tautomer', 1)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0213,
+       "ci95": [
+        0.0086,
+        0.0335
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0688,
+       "ci95": [
+        -0.0809,
+        -0.0568
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 5)": {
+       "margin": -0.1299,
+       "ci95": [
+        -0.1421,
+        -0.1176
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": -0.1937,
+       "ci95": [
+        -0.2063,
+        -0.1811
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0096,
+       "ci95": [
+        -0.0026,
+        0.0217
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.0763,
+       "ci95": [
+        -0.0883,
+        -0.0644
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 5)": {
+       "margin": -0.1363,
+       "ci95": [
+        -0.1485,
+        -0.124
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.1963,
+       "ci95": [
+        -0.209,
+        -0.1839
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0213,
+       "ci95": [
+        0.0086,
+        0.0335
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.069,
+       "ci95": [
+        -0.0811,
+        -0.057
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 5)": {
+       "margin": -0.1301,
+       "ci95": [
+        -0.1423,
+        -0.1178
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": -0.1939,
+       "ci95": [
+        -0.2065,
+        -0.1813
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": 0.009,
+       "ci95": [
+        -0.0032,
+        0.0211
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.0775,
+       "ci95": [
+        -0.0895,
+        -0.0656
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 5)": {
+       "margin": -0.1369,
+       "ci95": [
+        -0.1489,
+        -0.1248
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.1955,
+       "ci95": [
+        -0.2081,
+        -0.1831
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": true
+    },
+    "chemformer over tiedtransformer": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": true,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [
+      "('canonical', 3)",
+      "('canonical', 5)",
+      "('canonical', 10)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('nostereo', 10)",
+      "('inchikey', 3)",
+      "('inchikey', 5)",
+      "('inchikey', 10)",
+      "('tautomer', 3)",
+      "('tautomer', 5)",
+      "('tautomer', 10)"
+     ],
+     "cells_it_is_not_resolved_in": [],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.0682,
+       "ci95": [
+        0.0552,
+        0.0815
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0692,
+       "ci95": [
+        -0.0823,
+        -0.056
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 5)": {
+       "margin": -0.1242,
+       "ci95": [
+        -0.1377,
+        -0.111
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('canonical', 10)": {
+       "margin": -0.1742,
+       "ci95": [
+        -0.1879,
+        -0.1612
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0692,
+       "ci95": [
+        0.056,
+        0.0823
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": -0.0723,
+       "ci95": [
+        -0.0853,
+        -0.059
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 5)": {
+       "margin": -0.1263,
+       "ci95": [
+        -0.1397,
+        -0.1128
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('nostereo', 10)": {
+       "margin": -0.175,
+       "ci95": [
+        -0.1887,
+        -0.1618
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 1)": {
+       "margin": 0.0682,
+       "ci95": [
+        0.0552,
+        0.0815
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.0692,
+       "ci95": [
+        -0.0823,
+        -0.056
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 5)": {
+       "margin": -0.1242,
+       "ci95": [
+        -0.1377,
+        -0.111
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('inchikey', 10)": {
+       "margin": -0.1742,
+       "ci95": [
+        -0.1879,
+        -0.1612
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0692,
+       "ci95": [
+        0.056,
+        0.0825
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": -0.0733,
+       "ci95": [
+        -0.0863,
+        -0.0598
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 5)": {
+       "margin": -0.1275,
+       "ci95": [
+        -0.1409,
+        -0.114
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      },
+      "('tautomer', 10)": {
+       "margin": -0.175,
+       "ci95": [
+        -0.1885,
+        -0.1616
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": true
+      }
+     },
+     "contested_after_correction": true
+    },
+    "gta over tiedtransformer": {
+     "dominates": false,
+     "separated_in_every_cell": false,
+     "contested": false,
+     "resolved_in_the_published_cell": true,
+     "cells_that_reverse_it": [
+      "('canonical', 3)",
+      "('inchikey', 3)"
+     ],
+     "cells_that_reverse_it_with_an_interval": [],
+     "cells_it_is_not_resolved_in": [
+      "('canonical', 5)",
+      "('nostereo', 3)",
+      "('nostereo', 5)",
+      "('inchikey', 5)",
+      "('tautomer', 3)",
+      "('tautomer', 5)"
+     ],
+     "per_cell": {
+      "('canonical', 1)": {
+       "margin": 0.047,
+       "ci95": [
+        0.0341,
+        0.0596
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('canonical', 3)": {
+       "margin": -0.0004,
+       "ci95": [
+        -0.0122,
+        0.0114
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 5)": {
+       "margin": 0.0056,
+       "ci95": [
+        -0.0056,
+        0.0169
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('canonical', 10)": {
+       "margin": 0.0195,
+       "ci95": [
+        0.009,
+        0.0297
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 1)": {
+       "margin": 0.0596,
+       "ci95": [
+        0.0468,
+        0.0725
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 3)": {
+       "margin": 0.004,
+       "ci95": [
+        -0.0078,
+        0.0157
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 5)": {
+       "margin": 0.01,
+       "ci95": [
+        -0.0012,
+        0.0215
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('nostereo', 10)": {
+       "margin": 0.0213,
+       "ci95": [
+        0.011,
+        0.0315
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 1)": {
+       "margin": 0.047,
+       "ci95": [
+        0.0341,
+        0.0596
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 3)": {
+       "margin": -0.0002,
+       "ci95": [
+        -0.012,
+        0.0116
+       ],
+       "positive": false,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 5)": {
+       "margin": 0.0058,
+       "ci95": [
+        -0.0054,
+        0.0173
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('inchikey', 10)": {
+       "margin": 0.0197,
+       "ci95": [
+        0.0092,
+        0.0299
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 1)": {
+       "margin": 0.0602,
+       "ci95": [
+        0.0474,
+        0.0729
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 3)": {
+       "margin": 0.0042,
+       "ci95": [
+        -0.0078,
+        0.0159
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 5)": {
+       "margin": 0.0094,
+       "ci95": [
+        -0.0018,
+        0.0207
+       ],
+       "positive": true,
+       "separated": false,
+       "separated_the_other_way": false
+      },
+      "('tautomer', 10)": {
+       "margin": 0.0205,
+       "ci95": [
+        0.0102,
+        0.0307
+       ],
+       "positive": true,
+       "separated": true,
+       "separated_the_other_way": false
+      }
+     },
+     "contested_after_correction": false
+    }
+   }
+  }
+ }
+}

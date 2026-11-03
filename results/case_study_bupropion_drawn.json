@@ -1,0 +1,256 @@
+{
+ "provenance": {
+  "script": "case_study.py",
+  "script_path": "scripts/typed_edit/case_study.py",
+  "source_sha256": "4499d5a659f17043f18e9292d95f1bc19c9c5602fccf2e73a1867c46733852a6",
+  "git_commit": "8c473dc0b3def883e168df1677924735e6861058",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_implicit/w0.json",
+   "exists": true,
+   "sha256_16": "6a90b7bcc2b82562",
+   "bytes": 10103608
+  },
+  {
+   "path": "results/widepools_implicit/w1.json",
+   "exists": true,
+   "sha256_16": "dcb34d6ca5a7c690",
+   "bytes": 9923282
+  },
+  {
+   "path": "results/widepools_implicit/w2.json",
+   "exists": true,
+   "sha256_16": "2f7440497f05cd4a",
+   "bytes": 5621821
+  },
+  {
+   "path": "results/widepools_implicit/w3.json",
+   "exists": true,
+   "sha256_16": "c194bbb0bd7ec69e",
+   "bytes": 8229360
+  },
+  {
+   "path": "results/widepools_implicit/w4.json",
+   "exists": true,
+   "sha256_16": "504576d634e4bdb8",
+   "bytes": 5126437
+  },
+  {
+   "path": "results/widepools_implicit/w5.json",
+   "exists": true,
+   "sha256_16": "7f4c7cee307a726c",
+   "bytes": 3561735
+  }
+ ],
+ "substrate": "CC(NC(C)(C)C)C(=O)c1cccc(Cl)c1",
+ "corpus_substrate": "CC(NC(C)(C)C)C(=O)c1cccc(Cl)c1",
+ "presentation": "standardised",
+ "substrate_heavy_atoms": 16,
+ "configuration": {
+  "mode": "interactive",
+  "rule_budget": 30,
+  "pool_cap": 100,
+  "substrate_presentation": "standardised",
+  "ranking": "reciprocal rank fusion of the filter and generator orderings, k=60",
+  "match": "inchikey_tautomer",
+  "generator_checkpoint": "artifacts/full5000_implicit/checkpoints/generator.pt",
+  "filter_checkpoint": "artifacts/full5000_implicit/checkpoints/filter.pt"
+ },
+ "generator_seconds": 3.9,
+ "n_candidates": 10,
+ "n_references": 4,
+ "reference_ranks": [
+  1,
+  3,
+  5
+ ],
+ "references_not_in_pool": [
+  "RCOBKSKAZMVBHT-UHFFFAOYSA-N"
+ ],
+ "recall_at": {
+  "1": 0.25,
+  "5": 0.75,
+  "10": 0.75,
+  "15": 0.75,
+  "30": 0.75,
+  "50": 0.75
+ },
+ "note": "rule_id indexes the deployed bank and rule is its SMIRKS; firing_atoms are substrate atom indices, from the generator's per-product localisation, which the pool artifacts omit because they are built with compute_sites=False",
+ "candidates": [
+  {
+   "smiles": "CC(NC(C)(C)C)C(O)c1cccc(Cl)c1",
+   "key": "NDPTTXIBLSWNSF-UHFFFAOYSA-N",
+   "generator": 0.9956,
+   "filter": 0.0206,
+   "rule_id": 3065,
+   "rule": "[#6:3]-[#6:2](=[#8:4])-[#6:1]>>[#6:3]-[#6:2](-[#8:4])-[#6:1]",
+   "rule_source": "mined",
+   "firing_atoms": [
+    1,
+    7,
+    8,
+    9
+   ],
+   "is_reference": true,
+   "rank": 1
+  },
+  {
+   "smiles": "CC(N)C(=O)c1cccc(Cl)c1",
+   "key": "RDWWHMAISJGIDU-UHFFFAOYSA-N",
+   "generator": 0.9892,
+   "filter": 0.0432,
+   "rule_id": 1819,
+   "rule": "[#6:3]-[#7:2]-[#6:1]>>[#6:1]-[#7:2]",
+   "rule_source": "mined",
+   "firing_atoms": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "is_reference": false,
+   "rank": 2
+  },
+  {
+   "smiles": "CC(NC(C)(C)C)C(=O)c1ccc(O)c(Cl)c1",
+   "key": "LSZBTGUSYVNVLH-UHFFFAOYSA-N",
+   "generator": 0.9463,
+   "filter": 0.1069,
+   "rule_id": 1813,
+   "rule": "[#6:3]:[#6:2]:[#6:1]>>[#6:3]:[#6:2](-[#8:4]):[#6:1]",
+   "rule_source": "mined",
+   "firing_atoms": [
+    11,
+    12,
+    13
+   ],
+   "is_reference": true,
+   "rank": 3
+  },
+  {
+   "smiles": "CC(NC(C)(C)C)C(=O)c1cc(Cl)ccc1O",
+   "key": "LGPYVYYDWRQISH-UHFFFAOYSA-N",
+   "generator": 0.9463,
+   "filter": 0.0475,
+   "rule_id": 1813,
+   "rule": "[#6:3]:[#6:2]:[#6:1]>>[#6:3]:[#6:2](-[#8:4]):[#6:1]",
+   "rule_source": "mined",
+   "firing_atoms": [
+    9,
+    10,
+    11
+   ],
+   "is_reference": false,
+   "rank": 4
+  },
+  {
+   "smiles": "CC(NC(C)(C)CO)C(=O)c1cccc(Cl)c1",
+   "key": "AKOAEVOSDHIVFX-UHFFFAOYSA-N",
+   "generator": 0.9498,
+   "filter": 0.0191,
+   "rule_id": 1178,
+   "rule": "[C;X4;H0;$(C[!C]):1][CH3:2]>>[C:1][C:2]O",
+   "rule_source": "curated",
+   "firing_atoms": [
+    3,
+    4
+   ],
+   "is_reference": true,
+   "rank": 5
+  },
+  {
+   "smiles": "CC(C)(C)N",
+   "key": "YBRBMKDOPFTVDT-UHFFFAOYSA-N",
+   "generator": 0.9941,
+   "filter": 0.0054,
+   "rule_id": 1819,
+   "rule": "[#6:3]-[#7:2]-[#6:1]>>[#6:1]-[#7:2]",
+   "rule_source": "mined",
+   "firing_atoms": [
+    0,
+    1,
+    2,
+    3,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "is_reference": false,
+   "rank": 6
+  },
+  {
+   "smiles": "CC(NC(C)(C)C)C(=O)c1cc(O)cc(Cl)c1",
+   "key": "MKUMNNVIQOBJFK-UHFFFAOYSA-N",
+   "generator": 0.9463,
+   "filter": 0.0187,
+   "rule_id": 1813,
+   "rule": "[#6:3]:[#6:2]:[#6:1]>>[#6:3]:[#6:2](-[#8:4]):[#6:1]",
+   "rule_source": "mined",
+   "firing_atoms": [
+    10,
+    11,
+    12
+   ],
+   "is_reference": false,
+   "rank": 7
+  },
+  {
+   "smiles": "CC(C)(C)NC(C)(O)C(=O)c1cccc(Cl)c1",
+   "key": "CWSAPUBQNWBARU-UHFFFAOYSA-N",
+   "generator": 0.9837,
+   "filter": 0.0066,
+   "rule_id": 1753,
+   "rule": "[#6:1]-[#6:2]>>[#6:2]-[#6:1]-[#8:3]",
+   "rule_source": "mined",
+   "firing_atoms": [
+    0,
+    1,
+    2,
+    7
+   ],
+   "is_reference": false,
+   "rank": 8
+  },
+  {
+   "smiles": "CC(NC(C)(C)C)C(=O)c1cccc(Cl)c1O",
+   "key": "SIUWPHUDPMINJZ-UHFFFAOYSA-N",
+   "generator": 0.9463,
+   "filter": 0.0118,
+   "rule_id": 1813,
+   "rule": "[#6:3]:[#6:2]:[#6:1]>>[#6:3]:[#6:2](-[#8:4]):[#6:1]",
+   "rule_source": "mined",
+   "firing_atoms": [
+    9,
+    13,
+    15
+   ],
+   "is_reference": false,
+   "rank": 9
+  },
+  {
+   "smiles": "CC(C)(C)NC(CO)C(=O)c1cccc(Cl)c1",
+   "key": "MYCARDPPKMGEQK-UHFFFAOYSA-N",
+   "generator": 0.906,
+   "filter": 0.0109,
+   "rule_id": 1753,
+   "rule": "[#6:1]-[#6:2]>>[#6:2]-[#6:1]-[#8:3]",
+   "rule_source": "mined",
+   "firing_atoms": [
+    0,
+    1
+   ],
+   "is_reference": false,
+   "rank": 10
+  }
+ ]
+}

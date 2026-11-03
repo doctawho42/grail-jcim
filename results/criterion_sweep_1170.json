@@ -1,0 +1,1088 @@
+{
+ "provenance": {
+  "script": "criterion_sweep.py",
+  "script_path": "scripts/typed_edit/criterion_sweep.py",
+  "source_sha256": "3fddf09ed865224a896304752af6f2944821fa99cc3e473d7219356a0189c514",
+  "git_commit": "f704d51203ae5419210a444fadb260278a1bdd4a",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/metatox_smirks_preds_evaluated1170.json",
+   "exists": true,
+   "sha256_16": "0199d268892edc40",
+   "bytes": 7275987
+  },
+  {
+   "path": "results/sygma_fulltest_predictions.json",
+   "exists": true,
+   "sha256_16": "b012db873a24bb87",
+   "bytes": 8324075
+  },
+  {
+   "path": "artifacts/tier2_1170/metapredictor_preds.json",
+   "exists": true,
+   "sha256_16": "8e30e383c99e655b",
+   "bytes": 869435
+  },
+  {
+   "path": "results/biotransformer_fulltest_preds.json",
+   "exists": true,
+   "sha256_16": "584828414ecdf5bc",
+   "bytes": 1314356
+  },
+  {
+   "path": "results/gloryx_service_preds_evaluated1170.json",
+   "exists": true,
+   "sha256_16": "00c5d71f8aa9abd4",
+   "bytes": 7229141
+  },
+  {
+   "path": "results/gloryxr_local_preds_default.json",
+   "exists": true,
+   "sha256_16": "9ab7b9b403e05acc",
+   "bytes": 6491506
+  },
+  {
+   "path": "results/gloryxr_local_preds_strict.json",
+   "exists": true,
+   "sha256_16": "ce5e08d8393be100",
+   "bytes": 6490990
+  }
+ ],
+ "population": {
+  "n": 1170,
+  "source": "the whole evaluated test set: every test substrate with a known metabolite",
+  "comparators_absent": []
+ },
+ "aggregation": "micro, ratio of sums",
+ "cap": 100,
+ "n_boot": 10000,
+ "seed": 0,
+ "note": "ranking is fixed before the key is taken, so the criterion changes what counts as a hit and never what is ranked; the parent-drop convention is re-derived under each criterion so it means the same thing in every column",
+ "criteria": [
+  "canonical",
+  "inchikey",
+  "inchi_no_stereo",
+  "tanimoto1",
+  "inchikey_tautomer"
+ ],
+ "reference_criterion": "inchikey_tautomer",
+ "by_criterion": {
+  "canonical": {
+   "n_references": 2597.0,
+   "recall_micro": {
+    "GRAIL exhaustive": {
+     "1": 0.0859,
+     "3": 0.1764,
+     "5": 0.2326,
+     "8": 0.2969,
+     "10": 0.3273,
+     "15": 0.3916,
+     "20": 0.429,
+     "30": 0.4678,
+     "50": 0.5152
+    },
+    "GRAIL interactive": {
+     "1": 0.0882,
+     "3": 0.1879,
+     "5": 0.2507,
+     "8": 0.3073,
+     "10": 0.3365,
+     "15": 0.3697,
+     "20": 0.3816,
+     "30": 0.3881,
+     "50": 0.3893
+    },
+    "MetaTox": {
+     "1": 0.035,
+     "3": 0.1201,
+     "5": 0.1906,
+     "8": 0.2564,
+     "10": 0.2984,
+     "15": 0.3573,
+     "20": 0.3897,
+     "30": 0.4174,
+     "50": 0.4494
+    },
+    "SyGMa": {
+     "1": 0.1409,
+     "3": 0.2915,
+     "5": 0.3735,
+     "8": 0.4251,
+     "10": 0.4471,
+     "15": 0.4775,
+     "20": 0.489,
+     "30": 0.4963,
+     "50": 0.4979
+    },
+    "MetaPredictor": {
+     "1": 0.1536,
+     "3": 0.2919,
+     "5": 0.3662,
+     "8": 0.427,
+     "10": 0.4497,
+     "15": 0.4644,
+     "20": 0.4652,
+     "30": 0.4652,
+     "50": 0.4652
+    },
+    "BioTransformer": {
+     "1": 0.0566,
+     "3": 0.1432,
+     "5": 0.2037,
+     "8": 0.2595,
+     "10": 0.2884,
+     "15": 0.3362,
+     "20": 0.3535,
+     "30": 0.3608,
+     "50": 0.3608
+    },
+    "GLORYx": {
+     "1": 0.0712,
+     "3": 0.1883,
+     "5": 0.2846,
+     "8": 0.3858,
+     "10": 0.4305,
+     "15": 0.501,
+     "20": 0.536,
+     "30": 0.5649,
+     "50": 0.5795
+    },
+    "GLORYxR default SoM": {
+     "1": 0.0809,
+     "3": 0.2114,
+     "5": 0.3057,
+     "8": 0.3878,
+     "10": 0.4259,
+     "15": 0.4913,
+     "20": 0.5291,
+     "30": 0.5614,
+     "50": 0.5768
+    },
+    "GLORYxR strict SoM": {
+     "1": 0.1074,
+     "3": 0.2422,
+     "5": 0.33,
+     "8": 0.402,
+     "10": 0.4413,
+     "15": 0.4906,
+     "20": 0.5221,
+     "30": 0.5526,
+     "50": 0.5745
+    }
+   },
+   "verdict_by_budget": {
+    "1": "trails",
+    "3": "trails",
+    "5": "trails",
+    "8": "trails",
+    "10": "trails",
+    "15": "trails",
+    "20": "trails",
+    "30": "trails",
+    "50": "trails"
+   },
+   "margin_by_budget": {
+    "1": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.0655,
+     "ci95": [
+      -0.0798,
+      -0.0513
+     ]
+    },
+    "3": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.104,
+     "ci95": [
+      -0.1237,
+      -0.0849
+     ]
+    },
+    "5": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.1228,
+     "ci95": [
+      -0.1422,
+      -0.1041
+     ]
+    },
+    "8": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.1198,
+     "ci95": [
+      -0.1434,
+      -0.0971
+     ]
+    },
+    "10": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.1132,
+     "ci95": [
+      -0.1365,
+      -0.0902
+     ]
+    },
+    "15": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.1094,
+     "ci95": [
+      -0.1336,
+      -0.0863
+     ]
+    },
+    "20": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.107,
+     "ci95": [
+      -0.131,
+      -0.0843
+     ]
+    },
+    "30": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.097,
+     "ci95": [
+      -0.1212,
+      -0.0738
+     ]
+    },
+    "50": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.0643,
+     "ci95": [
+      -0.0899,
+      -0.0397
+     ]
+    }
+   }
+  },
+  "inchikey": {
+   "n_references": 2597.0,
+   "recall_micro": {
+    "GRAIL exhaustive": {
+     "1": 0.107,
+     "3": 0.2287,
+     "5": 0.3054,
+     "8": 0.3962,
+     "10": 0.439,
+     "15": 0.5295,
+     "20": 0.5834,
+     "30": 0.6484,
+     "50": 0.7174
+    },
+    "GRAIL interactive": {
+     "1": 0.1167,
+     "3": 0.2472,
+     "5": 0.3285,
+     "8": 0.4024,
+     "10": 0.4394,
+     "15": 0.4875,
+     "20": 0.5052,
+     "30": 0.5144,
+     "50": 0.5156
+    },
+    "MetaTox": {
+     "1": 0.0397,
+     "3": 0.1459,
+     "5": 0.2326,
+     "8": 0.3204,
+     "10": 0.3801,
+     "15": 0.4721,
+     "20": 0.5187,
+     "30": 0.5645,
+     "50": 0.6061
+    },
+    "SyGMa": {
+     "1": 0.1506,
+     "3": 0.3092,
+     "5": 0.3935,
+     "8": 0.4486,
+     "10": 0.4721,
+     "15": 0.5033,
+     "20": 0.516,
+     "30": 0.5233,
+     "50": 0.5248
+    },
+    "MetaPredictor": {
+     "1": 0.1552,
+     "3": 0.2973,
+     "5": 0.3747,
+     "8": 0.4386,
+     "10": 0.4594,
+     "15": 0.4725,
+     "20": 0.4729,
+     "30": 0.4729,
+     "50": 0.4729
+    },
+    "BioTransformer": {
+     "1": 0.0689,
+     "3": 0.1725,
+     "5": 0.2422,
+     "8": 0.3131,
+     "10": 0.3492,
+     "15": 0.4078,
+     "20": 0.4286,
+     "30": 0.4363,
+     "50": 0.4367
+    },
+    "GLORYx": {
+     "1": 0.082,
+     "3": 0.2029,
+     "5": 0.3019,
+     "8": 0.4062,
+     "10": 0.4524,
+     "15": 0.5252,
+     "20": 0.561,
+     "30": 0.5899,
+     "50": 0.6018
+    },
+    "GLORYxR default SoM": {
+     "1": 0.0913,
+     "3": 0.2264,
+     "5": 0.3261,
+     "8": 0.4116,
+     "10": 0.4521,
+     "15": 0.5194,
+     "20": 0.5587,
+     "30": 0.5922,
+     "50": 0.6092
+    },
+    "GLORYxR strict SoM": {
+     "1": 0.1178,
+     "3": 0.2595,
+     "5": 0.3508,
+     "8": 0.427,
+     "10": 0.4686,
+     "15": 0.5191,
+     "20": 0.5518,
+     "30": 0.5834,
+     "50": 0.6069
+    }
+   },
+   "verdict_by_budget": {
+    "1": "trails",
+    "3": "trails",
+    "5": "trails",
+    "8": "trails",
+    "10": "trails",
+    "15": "neither",
+    "20": "leads",
+    "30": "leads",
+    "50": "leads"
+   },
+   "margin_by_budget": {
+    "1": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.0385,
+     "ci95": [
+      -0.0532,
+      -0.0239
+     ]
+    },
+    "3": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.062,
+     "ci95": [
+      -0.0796,
+      -0.0443
+     ]
+    },
+    "5": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.0651,
+     "ci95": [
+      -0.0827,
+      -0.0476
+     ]
+    },
+    "8": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.0462,
+     "ci95": [
+      -0.0647,
+      -0.0277
+     ]
+    },
+    "10": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.0327,
+     "ci95": [
+      -0.0513,
+      -0.0143
+     ]
+    },
+    "15": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": 0.0042,
+     "ci95": [
+      -0.0184,
+      0.026
+     ]
+    },
+    "20": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": 0.0223,
+     "ci95": [
+      0.0014,
+      0.0438
+     ]
+    },
+    "30": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYxR default SoM",
+     "gap": 0.0562,
+     "ci95": [
+      0.0375,
+      0.075
+     ]
+    },
+    "50": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYxR default SoM",
+     "gap": 0.1082,
+     "ci95": [
+      0.09,
+      0.1268
+     ]
+    }
+   }
+  },
+  "inchi_no_stereo": {
+   "n_references": 2596.0,
+   "recall_micro": {
+    "GRAIL exhaustive": {
+     "1": 0.1071,
+     "3": 0.2288,
+     "5": 0.3062,
+     "8": 0.3975,
+     "10": 0.4403,
+     "15": 0.5308,
+     "20": 0.5847,
+     "30": 0.6506,
+     "50": 0.72
+    },
+    "GRAIL interactive": {
+     "1": 0.1167,
+     "3": 0.2473,
+     "5": 0.3286,
+     "8": 0.4025,
+     "10": 0.4395,
+     "15": 0.4877,
+     "20": 0.5054,
+     "30": 0.5146,
+     "50": 0.5158
+    },
+    "MetaTox": {
+     "1": 0.0397,
+     "3": 0.1479,
+     "5": 0.2346,
+     "8": 0.3251,
+     "10": 0.3867,
+     "15": 0.4811,
+     "20": 0.5262,
+     "30": 0.5743,
+     "50": 0.6171
+    },
+    "SyGMa": {
+     "1": 0.1506,
+     "3": 0.3093,
+     "5": 0.3945,
+     "8": 0.4503,
+     "10": 0.4742,
+     "15": 0.5077,
+     "20": 0.5216,
+     "30": 0.5289,
+     "50": 0.5304
+    },
+    "MetaPredictor": {
+     "1": 0.1606,
+     "3": 0.3082,
+     "5": 0.3883,
+     "8": 0.4542,
+     "10": 0.4761,
+     "15": 0.4896,
+     "20": 0.49,
+     "30": 0.49,
+     "50": 0.49
+    },
+    "BioTransformer": {
+     "1": 0.069,
+     "3": 0.173,
+     "5": 0.2427,
+     "8": 0.3147,
+     "10": 0.3513,
+     "15": 0.4118,
+     "20": 0.4334,
+     "30": 0.4414,
+     "50": 0.4418
+    },
+    "GLORYx": {
+     "1": 0.0836,
+     "3": 0.2069,
+     "5": 0.3074,
+     "8": 0.4149,
+     "10": 0.4626,
+     "15": 0.5378,
+     "20": 0.5759,
+     "30": 0.6071,
+     "50": 0.6233
+    },
+    "GLORYxR default SoM": {
+     "1": 0.0932,
+     "3": 0.2292,
+     "5": 0.329,
+     "8": 0.4156,
+     "10": 0.4565,
+     "15": 0.5239,
+     "20": 0.5647,
+     "30": 0.5982,
+     "50": 0.6148
+    },
+    "GLORYxR strict SoM": {
+     "1": 0.1198,
+     "3": 0.2627,
+     "5": 0.354,
+     "8": 0.431,
+     "10": 0.473,
+     "15": 0.525,
+     "20": 0.5574,
+     "30": 0.589,
+     "50": 0.6125
+    }
+   },
+   "verdict_by_budget": {
+    "1": "trails",
+    "3": "trails",
+    "5": "trails",
+    "8": "trails",
+    "10": "trails",
+    "15": "neither",
+    "20": "neither",
+    "30": "leads",
+    "50": "leads"
+   },
+   "margin_by_budget": {
+    "1": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.0439,
+     "ci95": [
+      -0.0588,
+      -0.0292
+     ]
+    },
+    "3": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.062,
+     "ci95": [
+      -0.0796,
+      -0.0443
+     ]
+    },
+    "5": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.0659,
+     "ci95": [
+      -0.0835,
+      -0.0483
+     ]
+    },
+    "8": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.0516,
+     "ci95": [
+      -0.074,
+      -0.029
+     ]
+    },
+    "10": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "MetaPredictor",
+     "gap": -0.0358,
+     "ci95": [
+      -0.0583,
+      -0.0138
+     ]
+    },
+    "15": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.0069,
+     "ci95": [
+      -0.0285,
+      0.0138
+     ]
+    },
+    "20": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": 0.0089,
+     "ci95": [
+      -0.0109,
+      0.0287
+     ]
+    },
+    "30": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": 0.0435,
+     "ci95": [
+      0.0251,
+      0.0622
+     ]
+    },
+    "50": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": 0.0967,
+     "ci95": [
+      0.0785,
+      0.115
+     ]
+    }
+   }
+  },
+  "tanimoto1": {
+   "n_references": 2590.0,
+   "recall_micro": {
+    "GRAIL exhaustive": {
+     "1": 0.0865,
+     "3": 0.1776,
+     "5": 0.234,
+     "8": 0.2981,
+     "10": 0.3293,
+     "15": 0.3938,
+     "20": 0.4313,
+     "30": 0.4703,
+     "50": 0.5174
+    },
+    "GRAIL interactive": {
+     "1": 0.0888,
+     "3": 0.1888,
+     "5": 0.2521,
+     "8": 0.3089,
+     "10": 0.3378,
+     "15": 0.3714,
+     "20": 0.383,
+     "30": 0.3892,
+     "50": 0.3903
+    },
+    "MetaTox": {
+     "1": 0.0351,
+     "3": 0.1212,
+     "5": 0.1915,
+     "8": 0.2571,
+     "10": 0.3004,
+     "15": 0.3591,
+     "20": 0.3911,
+     "30": 0.4205,
+     "50": 0.4502
+    },
+    "SyGMa": {
+     "1": 0.1429,
+     "3": 0.2938,
+     "5": 0.3753,
+     "8": 0.4266,
+     "10": 0.449,
+     "15": 0.4792,
+     "20": 0.4903,
+     "30": 0.4977,
+     "50": 0.4992
+    },
+    "MetaPredictor": {
+     "1": 0.1544,
+     "3": 0.2954,
+     "5": 0.3707,
+     "8": 0.4324,
+     "10": 0.4533,
+     "15": 0.4676,
+     "20": 0.4683,
+     "30": 0.4683,
+     "50": 0.4683
+    },
+    "BioTransformer": {
+     "1": 0.0568,
+     "3": 0.1448,
+     "5": 0.2058,
+     "8": 0.2629,
+     "10": 0.2919,
+     "15": 0.3367,
+     "20": 0.3544,
+     "30": 0.3602,
+     "50": 0.3602
+    },
+    "GLORYx": {
+     "1": 0.0714,
+     "3": 0.1896,
+     "5": 0.2861,
+     "8": 0.3876,
+     "10": 0.434,
+     "15": 0.5035,
+     "20": 0.5382,
+     "30": 0.5676,
+     "50": 0.5792
+    },
+    "GLORYxR default SoM": {
+     "1": 0.0815,
+     "3": 0.2127,
+     "5": 0.3085,
+     "8": 0.39,
+     "10": 0.429,
+     "15": 0.4942,
+     "20": 0.5305,
+     "30": 0.5637,
+     "50": 0.5768
+    },
+    "GLORYxR strict SoM": {
+     "1": 0.1081,
+     "3": 0.2444,
+     "5": 0.334,
+     "8": 0.4046,
+     "10": 0.4429,
+     "15": 0.4923,
+     "20": 0.5243,
+     "30": 0.5556,
+     "50": 0.5749
+    }
+   },
+   "verdict_by_budget": {
+    "1": "trails",
+    "3": "trails",
+    "5": "trails",
+    "8": "trails",
+    "10": "trails",
+    "15": "trails",
+    "20": "trails",
+    "30": "trails",
+    "50": "trails"
+   },
+   "margin_by_budget": {
+    "1": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.0656,
+     "ci95": [
+      -0.0802,
+      -0.0516
+     ]
+    },
+    "3": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.1066,
+     "ci95": [
+      -0.1264,
+      -0.0877
+     ]
+    },
+    "5": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.1232,
+     "ci95": [
+      -0.1425,
+      -0.1044
+     ]
+    },
+    "8": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.1236,
+     "ci95": [
+      -0.1476,
+      -0.1007
+     ]
+    },
+    "10": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.1154,
+     "ci95": [
+      -0.139,
+      -0.0924
+     ]
+    },
+    "15": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.1097,
+     "ci95": [
+      -0.134,
+      -0.0866
+     ]
+    },
+    "20": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.1069,
+     "ci95": [
+      -0.1309,
+      -0.0841
+     ]
+    },
+    "30": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.0973,
+     "ci95": [
+      -0.1216,
+      -0.074
+     ]
+    },
+    "50": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.0618,
+     "ci95": [
+      -0.0874,
+      -0.0371
+     ]
+    }
+   }
+  },
+  "inchikey_tautomer": {
+   "n_references": 2597.0,
+   "recall_micro": {
+    "GRAIL exhaustive": {
+     "1": 0.107,
+     "3": 0.2287,
+     "5": 0.3057,
+     "8": 0.3962,
+     "10": 0.439,
+     "15": 0.5295,
+     "20": 0.5834,
+     "30": 0.6484,
+     "50": 0.7174
+    },
+    "GRAIL interactive": {
+     "1": 0.1167,
+     "3": 0.2472,
+     "5": 0.3285,
+     "8": 0.4024,
+     "10": 0.4394,
+     "15": 0.4875,
+     "20": 0.5052,
+     "30": 0.5144,
+     "50": 0.5156
+    },
+    "MetaTox": {
+     "1": 0.042,
+     "3": 0.1567,
+     "5": 0.2499,
+     "8": 0.3458,
+     "10": 0.4085,
+     "15": 0.5075,
+     "20": 0.5522,
+     "30": 0.6103,
+     "50": 0.6438
+    },
+    "SyGMa": {
+     "1": 0.1533,
+     "3": 0.3134,
+     "5": 0.4016,
+     "8": 0.4575,
+     "10": 0.4813,
+     "15": 0.5137,
+     "20": 0.5268,
+     "30": 0.5341,
+     "50": 0.536
+    },
+    "MetaPredictor": {
+     "1": 0.1621,
+     "3": 0.3123,
+     "5": 0.3939,
+     "8": 0.4621,
+     "10": 0.484,
+     "15": 0.4975,
+     "20": 0.4979,
+     "30": 0.4979,
+     "50": 0.4979
+    },
+    "BioTransformer": {
+     "1": 0.0705,
+     "3": 0.1787,
+     "5": 0.2514,
+     "8": 0.3231,
+     "10": 0.3593,
+     "15": 0.4186,
+     "20": 0.4401,
+     "30": 0.4482,
+     "50": 0.4486
+    },
+    "GLORYx": {
+     "1": 0.0836,
+     "3": 0.2091,
+     "5": 0.3123,
+     "8": 0.4193,
+     "10": 0.4682,
+     "15": 0.5445,
+     "20": 0.5845,
+     "30": 0.6157,
+     "50": 0.6307
+    },
+    "GLORYxR default SoM": {
+     "1": 0.0936,
+     "3": 0.2333,
+     "5": 0.3331,
+     "8": 0.4182,
+     "10": 0.4605,
+     "15": 0.5306,
+     "20": 0.5703,
+     "30": 0.6057,
+     "50": 0.6219
+    },
+    "GLORYxR strict SoM": {
+     "1": 0.1205,
+     "3": 0.2649,
+     "5": 0.3577,
+     "8": 0.4343,
+     "10": 0.4771,
+     "15": 0.5306,
+     "20": 0.5645,
+     "30": 0.5961,
+     "50": 0.6203
+    }
+   },
+   "verdict_by_budget": {
+    "1": "trails",
+    "3": "trails",
+    "5": "trails",
+    "8": "trails",
+    "10": "trails",
+    "15": "neither",
+    "20": "neither",
+    "30": "leads",
+    "50": "leads"
+   },
+   "margin_by_budget": {
+    "1": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.0454,
+     "ci95": [
+      -0.0602,
+      -0.0309
+     ]
+    },
+    "3": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.0662,
+     "ci95": [
+      -0.0837,
+      -0.0487
+     ]
+    },
+    "5": {
+     "ours": "GRAIL interactive",
+     "theirs": "SyGMa",
+     "gap": -0.0732,
+     "ci95": [
+      -0.0908,
+      -0.0558
+     ]
+    },
+    "8": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.0597,
+     "ci95": [
+      -0.0823,
+      -0.0373
+     ]
+    },
+    "10": {
+     "ours": "GRAIL interactive",
+     "theirs": "MetaPredictor",
+     "gap": -0.0447,
+     "ci95": [
+      -0.0663,
+      -0.0224
+     ]
+    },
+    "15": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.015,
+     "ci95": [
+      -0.0368,
+      0.0058
+     ]
+    },
+    "20": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": -0.0012,
+     "ci95": [
+      -0.0211,
+      0.0188
+     ]
+    },
+    "30": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "GLORYx",
+     "gap": 0.0327,
+     "ci95": [
+      0.0143,
+      0.051
+     ]
+    },
+    "50": {
+     "ours": "GRAIL exhaustive",
+     "theirs": "MetaTox",
+     "gap": 0.0735,
+     "ci95": [
+      0.0564,
+      0.0912
+     ]
+    }
+   }
+  }
+ },
+ "budgets_whose_verdict_moves": {
+  "canonical": [
+   "15",
+   "20",
+   "30",
+   "50"
+  ],
+  "inchikey": [
+   "20"
+  ],
+  "inchi_no_stereo": [],
+  "tanimoto1": [
+   "15",
+   "20",
+   "30",
+   "50"
+  ]
+ },
+ "n_budgets_moving": {
+  "canonical": 4,
+  "inchikey": 1,
+  "inchi_no_stereo": 0,
+  "tanimoto1": 4
+ },
+ "reading": "a verdict that holds across every criterion is a property of the systems; a verdict that moves is a property of the criterion, and reporting one cell would have hidden which"
+}

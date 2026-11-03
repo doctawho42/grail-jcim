@@ -1,0 +1,72 @@
+{
+ "provenance": {
+  "script": "sygma_depth_matched_reach.py",
+  "script_path": "scripts/sygma_depth_matched_reach.py",
+  "source_sha256": "fce225505fadcbe3b50d4e1ffdc04c1d24e73229d2d6c01c6937775521559ac1",
+  "git_commit": "2dadafce18888ef4d7565a987dd540123581ce77",
+  "git_dirty": true
+ },
+ "match": "inchikey_tautomer",
+ "n_substrates": 1170,
+ "n_boot": 10000,
+ "seed": 0,
+ "aggregation": "micro (pooled ratio of sums), as in factorize_recall.py and decompose_sygma.py",
+ "gate": {
+  "frozen_two_step_reach": 0.5391,
+  "rerun_two_step_reach": 0.5391,
+  "decompose_sygma_committed": 0.5422,
+  "substrates_with_differing_pool": 0
+ },
+ "reach": {
+  "sygma_depth1_matched": {
+   "point": 0.5325,
+   "ci95": [
+    0.5071,
+    0.5583
+   ],
+   "definition": "phase1-once union phase2-once on the parent; nothing composed -- GRAIL's own Cfull primitive"
+  },
+  "sygma_deployed_two_step": {
+   "point": 0.5391,
+   "ci95": [
+    0.5141,
+    0.5647
+   ],
+   "definition": "Scenario([[phase1,1],[phase2,1]]): phase II fires on phase I products"
+  },
+  "grail_depth1": {
+   "point": 0.8171,
+   "ci95": [
+    0.7948,
+    0.8389
+   ],
+   "definition": "full 7,581-rule bank, depth-1, uncapped"
+  }
+ },
+ "engine_contribution": {
+  "point": 0.0065,
+  "ci95": [
+   0.0038,
+   0.0096
+  ],
+  "definition": "deployed two-step minus depth-1 matched, paired"
+ },
+ "gap": {
+  "as_reported": {
+   "point": 0.278,
+   "ci95": [
+    0.258,
+    0.2983
+   ],
+   "definition": "GRAIL depth-1 minus SyGMa two-step, both as deployed"
+  },
+  "depth_matched": {
+   "point": 0.2846,
+   "ci95": [
+    0.2644,
+    0.3046
+   ],
+   "definition": "GRAIL depth-1 minus SyGMa depth-1"
+  }
+ }
+}

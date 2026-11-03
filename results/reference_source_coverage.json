@@ -1,0 +1,27 @@
+{
+ "provenance": {
+  "script": "reference_source_coverage.py",
+  "script_path": "scripts/typed_edit/reference_source_coverage.py",
+  "source_sha256": "bb1ec2da49adbb8d6e29dc3db58d62b58c0c6d384ceaf3459d8c0ae52c5b6c4a",
+  "git_commit": "36be051eb4af5d7caab1ccbec22644dbf5393566",
+  "git_dirty": true
+ },
+ "question": "how much of the released reference annotation is reachable from a source held on disk whose terms are known, which bounds from above how much of it can only have come from the two sources whose terms conflict",
+ "matching": "skeleton against skeleton, the first block of the InChIKey on both sides; deliberately loose, so the traced count is an over-estimate and the untraced residue a conservative upper bound",
+ "released": {
+  "substrates": 1170,
+  "pairs": 2597,
+  "distinct_pairs": 2596
+ },
+ "sources_on_disk": {
+  "MetXBioDB": 2035,
+  "GLORYx": 136
+ },
+ "traced_to_metxbiodb": 199,
+ "traced_to_gloryx": 2,
+ "traced_to_either": 201,
+ "share_traced": 0.0774,
+ "untraced": 2395,
+ "share_untraced": 0.9226,
+ "reading": "A traced pair is one the same transformation for which appears in a source this repository already redistributes under stated terms. An untraced pair is not thereby shown to come from ChEMBL or DrugBank; it is shown not to be reachable from the two sources that can be checked, which is the bound the licence question needs and the most the unrecoverable assembly allows."
+}

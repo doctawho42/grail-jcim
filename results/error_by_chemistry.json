@@ -1,0 +1,1224 @@
+{
+ "provenance": {
+  "script": "error_by_chemistry.py",
+  "script_path": "scripts/typed_edit/error_by_chemistry.py",
+  "source_sha256": "ad9fa414c84e6d586a8a0ad8033f8b521357d315a52fc7109105d784814e787c",
+  "git_commit": "eb05854a679e8d1a3f3a5f0efb4adc175e5b0e4f",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/widepools_implicit/w0.json",
+   "exists": true,
+   "sha256_16": "6a90b7bcc2b82562",
+   "bytes": 10103608
+  },
+  {
+   "path": "results/widepools_implicit/w1.json",
+   "exists": true,
+   "sha256_16": "dcb34d6ca5a7c690",
+   "bytes": 9923282
+  },
+  {
+   "path": "results/widepools_implicit/w2.json",
+   "exists": true,
+   "sha256_16": "2f7440497f05cd4a",
+   "bytes": 5621821
+  },
+  {
+   "path": "results/widepools_implicit/w3.json",
+   "exists": true,
+   "sha256_16": "c194bbb0bd7ec69e",
+   "bytes": 8229360
+  },
+  {
+   "path": "results/widepools_implicit/w4.json",
+   "exists": true,
+   "sha256_16": "504576d634e4bdb8",
+   "bytes": 5126437
+  },
+  {
+   "path": "results/widepools_implicit/w5.json",
+   "exists": true,
+   "sha256_16": "7f4c7cee307a726c",
+   "bytes": 3561735
+  },
+  {
+   "path": "results/widepools_k30/all.json",
+   "exists": true,
+   "sha256_16": "10c1e00851597eb3",
+   "bytes": 1115215
+  }
+ ],
+ "population": {
+  "substrates": 291,
+  "references_classified": 665,
+  "references_whose_structure_could_not_be_recovered": 0,
+  "note": "the comparison set, the population every other comparison uses"
+ },
+ "criterion": "tautomer-aware InChIKey, as everywhere else",
+ "budgets": [
+  5,
+  15,
+  30
+ ],
+ "classes": {
+  "cleavage, two or more carbons lost": {
+   "references": 151,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.4371,
+     "15": 0.6159,
+     "30": 0.6556
+    },
+    "GRAIL interactive": {
+     "5": 0.4636,
+     "15": 0.5629,
+     "30": 0.5695
+    },
+    "metatox": {
+     "5": 0.2318,
+     "15": 0.3974,
+     "30": 0.5364
+    },
+    "sygma": {
+     "5": 0.3841,
+     "15": 0.4305,
+     "30": 0.4305
+    },
+    "metapredictor": {
+     "5": 0.3709,
+     "15": 0.4768,
+     "30": 0.4768
+    },
+    "biotransformer": {
+     "5": 0.2583,
+     "15": 0.3576,
+     "30": 0.3709
+    },
+    "gloryx": {
+     "5": 0.0993,
+     "15": 0.3642,
+     "30": 0.4967
+    }
+   },
+   "what_the_name_does_not_distinguish": null,
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.6689,
+     "GRAIL interactive": 0.5762,
+     "metatox": 0.5894
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.6689,
+     "GRAIL interactive": 0.5762,
+     "sygma": 0.4305
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.543,
+     "GRAIL interactive": 0.5563,
+     "metapredictor": 0.4768
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.5232,
+     "GRAIL interactive": 0.5099,
+     "biotransformer": 0.3709
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.6556,
+     "GRAIL interactive": 0.5762,
+     "gloryx": 0.5166
+    }
+   }
+  },
+  "other": {
+   "references": 142,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.0986,
+     "15": 0.2394,
+     "30": 0.3099
+    },
+    "GRAIL interactive": {
+     "5": 0.1056,
+     "15": 0.1479,
+     "30": 0.1479
+    },
+    "metatox": {
+     "5": 0.0423,
+     "15": 0.1901,
+     "30": 0.2113
+    },
+    "sygma": {
+     "5": 0.0986,
+     "15": 0.1338,
+     "30": 0.1479
+    },
+    "metapredictor": {
+     "5": 0.1479,
+     "15": 0.2324,
+     "30": 0.2324
+    },
+    "biotransformer": {
+     "5": 0.0634,
+     "15": 0.0704,
+     "30": 0.0704
+    },
+    "gloryx": {
+     "5": 0.0986,
+     "15": 0.1831,
+     "30": 0.1972
+    }
+   },
+   "what_the_name_does_not_distinguish": null,
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.2887,
+     "GRAIL interactive": 0.1479,
+     "metatox": 0.2465
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.3662,
+     "GRAIL interactive": 0.1408,
+     "sygma": 0.169
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.2042,
+     "GRAIL interactive": 0.1479,
+     "metapredictor": 0.2324
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.1479,
+     "GRAIL interactive": 0.1197,
+     "biotransformer": 0.0704
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.2676,
+     "GRAIL interactive": 0.1479,
+     "gloryx": 0.2113
+    }
+   }
+  },
+  "oxidation, one oxygen added": {
+   "references": 140,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.3786,
+     "15": 0.7429,
+     "30": 0.8857
+    },
+    "GRAIL interactive": {
+     "5": 0.35,
+     "15": 0.6214,
+     "30": 0.65
+    },
+    "metatox": {
+     "5": 0.2286,
+     "15": 0.75,
+     "30": 0.9214
+    },
+    "sygma": {
+     "5": 0.3357,
+     "15": 0.6286,
+     "30": 0.6857
+    },
+    "metapredictor": {
+     "5": 0.3357,
+     "15": 0.4929,
+     "30": 0.4929
+    },
+    "biotransformer": {
+     "5": 0.5143,
+     "15": 0.7643,
+     "30": 0.8
+    },
+    "gloryx": {
+     "5": 0.3714,
+     "15": 0.8,
+     "30": 0.9
+    }
+   },
+   "what_the_name_does_not_distinguish": "aliphatic or aromatic hydroxylation, N-oxidation or S-oxidation; these are not distinguished",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.8786,
+     "GRAIL interactive": 0.6429,
+     "metatox": 0.9429
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.9357,
+     "GRAIL interactive": 0.65,
+     "sygma": 0.7
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.6143,
+     "GRAIL interactive": 0.55,
+     "metapredictor": 0.4929
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.6571,
+     "GRAIL interactive": 0.5214,
+     "biotransformer": 0.8
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.8714,
+     "GRAIL interactive": 0.6429,
+     "gloryx": 0.9429
+    }
+   }
+  },
+  "glucuronidation": {
+   "references": 59,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.4915,
+     "15": 0.7627,
+     "30": 0.8814
+    },
+    "GRAIL interactive": {
+     "5": 0.4746,
+     "15": 0.6949,
+     "30": 0.7119
+    },
+    "metatox": {
+     "5": 0.678,
+     "15": 0.7627,
+     "30": 0.7966
+    },
+    "sygma": {
+     "5": 0.6949,
+     "15": 0.7627,
+     "30": 0.7797
+    },
+    "metapredictor": {
+     "5": 0.5932,
+     "15": 0.7458,
+     "30": 0.7458
+    },
+    "biotransformer": {
+     "5": 0.1864,
+     "15": 0.6271,
+     "30": 0.678
+    },
+    "gloryx": {
+     "5": 0.6441,
+     "15": 0.7627,
+     "30": 0.7797
+    }
+   },
+   "what_the_name_does_not_distinguish": "addition of glucuronic acid, at any acceptor",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.8983,
+     "GRAIL interactive": 0.7119,
+     "metatox": 0.8136
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.9153,
+     "GRAIL interactive": 0.6949,
+     "sygma": 0.7797
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.661,
+     "GRAIL interactive": 0.661,
+     "metapredictor": 0.7458
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.6949,
+     "GRAIL interactive": 0.6271,
+     "biotransformer": 0.6949
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.8983,
+     "GRAIL interactive": 0.7119,
+     "gloryx": 0.7797
+    }
+   }
+  },
+  "demethylation": {
+   "references": 36,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.5833,
+     "15": 0.8333,
+     "30": 0.9444
+    },
+    "GRAIL interactive": {
+     "5": 0.6944,
+     "15": 0.9167,
+     "30": 0.9167
+    },
+    "metatox": {
+     "5": 0.0556,
+     "15": 0.9444,
+     "30": 1.0
+    },
+    "sygma": {
+     "5": 0.9722,
+     "15": 0.9722,
+     "30": 0.9722
+    },
+    "metapredictor": {
+     "5": 0.5833,
+     "15": 0.8056,
+     "30": 0.8056
+    },
+    "biotransformer": {
+     "5": 0.7778,
+     "15": 0.9722,
+     "30": 0.9722
+    },
+    "gloryx": {
+     "5": 0.7222,
+     "15": 0.9444,
+     "30": 0.9722
+    }
+   },
+   "what_the_name_does_not_distinguish": "N-, O- or S-demethylation; these are not distinguished",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.9722,
+     "GRAIL interactive": 0.9167,
+     "metatox": 1.0
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.9722,
+     "GRAIL interactive": 0.9167,
+     "sygma": 0.9722
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.8056,
+     "GRAIL interactive": 0.8611,
+     "metapredictor": 0.8056
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.7778,
+     "GRAIL interactive": 0.8889,
+     "biotransformer": 0.9722
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.9444,
+     "GRAIL interactive": 0.9167,
+     "gloryx": 0.9722
+    }
+   }
+  },
+  "dehydrogenation": {
+   "references": 23,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.0435,
+     "15": 0.1739,
+     "30": 0.5217
+    },
+    "GRAIL interactive": {
+     "5": 0.0435,
+     "15": 0.1304,
+     "30": 0.1304
+    },
+    "metatox": {
+     "5": 0.1739,
+     "15": 0.4783,
+     "30": 0.6087
+    },
+    "sygma": {
+     "5": 0.2609,
+     "15": 0.3478,
+     "30": 0.3478
+    },
+    "metapredictor": {
+     "5": 0.4783,
+     "15": 0.6522,
+     "30": 0.6522
+    },
+    "biotransformer": {
+     "5": 0.3478,
+     "15": 0.3913,
+     "30": 0.4348
+    },
+    "gloryx": {
+     "5": 0.2174,
+     "15": 0.5217,
+     "30": 0.7826
+    }
+   },
+   "what_the_name_does_not_distinguish": "alcohol to carbonyl, or an introduced double bond",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.4783,
+     "GRAIL interactive": 0.087,
+     "metatox": 0.7826
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.5217,
+     "GRAIL interactive": 0.0435,
+     "sygma": 0.3913
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.1304,
+     "GRAIL interactive": 0.0435,
+     "metapredictor": 0.6522
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.087,
+     "GRAIL interactive": 0.0,
+     "biotransformer": 0.4348
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.4783,
+     "GRAIL interactive": 0.087,
+     "gloryx": 0.7826
+    }
+   }
+  },
+  "reduction": {
+   "references": 20,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.5,
+     "15": 0.75,
+     "30": 0.85
+    },
+    "GRAIL interactive": {
+     "5": 0.5,
+     "15": 0.65,
+     "30": 0.65
+    },
+    "metatox": {
+     "5": 0.2,
+     "15": 0.65,
+     "30": 0.65
+    },
+    "sygma": {
+     "5": 0.65,
+     "15": 0.7,
+     "30": 0.7
+    },
+    "metapredictor": {
+     "5": 0.35,
+     "15": 0.55,
+     "30": 0.55
+    },
+    "biotransformer": {
+     "5": 0.45,
+     "15": 0.6,
+     "30": 0.65
+    },
+    "gloryx": {
+     "5": 0.55,
+     "15": 0.65,
+     "30": 0.7
+    }
+   },
+   "what_the_name_does_not_distinguish": "carbonyl to alcohol, or a reduced double bond",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.8,
+     "GRAIL interactive": 0.65,
+     "metatox": 0.7
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.85,
+     "GRAIL interactive": 0.65,
+     "sygma": 0.7
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.65,
+     "GRAIL interactive": 0.65,
+     "metapredictor": 0.55
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.6,
+     "GRAIL interactive": 0.55,
+     "biotransformer": 0.65
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.75,
+     "GRAIL interactive": 0.65,
+     "gloryx": 0.7
+    }
+   }
+  },
+  "sulfation": {
+   "references": 19,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.1053,
+     "15": 0.4211,
+     "30": 0.7368
+    },
+    "GRAIL interactive": {
+     "5": 0.2105,
+     "15": 0.7895,
+     "30": 0.7895
+    },
+    "metatox": {
+     "5": 0.6316,
+     "15": 0.8947,
+     "30": 0.8947
+    },
+    "sygma": {
+     "5": 0.5263,
+     "15": 0.7895,
+     "30": 0.9474
+    },
+    "metapredictor": {
+     "5": 0.3684,
+     "15": 0.4737,
+     "30": 0.4737
+    },
+    "biotransformer": {
+     "5": 0.1053,
+     "15": 0.4737,
+     "30": 0.4737
+    },
+    "gloryx": {
+     "5": 0.7895,
+     "15": 0.9474,
+     "30": 0.9474
+    }
+   },
+   "what_the_name_does_not_distinguish": "addition of a sulfo group, at any acceptor",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.6316,
+     "GRAIL interactive": 0.7895,
+     "metatox": 0.9474
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.9474,
+     "GRAIL interactive": 0.7895,
+     "sygma": 0.9474
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.3684,
+     "GRAIL interactive": 0.6316,
+     "metapredictor": 0.4737
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.2105,
+     "GRAIL interactive": 0.4211,
+     "biotransformer": 0.4737
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.6316,
+     "GRAIL interactive": 0.7895,
+     "gloryx": 0.9474
+    }
+   }
+  },
+  "oxidation to a carbonyl": {
+   "references": 15,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.3333,
+     "15": 0.6,
+     "30": 0.8
+    },
+    "GRAIL interactive": {
+     "5": 0.1333,
+     "15": 0.4667,
+     "30": 0.5333
+    },
+    "metatox": {
+     "5": 0.2,
+     "15": 0.5333,
+     "30": 0.5333
+    },
+    "sygma": {
+     "5": 0.4667,
+     "15": 0.5333,
+     "30": 0.5333
+    },
+    "metapredictor": {
+     "5": 0.6,
+     "15": 0.6,
+     "30": 0.6
+    },
+    "biotransformer": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "gloryx": {
+     "5": 0.2,
+     "15": 0.4667,
+     "30": 0.5333
+    }
+   },
+   "what_the_name_does_not_distinguish": "hydroxylation followed by dehydrogenation, counted as one step",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.7333,
+     "GRAIL interactive": 0.5333,
+     "metatox": 0.5333
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.8,
+     "GRAIL interactive": 0.5333,
+     "sygma": 0.5333
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.4,
+     "GRAIL interactive": 0.2667,
+     "metapredictor": 0.6
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.4667,
+     "GRAIL interactive": 0.3333,
+     "biotransformer": 0.0
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.7333,
+     "GRAIL interactive": 0.5333,
+     "gloryx": 0.5333
+    }
+   }
+  },
+  "hydrolysis": {
+   "references": 13,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.3077,
+     "15": 0.5385,
+     "30": 0.6923
+    },
+    "GRAIL interactive": {
+     "5": 0.5385,
+     "15": 0.7692,
+     "30": 0.7692
+    },
+    "metatox": {
+     "5": 0.4615,
+     "15": 0.6923,
+     "30": 0.7692
+    },
+    "sygma": {
+     "5": 0.7692,
+     "15": 0.7692,
+     "30": 0.7692
+    },
+    "metapredictor": {
+     "5": 0.4615,
+     "15": 0.5385,
+     "30": 0.5385
+    },
+    "biotransformer": {
+     "5": 0.0769,
+     "15": 0.2308,
+     "30": 0.2308
+    },
+    "gloryx": {
+     "5": 0.2308,
+     "15": 0.7692,
+     "30": 0.7692
+    }
+   },
+   "what_the_name_does_not_distinguish": "amide, ester or epoxide hydrolysis; these are not distinguished",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.6923,
+     "GRAIL interactive": 0.7692,
+     "metatox": 0.7692
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.6923,
+     "GRAIL interactive": 0.7692,
+     "sygma": 0.7692
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.3846,
+     "GRAIL interactive": 0.6923,
+     "metapredictor": 0.5385
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.3846,
+     "GRAIL interactive": 0.6154,
+     "biotransformer": 0.2308
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.6154,
+     "GRAIL interactive": 0.7692,
+     "gloryx": 0.7692
+    }
+   }
+  },
+  "oxidation, two oxygens added": {
+   "references": 11,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "GRAIL interactive": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "metatox": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "sygma": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "metapredictor": {
+     "5": 0.0,
+     "15": 0.0909,
+     "30": 0.0909
+    },
+    "biotransformer": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "gloryx": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    }
+   },
+   "what_the_name_does_not_distinguish": "two of the above, or a dihydrodiol",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "metatox": 0.0
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.0909,
+     "GRAIL interactive": 0.0,
+     "sygma": 0.0
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "metapredictor": 0.0909
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "biotransformer": 0.0
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "gloryx": 0.0
+    }
+   }
+  },
+  "methylation": {
+   "references": 10,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.1,
+     "15": 0.3,
+     "30": 0.7
+    },
+    "GRAIL interactive": {
+     "5": 0.1,
+     "15": 0.2,
+     "30": 0.2
+    },
+    "metatox": {
+     "5": 0.0,
+     "15": 0.3,
+     "30": 0.5
+    },
+    "sygma": {
+     "5": 0.2,
+     "15": 0.6,
+     "30": 0.7
+    },
+    "metapredictor": {
+     "5": 0.6,
+     "15": 0.7,
+     "30": 0.7
+    },
+    "biotransformer": {
+     "5": 0.2,
+     "15": 0.5,
+     "30": 0.5
+    },
+    "gloryx": {
+     "5": 0.3,
+     "15": 0.7,
+     "30": 0.7
+    }
+   },
+   "what_the_name_does_not_distinguish": "addition of a methyl group",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.5,
+     "GRAIL interactive": 0.2,
+     "metatox": 0.5
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.8,
+     "GRAIL interactive": 0.2,
+     "sygma": 0.7
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.4,
+     "GRAIL interactive": 0.2,
+     "metapredictor": 0.7
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.2,
+     "GRAIL interactive": 0.1,
+     "biotransformer": 0.5
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.5,
+     "GRAIL interactive": 0.2,
+     "gloryx": 0.7
+    }
+   }
+  },
+  "acetylation": {
+   "references": 7,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.0,
+     "15": 0.1429,
+     "30": 0.2857
+    },
+    "GRAIL interactive": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "metatox": {
+     "5": 0.0,
+     "15": 0.5714,
+     "30": 0.5714
+    },
+    "sygma": {
+     "5": 0.4286,
+     "15": 0.8571,
+     "30": 0.8571
+    },
+    "metapredictor": {
+     "5": 0.5714,
+     "15": 0.7143,
+     "30": 0.7143
+    },
+    "biotransformer": {
+     "5": 0.2857,
+     "15": 0.2857,
+     "30": 0.2857
+    },
+    "gloryx": {
+     "5": 0.8571,
+     "15": 0.8571,
+     "30": 0.8571
+    }
+   },
+   "what_the_name_does_not_distinguish": "addition of an acetyl group",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.1429,
+     "GRAIL interactive": 0.0,
+     "metatox": 0.8571
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.7143,
+     "GRAIL interactive": 0.0,
+     "sygma": 0.8571
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "metapredictor": 0.7143
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.1429,
+     "GRAIL interactive": 0.0,
+     "biotransformer": 0.2857
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.1429,
+     "GRAIL interactive": 0.0,
+     "gloryx": 0.8571
+    }
+   }
+  },
+  "isomerisation, no formula change": {
+   "references": 6,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.1667
+    },
+    "GRAIL interactive": {
+     "5": 0.0,
+     "15": 0.1667,
+     "30": 0.1667
+    },
+    "metatox": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "sygma": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "metapredictor": {
+     "5": 0.1667,
+     "15": 0.1667,
+     "30": 0.1667
+    },
+    "biotransformer": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "gloryx": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    }
+   },
+   "what_the_name_does_not_distinguish": null,
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.1667,
+     "GRAIL interactive": 0.1667,
+     "metatox": 0.0
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "sygma": 0.0
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.1667,
+     "metapredictor": 0.1667
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "biotransformer": 0.0
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.1667,
+     "gloryx": 0.0
+    }
+   }
+  },
+  "glutathione conjugation": {
+   "references": 5,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.4
+    },
+    "GRAIL interactive": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "metatox": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "sygma": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "metapredictor": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "biotransformer": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "gloryx": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    }
+   },
+   "what_the_name_does_not_distinguish": "addition of glutathione",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.2,
+     "GRAIL interactive": 0.0,
+     "metatox": 0.0
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.6,
+     "GRAIL interactive": 0.0,
+     "sygma": 0.0
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "metapredictor": 0.0
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "biotransformer": 0.0
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.0,
+     "gloryx": 0.0
+    }
+   }
+  },
+  "deamination": {
+   "references": 5,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.4
+    },
+    "GRAIL interactive": {
+     "5": 0.2,
+     "15": 0.2,
+     "30": 0.2
+    },
+    "metatox": {
+     "5": 0.2,
+     "15": 0.6,
+     "30": 0.6
+    },
+    "sygma": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "metapredictor": {
+     "5": 0.6,
+     "15": 0.8,
+     "30": 0.8
+    },
+    "biotransformer": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "gloryx": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    }
+   },
+   "what_the_name_does_not_distinguish": "amine to carbonyl or alcohol",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 0.6,
+     "GRAIL interactive": 0.2,
+     "metatox": 0.6
+    },
+    "sygma": {
+     "GRAIL exhaustive": 0.6,
+     "GRAIL interactive": 0.2,
+     "sygma": 0.0
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.2,
+     "metapredictor": 0.8
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.0,
+     "GRAIL interactive": 0.2,
+     "biotransformer": 0.0
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 0.4,
+     "GRAIL interactive": 0.2,
+     "gloryx": 0.0
+    }
+   }
+  },
+  "glycine conjugation": {
+   "references": 3,
+   "recall": {
+    "GRAIL exhaustive": {
+     "5": 0.3333,
+     "15": 1.0,
+     "30": 1.0
+    },
+    "GRAIL interactive": {
+     "5": 0.0,
+     "15": 0.0,
+     "30": 0.0
+    },
+    "metatox": {
+     "5": 0.0,
+     "15": 1.0,
+     "30": 1.0
+    },
+    "sygma": {
+     "5": 1.0,
+     "15": 1.0,
+     "30": 1.0
+    },
+    "metapredictor": {
+     "5": 0.6667,
+     "15": 1.0,
+     "30": 1.0
+    },
+    "biotransformer": {
+     "5": 0.0,
+     "15": 0.6667,
+     "30": 0.6667
+    },
+    "gloryx": {
+     "5": 0.0,
+     "15": 1.0,
+     "30": 1.0
+    }
+   },
+   "what_the_name_does_not_distinguish": "addition of glycine, minus water",
+   "recall_at_matched_length": {
+    "metatox": {
+     "GRAIL exhaustive": 1.0,
+     "GRAIL interactive": 0.0,
+     "metatox": 1.0
+    },
+    "sygma": {
+     "GRAIL exhaustive": 1.0,
+     "GRAIL interactive": 0.0,
+     "sygma": 1.0
+    },
+    "metapredictor": {
+     "GRAIL exhaustive": 1.0,
+     "GRAIL interactive": 0.0,
+     "metapredictor": 1.0
+    },
+    "biotransformer": {
+     "GRAIL exhaustive": 0.3333,
+     "GRAIL interactive": 0.0,
+     "biotransformer": 0.6667
+    },
+    "gloryx": {
+     "GRAIL exhaustive": 1.0,
+     "GRAIL interactive": 0.0,
+     "gloryx": 1.0
+    }
+   }
+  }
+ },
+ "reading": "A class is a change in molecular formula, which is what the annotation determines. It groups mechanisms the corpus does not separate, and each row says which. Recall within a class is over that class's references only, so classes with few references carry wide uncertainty and no interval is quoted for them here."
+}

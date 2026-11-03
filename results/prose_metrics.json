@@ -1,0 +1,9 @@
+{
+ "sentences": 438,
+ "words": 11131,
+ "mean_sentence_words": 25.41,
+ "flesch_reading_ease": 47.3,
+ "over_40_words": 54,
+ "share_over_40": 0.1233,
+ "longest": 64
+}

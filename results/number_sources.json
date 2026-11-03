@@ -1,0 +1,1205 @@
+{
+ "artifacts_the_numbers_come_from": 116,
+ "naming_a_checkpoint_that_is_not_the_deployed_run": [],
+ "n_naming_a_non_deployed_checkpoint": 0,
+ "n_reached_only_through_an_inputs_block": 105,
+ "producer_loads_a_model_but_the_artifact_records_none": [
+  "results/aggregation_ablation.json <- scripts/typed_edit/aggregation_ablation.py",
+  "results/aggregation_ablation_validation.json <- scripts/typed_edit/aggregation_ablation.py",
+  "results/cost_envelope.json <- scripts/typed_edit/cost_envelope.py",
+  "results/h12_verdict.json <- scripts/typed_edit/h12_verdict.py",
+  "results/h12_verdict_validation.json <- scripts/typed_edit/h12_verdict.py",
+  "results/h14_verdict.json <- scripts/typed_edit/h14_verdict.py",
+  "results/h8_verdict.json <- scripts/typed_edit/h8_verdict.py",
+  "results/match_scale_sweep.json <- scripts/typed_edit/match_scale_sweep.py",
+  "results/site_agreement.json <- scripts/typed_edit/site_agreement.py"
+ ],
+ "records_none_but_established_by_reproduction": [],
+ "n_established_by_reproduction": 0,
+ "n_recording_no_checkpoint": 9,
+ "exempt": 3,
+ "unrepeatable": {
+  "results/gloryx_service_preds.json": "the GLORYx arm is a recorded run of the service its own authors operate, pinned by its job identifiers, because the FAME 3 models a local build needs are not distributed with its source. Re-running the producer would make a NEW run against a service whose version may have moved, so currency here would mean replacing the data rather than checking it.",
+  "results/metatox_outside_submission.json": "its producer takes the two SDF files the MetaTox service returned, which were consumed once and are not in this repository. The input that moved is scripts/typed_edit/population_definition.py, whose change in this revision is confined to a prose field of that script's own output and touches no quantity this artifact reads, so its numbers stand and its recorded digest for that input does not.",
+  "results/uspto_type_overlap.json": "its input, grail_metabolism/uspto_templates.csv.gz, is a zero-byte placeholder in every checkout, was never tracked, and no producer in this repository writes it, so the artifact cannot be regenerated at all."
+ },
+ "unpinned": [],
+ "unstamped": [],
+ "verifiable_by_inference_only": [
+  "results/blend_switch_scope.json",
+  "results/budget_dependent_schedules.json",
+  "results/coverage_gap_types.json",
+  "results/decompose_biotransformer.json",
+  "results/hydrogen_dispatch__clean_test.json",
+  "results/multiseed_micro.json",
+  "results/scaffold_baseline.json",
+  "results/scheduled_release_comparison.json",
+  "results/scored_predictions.json"
+ ],
+ "n_unpinned": 0,
+ "n_unstamped": 0,
+ "n_verifiable_by_inference_only": 9,
+ "method": "paper2_numbers.build() is run with art() instrumented, so the count is of artifacts actually opened rather than of matches in the source",
+ "artifacts": [
+  {
+   "artifact": "results/aggregation_ablation.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/aggregation_ablation_validation.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/applicability_domain.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/artifact_provenance.json",
+   "pinned": false,
+   "stamped": false,
+   "verifiable": false,
+   "sweep_status": "unpinned",
+   "how": null,
+   "exempt": "the provenance sweep's own report; pinning it would make the check circular",
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/bank_composition.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/benchmark_report_depth2.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/biotransformer_arm.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/biotransformer_steps.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/blend_switch_scope.json",
+   "pinned": true,
+   "stamped": false,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "producer at 2c8041392b59, the commit that added the artifact",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/budget_curve.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/budget_dependent_schedules.json",
+   "pinned": true,
+   "stamped": false,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "producer at 2c8041392b59, the commit that added the artifact",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/cascade_by_pairs.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/case_study.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/case_study_bupropion.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/case_study_bupropion_drawn.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/case_study_bupropion_exhaustive.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/case_study_drawn.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/case_study_exhaustive.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/case_study_exhaustive_drawn.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/ceiling_instrument_agreement.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/comparator_provenance.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/comparison_set_members.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/composite_instruments.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/containment_on_the_uncovered.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/corpus_assembly.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/cost_envelope.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/coverage_gap_types.json",
+   "pinned": true,
+   "stamped": false,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "producer at 60d838018709, the last commit touching the artifact at which the producer existed",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/criterion_sweep_1170.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/curated_provenance.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/curated_third_party.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/decompose_biotransformer.json",
+   "pinned": true,
+   "stamped": false,
+   "verifiable": true,
+   "sweep_status": "cosmetic_only",
+   "how": "source at 821adf95a989",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/deployment_table.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/deployment_table_1170.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/dialect_census.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/dialect_conditional.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/dialect_sweep.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/drawing_equalised.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/emission_rule_transfer.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/error_by_chemistry_1170.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/external_budget_confound.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/external_overlap_audit.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/four_method_291.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/fusion_knobs.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/gloryx_drop_set.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/gloryx_service_preds.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": false,
+   "sweep_status": "producer_changed",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": "the GLORYx arm is a recorded run of the service its own authors operate, pinned by its job identifiers, because the FAME 3 models a local build needs are not distributed with its source. Re-running the producer would make a NEW run against a service whose version may have moved, so currency here would mean replacing the data rather than checking it."
+  },
+  {
+   "artifact": "results/gloryxr_identity.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/group_decode.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h10_verdict.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h11_grid.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h12_verdict.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h12_verdict_validation.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h13_verdict.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h14_verdict.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h15_verdict.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h7_verdict.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h8_verdict.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/h9_verdict.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/hydrogen_dispatch__clean_test.json",
+   "pinned": true,
+   "stamped": false,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "source at 95238192ab5e",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/hyperparameters.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/input_provenance.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/leakage_fix_report.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/licence_removal_cost__clean_test.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/match_scale_sweep.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/matched_length.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/matched_length_1170.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/metapredictor_beam_sweep.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/metapredictor_drawing.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/metatox_mode.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/metatox_outside_submission.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": false,
+   "sweep_status": "input_changed",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": "its producer takes the two SDF files the MetaTox service returned, which were consumed once and are not in this repository. The input that moved is scripts/typed_edit/population_definition.py, whose change in this revision is confined to a prose field of that script's own output and touches no quantity this artifact reads, so its numbers stand and its recorded digest for that input does not."
+  },
+  {
+   "artifact": "results/metatox_smirks_preds_evaluated1170.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/metatox_tie_break_sensitivity.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/metxbiodb_drop_set.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/mining_rarefaction.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/missing_types_in_train.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/mode_timings.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/multiplicity.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/multiseed_micro.json",
+   "pinned": true,
+   "stamped": false,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "producer at f9cdaca21a89, the commit that added the artifact",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/novel_type_census.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/number_provenance.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": "written by the numeral checker that runs after this generator",
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/number_sources.json",
+   "pinned": false,
+   "stamped": false,
+   "verifiable": false,
+   "sweep_status": "unpinned",
+   "how": null,
+   "exempt": "this gate's own report, which the paper quotes and the generator therefore reads",
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/oracle_by_grouping.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/parent_drop_effect.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/population_definition.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/precision_table_1170.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/ranking_ablation.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/reactant_size_census.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/reference_audit.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/reference_charge.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/reference_source_coverage.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/references_are_multistep.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/released_bank.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/released_default_threshold.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/retraining_spread.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/rulegate_survivors_summary.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/scaffold_baseline.json",
+   "pinned": true,
+   "stamped": false,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "source at a1b1d96ee9c0",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/scheduled_release_comparison.json",
+   "pinned": true,
+   "stamped": false,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "source at b410f7afad2c",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/scored_predictions.json",
+   "pinned": true,
+   "stamped": false,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "producer at c92ee386385b, the commit that added the artifact",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/selection_ablation_deployed.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/setting_scope.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/similarity_baseline.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/site_agreement.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/standardiser_versions.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/stereo_headroom.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/sygma_by_dialect.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/sygma_depth_matched_reach.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/sygma_scenario_sweep.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/tautomer_budget.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/tautomer_near_miss.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/typed_edit_known_type_recovery.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/typed_edit_type_carriers.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/uspto_type_overlap.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": false,
+   "sweep_status": "producer_changed",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": "its input, grail_metabolism/uspto_templates.csv.gz, is a zero-byte placeholder in every checkout, was never tracked, and no producer in this repository writes it, so the artifact cannot be regenerated at all."
+  },
+  {
+   "artifact": "results/val_pool_population.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/what_each_arm_returns.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/wide_pool_analysis_implicit.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/withheld_template_carriers.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  },
+  {
+   "artifact": "results/worked_example_structures.json",
+   "pinned": true,
+   "stamped": true,
+   "verifiable": true,
+   "sweep_status": "current",
+   "how": "recorded source digest",
+   "exempt": null,
+   "unrepeatable": null
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "provenance": {
+  "script": "check_paper2_numbers.py",
+  "script_path": "scripts/check_paper2_numbers.py",
+  "source_sha256": "338e19dea14d79580bbc37825e4f959efb91015012fad41fd8e4316b9d398d68",
+  "git_commit": "c1e56985be1cd262d33d70d4f79bff19e97a7f88",
+  "git_dirty": true
+ },
+ "macros_defined": 5907,
+ "macros_cited": 925,
+ "macros_cited_in_manuscript": 177,
+ "macros_cited_in_supporting_information": 815,
+ "hand_typed_measurements_on_the_allow_list": 37,
+ "unexplained_literals": 0,
+ "note": "the allow-list is enumerated in this file rather than folded away, so a number typed by hand that is not already on it still fails this check"
+}

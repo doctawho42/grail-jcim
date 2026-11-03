@@ -1,0 +1,53 @@
+{
+ "provenance": {
+  "script": "setting_scope.py",
+  "script_path": "scripts/typed_edit/setting_scope.py",
+  "source_sha256": "48e1a234a04836120eeb8cfd31eee31daade339e72ceca87f369203202dc692a",
+  "git_commit": "2287d0d5c237de8a0ba105a77a4162a8f5adddd5",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/gloryxr_local_preds_default.json",
+   "exists": true,
+   "sha256_16": "9ab7b9b403e05acc",
+   "bytes": 6491506
+  },
+  {
+   "path": "results/gloryxr_local_preds_strict.json",
+   "exists": true,
+   "sha256_16": "ce5e08d8393be100",
+   "bytes": 6490990
+  }
+ ],
+ "question": "whether the setting separating gloryxr_default from gloryxr_strict moves a substrate's candidate list or only the order of it",
+ "settings": {
+  "a": "gloryxr_default",
+  "b": "gloryxr_strict"
+ },
+ "coverage": {
+  "substrates_in_a": 1170,
+  "substrates_in_b": 1170,
+  "covered_by_both": 1170,
+  "of_the_comparison_set": 291
+ },
+ "partition": {
+  "every substrate both settings cover": {
+   "compared": 1170,
+   "identical": 32,
+   "same_set_other_order": 1138,
+   "different_set": 0,
+   "different_length": 0,
+   "the_two_sides_never_differ": false
+  },
+  "the comparison set": {
+   "compared": 291,
+   "identical": 7,
+   "same_set_other_order": 284,
+   "different_set": 0,
+   "different_length": 0,
+   "the_two_sides_never_differ": false
+  }
+ },
+ "reading": "same_set_other_order is the setting moving the ranking and nothing else. Where it accounts for the substrates, a control that reads a comparator's whole list cannot see the setting, and the two columns of that control are identical by construction rather than by accident; a fixed budget, which truncates, does see it."
+}
