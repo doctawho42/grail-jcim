@@ -68,7 +68,7 @@ exclude = [
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-numpy = ">=1.24,<2.0"
+numpy = ">=2.2.6,<3.0"
 pandas = "^2.2.3"
 rdkit = "2022.9.5"           # exact: tautomer canonicalisation is not stable across releases
 scikit-learn = "^1.5.2"
