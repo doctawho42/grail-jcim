@@ -1,0 +1,36 @@
+\begin{table}[h]
+\centering\scriptsize
+\begin{threeparttable}
+\caption{The class split of Table~\ref{tab:si-chemistry} with list length held instead of the budget.}
+\label{tab:si-chemistry-matched}
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+transformation class & refs & \multicolumn{2}{c}{MetaTox} & \multicolumn{2}{c}{SyGMa} & \multicolumn{2}{c}{MetaPred.} & \multicolumn{2}{c}{BioTrans.} \\
+ & & ours & theirs & ours & theirs & ours & theirs & ours & theirs \\
+\midrule
+oxidation, one oxygen added & 596 & .83 & .93 & .89 & .67 & .55 & .58 & .56 & .70 \\
+other & 573 & .28 & .24 & .34 & .17 & .16 & .21 & .13 & .08 \\
+cleavage, two or more carbons lost & 531 & .75 & .66 & .75 & .52 & .61 & .52 & .60 & .40 \\
+glucuronidation & 280 & .89 & .85 & .92 & .86 & .64 & .77 & .69 & .75 \\
+demethylation & 132 & .98 & .98 & .98 & .94 & .70 & .79 & .71 & .90 \\
+dehydrogenation & 76 & .54 & .86 & .70 & .33 & .18 & .55 & .14 & .42 \\
+reduction & 75 & .81 & .76 & .84 & .75 & .68 & .61 & .63 & .69 \\
+sulfation & 74 & .54 & .89 & .88 & .89 & .31 & .43 & .22 & .54 \\
+oxidation to a carbonyl & 51 & .73 & .57 & .76 & .57 & .41 & .55 & .35 & .00 \\
+hydrolysis & 41 & .46 & .66 & .46 & .51 & .22 & .37 & .20 & .12 \\
+isomerisation, no formula change & 39 & .10 & .03 & .10 & .03 & .05 & .10 & .03 & .00 \\
+methylation & 32 & .34 & .62 & .81 & .75 & .19 & .72 & .09 & .44 \\
+acetylation & 31 & .13 & .77 & .61 & .81 & .06 & .58 & .03 & .35 \\
+oxidation, two oxygens added & 28 & .07 & .00 & .11 & .00 & .00 & .18 & .00 & .00 \\
+deamination & 15 & .53 & .60 & .73 & .07 & .33 & .73 & .07 & .00 \\
+glutathione conjugation & 10 & .10 & .00 & .60 & .00 & .00 & .00 & .00 & .00 \\
+oxidative demethylation$^{\dagger}$ & 6 & .83 & .50 & .83 & .33 & .83 & .50 & .67 & .17 \\
+glycine conjugation$^{\dagger}$ & 6 & .83 & 1.00 & .83 & 1.00 & .83 & .83 & .33 & .67 \\
+dehalogenation, fluorine$^{\dagger}$ & 1 & .00 & .00 & 1.00 & .00 & 1.00 & 1.00 & .00 & .00 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item Within each block both arms are cut, substrate by substrate, to the number of candidates that comparator returned there, under the same construction as Table~\ref{tab:si-matched}; \emph{ours} is the exhaustive arm. On the comparison set's 2597 classified known metabolites; leading zeros are dropped, and $^{\dagger}$ marks the classes under ten known metabolites, where no ordering should be read. A block's two cells are comparable with each other and not with another block's, since each block has its own slot count.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

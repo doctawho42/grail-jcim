@@ -1,0 +1,12 @@
+id,submitted_smiles,rdkit_canonical_smiles,metabolites_published,deposit_file
+Encorafenib,C[C@@H](CNC1=NC=CC(=N1)C2=CN(N=C2C3=C(C(=CC(=C3)Cl)NS(=O)(=O)C)F)C(C)C)NC(=O)OC,COC(=O)N[C@@H](C)CNc1nccc(-c2cn(C(C)C)nc2-c2cc(Cl)cc(NS(C)(=O)=O)c2F)n1,12,Encorafenib.py
+Fovinaciclib,CN(CC1)CCN1C(CC2)CCN2C3=CC=C(NC4=NC(C(C5CCCC5)=C(C(N(C)C)=O)S6)=C6C=N4)N=C3,CN1CCN(C2CCN(c3ccc(Nc4ncc5sc(C(=O)N(C)C)c(C6CCCC6)c5n4)nc3)CC2)CC1,10,FCN-437c.py
+Iberdomide,C1CC(=O)NC(=O)[C@H]1N2CC3=C(C2=O)C=CC=C3OCC4=CC=C(C=C4)CN5CCOCC5,O=C1CC[C@H](N2Cc3c(OCc4ccc(CN5CCOCC5)cc4)cccc3C2=O)C(=O)N1,12,Iberdomide.py
+Isavuconazole,C[C@@H](C1=NC(=CS1)C2=CC=C(C=C2)C#N)[C@](CN3C=[N+](C=N3)C(C)OC(=O)N(C)C4=C(C=CC=N4)COC(=O)CNC)(C5=C(C=CC(=C5)F)F)O,CNCC(=O)OCc1cccnc1N(C)C(=O)OC(C)[n+]1cnn(C[C@](O)(c2cc(F)ccc2F)[C@@H](C)c2nc(-c3ccc(C#N)cc3)cs2)c1,7,Isavuconazole.py
+LY3202626,COC1=NC=C(N=C1)C(=O)NC2=CC(=C(C=C2)F)[C@]34CN(C[C@H]3CSC(=N4)N)C5=NC=C(C=N5)F,COc1cnc(C(=O)Nc2ccc(F)c([C@]34CN(c5ncc(F)cn5)C[C@H]3CSC(N)=N4)c2)cn1,6,LY3202626.py
+Nemiralisib,CC(C)N1CCN(CC1)CC2=CN=C(O2)C3=C4C=NNC4=CC(=C3)C5=C6C=CNC6=CC=C5,CC(C)N1CCN(Cc2cnc(-c3cc(-c4cccc5[nH]ccc45)cc4[nH]ncc34)o2)CC1,7,Nemiralisib.py
+Opicapone,CC1=C(C(=[N+](C(=C1Cl)C)[O-])Cl)C2=NOC(=N2)C3=CC(=C(C(=C3)O)O)[N+](=O)[O-],Cc1c(Cl)c(C)[n+]([O-])c(Cl)c1-c1noc(-c2cc(O)c(O)c([N+](=O)[O-])c2)n1,16,Opicapone.py
+Pamiparib,C[C@]12CCCN1CC3=NNC(=O)C4=C5C3=C2NC5=CC(=C4)F,C[C@]12CCCN1CC1=NNC(=O)c3cc(F)cc4[nH]c2c1c34,8,Pamiparib.py
+Rezafungin,CCCCCOC1=CC=C(C=C1)C2=CC=C(C=C2)C3=CC=C(C=C3)C(=O)N[C@H]4C[C@H]([C@H](NC(=O)[C@@H]5[C@H]([C@H](CN5C(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H]6C[C@H](CN6C(=O)[C@@H](NC4=O)[C@@H](C)O)O)[C@@H]([C@H](C7=CC=C(C=C7)O)O)O)[C@@H](C)O)C)O)OCC[N+](C)(C)C)O,CCCCCOc1ccc(-c2ccc(-c3ccc(C(=O)N[C@H]4C[C@@H](O)[C@@H](OCC[N+](C)(C)C)NC(=O)[C@@H]5[C@@H](O)[C@@H](C)CN5C(=O)[C@H]([C@@H](C)O)NC(=O)[C@H]([C@H](O)[C@@H](O)c5ccc(O)cc5)NC(=O)[C@@H]5C[C@@H](O)CN5C(=O)[C@H]([C@@H](C)O)NC4=O)cc3)cc2)cc1,3,Rezafungin.py
+Sotorasib,C[C@H]1CN(CCN1C2=NC(=O)N(C3=NC(=C(C=C32)F)C4=C(C=CC=C4F)O)C5=C(C=CN=C5C(C)C)C)C(=O)C=C,C=CC(=O)N1CCN(c2nc(=O)n(-c3c(C)ccnc3C(C)C)c3nc(-c4c(O)cccc4F)c(F)cc23)[C@@H](C)C1,5,Sotorasib.py
+Tinengotinib,CC1=C2C(=NN1)NC3=CC(=NC=C3C(=N2)C4=CC=CC=C4Cl)N5CCOCC5,Cc1[nH]nc2c1N=C(c1ccccc1Cl)c1cnc(N3CCOCC3)cc1N2,11,Tinengotinib.py

@@ -1,0 +1,375 @@
+from __future__ import annotations
+
+from dataclasses import asdict, dataclass, field
+from pathlib import Path
+from typing import Any, Dict, List, Literal, Optional, Sequence
+import warnings
+
+
+def _require_yaml():
+    try:
+        import yaml
+    except ImportError as exc:
+        raise RuntimeError("PyYAML is required for YAML config support") from exc
+    return yaml
+
+
+def _deep_update(base: Dict[str, Any], patch: Dict[str, Any]) -> Dict[str, Any]:
+    updated = dict(base)
+    for key, value in patch.items():
+        if isinstance(value, dict) and isinstance(updated.get(key), dict):
+            updated[key] = _deep_update(updated[key], value)
+        else:
+            updated[key] = value
+    return updated
+
+
+@dataclass
+class DatasetConfig:
+    train_sdf: Optional[str] = None
+    train_triples: Optional[str] = None
+    val_sdf: Optional[str] = None
+    val_triples: Optional[str] = None
+    test_sdf: Optional[str] = None
+    test_triples: Optional[str] = None
+    rules_path: Optional[str] = None
+    # Append the curated phase II conjugation rule bank to the active rules. Phase II
+    # (glucuronidation, sulfation, etc.) is the main rule-based coverage gap.
+    include_phase2_rules: bool = False
+    uspto_csv: Optional[str] = None
+    use_clean_splits: bool = True
+    standardize: bool = True
+    pca: bool = False
+    augment_negatives: bool = False
+    cache_preprocessed: bool = True
+    cache_dir: str = "artifacts/preprocessed"
+    max_uspto_rows: Optional[int] = None
+    max_train_substrates: Optional[int] = None
+    max_val_substrates: Optional[int] = None
+    max_test_substrates: Optional[int] = None
+    sampling_seed: int = 42
+    excluded_substrates: List[str] = field(default_factory=list)
+    excluded_substrates_path: Optional[str] = None
+
+
+@dataclass
+class GeneratorConfig:
+    in_channels: int = 16
+    edge_dim: int = 18
+    hidden_dims: List[int] = field(default_factory=lambda: [128, 256])
+    rule_hidden_dims: List[int] = field(default_factory=lambda: [128, 128, 128])
+    projection_dim: int = 128
+    scoring: Literal["bilinear", "dot", "mlp", "retrieval"] = "retrieval"
+    use_pretraining: bool = False
+    freeze_pretrained: bool = False
+    use_maccs_pretraining: bool = False
+    top_k: int = 10
+    threshold: Optional[float] = None
+    conv_kind: Literal["gatv2", "gcn", "gin"] = "gatv2"
+    use_fingerprint: bool = True
+    rank_weight: float = 0.2
+    ranking_margin: float = 0.4
+    # PU-aware down-weighting of applicable-but-unobserved rules (incomplete labels).
+    # < 1.0 avoids punishing the generator at full strength for plausible-but-unannotated
+    # products, which otherwise suppresses recall.
+    unlabeled_weight: float = 0.5
+    # Propensity-scored positive weighting (Jain et al., 2016). The selection stage is extreme
+    # multi-label classification with a near-empty positive set, a regime in which a learner under
+    # constant weighting recovers a score dominated by each rule's marginal firing rate -- which is
+    # exactly the frequency prior it fails to beat. Weighting each positive by the inverse of its
+    # label's estimated propensity is the XMC literature's remedy for that failure mode. Off by
+    # default: the deployed checkpoint does not use it.
+    propensity_weighting: bool = False
+    propensity_a: float = 0.55
+    propensity_b: float = 1.5
+    prior_strength: float = 0.35
+    use_applicability_mask: bool = True
+    applicability_penalty: float = 7.5
+    candidate_aggregation: Literal["max", "mean", "noisy_or", "hybrid"] = "noisy_or"
+    # Support-gated rule identity. The rule representation is graph_encoded + id_embedding + meta;
+    # a variance decomposition put 82% of it in the per-rule id, which a rule with one training
+    # positive fits to that one example. This gates the id by the rule's training support n:
+    # id contributes n/(n+id_gate_lambda), so a rare rule leans on the template's chemistry
+    # (graph + meta) and a frequent one keeps its lookup. id_gate_lambda = 0.0 is the deployed
+    # model exactly (gate = 1 everywhere); a positive value is the intervention.
+    id_gate_lambda: float = 0.0
+    # Queue point C: add the rule's reaction-type embedding to its identity, so a template the
+    # support gate suppresses can borrow the pooled identity of templates that do the same kind of
+    # chemistry. Only types carried by more than one rule contribute; a type unique to one rule
+    # would be a second per-rule identity, which is capacity where the gate is trying to remove it.
+    type_shared_id: bool = False
+    # Generator training mode. "supervised" = multi-label rule classification (default).
+    # "gflownet" = after supervised warm-start, train the generator as a forward flow
+    # policy over the metabolic tree (Trajectory Balance), so terminal sampling is
+    # proportional to reward and multi-step paths to annotated metabolites are learned.
+    training_mode: Literal["supervised", "gflownet"] = "supervised"
+
+
+@dataclass
+class FilterConfig:
+    in_channels: int = 18
+    edge_dim: int = 18
+    hidden_dims: List[int] = field(default_factory=lambda: [128, 256, 128, 128, 64, 32])
+    mode: Literal["pair", "single"] = "pair"
+    model_type: Literal["Filter", "GATv2Filter", "GCNFilter", "GINFilter", "MolPathFilter", "MorganOnlyFilter"] = "GATv2Filter"
+    conv_kind: Literal["gatv2", "gcn", "gin"] = "gatv2"
+    use_graph: bool = True
+    use_fingerprint: bool = True
+    dropout: float = 0.1
+    molpath_cutoff: Optional[int] = None
+    molpath_y: Optional[float] = None
+    molpath_hidden: Optional[int] = None
+    train_on_candidates: bool = False
+    candidate_generation_top_k: int = 200
+    # single mode only: append (prod_emb - sub_emb) to the classifier input, so a minimal-delta
+    # transformation (a dehydrogenation differs by two hydrogens) is represented explicitly rather
+    # than left for the MLP to recover from the concatenated pair. Ignored in pair mode.
+    difference_readout: bool = False
+
+
+@dataclass
+class PretrainConfig:
+    enabled: bool = False
+    epochs: int = 25
+    batch_size: int = 64
+    lr: float = 1e-4
+    contrastive_ratio: float = 0.4
+    maccs_ratio: float = 0.3
+    masked_ratio: float = 0.3
+    save_path: Optional[str] = None
+
+
+@dataclass
+class OptimConfig:
+    lr: float = 1e-4
+    epochs: int = 20
+    batch_size: int = 64
+    weight_decay: float = 1e-6
+    prior: float = 0.75
+    nnpu: bool = True
+    patience: int = 7
+    min_delta: float = 1e-4
+
+
+@dataclass
+class GFlowNetConfig:
+    """GFlowNet (Trajectory Balance) generator training over the metabolic tree.
+
+    Active only when GeneratorConfig.training_mode == "gflownet". The forward policy is
+    the generator (warm-started from supervised training) + a STOP head; the reward is
+    annotation-based at training time (terminal hits an annotated metabolite of the
+    parent), which directly optimizes multi-step recall without needing the filter.
+    """
+    epochs: int = 10
+    lr: float = 1e-4               # generator/stop-head learning rate
+    logz_lr: float = 1e-2          # larger LR for the scalar logZ (standard for TB)
+    batch_substrates: int = 16     # substrates per optimizer step
+    max_depth: int = 2             # trajectory length cap
+    per_node_top_k: int = 12       # generator rules considered per expansion
+    beta: float = 6.0              # reward sharpness: R = exp(beta) for a hit, exp(0)=1 for a miss
+    epsilon: float = 0.1           # epsilon-uniform exploration mixed into P_F
+    anchor_weight: float = 0.0     # optional supervised imitation bonus on annotated terminals
+    node_budget: int = 64          # per-trajectory expansion safety cap
+    reward: Literal["annotation", "filter"] = "annotation"
+    # Set-GFlowNet (Stage 2b) fields, distinct from the single-terminal GFlowNetTrainer above.
+    # The forest rollout builds a SET of metabolites; these govern its reward and rollout size.
+    lam: float = 0.1               # size penalty in the PU set-coverage log-reward
+    max_size: int = 15             # max number of metabolites in the terminal set (forest size)
+    top_k: int = 200               # generator candidates enumerated per frontier node (Set-GFN)
+    # Bounded-LRU caps on the forest-rollout environment caches (0 = unbounded, legacy). The
+    # per-state candidate cache holds up to top_k tuples per entry, so it OOMs at scale if
+    # unbounded; a large LRU cap bounds memory while keeping per-substrate warmth.
+    child_cache_max: int = 12000   # max cached state->children entries (LRU-evicted)
+    ik_cache_max: int = 400000     # max cached SMILES->tautomer-InChIKey entries (LRU-evicted)
+
+
+@dataclass
+class MultiStepConfig:
+    """Multi-step (depth>1) metabolite generation over the metabolic tree.
+
+    Defaults reduce to current single-step behavior (enabled=False / max_depth=1), so an
+    unchanged config produces identical metrics. Used both as the runtime config for
+    model.multistep.MetabolicTree and as the serializable EvaluationConfig.multistep.
+    """
+    enabled: bool = False
+    max_depth: int = 1                 # 1 == single-step; >=2 engages the beam search
+    beam_width: int = 25               # frontier nodes carried to the next depth
+    expand_threshold: float = 0.5      # filter(parent, node) >= tau to spawn children
+    node_budget: int = 2000            # global per-substrate expansion cap
+    per_node_top_k: int = 10           # generator top_k per expansion
+    prior_aggregation: Literal["mean", "min", "product", "noisy_or"] = "mean"
+    reward_prior_weight: float = 1.0   # node_score = reward * prior**reward_prior_weight
+
+
+@dataclass
+class SoMConfig:
+    """Site-of-metabolism regioselectivity prior (see model/som.py).
+
+    A learned per-atom SoM probability reweights candidates at ranking time:
+    combined = filter * generator * som_score**beta. beta=0 (or enabled=False) reduces to
+    current behavior exactly, so it is a clean, opt-in ablation. Soft reweight, never a gate.
+    """
+    enabled: bool = False
+    beta: float = 1.0                  # reweight strength; 0 == off / byte-identical
+    aggregation: Literal["max", "mean"] = "max"   # over a product's reacting atoms
+    checkpoint: Optional[str] = None   # path to a trained som.pt
+    hidden_dims: List[int] = field(default_factory=lambda: [64, 64])
+    out_dim: int = 64
+    conv_kind: Literal["gatv2", "gcn", "gin"] = "gatv2"
+    dropout: float = 0.1
+
+
+@dataclass
+class EvaluationConfig:
+    generator_top_k: List[int] = field(default_factory=lambda: [1, 3, 5, 10])
+    candidate_top_k: int = 10
+    # Hard cap on the size of the final ensemble output set. None = uncapped. The
+    # headline set-F1/precision collapses under an uncapped candidate flood, so this
+    # lets the operating point be bounded to a small k at evaluation time.
+    max_output: Optional[int] = None
+    # Structure matching for metrics: "exact" canonical-SMILES set equality,
+    # "inchikey" (the literature convention; absorbs charge/some-tautomer differences),
+    # or "inchikey_tautomer" (tautomer-canonicalize both sides first -- the recall-correct
+    # mode here, since rules emit a different tautomer of the reference than standard InChI
+    # normalizes; plain inchikey loses ~4.5x recall on this engine).
+    match: Literal["exact", "inchikey", "inchikey_tautomer", "inchi_no_stereo", "tanimoto1"] = "exact"
+    # Ensemble output policy. "rank": rank all candidates by filter*generator score and
+    # take the top max_output (recall-correct -- the headline metric is recall@k). "gate":
+    # drop candidates below the filter's calibrated threshold first (precision-oriented).
+    # The hard gate measurably hurts recall@k (it discards plausible-but-sub-threshold
+    # hits), so "rank" is the default for evaluation; CLI/predict can still gate.
+    ranking_policy: Literal["rank", "gate"] = "rank"
+    # Cap the number of generator candidates the (expensive MCS-aware) filter scores, taking
+    # the generator's top-N. None = score all. The dominant eval cost; bounded N keeps recall
+    # while cutting filter time roughly linearly.
+    filter_candidate_cap: Optional[int] = None
+    # Budget for the Stage-2a reranker candidate pool: how many generator top-k candidates
+    # are passed to generate_scored_with_details for reranking.  Default 100 (up from the
+    # generator's own default_top_k=10) so the reranker sees a richer candidate set.
+    candidate_pool: int = 100
+    # Override the generator's empirical-rule-prior weight at eval time (the trained value is
+    # ~0.4). The learned generator under-weights the prior; a val-selected ~8 lifts recall@15
+    # from ~0.36 to ~0.38 for free (no retraining). None = use the trained value unchanged.
+    prior_strength: Optional[float] = None
+    threshold: Optional[float] = None
+    export_predictions: bool = True
+    # Multi-step generation at evaluation time (off by default -> single-step).
+    multistep: MultiStepConfig = field(default_factory=MultiStepConfig)
+    # Site-of-metabolism regioselectivity prior (off by default -> no reweight).
+    som: SoMConfig = field(default_factory=SoMConfig)
+    # Factorized re-ranker (§10 hybrid re-rank: filter*gen*type*site, paired +0.0165 on the full
+    # clean test). Off by default -> no reweight. When enabled with a trained FactorizedGenerator
+    # checkpoint + type vocab, generate() multiplies P(type|s)*P(site|type,s) into the rank
+    # (rank-only, never gates; byte-identical when off).
+    factorized_rerank: bool = False
+    factorized_rerank_checkpoint: Optional[str] = None
+    factorized_rerank_vocab: Optional[str] = None
+    factorized_rerank_aggregation: str = "max"
+
+
+@dataclass
+class ExperimentConfig:
+    name: str
+    description: str = ""
+    output_dir: str = "artifacts"
+    # Global RNG seed for model init / training / shuffling (distinct from
+    # dataset.sampling_seed, which only controls data subsampling). Recorded in the
+    # metrics report so headline numbers are reproducible.
+    seed: int = 42
+    tags: List[str] = field(default_factory=list)
+    dataset: DatasetConfig = field(default_factory=DatasetConfig)
+    generator: GeneratorConfig = field(default_factory=GeneratorConfig)
+    filter: FilterConfig = field(default_factory=FilterConfig)
+    pretrain: PretrainConfig = field(default_factory=PretrainConfig)
+    generator_optim: OptimConfig = field(default_factory=OptimConfig)
+    filter_optim: OptimConfig = field(default_factory=OptimConfig)
+    evaluation: EvaluationConfig = field(default_factory=EvaluationConfig)
+    gflownet: GFlowNetConfig = field(default_factory=GFlowNetConfig)
+
+    def __post_init__(self) -> None:
+        if self.generator.use_pretraining != self.pretrain.enabled:
+            warnings.warn(
+                "generator.use_pretraining is a deprecated dead flag. "
+                f"pretrain.enabled={self.pretrain.enabled} will be used.",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+    def with_overrides(self, **overrides: Any) -> "ExperimentConfig":
+        merged = _deep_update(self.to_dict(), overrides)
+        return experiment_from_dict(merged)
+
+    def dump_yaml(self, path: str | Path) -> None:
+        yaml = _require_yaml()
+        destination = Path(path)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        with open(destination, "w") as handle:
+            yaml.safe_dump(self.to_dict(), handle, sort_keys=False)
+
+    def dump_json(self, path: str | Path) -> None:
+        import json
+
+        destination = Path(path)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        with open(destination, "w") as handle:
+            json.dump(self.to_dict(), handle, indent=2)
+
+    @staticmethod
+    def from_yaml(path: str | Path) -> "ExperimentConfig":
+        yaml = _require_yaml()
+        with open(path) as handle:
+            payload = yaml.safe_load(handle)
+        return experiment_from_dict(payload)
+
+    @staticmethod
+    def from_json(path: str | Path) -> "ExperimentConfig":
+        import json
+
+        with open(path) as handle:
+            payload = json.load(handle)
+        return experiment_from_dict(payload)
+
+
+def experiment_from_dict(payload: Dict[str, Any]) -> ExperimentConfig:
+    dataset = DatasetConfig(**payload.get("dataset", {}))
+    generator = GeneratorConfig(**payload.get("generator", {}))
+    filter_config = FilterConfig(**payload.get("filter", {}))
+    pretrain = PretrainConfig(**payload.get("pretrain", {}))
+    generator_optim = OptimConfig(**payload.get("generator_optim", {}))
+    filter_optim = OptimConfig(**payload.get("filter_optim", {}))
+    eval_payload = dict(payload.get("evaluation", {}))
+    multistep_payload = eval_payload.pop("multistep", {}) or {}
+    som_payload = eval_payload.pop("som", {}) or {}
+    evaluation = EvaluationConfig(
+        **eval_payload,
+        multistep=MultiStepConfig(**multistep_payload),
+        som=SoMConfig(**som_payload),
+    )
+    gflownet = GFlowNetConfig(**payload.get("gflownet", {}))
+    return ExperimentConfig(
+        name=payload["name"],
+        description=payload.get("description", ""),
+        output_dir=payload.get("output_dir", "artifacts"),
+        seed=int(payload.get("seed", 42)),
+        tags=list(payload.get("tags", [])),
+        dataset=dataset,
+        generator=generator,
+        filter=filter_config,
+        pretrain=pretrain,
+        generator_optim=generator_optim,
+        filter_optim=filter_optim,
+        evaluation=evaluation,
+        gflownet=gflownet,
+    )
+
+
+def load_experiment_config(path: str | Path) -> ExperimentConfig:
+    suffix = Path(path).suffix.lower()
+    if suffix in {".yaml", ".yml"}:
+        return ExperimentConfig.from_yaml(path)
+    if suffix == ".json":
+        return ExperimentConfig.from_json(path)
+    raise ValueError(f"Unsupported config format: {path}")

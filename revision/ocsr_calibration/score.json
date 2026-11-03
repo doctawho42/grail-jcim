@@ -1,0 +1,545 @@
+{
+ "provenance": {
+  "script": "ocsr_calibration.py",
+  "script_path": "scripts/ocsr_calibration.py",
+  "source_sha256": "7345f335917c46e418fdc58939add23181d7bff8dba193fd1b9d0ea1d9167e2f",
+  "git_commit": "c26bdaa70b827a5d8bae5996378eb883df28f0ec",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "revision/ocsr_calibration/key.json",
+   "exists": true,
+   "sha256_16": "a8eca3a3c7d1c4ae",
+   "bytes": 181266
+  },
+  {
+   "path": "revision/ocsr_calibration/molscribe_submission.csv",
+   "exists": true,
+   "sha256_16": "9aef3212ec434a00",
+   "bytes": 90930
+  }
+ ],
+ "what_this_is": "the rate at which a recogniser read the right structure out of a rendered drawing, on published drug metabolites this repository holds, under the manuscript's own matching criteria",
+ "scored_submission": "revision/ocsr_calibration/molscribe_submission.csv",
+ "n_images": 784,
+ "n_answered": 784,
+ "n_blank": 0,
+ "by_criterion": {
+  "inchikey": {
+   "right": 627,
+   "wrong": 157,
+   "rate": 0.7997
+  },
+  "inchi_no_stereo": {
+   "right": 690,
+   "wrong": 94,
+   "rate": 0.8801
+  },
+  "inchikey_tautomer": {
+   "right": 726,
+   "wrong": 58,
+   "rate": 0.926
+  },
+  "canonical": {
+   "right": 688,
+   "wrong": 96,
+   "rate": 0.8776
+  },
+  "formula": {
+   "right": 688,
+   "wrong": 96,
+   "rate": 0.8776
+  }
+ },
+ "by_style": {
+  "plain": {
+   "answered": 196,
+   "right_default": 183,
+   "rate": 0.9337
+  },
+  "rotated": {
+   "answered": 196,
+   "right_default": 183,
+   "rate": 0.9337
+  },
+  "thin_small": {
+   "answered": 196,
+   "right_default": 179,
+   "rate": 0.9133
+  },
+  "annotated": {
+   "answered": 196,
+   "right_default": 181,
+   "rate": 0.9235
+  }
+ },
+ "default_criterion": "inchikey_tautomer",
+ "misread": [
+  {
+   "image": "img_03a5a892cba6",
+   "style": "thin_small",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4C(=O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H][C@@]12C[C@@]3([H])OC(CCC)O[C@@]3(C(=O)O)[C@@]1(C)CC(=O)[C@@]1([H])[C@@]2([H])CCC2=CC(=O)C=C[C@@]21C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_0771b30f40c1",
+   "style": "rotated",
+   "truth": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C)OC",
+   "submitted": "[H][C@@]12CCCCN1C(=O)C(=O)[C@]1(O)OC(C[C@H]1C)C(O)[C@@H](OC)C[C@@H](C)CC(C)C[C@@H](CC=C)C(=O)C[C@H](O)[C@@H](C)[C@@H](C(C)=C[C@@H]1CC[C@@H](O)[C@H](OC)C1)OC2=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_09902bcdee77",
+   "style": "annotated",
+   "truth": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]C12C=CC3=CC(=O)C=CC3(C)C1([H])C(O)CC13(C)C2([H])C2C456(CO)O7C(C(O)CC)OC1489C1(=O)CC2758([H])C1369C(=O)O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_0a33467c0d3e",
+   "style": "annotated",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCOP(O)(=O)OCC[N+](C)(C)C",
+   "submitted": "[H]CCCCC(O)C(=O)C(=O)N1C2CCCC13([H])C(=O)O[CH][CH](C)(C[CH]CCC)[CH]1(C(C)CC4CCC(OCCOP(=O)(O)OCC[N+](C)(C)C)C(OC)C4)CC(=O)C(C)C=C(C)C(O)C(OC)C(=O)C(C)CC(C)C=CC=CC=C(C)C(OC)CC4([H])CCCC(O)(O4)C(=O)C(=O)N234CCCCC4([H])C(=O)O1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_0b59da49a060",
+   "style": "rotated",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4C(=O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]C12C(=O)CC34(C)C5([H])(CC(=O)C3678OC(CCC)OC63([H])C(O)C76(C5)C(=O)C3648)C1([H])CCC1=CC(=O)C=CC12C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_0f9373692d7f",
+   "style": "plain",
+   "truth": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]C12C(O)CC3(C)C45OC(C(O)CC)OC46([H])CC3([H])(C6C5=O)C1([H])CCC1=CC(=O)C=CC12C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_150a63172a89",
+   "style": "rotated",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]CC(O)CC123(C)C4([H])CC5(=O)C1678OC(CCC)OC61([H])C(O)CC426([H])CC(=O)C51732OC(CCC)OC82([H])C(O)C6",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_15f45764f352",
+   "style": "plain",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CC(O)C5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]C12CC34([H])OC(CCC)OC3(C(=O)C4O)C1(C)CC(O)C1([H])C3(C)C=CC(=O)C=C3C(O)CC21[H]",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_1906b9c34f4e",
+   "style": "annotated",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@@H](O)C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)CC[C@H]1OCCO",
+   "submitted": "[H]C12CCC(C)[CH](O)(O1)C(=O)C(=O)N1CCCCC1([H])C(=O)OC(C(C)CC1CCC(OCCO)C(OC)C1)CC(=O)C(C)C=C(C)C(O)C(OC)C(=O)C(C)CC(C)C=CC=CC=C(C)C(O)C2",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_1cc7c1580dc3",
+   "style": "annotated",
+   "truth": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]C1CCC2=CC(=O)C=CC2(C)C1([H])C(O)CC1(C)C2345OC(C(O)CC)O6C27(CO)C632([H])CC4(=O)C1725C(=O)O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_280e7c46f31e",
+   "style": "thin_small",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H][C@@]12C=CC3=CC(=O)C=C[C@]3(C)[C@@]1([H])[C@@H](O)C[C@@]1(C)[C@@]2([H])C[C@@]2([H])OC(CCC)O[C@@]12C(=O)O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_29644f4402ba",
+   "style": "thin_small",
+   "truth": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@@H](O)C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C",
+   "submitted": "[H][C@@]12CCCCN1C(=O)C(=O)[C@]1(O)OC(C[C@H]1C)C(O)[C@@H](O)C[C@@H](C)CC(C)C[C@@H](CC=C)C(=O)C[C@H](O)[C@@H](C)[C@@H](C(C)=C[C@@H]1CC[C@@H](O)[C@H](OC)C1)OC2=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_30b00b927526",
+   "style": "thin_small",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@](C)(O)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "submitted": "[H]C12CC[CH]34(C)C56(O)C78(=O)C9%10(=O)C%11%12%13=O=C%11(=O)N%11CCCCC%11%14%15%16([H])C%11C%17C%18%19C%20CC%11%14%21([H])N%15%11C%18C%20%17C%19N9%21%16C%11(=O)C5%109(=O)C7%1235%10(O)O37C%11%12%14%15%16[H]C3%17%18%19([H]%11)(C1C(OC)C(C)=CC=CC=CC(C)CC(C)(O)C(=O)C(OC)C(O)C(C)=CC(C)C(=O)C[CH]C(C)C[CH]CC[CH])O%12C78%1349(O)([CH]13C[CH]54(C1)C1C%14%17C34C1%15%18)O26%16%19%10",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_33fa21a143d5",
+   "style": "thin_small",
+   "truth": "CO[C@H]1C[C@@H]2CC[C@@H](C)[C@@](O)(O2)C(=O)C(=O)N2CCCC[C@H]2C(=O)O[C@@H](CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C1/C)[C@H](C)C[C@@H]1CC[C@@H](OCCO)[C@H](O)C1",
+   "submitted": "[H][C@@]12CC[C@@H](C)[C@@](O)(O1)C(=O)C(=O)*1CCCC[C@@]1([H])C(=O)O[C@H]([C@H](C)C[C@@H]1CC[C@@H](OCCO)[C@H](O)C1)CC(=O)C(C)/C=C(/C)[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)C=C/C=C\\C=C(\\C)[C@@H](OC)C2",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_378a7118d5fd",
+   "style": "annotated",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CC(O)C5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]C12CC(O)C3=CC(=O)C=CC3(C)C1([H])C(O)CC1(C)C2([H])C2C(=O)C134OC(CCC)OC23([H])CC4=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_37c7f8bb44c8",
+   "style": "annotated",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]C12C=CC3=CC(=O)C=CC3(C)C1([H])C(O)CC13(C)C2([H])C2C4(=O)C1567(C)C1(=O)CC2589([H])O2C(CCC)OC14386C297CO",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_3ca8a98ba50b",
+   "style": "annotated",
+   "truth": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C)OC",
+   "submitted": "[H][C@@]12CCCCN1C(=O)C(=O)C1(O)OC(C[C@H]1C)C(O)[C@@H](OC)C[C@@H](C)CC(C)C[C@@H](CC=C)C(=O)C[C@H](O)[C@@H](C)[C@@H](C(C)=C[C@@H]1CC[C@@H](O)[C@H](OC)C1)OC2=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_3ff02ae28cdb",
+   "style": "plain",
+   "truth": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C)OC",
+   "submitted": "[H][C@@]12CCCCN1C(=O)C(=O)[C@]1(O)OC(C[C@H]1C)C(O)[C@@H](OC)C[C@@H](C)CC(C)C[C@@H](CC=C)C(=O)C[C@H](O)[C@@H](C)[C@@H](C(C)=C[C@@H]1CC[C@@H](O)[C@H](OC)C1)OC2=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_4205eeb92551",
+   "style": "thin_small",
+   "truth": "CNC(=O)N[C@@H](CCNCCO)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "submitted": "CNC(=O)N[C@@H](CCCCCO)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_45c319e152c6",
+   "style": "plain",
+   "truth": "CN1c2nc(N3CCC[C@@H](N)C3)n(CC#CCO)c2C(=O)N(Cc2nc(C)c3ccccc3n2)C1=O",
+   "submitted": "CC1=C2C=CC=CC23=NC2=N14=C1(=NC4(C)=C34C=CC=CC4=N1)CN1(C(=O)C3=C(N=C(N4CCCC(N)C4)N3CC#CCO)N(C)C1=O)C1(=O)N(C)C3=C(C(=O)N1C2)N(CC#CCO)C(N1CCCC(N)C1)=N3",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_4ab076a26030",
+   "style": "rotated",
+   "truth": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)C1=C[C@@H](O)[C@H](OC2OC(C(O)C(O)C2O)C(O)=O)c2ccccc12",
+   "submitted": "CC(NCCCC1=CC(C(F)(F)F)=CC=C1)C1=CC(O)C(OC2OC(C(=O)O)C(O)C(O)C2O)C2(C34=CC=CC=C3C(OC3OC(C(=O)O)C(O)C(O)C3O)C(O)C=C4C(C)NCCCC3=CC(C(F)(F)F)=CC=C3)=CC=CC=C12",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_4c90dc779914",
+   "style": "rotated",
+   "truth": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OCC(O)C(O)C(O)C(O)CO)c1ccccn1",
+   "submitted": "CN1C2=CC=C(C(=O)N(CCC(=O)OCC(O)C(O)C(O)C(O)CO)C3=CC=CC=N3)C=C23N=C1(CNC1=CC=C(C(=N)N)C=C1)N1(C)C(CNC2=CC=C(C(=N)N)C=C2)=NC2=CC(C(=O)N(CCC(=O)OCC(O)C(O)C(O)C(O)CO)C4=CC=CC=N4)=CC=C231",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_4ceb63f660e1",
+   "style": "plain",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](CO)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "submitted": "[H][C@@]12CC[C@@H](C)C(O1)C(=O)C(=O)N1CCCC[C@@]1([H])C(=O)O/C([C@H](CO)C[C@@H]1CCC(OCCO)[C@H](OC)C1)=C\\C(=O)[C@H](C)/C=C(/C)C(O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)/C=C\\C=C/C=C(/C)C(OC)C2",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_50694ed4877e",
+   "style": "thin_small",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCOP(O)(=O)OCC[N+](C)(C)C",
+   "submitted": "[H][C@@]12CC[C@@H](C)[C@@](O)(O1)C(=O)C(=O)N1CCCC[C@@]1([H])C(=O)O[C@H]([C@H](C)C[C@@H]1CC[C@@H](OCCO[P@SP3](=O)(O)OCC[Si](C)(C)C)[C@H](OC)C1)CC(=O)C(C)/C=C(/C)[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)C=CC=C/C=C(/C)[C@@H](OC)O2",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_57c3019450f9",
+   "style": "rotated",
+   "truth": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H][C@@]12CCC3=CC(=O)C=C[C@]3(C)[C@@]1([H])[C@@H](O)C[C@]1(C)[C]3OC(C(O)CC)O[C@]3([H])C(O)C[C@@]21[H]",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_58dd8c9a1f0b",
+   "style": "rotated",
+   "truth": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)OC1OC(C(O)C(O)C1O)C(O)=O",
+   "submitted": "CN1C2=CC=C(C(=O)OC3OC(C(=O)O)C(O)C(O)C3O)C=C23N=C1(CNC1=CC=C(C(=N)N)C=C1)N1(C)C(CNC2=CC=C(C(=N)N)C=C2)=NC2=CC(C(=O)OC4OC(C(=O)O)C(O)C(O)C4O)=CC=C231",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_5f286b8881ea",
+   "style": "annotated",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@](C)(O)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "submitted": "[H]C1CCC(C)C(O)(O)C(=O)C(=O)N2CCCCC2([H])C(=O)OC(C(C)CC2CCC(OCCO)C(OC)C2)CC(=O)C(C)C=C(C)[CH]2(O)C(C(=O)C(C)(O)CC(C)C=CC=CC=C(C)C(OC)C1)O2C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_60511559b1c0",
+   "style": "thin_small",
+   "truth": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+]([O-])c1",
+   "submitted": "[H][C@@]12CC=C3CC(O[S@SP3](=O)(=O)O)CC[C@]3(C)[C@@]1([H])CC[C@]1(C)C(c3cccc([O-])c3)=CC[C@@]21[H]",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_6072ec19d789",
+   "style": "plain",
+   "truth": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]C12C(O)CC3(C)C45OC(C(O)CC)OC46([H])CC3([H])(C6C5=O)C1([H])C=CC1=CC(=O)C=CC12C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_69893a088fe2",
+   "style": "thin_small",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CC(O)C5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H][C@@]12CC3(CO)OC(CCC)O[C@@]3([H])[C@@]1(C)C[C@H](O)[C@@]1([H])[C@@]2([H])CC(O)C2=CC(=O)C=C[C@@]21C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_69da294a5b5e",
+   "style": "plain",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(O)CO",
+   "submitted": "[H]C12CC34([H])CC(O)C3(OC(CCC)O4)C1(C)CC(O)C1([H])C3(C)C=CC(=O)C=C3CCC21[H]",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_6d13b67f356e",
+   "style": "thin_small",
+   "truth": "COC(=O)CCN(C(=O)c1ccc2n(C)c(CNc3ccc(cc3)C(N)=N)nc2c1)c1ccccn1",
+   "submitted": "COC(=O)CCN(C(=O)C1=CC=C2C(=C1)N=C(CNC1=CC=C(C(=N)N)C=C1)N2(C)C12=CC=C(C(=O)N(CCC(=O)OC)C3=CC=CC=N3)C=C1N=C(CNC1=CC=C(C(=N)N)C=C1)N2C)C1=CC=CC=N1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_7019d08cdb73",
+   "style": "plain",
+   "truth": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+](c1)C1OC(C(O)C(O)C1O)C(O)=O",
+   "submitted": "[H]C12CCC3(C)C(C4=CC=CN(C5OC(C(=O)O)C(O)C(O)C5O)=C4)=CCC3([H])C1([H])CC=C1CC(OS(=O)(=O)O)CCC12C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_70f9e8347adf",
+   "style": "annotated",
+   "truth": "COc1ccc(CC(C)NCC(O)c2ccc(OC3OC(C(O)C(O)C3O)C(O)=O)c(NC=O)c2)cc1",
+   "submitted": "COC1=CC=C(CC(C)NCC(O)C2=CC=C(OC3OC(C(=O)O)C(O)C(O)C3O)C(NC=O)=C2)C2=C1C1(OC)=CC=C2(CC(C)NCC(O)C2=CC=C(OC3OC(C(=O)O)C(O)C(O)C3O)C(NC=O)=C2)C=C1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_7159a348876c",
+   "style": "annotated",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4C(=O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "S.S.S.S.S.S.[H]C1CCC2=CC(=O)C=CC2(C)C1([H])C(=O)CC1(C)C2345(C)C6(=O)CC2789([H])CC3(=O)C16742OC(CCC)O8C952CO",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_82ded5b4c25f",
+   "style": "annotated",
+   "truth": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "submitted": "COC1=CC(N(C)CCN(C)C)=C(NC(=O)CCSCC(N)C(=O)O)C=C12NC1=NC=CC(=N1)C1=CN(C)C3=CC=CC=C134C1(=CN(C)C43=CC=CC=C13)C1=NC(=NC=C1)NC1=CC(NC(=O)CCSCC(N)C(=O)O)=C(N(C)CCN(C)C)C=C12OC",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_8b1f44e47937",
+   "style": "rotated",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(O)CO",
+   "submitted": "[H][C]1OC(CCC)O[C@]12C([H])C[C@@]1([H])[C@]3([H])CCC4=CC(=O)C=C[C@]4(C)[C@@]3([H])[C@@H](O)C[C@@]12C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_8c4958f58977",
+   "style": "thin_small",
+   "truth": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "submitted": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCC1=C[W]=CS1)Cc1ccccc1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_8ec3f079de42",
+   "style": "thin_small",
+   "truth": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)OC1OC(C(O)C(O)C1O)C(O)=O",
+   "submitted": "CC1C(CCc2ccc(C(=N)N)cc2)=Nc2cc(C(=O)OC3OC(C(=O)O)C(O)C(O)C3O)ccc21",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_92393903bc2c",
+   "style": "thin_small",
+   "truth": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+](c1)C1OC(C(O)C(O)C1O)C(O)=O",
+   "submitted": "[H]C12CCC3(C)C(C4=CC=CN(C5OC(C(=O)O)C(O)C(O)C5O)=C4)=CCC3([H])C1([H])CC=C1CC(OS(=O)(=O)O)CCC12C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_96f127a6644f",
+   "style": "annotated",
+   "truth": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+](c1)C1OC(C(O)C(O)C1O)C(O)=O",
+   "submitted": "[H]C12CCC3(C)C(C4=CC=CN(C5OC(C(=O)O)C(O)C(O)C5O)=C4)=CCC3([H])C1([H])CC=C1CC(OS(=O)(=O)O)CCC12C",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_9714e9ee4ee0",
+   "style": "rotated",
+   "truth": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H][C@@]12C=CC3=CC(=O)C=C[C@]3(C)[C@@]1([H])[C@@H](O)C[C@]1(C)[C]3OC(C(O)CC)O[C@]3([H])C(O)C[C@@]21[H]",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_9993cd8069bf",
+   "style": "thin_small",
+   "truth": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OC1CC(C(O)C(O)C1O)C(O)=O)c1ccccn1",
+   "submitted": "Cn1c(CCc2ccc(C(=N)N)cc2)nc2cc(C(=O)N(CCC(=O)OC3CC(C(=O)O)C(O)C(O)C3O)c3ccccn3)ccc21",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_a2d2063007a7",
+   "style": "rotated",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCOP(O)(=O)OCC[N+](C)(C)C",
+   "submitted": "[H]C12CCCCN1C(=O)C(=O)C1O[C@@]([H])(CC[C@H]1C)C[C@H](OC)/C(C)=C\\C=C/C=C\\C(C)C[C@@H](C)C(=O)[C@H](OC)[C@H](O)/C(C)=C\\C(C)C(=O)CC([C@H](C)C[C@@H]1CCC(OCCO[P@SP3](=O)(O)OCC[N+](C)(C)C)[C@H](OC)C1)OC2=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_a5639b75a2f1",
+   "style": "annotated",
+   "truth": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@@H](O)C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C",
+   "submitted": "C=CC[CH]12C3C(C)CC(C)CC(O)C(O)C4CC(C)C(O)(O4)C(=O)C(=O)N4CCCCC45C(=O)OC(C(C)=CC4CCC(O)C(OC)C4)[CH]46(C)[CH]7(O)CC1(=O)[CH]3(CC=C)C2(=O)C[CH]4(O)[CH]7(C)[CH]6(C(C)=CC1CCC(O)C(OC)C1)OC5=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_acc492858dbe",
+   "style": "rotated",
+   "truth": "Cc1nc(Nc2ncc(s2)C2=Nc3c(Cl)cccc3CO2)cc(n1)N1CCN(CCO)CC1",
+   "submitted": "Cc1nc(Nc2ncc(C3=Nc4c([Cf])cccc4CO3)s2)cc(N2CCN(CCO)CC2)n1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_b7dfcc956868",
+   "style": "thin_small",
+   "truth": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C)OC",
+   "submitted": "[H][C@@]12CCCCN1C(=O)C(=O)[C@]1(O)OC(C[C@H]1C)C(O)[C@@H](OC)C[C@@H](C)CC(C)C[C@@H](CC=C)C(=O)C[C@H](O)[C@@H](C)[C@@H](C(C)=C[C@@H]1CC[C@@H](O)[C@H](OC)C1)OC2=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_ba9b135aed32",
+   "style": "plain",
+   "truth": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "submitted": "COc1cc(N(C)CCN(C)C)c(NC(=O)CC[S-]CC(N)C(=O)O)cc1Nc1nccc(-c2cn(C)c3ccccc23)n1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_c469dbc1d4ef",
+   "style": "thin_small",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](CO)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "submitted": "[H]C1234CCCCN1C1(=O)C5(=O)C678(O)O9%10C%11%12%13%14[H]C9%15%16([H])(C%11C(OC)C(C)=CC=CC=CC(C)CC(CO)C(=O)C(OC)C(O)C(C)=CC(C)C(=O)CC(C(C)CC9CCC(OCCO)C(OC)C9)OC2=O)O%12C5%102(O)(C165=O=C5(=O)N3CCCC4)[CH]7134C[CH]825(C1)C31C%13%15C45C1%14%16",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_c62c31182707",
+   "style": "plain",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCOP(O)(=O)OCC[N+](C)(C)C",
+   "submitted": "[H]C1CC[C@@H](C)[C@H](O)C(=O)C(=O)N2CCCCC2([H])C(=O)OC(C(C)C[C@@H]2CCC(OCCO[P@SP3](=O)(O)OCC[N+](C)(C)C)[C@H](OC)C2)CC(=O)C(C)/C=C(/C)[C@@H](O)[C@@H](OC)C(=O)C(C)CC(C)/C=C\\C=C/C=C(C)[C@@H](OC)C1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_e41fceb6a99b",
+   "style": "annotated",
+   "truth": "C[C@@]1(F)[C@H](O)[C@@H](CO[P@@](O)(=O)OP(O)(=O)OP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "submitted": "C[C@@]1(F)[C@H](O)[C@@H](CO[PH](=O)(O)O[P@SP3](=O)(O)O[P@SP1](=O)(O)O)O[C@H]1n1ccc(=O)[nH]c1=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_e4855d326614",
+   "style": "thin_small",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@@H](O)C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)CC[C@H]1OCCO",
+   "submitted": "[H][C]1CC[C@@H](C)[C@H](O)C(=O)C(=O)N2CCCC[C@@]2([H])C(=O)O[C@H]([C@H](C)C[C@@H]2CC[C@@H](OCCO)[C@H](OC)C2)CC(=O)C(C)/C=C(/C)[C@@H](O)[C@@H](OC)C(=O)[C@H](C)CC(C)/C=C\\C=C/C=C(/C)[C@@H](O)C1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_e4f66a516cb2",
+   "style": "plain",
+   "truth": "NC(CCC(=O)NC(CSCCC(=O)N1CCC[C@H](C1)n1nc(-c2ccc(Oc3ccccc3)cc2)c2c(N)ncnc12)C(=O)NCC(O)=O)C(O)=O",
+   "submitted": "NC1=C2C(C3=CC=C(OC4=CC=CC=C4)C=C3)=NN(C3CCCN(C(=O)CCSCC(NC(=O)CCC(N)C(=O)O)C(=O)NCC(=O)O)C3)C2(C23=C(N)N=CN=C2N(C2CCCN(C(=O)CCSCC(NC(=O)CCC(N)C(=O)O)C(=O)NCC(=O)O)C2)N=C3C2=CC=C(OC3=CC=CC=C3)C=C2)=NC=N1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_e69ed0cc166c",
+   "style": "rotated",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CC(O)C5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "submitted": "[H]C12CC(O)C3=CC(=O)C=CC3(C)C1([H])C(O)CC13(C)C2([H])C2C(=O)C145OC(CCC)OC241([H])C(O)C(=O)C351",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_ef0842bf1033",
+   "style": "plain",
+   "truth": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@@H](O)C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C",
+   "submitted": "[H][C@@]12CCCCN1C(=O)C(=O)[C@]1(O)OC(C[C@H]1C)C(O)[C@@H](O)C[C@@H](C)CC(C)C[C@@H](CC=C)C(=O)C[C@H](O)[C@@H](C)[C@@H](C(C)=C[C@@H]1CC[C@@H](O)[C@H](OC)C1)OC2=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_f0b1951b8fde",
+   "style": "plain",
+   "truth": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC(O)[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "submitted": "[H]C1CC(O)[C@@H](C)[C@H](O)C(=O)C(=O)N2CCCC[C@@]2([H])C(=O)O[C@H]([C@H](C)C[C@@H]2CCC(OCCO)[C@H](OC)C2)CC(=O)C(C)/C=C(/C)[C@@H](O)[C@@H](OC)C(=O)[C@H](C)CC(C)/C=C\\C=C/C=C(/C)[C@@H](OC)C1",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_f52363306fbc",
+   "style": "annotated",
+   "truth": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(O)CO",
+   "submitted": "[H]C12CCC3=CC(=O)C=CC3(C)C1([H])C(O)CC1(C)C2([H])OC([CH])C1234OC(CCC)O1C25([H])C(O)C153([H])CC4O",
+   "formula_agrees": false,
+   "agrees_under": []
+  },
+  {
+   "image": "img_fa3e1ce0213b",
+   "style": "rotated",
+   "truth": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@@H](O)C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C",
+   "submitted": "[H][C@@]12CCCCN1C(=O)C(=O)[C@]1(O)OC(C[C@H]1C)C(O)[C@@H](O)C[C@@H](C)CC(C)C[C@@H](CC=C)C(=O)C[C@H](O)[C@@H](C)[C@@H](C(C)=C[C@@H]1CC[C@@H](O)[C@H](OC)C1)OC2=O",
+   "formula_agrees": false,
+   "agrees_under": []
+  }
+ ],
+ "reading": "A structure whose key agrees under the default criterion and not under canonical SMILES differs in stereochemistry or in tautomer, which this work's default does not distinguish and the strictest criterion does. A structure whose formula disagrees differs in a heavy atom, and no criterion here forgives that."
+}

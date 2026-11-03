@@ -1,0 +1,1767 @@
+"""The supporting information's tables, generated from the artifacts that measured them.
+
+The main text's tables are generated for the same reason these are: a table typed by hand falls
+behind the artifact the first time a run changes. The supporting information is where that risk
+is highest, because it is the part nobody re-reads.
+"""
+from __future__ import annotations
+
+import functools
+import json
+import re
+from pathlib import Path
+
+from _acs_table import HEADLINE, acs_table, control_artifact, wide_float, xref
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "paper2"
+
+def art(name):
+    return json.loads((ROOT / "results" / name).read_text())
+
+
+def thousands(x):
+    return f"{x:,}".replace(",", "{,}")
+
+
+def si_splits():
+    lk = art("leakage_fix_report.json")["clean_split_stats"]
+    ovl = art("external_overlap_audit.json")
+    rows = [f"{n} & {thousands(lk[k]['remaining_substrates'])} & "
+            f"{thousands(lk[k]['remaining_positive_pairs'])} & "
+            f"{thousands(lk[k]['remaining_triples'])} \\\\"
+            for k, n in (("train", "train"), ("val", "validation"), ("test", "test"))]
+    return ("\\begin{table}[h]\n\\centering\\small\n\\begin{tabular}{lrrr}\n\\toprule\n"
+            "split & substrates & annotated pairs & triples \\\\\n\\midrule\n"
+            + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{The three substrate-disjoint splits. Triples count every "
+            "(substrate, product, label) row including the rule-applicable products that carry "
+            "no annotation, which the objective treats as unlabelled rather than negative. "
+            "A read-only audit verifies zero substrate overlap and zero annotated-pair overlap "
+            "across all three pairs of splits; the comparison set contains "
+            f"{ovl['MetaTox 291-substrate comparison set']['in_train_or_val']} substrates seen in "
+            "train or validation.}\n\\label{tab:si-splits}\n\\end{table}\n")
+
+
+def si_criteria():
+    rows = [
+        ("canonical", "RDKit canonical SMILES, equality of strings", "strictest"),
+        ("inchikey", "the full InChIKey, including the stereochemistry block", "strict"),
+        ("inchi\\_no\\_stereo",
+         "the first block of the InChIKey. This is the skeleton hash, so it drops the "
+         "protonation and isotope layers along with stereochemistry",
+         "medium"),
+        ("tanimoto1", "Tanimoto similarity of one on 1024-bit Morgan fingerprints", "loosest"),
+        ("inchikey\\_tautomer",
+         "canonical tautomer on both sides, then a canonical SMILES without stereochemistry",
+         "the default"),
+    ]
+    body = "\n".join(f"\\texttt{{{a}}} & {b} & {c} \\\\" for a, b, c in rows)
+    return ("\\begin{table}[h]\n\\centering\\small\n\\begin{tabular}{lp{7.2cm}l}\n\\toprule\n"
+            "criterion & what counts as the same structure & strictness \\\\\n\\midrule\n"
+            + body + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{The five declared matching criteria. The known metabolites carry no "
+            "stereochemistry and do not distinguish tautomers, and standard InChI normalises "
+            "only a subset of tautomers, which is why the tautomer-aware key is the default "
+            "rather than the full InChIKey.}\n\\label{tab:si-criteria}\n\\end{table}\n")
+
+
+def si_criterion_sweep():
+    d = art(control_artifact("criterion_sweep", HEADLINE))
+    crits = d["criteria"]
+    ks = sorted((int(k) for k in d["by_criterion"][crits[0]]["verdict_by_budget"]), key=int)
+    short = {"canonical": "canonical", "inchikey": "InChIKey",
+             "inchi_no_stereo": "InChIKey, no stereo", "tanimoto1": "Tanimoto $=1$",
+             "inchikey_tautomer": "tautomer (default)"}
+    mark = {"leads": "$+$", "trails": "$-$", "neither": "$\\cdot$"}
+    # Which comparator each verdict is read against. It is not the same one at every budget, nor
+    # the same one under every criterion -- a sign at k = 20 stands against SyGMa under one
+    # criterion and MetaTox under another -- and a grid that prints only the sign cannot be read
+    # without it.
+    tag = {"MetaTox": "M", "SyGMa": "S", "MetaPredictor": "P", "BioTransformer": "B",
+           "GLORYx": "G",
+           "metatox": "M", "sygma": "S", "metapredictor": "P", "biotransformer": "B",
+           "gloryx": "G"}
+    # The legend used to be written by hand beside a map that fell back to a comparator's first
+    # letter, so a comparator added after the legend was written printed a symbol the legend never
+    # defined -- sixteen of forty-five cells carried one -- while the legend went on defining a
+    # symbol no cell used. The fallback is gone and the legend is built from the symbols the grid
+    # actually sets, so neither can happen again.
+    NAMES = {"M": "MetaTox", "S": "SyGMa", "P": "MetaPredictor", "B": "BioTransformer",
+             "G": "GLORYx"}
+    used = set()
+    rows, arms_by_k = [], {}
+    for c in crits:
+        v = d["by_criterion"][c]["verdict_by_budget"]
+        m = d["by_criterion"][c].get("margin_by_budget", {})
+        cells = []
+        for k in ks:
+            cell = mark[v[str(k)]]
+            row = m.get(str(k)) or {}
+            who = row.get("theirs")
+            if who:
+                if who not in tag:
+                    raise SystemExit(
+                        f"REFUSING: the criterion grid reads a cell against {who!r} and no "
+                        f"superscript is defined for it. Printing its first letter is what put "
+                        f"an undefined symbol in sixteen cells; add it to tag and NAMES.")
+                used.add(tag[who])
+                cell += "\\textsuperscript{" + tag[who] + "}"
+                arms_by_k.setdefault(str(k), set()).add(row.get("ours", ""))
+            cells.append(cell)
+        rows.append(f"{short.get(c, c)} & " + " & ".join(cells) + " \\\\")
+    head = " & ".join(f"${k}$" for k in ks)
+    arm_row = ""
+    if arms_by_k:
+        def arm_label(k):
+            names = {a for a in arms_by_k.get(str(k), set()) if a}
+            if len(names) != 1:
+                return "--"
+            only = names.pop()
+            return "exh." if "exhaustive" in only else "int."
+        arm_row = ("\\midrule\nGRAIL arm & "
+                   + " & ".join(arm_label(k) for k in ks) + " \\\\\n")
+    moved = d["n_budgets_moving"]
+    worst = max(moved, key=lambda c: moved[c])
+    # Only the symbols the grid set, in the order the legend reads best, and every one of them.
+    _in_use = [sym for sym in ("M", "S", "P", "B", "G") if sym in used]
+    LEGEND = ", ".join(f"{sym} for {NAMES[sym]}" for sym in _in_use[:-1])
+    LEGEND += f" and {_in_use[-1]} for {NAMES[_in_use[-1]]}" if len(_in_use) > 1 else ""
+    return ("\\begin{table*}[t]\n\\centering\\small\n"
+            f"\\begin{{tabular}}{{l{'c' * len(ks)}}}\n\\toprule\n"
+            f"criterion & \\multicolumn{{{len(ks)}}}{{c}}{{output budget $k$}} \\\\\n"
+            f"\\cmidrule(lr){{2-{len(ks) + 1}}}\n & {head} \\\\\n\\midrule\n"
+            + "\n".join(rows) + "\n" + arm_row + "\\bottomrule\n\\end{tabular}\n"
+            "\\caption{The verdict of the comparison under each declared matching criterion. "
+            "$+$ marks a budget where GRAIL's better arm leads the strongest comparator with the "
+            "paired interval excluding zero, $-$ one where it trails on the same terms, and "
+            "$\\cdot$ one where the interval covers zero. The superscript names the comparator "
+            "the cell is read against, " + LEGEND + ", and the last row names the GRAIL arm, "
+            "\\emph{int.} or \\emph{exh.}, with a dash where the better arm is not the same one "
+            "under all five criteria at that budget.}\n"
+            "\\label{tab:criterion}\n\\end{table*}\n")
+
+
+def si_criterion_levels():
+    """The recall the verdict grid is read from, arm by arm, criterion by criterion.
+
+    Figure~\\ref{MS-fig:criterion} prints a sign per cell and the manuscript says all five
+    criteria are reported for every comparison. They were not: only the verdicts were, so a
+    reader could see that a sign moves and not how far the level moves with it, nor whether the
+    arms reorder. This is the evidence behind that grid.
+    """
+    d = art(control_artifact("criterion_sweep", HEADLINE))
+    crits = d["criteria"]
+    ks = sorted((int(k) for k in d["by_criterion"][crits[0]]["recall_micro"]
+                 [next(iter(d["by_criterion"][crits[0]]["recall_micro"]))]), key=int)
+    short = {"canonical": "canonical", "inchikey": "InChIKey",
+             "inchi_no_stereo": "InChIKey, no stereo", "tanimoto1": "Tanimoto $=1$",
+             "inchikey_tautomer": "tautomer (default)"}
+    label = {"GRAIL exhaustive": "GRAIL exh.", "GRAIL interactive": "GRAIL int.",
+             "MetaTox": "MetaTox", "SyGMa": "SyGMa", "MetaPredictor": "MetaPred.",
+             "BioTransformer": "BioTrans.", "GLORYx": "GLORYx",
+             "GLORYxR default SoM": "GLORYxR d.", "GLORYxR strict SoM": "GLORYxR s."}
+    _present = list(d["by_criterion"][crits[0]]["recall_micro"])
+    # Filtering the label list against the artifact drops an arm the artifact no longer has. It
+    # cannot notice one the artifact has GAINED, and that is the direction this table lost a
+    # comparator in: sixteen cells of the grid it is the evidence for are read against an arm
+    # whose levels appeared nowhere. The unlabelled case now stops the build.
+    _unlabelled = [a for a in _present if a not in label]
+    if _unlabelled:
+        raise SystemExit(
+            f"REFUSING: criterion_sweep.json carries {', '.join(_unlabelled)} and this table has "
+            f"no row label for them, so the grid's evidence would omit an arm the grid uses.")
+    arms = [a for a in label if a in _present]
+    rows = []
+    for c in crits:
+        rec = d["by_criterion"][c]["recall_micro"]
+        rows.append("\\midrule\n\\multicolumn{%d}{l}{\\emph{%s}} \\\\"
+                    % (len(ks) + 1, short.get(c, c)))
+        for a in arms:
+            cells = " & ".join(f"{rec[a][str(k)]:.4f}" for k in ks)
+            rows.append(f"\\quad {label[a]} & {cells} \\\\")
+    head = " & ".join(f"${k}$" for k in ks)
+    missing = [a for a in label if a not in arms]
+    note = ("" if not missing else
+            " " + " and ".join(label[a] for a in missing) + " is absent from this grid.")
+    # Five criterion blocks of six arms plus rules and a caption do not fit a page at \small: the
+    # last rows ran under the folio, which printed over a data cell -- a referee could not read
+    # MetaPredictor at a budget of eight. The type is smaller and the rows tighter so the table
+    # ends above the footer.
+    return ("\\begin{table*}[t]\n\\centering\\scriptsize\n\\setlength{\\tabcolsep}{4pt}\n"
+            # Two more arms per criterion block made this float 10.6 pt taller than the page
+            # allows. The row stretch comes down rather than a criterion coming out.
+            "\\renewcommand{\\arraystretch}{0.82}\n"
+            f"\\begin{{tabular}}{{l{'r' * len(ks)}}}\n\\toprule\n"
+            f"arm & \\multicolumn{{{len(ks)}}}{{c}}{{output budget $k$}} \\\\\n"
+            f"\\cmidrule(lr){{2-{len(ks) + 1}}}\n & {head} \\\\\n"
+            + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{Micro recall for every arm at every budget under each of the five declared "
+            "matching criteria, on the "
+            f"{d['population']['n']} substrates of the comparison set. "
+            f"Figure~{xref('fig:criterion', 'si_table_criterion_levels')} reads its verdicts from these numbers: a cell there is "
+            "the better arm of this work against the strongest comparator at that budget, with "
+            "the paired interval, so a sign can move either because a level moved or because the "
+            "arms reordered, and both are visible here. Ranking is settled before the key is "
+            "taken, so a criterion changes what counts as a hit and never what is ranked, and "
+            "the parent-drop convention is re-derived under each criterion. A difference taken "
+            "between two columns here can disagree with the margin behind the verdict by one in "
+            "the last digit: the margin is computed from the hits and rounded once, and these "
+            "levels are rounded before anything is subtracted." + note + "}\n"
+            "\\label{tab:si-criterion-levels}\n\\end{table*}\n")
+
+
+def si_fusion_k():
+    """The fusion constant's sweep, printed rather than described.
+
+    The text said the constant was swept over six values spanning two orders of magnitude and
+    that everything from 60 upward is indistinguishable from the deployed value. Neither the six
+    values nor the levels appeared anywhere, so the claim could not be checked against anything.
+    """
+    d = art("fusion_knobs.json")
+    ks = sorted((int(k) for k in next(iter(d["by_constant"].values()))["recall"]), key=int)
+    consts = [str(c) for c in d["constants_swept"]]
+    dep = str(d["deployed_constant"])
+    rows = []
+    for c in consts:
+        row = d["by_constant"][c]
+        cells = [f"{row['recall'][str(k)]:.4f}" for k in ks]
+        cell = row.get("against_the_deployed_constant_at_15")
+        if cell is None:
+            gap = "\\emph{deployed}"
+        else:
+            star = "$^{*}$" if cell["excludes_zero"] else "\\phantom{$^{*}$}"
+            gap = (f"${cell['gap']:+.4f}${star} {{\\scriptsize [{cell['ci95'][0]:+.3f},"
+                   f"{cell['ci95'][1]:+.3f}]}}")
+        mark = "$\\;\\leftarrow$" if c == dep else ""
+        rows.append(f"${c}${mark} & " + " & ".join(cells) + f" & {gap} \\\\")
+    head = " & ".join(f"$k={k}$" for k in ks)
+
+    # The second panel. A null stated at one budget was read as a null at every budget, so the
+    # contrast is printed at each of them for the constants the null is about, which are the ones
+    # at or above the value where the sweep goes flat.
+    flat = d["null_bound"]["constants"]
+    panel = []
+    for c in [str(x) for x in flat if str(x) != dep]:
+        cells = []
+        for k in ks:
+            cell = d["by_constant"][c]["against_the_deployed_constant"][str(k)]
+            star = "$^{*}$" if cell["excludes_zero"] else "\\phantom{$^{*}$}"
+            cells.append(f"${cell['gap']:+.4f}${star} {{\\tiny [{cell['ci95'][0]:+.3f},"
+                         f"{cell['ci95'][1]:+.3f}]}}")
+        panel.append(f"${c}$ & " + " & ".join(cells) + " \\\\")
+    bound = ", ".join(
+        f"{d['null_bound']['by_budget'][str(k)]['widest_interval_endpoint']:.4f} at $k={k}$"
+        for k in ks)
+
+    return ("\\begin{table}[h]\n\\centering\\small\n"
+            f"\\begin{{tabular}}{{l{'r' * len(ks)}l}}\n\\toprule\n"
+            f"$K$ & {head} & against the deployed $K$ at $k=15$ \\\\\n\\midrule\n"
+            + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}\n\n"
+            "\\vspace{4pt}\n\\scriptsize\n"
+            f"\\begin{{tabular}}{{l{'l' * len(ks)}}}\n\\toprule\n"
+            f"$K$ & {head} \\\\\n\\midrule\n"
+            + "\n".join(panel) + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\normalsize\n"
+            "\\caption{Micro recall under each value of the reciprocal-rank-fusion constant $K$, "
+            f"on the {d['population']['n_substrates']} substrates of the comparison set carrying "
+            f"{d['population']['n_references']} known metabolites, with the paired difference against the "
+            f"deployed $K={dep}$ at a budget of 15 and its 95\\% interval. "
+            "$^{*}$ marks an interval excluding zero. "
+            "The lower panel gives the same paired difference at every "
+            f"budget for the constants at or above {min(flat)}, which are the ones the flatness "
+            "claim is about; the widest endpoint any of those intervals reaches is "
+            f"{bound}, and one cell separates. Recomputing the fusion from the stored component "
+            "scores costs no model run, which is why this knob could be swept and the aggregation "
+            "rule had to be re-derived. The deployed value is the one the method was published "
+            "with and was not chosen here, so sweeping it on this population adopts nothing: the "
+            "objection Section~\\ref{sec:si-aggregation} raises against selecting a parameter here "
+            "applies to a parameter that would be changed, and this one is not.}\n"
+            "\\label{tab:si-fusion-k}\n\\end{table}\n")
+
+
+def si_applicability():
+    """The substrates these numbers were measured on, described rather than assumed."""
+    d = art("applicability_domain.json")
+    pops = list(d["populations"])
+    names = [n for n in d["populations"][pops[0]]["descriptors"]]
+    rows = []
+    for name in names:
+        cells = []
+        for pop in pops:
+            q = d["populations"][pop]["descriptors"][name]["quantiles"]
+            # A range written with a dash reads badly when an endpoint is negative, and
+            # calculated logP has one, so the endpoints are separated by a comma in math mode.
+            def num(x):
+                return ("$-" + f"{abs(x):g}$") if x < 0 else f"${x:g}$"
+            cells.append(f"{q['0.5']:g} ({num(q['0.05'])}, {num(q['0.95'])})")
+        rows.append(f"{name} & " + " & ".join(cells) + " \\\\")
+    rows.append("\\midrule")
+    for label, key in (("substrates", "n_substrates"),
+                       ("Bemis--Murcko scaffolds", "bemis_murcko_scaffolds"),
+                       ("scaffolds on one substrate", "scaffolds_carried_by_one_substrate"),
+                       ("acyclic substrates", "acyclic_substrates")):
+        cells = [str(d["populations"][pop][key]) for pop in pops]
+        rows.append(f"{label} & " + " & ".join(cells) + " \\\\")
+    head = " & ".join(pop for pop in pops)
+    return ("\\begin{table}[h]\n\\centering\\small\n"
+            f"\\begin{{tabular}}{{l{'l' * len(pops)}}}\n\\toprule\n"
+            f" & {head} \\\\\n\\midrule\n" + "\n".join(rows)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{The substrates behind every number in this work, as median and the fifth "
+            "to ninety-fifth percentile. The corpus is assembled from four drug-centric sources "
+            "and the distribution is what that produces; the manuscript motivates the problem "
+            "with environmental chemicals as well, and this table is the population that "
+            "motivation is set against. It describes the population and does not establish an "
+            "applicability domain, which would need performance measured against these axes "
+            "rather than the axes alone.}\n"
+            "\\label{tab:si-applicability}\n\\end{table}\n")
+
+
+def si_worked_structures():
+    """The compounds the manuscript names, as SMILES.
+
+    The submission checklist asks for structures for the compounds a manuscript represents, and
+    Table S5 gives the comparison set as tautomer-aware keys, which are hashes. These five are the
+    only compounds the paper represents individually.
+    """
+    d = art("worked_example_structures.json")
+    # A SMILES offers a paragraph no break points, so breaks are allowed at bond symbols and the
+    # column is set ragged; without that the triphosphate ran ten points past the measure.
+    def _breakable(smi):
+        for ch in ("(", ")", "="):
+            smi = smi.replace(ch, ch + "\\allowbreak{}")
+        return smi
+
+    rows = [f"gemcitabine, the substrate & --- & "
+            f"\\texttt{{{_breakable(d['substrate']['smiles'])}}} \\\\"]
+    for h in d["annotated_metabolites"]:
+        rows.append(f"annotated metabolite & {h['rank']} & "
+                    f"\\texttt{{{_breakable(h['smiles'])}}} \\\\")
+    return ("\\begin{table}[h]\n\\centering\\scriptsize\n"
+            "\\begin{tabular}{@{}llp{0.50\\textwidth}@{}}\n\\toprule\n"
+            "compound & rank & SMILES \\\\\n\\midrule\n"
+            + "\n".join(rows)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{The compounds the manuscript represents individually, as structures. The "
+            "substrate is drawn as the corpus stores it, which is the drawing "
+            "Section~\\ref{sec:si-presentation} is about. Each metabolite is the candidate at the rank "
+            "the worked example records as a hit on a known metabolite, so these are the run's own output "
+            "rather than a transcription. Every other compound in this paper is a member of a "
+            "population, and those populations are released as the matching descriptors the "
+            "criteria are decided by.}\n"
+            "\\label{tab:si-worked-structures}\n\\end{table}\n")
+
+
+def si_population_list():
+    """The comparison set itself, so the Supporting Information names its own population.
+
+    Every comparator number in this work is measured on 291 substrates and until now they were
+    identifiable only by going to the repository. A referee should not have to.
+    """
+    d = art("comparison_set_members.json")
+    keys = sorted(d["references_per_member"])
+    cols = 3
+    rows, i = [], 0
+    while i < len(keys):
+        chunk = keys[i:i + cols]
+        cells = [f"\\texttt{{{k}}}" for k in chunk] + [""] * (cols - len(chunk))
+        rows.append(" & ".join(cells) + " \\\\")
+        i += cols
+    # Three InChIKeys in a typewriter face overrun the one-column measure at the body size, by
+    # 66pt; at footnote size they fit with room to spare and stay legible.
+    return ("{\\footnotesize\n\\begin{longtable}{@{}lll@{}}\n"
+            "\\caption{The \\numPopulationN{} substrates of the comparison set, as tautomer-aware "
+            "InChIKeys, which is the key every comparison in this work is scored under.}\\\\\n"
+            "\\label{tab:si-population-list}\\\\\n\\toprule\n\\endfirsthead\n"
+            # A longtable carries no \begin{table}, so _acs_table returns it untouched and a
+            # two-sentence caption would survive the split every other table gets. The second
+            # sentence is placed under the rule here instead.
+            "\\toprule\n\\endhead\n\\bottomrule\n"
+            "\\multicolumn{3}{@{}p{0.92\\textwidth}@{}}{\\footnotesize The list is here so that "
+            "the Supporting Information names its own population rather than pointing at a "
+            "repository for it; the structures themselves are in the deposit.}\\\\\n"
+            "\\endlastfoot\n\\bottomrule\n\\endfoot\n"
+            + "\n".join(rows) + "\n\\end{longtable}\n}\n")
+
+
+def si_drawing_equalised():
+    """The comparison with every arm that can be re-run on the drawing a user would submit."""
+    d = art("drawing_equalised.json")
+    # This instrument takes hours on the full population and has a --substrates probe, so a probe
+    # artifact can sit where the real one belongs and look like a table. It is refused rather
+    # than printed: the population it was computed on has to be the one the comparison uses.
+    expected = art("deployment_table.json")["population"]["n"]
+    # The table may be smaller than the comparison set by EXACTLY the exclusion it records, and
+    # by nothing else. A --substrates probe has no such record, so it is still refused; a paired
+    # exclusion accounts for every substrate it removed and is admitted with its count printed.
+    _ex = d.get("paired_exclusion") or {}
+    _short = expected - d["population"]["n_substrates"]
+    if _short != _ex.get("n_dropped", 0):
+        raise FileNotFoundError(
+            f"results/drawing_equalised.json holds {d['population']['n_substrates']} substrates "
+            f"against the comparison set's {expected}, a shortfall of {_short}, and records an "
+            f"exclusion of {_ex.get('n_dropped', 0)}; the two must agree or the artifact is a "
+            "probe rather than a paired comparison")
+    # The population is not the only way this artifact can be wrong. The first full run read a
+    # re-run file that covered 79 of the 291 substrates and scored the rest as empty, which put a
+    # comparator's recall at a quarter of its real value and looked like an enormous drawing
+    # effect. The instrument now records what its re-runs cover and whether the two runs agree on
+    # the substrates the drawing does not move; a table is refused unless both are on record.
+    missed = d.get("substrates_the_drawing_moves_that_a_re_run_does_not_cover")
+    if missed is None:
+        raise FileNotFoundError(
+            "results/drawing_equalised.json predates the coverage record; re-run it")
+    # An uncovered substrate is admissible only if it was DROPPED from the comparison and the
+    # drop is on record. Scoring it as an empty list is what this refusal exists to prevent: the
+    # delta then carries that arm's whole output on that substrate and reads as a drawing effect.
+    _dropped = set(_ex.get("dropped_because_a_re_run_has_no_answer") or ())
+    # Set equality, not a total: the substrates dropped must BE the substrates uncovered.
+    _uncovered = set(_ex.get("uncovered_moved_union") or ())
+    if _uncovered - _dropped:
+        raise FileNotFoundError(
+            f"results/drawing_equalised.json leaves {len(_uncovered - _dropped)} substrates the "
+            "drawing moves both uncovered by a re-run and inside the comparison")
+    if not _uncovered and any(missed.values()):
+        raise FileNotFoundError(
+            "results/drawing_equalised.json reports uncovered substrates by count but records no "
+            f"list of them, so the exclusion cannot be checked against them: {missed}")
+    if "unmoved_substrates_where_the_two_runs_disagree" not in d:
+        raise FileNotFoundError(
+            "results/drawing_equalised.json predates the coverage record; re-run it")
+    bad = {k: v for k, v in d["unmoved_substrates_where_the_two_runs_disagree"].items() if v}
+    if bad:
+        raise FileNotFoundError(
+            f"results/drawing_equalised.json reports two runs disagreeing on substrates the "
+            f"drawing does not move: {bad}")
+    rec, stored = d["recall_equalised"], d["recall_as_stored"]
+    # Both service arms carry the dagger, and the arms come from the artifact rather than from a
+    # list: this control kept MetaTox with a footnote saying it could not be re-run and dropped
+    # GLORYx, which is in the same position, without saying anything at all.
+    label = {"GRAIL exhaustive": "GRAIL exh.", "GRAIL interactive": "GRAIL int.",
+             "MetaTox": "MetaTox", "SyGMa": "SyGMa",
+             "MetaPredictor": "MetaPred.", "BioTransformer": "BioTrans.", "GLORYx": "GLORYx"}
+    _unlabelled = [a for a in rec if a not in label]
+    if _unlabelled:
+        raise SystemExit(
+            f"REFUSING: drawing_equalised.json carries {', '.join(_unlabelled)} and this table "
+            f"has no row for them.")
+    frozen = set(d.get("arms_that_could_not_be_re_run") or ())
+    label = {a: (lab + "$^{\\dagger}$" if a in frozen else lab) for a, lab in label.items()}
+    arms = [a for a in label if a in rec]
+    ks = sorted((int(k) for k in rec[arms[0]]), key=int)
+    mark = {"leads": "$+$", "trails": "$-$", "neither": "$\\cdot$"}
+    rows = []
+    for a in arms:
+        rows.append(f"{label[a]} & " + " & ".join(f"{rec[a][str(k)]:.4f}" for k in ks) + " \\\\")
+    rows.append("\\midrule")
+    # Three verdict rows, not two. The middle one is the honest reading of this table: MetaTox is
+    # the strongest comparator at the wide budgets and it is the one arm that did not move, so a
+    # cell read against it is not a cell of an equalised comparison. Leaving it out of the grid
+    # says what the other five arms give on one drawing.
+    for name, grid in (("verdict, as stored", d["verdicts_as_stored"]),
+                       ("verdict, equalised", d["verdicts_equalised"]),
+                       ("verdict, equalised, MetaTox set aside",
+                        d.get("verdicts_equalised_without_the_service_arms") or {})):
+        if not grid:
+            continue
+        rows.append(f"\\emph{{{name}}} & "
+                    + " & ".join(mark[grid[str(k)]["verdict"]] for k in ks) + " \\\\")
+    head = " & ".join(f"${k}$" for k in ks)
+    moved = d["budgets_whose_verdict_moves"]
+    moved_text = ("no budget's verdict moves between the two" if not moved else
+                  "the verdict moves at $k=" + "$, $k=".join(moved) + "$")
+    pop = d["population"]
+    return ("\\begin{table*}[t]\n\\centering\\scriptsize\n"
+            f"\\begin{{tabular}}{{l{'r' * len(ks)}}}\n\\toprule\n"
+            f"arm & \\multicolumn{{{len(ks)}}}{{c}}{{output budget $k$}} \\\\\n"
+            f"\\cmidrule(lr){{2-{len(ks) + 1}}}\n & {head} \\\\\n\\midrule\n"
+            + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{Micro recall with every arm that can be re-run presented with the substrate "
+            "as the declared standardiser draws it, which is the drawing a user submits, on the "
+            f"{_ex.get('n_paired', pop['n_substrates'])} substrates of the comparison set on "
+            "which every re-run answers in both drawings; the standardiser changes "
+            f"{pop['substrates_the_standardiser_moves']} of the "
+            f"{pop['n_substrates']} in the set. "
+            # The comparison is PAIRED, so a substrate one drawing has no answer for is dropped
+            # rather than scored empty; scoring it empty would put that arm's whole output on
+            # that substrate into the delta and read as an effect of the drawing.
+            + (f"{_ex['n_dropped']} substrates are excluded because at least one arm has no "
+               f"answer in one of the two drawings, "
+               f"{len(_ex.get('of_those_the_drawing_moves', ()))} of them substrates the "
+               "standardiser moves; BioTransformer crashes deterministically on these. "
+               if _ex.get("n_dropped") else "")
+            + "$^{\\dagger}$ marks a web service with no re-run available to us: "
+            + " and ".join(sorted(frozen))
+            + f". Those columns are the same as in Table~{xref('tab:sweep', 'si_table_equalised')} and are the arms "
+            "still on their own input, which is the asymmetry this table removes from the rest. "
+            "They are also the strongest comparators at several budgets, so a verdict read "
+            "against one of them is not a verdict of an equalised comparison, and the last row is "
+            "the grid with both set aside. "
+            "The verdict rows "
+            "read the better arm of this work against the strongest comparator at each budget, "
+            "$+$ where the paired interval excludes zero in this work's favour, $-$ where it "
+            f"excludes zero against, $\\cdot$ where it covers zero; {moved_text}. Known metabolites are "
+            "looked up under the corpus string in both, so the two grids are scored against one "
+            "annotation.}\n"
+            "\\label{tab:si-equalised}\n\\end{table*}\n")
+
+
+def si_oracle():
+    d = art("oracle_by_grouping.json")
+    h, b = d["headroom_over_fusion"], d["contrasts_between_arms"]
+    g = d["groups_per_substrate"]
+    name = {"formula": "molecular formula", "random_matched": "random, matched to type",
+            "type": "transformation type", "both": "formula and type"}
+    order = ["formula", "random_matched", "type", "both"]
+    rows = [f"{name[a]} & {d['recall_micro'][str(d['k'])][a]:.4f} & "
+            f"${h[a]['gap']:+.4f}$ $[{h[a]['ci95'][0]:+.4f}, {h[a]['ci95'][1]:+.4f}]$ & "
+            f"{g[a]} \\\\" for a in order]
+    return ("\\begin{table}[h]\n\\centering\\small\n\\begin{tabular}{lrlr}\n\\toprule\n"
+            "partition & recall@15 & over the deployed ranking & groups \\\\\n\\midrule\n"
+            f"none (deployed) & {d['recall_micro'][str(d['k'])]['fusion']:.4f} & --- & --- \\\\\n"
+            + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{An oracle that orders candidate groups by whether they contain a "
+            "known metabolite, under four partitions of one candidate pool. A finer partition wins at an "
+            "oracle for nothing, so the random partition is a control: its group-size multiset is "
+            "exactly the transformation type's on each substrate. Read against that control "
+            "rather than against the deployed ranking, molecular formula does not separate "
+            f"(${b['formula-random_matched']['gap']:+.4f}$, "
+            f"$[{b['formula-random_matched']['ci95'][0]:+.4f}, "
+            f"{b['formula-random_matched']['ci95'][1]:+.4f}]$) while transformation type does "
+            f"(${b['type-random_matched']['gap']:+.4f}$, "
+            f"$[{b['type-random_matched']['ci95'][0]:+.4f}, "
+            f"{b['type-random_matched']['ci95'][1]:+.4f}]$).}}\n"
+            "\\label{tab:si-oracle}\n\\end{table}\n")
+
+
+def si_ranking():
+    d = art("ranking_ablation.json")
+    arms = d["arms"]
+    ks = ["1", "5", "10", "15", "30", "50"]
+    # The two stages are the filter and the generator everywhere else in both documents, and
+    # naming them twice made a reader match a table to a section by inference.
+    label = {"fusion": "fusion (deployed)", "filter": "filter alone",
+             "generator": "generator alone", "product": "their product",
+             "random": "seeded permutation"}
+    blocks = []
+    for pop in d["by_population"]:
+        r = d["by_population"][pop]
+        rows = "\n".join(
+            f"{label[a]} & " + " & ".join(f"{r['recall_micro'][a][k]:.4f}" for k in ks) + " \\\\"
+            for a in arms)
+        # The contrast P1 registers, with its paired interval on each population. Reporting only
+        # the levels made the selection penalty a difference of point estimates; the intervals
+        # are what say whether the two populations disagree.
+        gaps = r["fusion_minus"]["product"]
+        # the interval row at full size ran 112 pt past the page; it is set smaller and the
+        # bounds are given to three places, which is all the width the column has
+        def _b(x):
+            # a positive bound carries no sign here: at this size twelve plus signs were the
+            # difference between fitting the page and running 22 pt past it, and the caption
+            # says so
+            return f"{x:.3f}".replace("0.", ".").replace("-.", "$-$.")
+        interval = " & ".join(
+            "{\\scriptsize " + f"[{_b(gaps[k]['ci95'][0])},{_b(gaps[k]['ci95'][1])}]" + "}"
+            for k in ks)
+        gap_row = ("\\quad fusion $-$ product & "
+                   + " & ".join(f"{gaps[k]['gap']:+.4f}" for k in ks) + " \\\\\n"
+                   + "\\quad \\emph{interval} & " + interval + " \\\\")
+        blocks.append(f"\\multicolumn{{{len(ks) + 1}}}{{l}}{{\\emph{{{pop}}}, "
+                      f"$n = {r['population']['n']}$}} \\\\\n{rows}\n{gap_row}")
+    head = " & ".join(f"${k}$" for k in ks)
+    return ("\\begin{table}[h]\n\\centering\\small\n"
+            f"\\begin{{tabular}}{{l{'r' * len(ks)}}}\n\\toprule\n"
+            f"ordering of one pool & \\multicolumn{{{len(ks)}}}{{c}}{{budget $k$}} \\\\\n"
+            f"\\cmidrule(lr){{2-{len(ks) + 1}}}\n & {head} \\\\\n\\midrule\n"
+            + "\n\\midrule\n".join(blocks)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{Micro recall when the same candidate pool is ordered five ways. The pool "
+            "is built by the deployed configuration and capped by the generator's score before any arm sees "
+            "it, so the pool, the matching rule and the budget are fixed and only the order "
+            "varies. No model runs: the pools carry both component scores per candidate. The "
+            "fusion-minus-product row is the contrast prediction P1 registers, given on both "
+            "populations with its paired 95\\% interval, so the penalty for having selected the "
+            "fusion rule on the comparison set can be read as two intervals rather than as a "
+            "difference of point estimates. Interval bounds are unsigned when positive.}\n"
+            "\\label{tab:si-ranking}\n\\end{table}\n")
+
+
+def si_hyperparameters():
+    """Every setting the two released checkpoints were trained under.
+
+    Read from results/hyperparameters.json, which reads the config each run wrote beside its
+    weights, so the table cannot drift from the checkpoints it describes.
+    """
+    d = art("hyperparameters.json")
+    # The run each checkpoint came from, read from the artifact rather than described. Both are
+    # one run; the caption used to say they were two.
+    runs = d.get("runs", {})
+    gen, fil = d["components"]["generator"], d["components"]["filter"]
+    keys = [k for k in gen if k != "run"] + [k for k in fil if k != "run" and k not in gen]
+
+    def cell(row, key):
+        if key not in row:
+            return "---"
+        value = row[key]
+        if isinstance(value, bool):
+            return "yes" if value else "no"
+        if value is None:
+            return "---"
+        text = str(value).replace("_", "\\_")
+        return f"\\texttt{{{text}}}" if any(c in text for c in "[]") else text
+
+    lines = ["\\begin{table}[h]", "\\centering\\footnotesize",
+             "\\begin{tabular}{lll}", "\\toprule",
+             " & generator & filter \\\\", "\\midrule"]
+    for key in keys:
+        lines.append(f"{key} & {cell(gen, key)} & {cell(fil, key)} \\\\")
+    lines += ["\\midrule",
+              f"training substrates & \\multicolumn{{2}}{{l}}{{{d['data']['training substrates']}}} \\\\",
+              f"validation substrates & \\multicolumn{{2}}{{l}}{{{d['data']['validation substrates']}}} \\\\",
+              f"sampling seed & \\multicolumn{{2}}{{l}}{{{d['data']['sampling seed']}}} \\\\",
+              "\\bottomrule", "\\end{tabular}",
+              "\\caption{The settings the two released checkpoints were trained under, read from "
+              "the configuration each run recorded beside its weights. Both come from one run, "
+              f"\\texttt{{{runs.get('generator', '').replace('artifacts/', '').replace('_', chr(92) + '_')}}}, "
+              "which is established by reproduction rather than by recollection "
+              "(Section~\\ref{sec:si-prov}); the two columns differ because the two stages were "
+              "configured differently within it. None of these values was tuned for this paper: "
+              "they are the configuration the run was launched with, carried forward from earlier "
+              "development on the training and validation splits, and no search over them is "
+              "reported here or held in this repository. That is a gap in a paper about selection "
+              "discipline and it is named rather than dressed as a choice. The two decision "
+              "thresholds are inert under the emission rule this work deploys, which returns the "
+              "whole ranked pool and truncates by no threshold "
+              f"(Section~{xref('sec:methods', 'si_table_hyperparameters')}); they are printed because they are in the "
+              "configuration the checkpoints carry.}",
+              "\\label{tab:si-hyperparameters}", "\\end{table}", ""]
+    return "\n".join(lines)
+
+
+def si_chemistry():
+    """Recall within each biotransformation class, for every arm.
+
+    Classes are formula deltas, which is what the annotation determines; the producer's own
+    record says what each name does not distinguish.
+    """
+    d = art(control_artifact("error_by_chemistry", HEADLINE))
+    arms = [("GRAIL exhaustive", "GRAIL exh."), ("GRAIL interactive", "GRAIL int."),
+            ("metatox", "MetaTox"), ("sygma", "SyGMa"), ("metapredictor", "MetaPred."),
+            ("biotransformer", "BioTrans."), ("gloryx", "GLORYx")]
+    budget = "15"
+    # An arm the artifact scores and this list omits is a column the paper computed and did not
+    # print. That happened three times with one comparator, in this table, in the sweep table and
+    # in the sweep figure, because each kept its own list of names.
+    _known = {k for k, _ in arms}
+    _first = next(iter(d["classes"].values()))["recall"]
+    _absent = [a for a in _first if a not in _known]
+    if _absent:
+        raise SystemExit(f"error_by_chemistry.json scores arms this table has no column for: "
+                         f"{', '.join(_absent)}")
+    # A class with five known metabolites cannot support two decimals, and printing them there invites
+    # an ordering to be read off noise. The small classes are marked rather than dropped, since
+    # what they show -- a blind spot every arm shares -- is the reason the split is here at all.
+    SMALL = 10
+    rows = []
+    for name, entry in d["classes"].items():
+        cells = " & ".join(f"{entry['recall'][key][budget]:.2f}".lstrip("0")
+                           for key, _ in arms)
+        mark = "$^{\\dagger}$" if entry["references"] < SMALL else ""
+        rows.append(f"{name}{mark} & {entry['references']} & {cells} \\\\")
+    head = " & ".join(label for _, label in arms)
+    n = d["population"]["references_classified"]
+    n_small = sum(1 for e in d["classes"].values() if e["references"] < SMALL)
+    # Which arms have nothing left to add at this budget, from the table that measures it.
+    _dep = art("deployment_table.json")
+    short = _dep["substrates_whose_list_is_shorter_than_the_budget"]["15"]
+    n_subs = _dep["population"]["n"]
+    # Every arm, and the count of those past half rather than an adjective. The enumeration is
+    # derived from the table's own columns instead of being kept as a second list beside them. An
+    # earlier draft said four of six run out "on most substrates" when two of the four run out on
+    # 34 and 15 of 291, and left out the interactive arm, which runs out on 181; that was repaired
+    # by writing the arms out here, and the list went stale again the next time the table gained a
+    # comparator, so the caption read "Three of the 7" while naming six. A caption that counts the
+    # columns has to read the columns.
+    DEPLOY_KEY = {"GRAIL exhaustive": "whole bank", "GRAIL interactive": "trained budget"}
+    LONG = {"GRAIL exhaustive": "the exhaustive arm", "GRAIL interactive": "the interactive arm",
+            "metatox": "MetaTox", "sygma": "SyGMa", "metapredictor": "MetaPredictor",
+            "biotransformer": "BioTransformer", "gloryx": "GLORYx"}
+    ORDER = [(DEPLOY_KEY.get(k, k), LONG[k]) for k, _ in arms]
+    _no_count = [lab for k, lab in ORDER if k not in short]
+    if _no_count:
+        raise SystemExit("deployment_table.json carries no short-list count for a column this "
+                         f"table prints: {', '.join(_no_count)}")
+    exhausted = ", ".join(f"{lab} on {short[k]}" for k, lab in ORDER)
+    exhausted += f", of {n_subs}"
+    WORDS = {0: "None", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six",
+             7: "Seven", 8: "Eight"}
+    most_word = WORDS[sum(1 for k, _ in ORDER if short[k] * 2 > n_subs)]
+    return ("\\begin{table*}[t]\n\\centering\\scriptsize\n"
+            # Nine columns at the default padding overran the Supporting Information's measure by
+            # 27 pt when this table moved out of the manuscript's two-column float. The padding is
+            # what gives, because narrowing the class names would make them abbreviations.
+            "\\setlength{\\tabcolsep}{3.5pt}\n"
+            # the column spec follows the arm list rather than being written out, so adding
+            # an arm cannot leave the table one column narrower than its own header
+            "\\begin{tabular}{@{}lr" + "r" * len(arms) + "@{}}\n\\toprule\n"
+            f"transformation class & refs & {head} \\\\\n\\midrule\n"
+            + "\n".join(rows)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{Micro recall at a budget of 15 within each transformation class, on the "
+            f"comparison set's {n} known metabolites; leading zeros are dropped. A class is a "
+            "change in molecular formula, so it groups mechanisms the annotation does not "
+            f"separate. $^{{\\dagger}}$ marks the {n_small} classes holding fewer than {SMALL} "
+            "known metabolites, where one hit moves a cell by more than a tenth and no ordering across a "
+            "row should be read. At this budget the arms differ in how often they have anything "
+            f"left to emit, so a row is in part a comparison of list lengths: {exhausted} "
+            # this table is typeset into the manuscript, so its pointers into the supporting
+            # information are cross-document and carry the prefix the wrapper resolves
+            f"(Table~{xref('tab:si-short', 'si_table_chemistry')}). {most_word} of the {len(arms)} run out on more "
+            f"than half of "
+            f"the {n_subs}. Table~{xref('tab:si-chemistry-matched', 'si_table_chemistry')} repeats the split with each "
+            "comparator\'s own length held instead of the budget.}\n"
+            "\\label{tab:si-chemistry}\n\\end{table*}\n")
+
+
+def si_chemistry_matched():
+    """The class split with list length held instead of the budget.
+
+    Table S8 is read at a budget of fifteen, where four of the six arms have already emitted
+    everything they are going to emit on most substrates. A row of that table is therefore partly
+    a comparison of how long each list is, which is the same confound the pooled comparison
+    answers with a matched-length control; this is that control applied per class. Each block cuts
+    both of this work\'s arms to the comparator\'s own list length on each substrate, so the three
+    cells of a block are read over the same slots.
+    """
+    d = art(control_artifact("error_by_chemistry", HEADLINE))
+    LABEL = {"metatox": "MetaTox", "sygma": "SyGMa", "metapredictor": "MetaPred.",
+             "biotransformer": "BioTrans."}
+    comps = [c for c in LABEL if c in next(iter(d["classes"].values()))["recall_at_matched_length"]]
+    if not comps:
+        raise SystemExit("error_by_chemistry.json carries no matched-length block, so the class "
+                         "split cannot be read with length held")
+    SMALL = 10
+    rows = []
+    for name, entry in d["classes"].items():
+        cells = []
+        for c in comps:
+            cell = entry["recall_at_matched_length"][c]
+            cells += [f"{cell['GRAIL exhaustive']:.2f}".lstrip("0"),
+                      f"{cell[c]:.2f}".lstrip("0")]
+        mark = "$^{\\dagger}$" if entry["references"] < SMALL else ""
+        rows.append(f"{name}{mark} & {entry['references']} & " + " & ".join(cells) + " \\\\")
+    head = " & ".join(f"\\multicolumn{{2}}{{c}}{{{LABEL[c]}}}" for c in comps)
+    sub = " & ".join("ours & theirs" for _ in comps)
+    n = d["population"]["references_classified"]
+    return ("\\begin{table}[h]\n\\centering\\scriptsize\n"
+            "\\begin{tabular}{@{}lr" + "rr" * len(comps) + "@{}}\n\\toprule\n"
+            f"transformation class & refs & {head} \\\\\n"
+            f" & & {sub} \\\\\n\\midrule\n"
+            + "\n".join(rows)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            f"\\caption{{The class split of Table~{xref('tab:si-chemistry', 'si_table_chemistry_matched')} with list length held "
+            "instead of the budget. Within each block both arms are cut, substrate by substrate, "
+            "to the number of candidates that comparator returned there, under the same "
+            f"construction as Table~{xref('tab:si-matched', 'si_table_chemistry_matched')}; \\emph{{ours}} is the exhaustive "
+            f"arm. On the comparison set\'s {n} classified known metabolites; leading zeros are dropped, "
+            "and $^{\\dagger}$ marks the classes under ten known metabolites, where no ordering should "
+            "be read. A block\'s two cells are comparable with each other and not with another "
+            "block\'s, since each block has its own slot count.}\n"
+            "\\label{tab:si-chemistry-matched}\n\\end{table}\n")
+
+
+def si_budget():
+    """Recall and cost at each rule budget built, on validation.
+
+    Budgets whose pool is still being written are excluded by the producer and named in its
+    artifact; this prints what was measured.
+    """
+    d = art("budget_curve.json")
+    ks = ["1", "5", "15", "30"]
+    rows = []
+    def cell_of(table, budget, key):
+        c = table.get(budget)
+        if c is None:
+            return "---"
+        star = "$^{*}$" if c["excludes_zero"] else ""
+        return (("$-$" if c[key] < 0 else "+") + f"{abs(c[key]):.4f}".lstrip("0") + star)
+
+    for budget in sorted(d["by_budget"], key=int):
+        row = d["by_budget"][budget]
+        gap = cell_of(d["against_the_deployed_budget_at_k15"], budget, "gap_at_15")
+        gap30 = cell_of(d["against_the_deployed_budget_at_k30"], budget, "gap_at_30")
+        marker = "\\textbf{" + budget + "}" if int(budget) == d["deployed_budget"] else budget
+        recalls = " & ".join(f"{row['recall_micro'][k]:.4f}".lstrip("0") for k in ks)
+        rows.append(f"{marker} & {row['mean_candidates']} & {recalls} & {gap} & {gap30} \\\\")
+    n = d["population"]["n_substrates"]
+    return ("\\begin{table}[h]\n\\centering\\small\n"
+            "\\begin{tabular}{rrrrrrrr}\n\\toprule\n"
+            "rule budget & candidates & $r@1$ & $r@5$ & $r@15$ & $r@30$ & vs deployed at 15 "
+            "& at 30 \\\\\n"
+            "\\midrule\n" + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}\n"
+            f"\\caption{{What the rule budget buys, on the {n} validation substrates every budget "
+            "holds. Candidates is the "
+            "mean number returned after deduplication and the pool cap; leading zeros are dropped. "
+            "The last two columns are the paired difference in micro recall against the deployed "
+            "rule budget, in bold, read at output budgets of 15 and of 30, with $^{*}$ marking an "
+            "interval that excludes zero. The two are reported because the paper reads this curve "
+            "at both and they do not agree.}\n"
+            "\\label{tab:si-budget}\n\\end{table}\n")
+
+
+def si_counts():
+    """Every candidate count the paper prints, with the population and the stage it belongs to.
+
+    Six of them appear across the manuscript and the tables and they are different quantities. A
+    referee counted them and could not tell which was which, which is a fair complaint about a
+    paper whose argument is that a number without its configuration means nothing.
+    """
+    mt = art("mode_timings.json")
+    dep = art("deployment_table.json")
+    h10 = art("h10_verdict.json")
+    ert = art("emission_rule_transfer.json")
+    case = art("case_study.json")
+
+    rows = [
+        ("pool before deduplication", "interactive", "validation draw, 293",
+         h10["mean_pool"]["trained"]),
+        ("pool before deduplication", "exhaustive", "validation draw, 293",
+         h10["mean_pool"]["whole_bank"]),
+        ("pool the emission rule reads", "interactive",
+         f"comparison set, {ert['population']['n']}", ert["mean_pool"]),
+        ("list returned, deduplicated and capped", "interactive",
+         f"validation draw, {mt['interactive']['candidates']['n']}",
+         mt["interactive"]["candidates"]["mean"]),
+        ("list returned, deduplicated and capped", "exhaustive",
+         f"validation draw, {mt['exhaustive']['candidates']['n']}",
+         mt["exhaustive"]["candidates"]["mean"]),
+        ("list returned, deduplicated and capped", "interactive",
+         "comparison set, 291", dep["mean_output_length"]["trained budget"]),
+        ("list returned, deduplicated and capped", "exhaustive",
+         "comparison set, 291", dep["mean_output_length"]["whole bank"]),
+        ("list returned, one substrate", "interactive",
+         "the worked example", case["n_candidates"]),
+    ]
+
+    # Every arm, not only this work's two. The table's own caption promises every candidate count
+    # the paper reports, and a comparator's is a candidate count: MetaTox alone appears as three
+    # different numbers across the manuscript and the supporting information, each a different
+    # stage, none of them saying which. A count that names its stage cannot be mistaken for one
+    # that does not, and that is the whole of the difference.
+    ARMS = [("metatox", "MetaTox"), ("sygma", "SyGMa"),
+            ("metapredictor", "MetaPredictor"), ("biotransformer", "BioTransformer"),
+            ("gloryx", "GLORYx")]
+    emitted = dep.get("mean_emitted_untruncated_2dp") or dep["mean_emitted_untruncated"]
+    widest = max(int(k) for k in dep["recall_micro"]) if "recall_micro" in dep else 50
+    for key, label in ARMS:
+        if key in emitted:
+            rows.append(("list as the comparator emits it", label, "comparison set, 291",
+                         emitted[key]))
+    for key, label in ARMS:
+        if key in dep["mean_output_length"]:
+            rows.append((f"the same list truncated at $k={widest}$", label,
+                         "comparison set, 291", dep["mean_output_length"][key]))
+    # The caption promises three quantities and this is the third. It used to read a top-level
+    # "mean_slots" key that the artifact does not have, so the loop found nothing, added no rows,
+    # and a bare except swallowed the silence: the table promised a quantity it never printed.
+    # The slots live inside each contrast, and a missing one is now an error rather than a gap.
+    # The comparison set deliberately: this table is a census of candidate counts on that
+    # population and every other count in it is read there.
+    matched = art(control_artifact("matched_length", "comparison"))
+    slots = {}
+    for name, c in matched["contrasts"].items():
+        arm, _, comparator = name.partition(" - ")
+        if arm == "whole bank" and "mean_slots" in c:
+            slots[comparator] = c["mean_slots"]
+    for key, label in ARMS:
+        if key not in slots:
+            raise SystemExit(f"matched_length.json carries no slot count for {key}, so the "
+                             f"caption's third quantity cannot be printed for it")
+        rows.append(("slots the matched-length control allows", label,
+                     "comparison set, 291", round(float(slots[key]), 2)))
+
+    body = "\n".join(
+        f"{what} & {arm} & {pop} & {value} \\\\" for what, arm, pop, value in rows)
+    return ("\\begin{table}[h]\n\\centering\\small\n"
+            "\\begin{tabular}{llll}\n\\toprule\n"
+            "quantity & mode & population & mean \\\\\n\\midrule\n"
+            + body
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{Every candidate count this work reports, for every arm. They differ "
+            "because they are measured at different stages of the pipeline and on different "
+            "populations, not because any of them is an estimate of the others: a list as a "
+            "system emits it, the same list truncated at the widest budget the sweep reads, and "
+            "the slots the matched-length control allows are three quantities and the first is "
+            "the one that describes what a user is handed.}\n"
+            "\\label{tab:si-counts}\n\\end{table}\n")
+
+
+def si_macro():
+    """The whole comparison under the other aggregation, with paired intervals.
+
+    The manuscript reports micro throughout and quoted one macro pair without an interval, at the
+    budget where micro does not separate. Aggregation is a choice like the other two and is swept
+    here rather than exercised once.
+    """
+    d = art("deployment_table.json")
+    macro, con = d["recall_macro"], d["contrasts_macro"]
+    # Which cells the aggregation actually moves, counted rather than asserted. The section said
+    # the choice does not move a verdict where the paper claims one, and it moves five, one of
+    # them a claimed lead. Only one contrast column is printed here, so a reader cannot check the
+    # sentence against the table; the caption therefore carries the cells.
+    micro = d.get("contrasts", {})
+    moved = []
+    for k, cells in con.items():
+        for name, cell in cells.items():
+            other = micro.get(k, {}).get(name)
+            if other and other["excludes_zero"] != cell["excludes_zero"]:
+                moved.append((int(k), name, other["excludes_zero"]))
+    moved.sort()
+    LONG = {"whole bank": "the exhaustive arm", "trained budget": "the interactive arm"}
+    # Compact, because the long form put this float 75.7pt over the page and the build checker
+    # counted overfull boxes only, so it never said so. Eleven clauses of the shape "the exhaustive
+    # arm against BioTransformer at k=1, which separates under micro and not macro" spent 1,101
+    # characters saying what an abbreviation and a mark say in a tenth of the space, and a caption
+    # is a poor place for an eleven-item list in either form.
+    SHORT = {"whole bank": "exh.", "trained budget": "int."}
+
+    def phrase(k, name, micro_sep):
+        a, b = [x.strip() for x in name.split(" - ")]
+        # .get(b, b) fell back to the artifact's own key, which put "gloryxr_default" into a
+        # CAPTION: an internal identifier in the prose a reader reads, and an underscore LaTeX
+        # takes for a subscript, so the build threw twenty errors from a sentence. A name with no
+        # spelling here stops the build rather than reaching the page as a variable name.
+        WHO = {"metatox": "MetaTox", "sygma": "SyGMa", "metapredictor": "MetaPredictor",
+               "biotransformer": "BioTransformer", "gloryx": "GLORYx",
+               "gloryxr_default": "GLORYxR (default SoM)",
+               "gloryxr_strict": "GLORYxR (strict SoM)"}
+        if b not in WHO:
+            raise SystemExit(f"REFUSING: this caption has no spelling for the arm {b!r} and would "
+                             f"print the artifact's own key in a sentence.")
+        who = WHO[b]
+        return (f"{SHORT.get(a, a)}--{who} at ${k}$"
+                + ("$^{\\mu}$" if micro_sep else "$^{M}$"))
+    ks = sorted((int(k) for k in macro), key=int)
+    # A table captioned as the whole comparison must print the whole comparison. Filtering a
+    # hardcoded list against the artifact, which is what this did, only removes arms the artifact
+    # has dropped; it cannot notice one the artifact has GAINED, and a fifth comparator went
+    # missing here exactly as a fourth had before it. The arms now come FROM the artifact and the
+    # hardcoded part is only how each is spelled, so a new one stops the build instead.
+    LABELS = {"whole bank": "GRAIL exh.", "trained budget": "GRAIL int.",
+              "metatox": "MetaTox", "sygma": "SyGMa", "metapredictor": "MetaPred.",
+              "biotransformer": "BioTrans.", "gloryx": "GLORYx",
+              "gloryxr_default": "GLORYxR d.", "gloryxr_strict": "GLORYxR s."}
+    present = list(macro[str(ks[0])])
+    unlabelled = [a for a in present if a not in LABELS]
+    if unlabelled:
+        raise SystemExit(
+            f"REFUSING: deployment_table.json carries {', '.join(unlabelled)} and this table has "
+            f"no column heading for them. A table captioned as the whole comparison would print "
+            f"less than the whole comparison.")
+    arms = [(key, LABELS[key]) for key in LABELS if key in present]
+    # One block of levels and two of contrasts, the same shape as the micro table so the two can
+    # be read against each other. Printing one contrast of eight -- and the one this work wins --
+    # is what made the robustness claim uncheckable from the page it was stated on.
+    def trim(x):
+        return ("$-$" if x < 0 else "+") + f"{abs(x):.3f}".lstrip("0")
+
+    comps = [("metatox", "MetaTox"), ("sygma", "SyGMa"), ("metapredictor", "MetaPredictor"),
+             ("biotransformer", "BioTransformer")]
+    level_rows = []
+    for k in ks:
+        cells = " & ".join(f"{macro[str(k)][key]:.4f}".lstrip("0") for key, _ in arms
+                           if key in macro[str(k)])
+        level_rows.append(f"${k}$ & {cells} \\\\")
+    contrast_blocks = []
+    for arm, label in (("whole bank", "exhaustive"), ("trained budget", "interactive")):
+        rows = []
+        for k in ks:
+            cells = []
+            for key, _ in comps:
+                c = con[str(k)].get(f"{arm} - {key}")
+                if c is None:
+                    cells.append("---")
+                    continue
+                star = "$^{*}$" if c["excludes_zero"] else "\\phantom{$^{*}$}"
+                cells.append(f"{trim(c['gap'])}{star} [{trim(c['ci95'][0])}, "
+                             f"{trim(c['ci95'][1])}]")
+            rows.append(f"${k}$ & " + " & ".join(cells) + " \\\\")
+        contrast_blocks.append(
+            f"\\multicolumn{{{len(comps) + 1}}}{{l}}{{\\emph{{GRAIL {label}}} minus, under macro}}"
+            " \\\\\n" + "\n".join(rows))
+    head = " & ".join(label for _, label in arms)
+    chead = " & ".join(lab for _, lab in comps)
+    # Two more comparator columns put this 25 pt over the measure. Ten columns of five-character
+    # numbers have padding to give before the type does, so the column separation comes down and
+    # the type stays readable.
+    return ("\\begin{table}[h]\n\\centering\\footnotesize\n"
+            "\\setlength{\\tabcolsep}{1.5pt}\n"
+            f"\\begin{{tabular}}{{r{'r' * len(arms)}}}\n\\toprule\n"
+            f"$k$ & {head} \\\\\n\\midrule\n"
+            + "\n".join(level_rows)
+            + "\n\\bottomrule\n\\end{tabular}\n\n"
+            "\\vspace{4pt}\n\n"
+            "\\begin{tabular}{r" + "l" * len(comps) + "}\n\\toprule\n"
+            f"$k$ & {chead} \\\\\n\\midrule\n"
+            + "\n\\midrule\n".join(contrast_blocks)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            # The title comes FIRST and is one sentence. _acs_table splits a caption at its
+            # first sentence end and carries the rest into the footnotes, which is what ACS asks
+            # for; this caption used to open with the 14-item list of moved verdicts, so the
+            # splitter made a 120-word title of it and the footnote carried the description.
+            "\\caption{"
+            # The reference sits inside the sentence rather than at its end: _acs_table splits on a
+            # full stop preceded by a letter or a digit, and a caption ending in a macro's
+            # closing brace is never split, so the title would have swallowed the notes again.
+            + f"The comparison of Table~{xref('tab:sweep', 'si_table_macro')} under macro aggregation, which is "
+            "the mean of per-substrate recall, on the same population and conventions. "
+            + (f"The aggregation moves {len(moved)} verdicts of the "
+               f"{sum(len(v) for v in con.values())} contrasts computed under both, marked "
+               "$^{\\mu}$ where micro separates and macro does not and $^{M}$ where the reverse "
+               "holds: " + ", ".join(phrase(*m) for m in moved) + ". " if moved else
+               "No verdict differs between the two aggregations. ")
+            + "Leading zeros are dropped. The last column is the paired difference against MetaTox, "
+            "with $^{*}$ marking an interval excluding zero. Macro weights a substrate carrying one "
+            "known metabolite like one carrying twelve, so it answers a different question from micro and "
+            "is not an estimate of it.}\n"
+            "\\label{tab:si-macro}\n\\end{table}\n")
+
+
+def _gloryxr_note(matched: dict) -> str:
+    """Why the two GLORYxR rows are identical, from the measurement rather than an assurance.
+
+    They agree to the digit because the setting those two columns exist to separate reorders a
+    substrate's candidate list and does not change it, and this control reads each comparator's
+    whole list. Returned empty when those columns are absent, so the caption cannot explain rows
+    that are not there.
+    """
+    if not any(c.endswith("gloryxr_strict") for c in matched["contrasts"]):
+        return ""
+    s = art("setting_scope.json")["partition"]["the comparison set"]
+    moved = s["different_set"] + s["different_length"]
+    tail = ("none of them with a different list" if moved == 0
+            else f"{moved} of them with a different list")
+    return ("The two GLORYxR rows are identical because the setting that separates them reorders "
+            f"a substrate's candidates without changing them ({s['same_set_other_order']} of "
+            f"{s['compared']} substrates reordered, {tail}), and this control reads each "
+            "comparator's whole list; only a budget that truncates can tell the two settings "
+            "apart. ")
+
+
+MATCHED_POPULATIONS = {
+    # stem -> (population, the label the caption calls it by)
+    "si_table_matched": (HEADLINE, "the whole evaluated test set"),
+    "si_table_matched_comparison": ("comparison", "the comparison set"),
+}
+
+
+def _cut_cost(d) -> str:
+    """What this work's cut on the comparator's list costs, read rather than claimed.
+
+    On the comparison set it cost nothing and the caption said so in a typed sentence. On the
+    whole evaluated test set MetaTox places known metabolites past the cut, so two contrasts move
+    and the typed sentence became false. The sentence is derived from the artifact's own
+    uncapped reading, so it can only ever say what the run found.
+    """
+    moved = {}
+    for name, c in d["contrasts"].items():
+        u = c.get("without_the_cap_on_the_comparator")
+        if u and abs(c["gap"] - u["gap"]) >= 5e-5:
+            moved[name] = (c["gap"], u["gap"])
+    if not moved:
+        return ("every contrast here is identical to four decimal places with the cut removed ")
+    biggest = max(abs(a - b) for a, b in moved.values())
+    unchanged = all(c["without_the_cap_on_the_comparator"]["verdict_unchanged"]
+                    for c in d["contrasts"].values()
+                    if c.get("without_the_cap_on_the_comparator"))
+    return (f"removing the cut moves {len(moved)} of {len(d['contrasts'])} contrasts, by at most "
+            f"{biggest:.4f}, and against this work in each"
+            + (", leaving every verdict as it stands" if unchanged else
+               ", AND IT CHANGES A VERDICT, which the prose beside this table must state")
+            + " ")
+
+
+def si_matched(which="si_table_matched"):
+    """Every arm against every comparator with the list length taken from the comparator.
+
+    One generator, two populations. The manuscript's figure is read at the headline population,
+    so the table backing its levels is read there too. The comparison set keeps a table of its
+    own because one arm exists only on it: SyGMa re-run on the drawing the declared standardiser
+    produces was obtained for the substrates that were submitted, and the paragraph that reports
+    what the drawing costs has nowhere else to point.
+    """
+    population, _pop_label = MATCHED_POPULATIONS[which]
+    d = art(control_artifact("matched_length", population))
+    rows = []
+    for pair, c in d["contrasts"].items():
+        a, b = [x.strip() for x in pair.split(" - ")]
+        arm = {"whole bank": "exhaustive", "trained budget": "interactive"}.get(a, a)
+        # BioTransformer arrived after this map was written and printed lowercase for two
+        # revisions; the corrected SyGMa arrived after that and did the same.
+        name = {"metatox": "MetaTox", "sygma": "SyGMa",
+                "metapredictor": "MetaPredictor", "biotransformer": "BioTransformer",
+                "gloryx": "GLORYx",
+                "sygma on the standardised drawing": "SyGMa, standardised",
+                "gloryxr_default": "GLORYxR, default",
+                "gloryxr_strict": "GLORYxR, strict"}.get(b)
+        if name is None:
+            raise SystemExit(f"matched_length.json names a comparator this table has no label "
+                             f"for: {b}")
+        star = "$^{*}$" if c["excludes_zero"] else ""
+        gap = ("$-$" if c["gap"] < 0 else "+") + f"{abs(c['gap']):.4f}".lstrip("0")
+        lo = ("$-$" if c["ci95"][0] < 0 else "+") + f"{abs(c['ci95'][0]):.4f}".lstrip("0")
+        hi = ("$-$" if c["ci95"][1] < 0 else "+") + f"{abs(c['ci95'][1]):.4f}".lstrip("0")
+        ours = f"{c['recall_ours']:.4f}".lstrip("0")
+        thei = f"{c['recall_theirs']:.4f}".lstrip("0")
+        rows.append(f"{arm} & {name} & {c['mean_slots']} & {ours} & {thei} & "
+                    f"{gap}{star} [{lo}, {hi}] \\\\")
+    n = d["population"]["n_substrates"]
+    cap = d["cap_on_the_comparator_list"]
+    label = f"tab:si-matched" + ("" if which == "si_table_matched" else "-comparison")
+    # The arms this population carries, asked of the artifact. The sentence about the
+    # standardised rows is printed only where those rows exist, and the arms the population
+    # lacks are named rather than left to a reader to notice as a shorter table.
+    _arms_here = {c.partition(" - ")[2] for c in d["contrasts"]}
+    absent = d["population"].get("comparators_absent") or []
+    # Where the cut actually binds, per comparator, so the caption names it rather than gesturing
+    # at it. A comparator absent from this map has no substrate whose list runs past the cut.
+    LABEL = {"metatox": "MetaTox", "sygma": "SyGMa", "metapredictor": "MetaPredictor",
+             "biotransformer": "BioTransformer", "gloryx": "GLORYx",
+             "sygma on the standardised drawing": "SyGMa on the standardised drawing",
+             "gloryxr_default": "GLORYxR in its default setting",
+             "gloryxr_strict": "GLORYxR in its strict setting"}
+    bound = {}
+    for name, c in d["contrasts"].items():
+        arm, _, comp = name.partition(" - ")
+        u = c.get("without_the_cap_on_the_comparator") or {}
+        hit = u.get("substrates_the_cap_binds_on")
+        if arm == "whole bank" and hit:
+            bound[LABEL.get(comp, comp)] = hit
+    if not bound:
+        raise SystemExit("matched_length.json records no substrate where the comparator cut "
+                         "binds, so the caption cannot say where it does")
+    # Per comparator, and not added up: the counts are of different lists, and a substrate can be
+    # past the cut for one comparator and inside it for another, so a total would not be a count
+    # of anything.
+    def _phrase(name, n):
+        # "45 for SyGMa and 41 for SyGMa on the standardised drawing" reads as a typo on first
+        # pass, so the second mention says what it is rather than repeating the name.
+        if name.startswith("SyGMa on "):
+            return f"{n} substrates for the SyGMa re-run on the standardised drawing"
+        return f"{n} substrates for {name}"
+
+    _items = [_phrase(k, v) for k, v in sorted(bound.items(), key=lambda kv: -kv[1])]
+    detail = (", ".join(_items[:-1]) + " and " + _items[-1]) if len(_items) > 1 else _items[0]
+    return ("\\begin{table*}[t]\n\\centering\\small\n"
+            "\\begin{tabular}{llrrrl}\n\\toprule\n"
+            "arm & comparator & slots & ours & theirs & difference \\\\\n\\midrule\n"
+            + "\n".join(rows)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            f"\\caption{{The comparison with the output budget taken from the comparator instead of "
+            f"the experiment. On each of the {n} substrates both arms are cut to the number of "
+            "candidates that comparator returned there, so the two are read over the same slots on "
+            "every substrate and not on average; slots is the mean of those lengths. That number "
+            "is not the comparator\'s mean emission, because the comparator\'s list first has its "
+            "duplicates removed, a prediction equal to the substrate dropped, and is then "
+            f"truncated at {cap} candidates. The truncation is this work\'s choice and not the "
+            f"comparator\'s: it sits five past this work\'s own pool cap, beyond which neither of "
+            "its arms has a candidate to put in a slot, so a comparison there would measure that "
+            f"cap rather than the ordering. Of the {n} substrates it binds on {detail}, "
+            f"and on none for the others, whose lists are shorter "
+            "than the cut everywhere. What it costs is measured: "
+            + _cut_cost(d)
+            + f"(Section~{xref('sec:si-matched', which)}). "
+            + ("The SyGMa, standardised rows are the same "
+               "control against SyGMa re-run on the drawing the declared standardiser produces "
+               "rather than the one the corpus stores, which is the form in which that "
+               "correction can be applied to a margin measured over slots. "
+               if "sygma on the standardised drawing" in _arms_here else "")
+            + _gloryxr_note(d)
+            + ("" if not absent else
+               "This population carries no column for " + ", ".join(absent) + ", which exists "
+               "only for the substrates that were submitted to it; "
+               f"Table~{xref('tab:si-matched-comparison', which)} gives the same control on the "
+               "comparison set, where it does. ")
+            + "$^{*}$ marks "
+            "an interval excluding zero. Leading zeros are dropped.}\n"
+            f"\\label{{{label}}}\n\\end{{table*}}\n")
+
+
+def si_short():
+    """How many of each arm's lists are shorter than the budget, at every budget.
+
+    The main text gives these at k=50 only, and they bear directly on how the two claimed leads
+    should be read: where a method has run out of candidates the budget has stopped measuring
+    ranking and is measuring list length instead.
+    """
+    d = art("deployment_table.json")
+    short = d["substrates_whose_list_is_shorter_than_the_budget"]
+    ks = sorted(short, key=int)
+    arms = list(short[ks[0]])
+    # label.get(a, a) used to fall back to the raw artifact key, which printed "gloryx" in
+    # lower case beside siblings that print "GLORYx" for as long as nobody looked, and then broke
+    # the build outright when a key with an underscore arrived: LaTeX read gloryxr_default as a
+    # subscript and threw twenty errors. A silent fallback to an internal identifier is not a
+    # label, so an arm with no spelling here stops the build the way it does in every other table
+    # in this file.
+    label = {"whole bank": "GRAIL exh.", "trained budget": "GRAIL int.", "metatox": "MetaTox",
+             "sygma": "SyGMa", "metapredictor": "MetaPred.", "biotransformer": "BioTrans.",
+             "gloryx": "GLORYx", "gloryxr_default": "GLORYxR d.",
+             "gloryxr_strict": "GLORYxR s."}
+    _unlabelled = [a for a in arms if a not in label]
+    if _unlabelled:
+        raise SystemExit(
+            f"REFUSING: this table has no spelling for {', '.join(_unlabelled)} and would print "
+            f"the artifact's own key in its place.")
+    # Nine arms across ran 126 pt past a one-column page, so the arms are cut into blocks of five
+    # and stacked. Every arm the artifact holds is still printed.
+    PER_BLOCK = 5
+    chunks = [arms[i:i + PER_BLOCK] for i in range(0, len(arms), PER_BLOCK)]
+
+    def tabular(group):
+        body = "\n".join(
+            f"${k}$ & " + " & ".join(str(short[k][a]) for a in group) + " \\\\" for k in ks)
+        head = " & ".join(label[a] for a in group)
+        return (f"\\begin{{tabular}}{{r{'r' * len(group)}}}\n\\toprule\n"
+                f"$k$ & {head} \\\\\n\\midrule\n" + body
+                + "\n\\bottomrule\n\\end{tabular}\n")
+
+    return ("\\begin{table}[h]\n\\centering\\small\n"
+            + "\n\\vspace{5pt}\n\n".join(tabular(g) for g in chunks)
+            + "\\caption{Substrates whose returned list is shorter than the budget, per arm and per "
+            f"budget, of the {d['population']['n']} in the comparison set. Where a method has run "
+            "out of candidates the budget has stopped measuring ranking and is measuring list "
+            "length, so these counts bear directly on how the leads at the widest budgets should "
+            "be read. The main text gives the $k=50$ row; the rest is here.}\n"
+            "\\label{tab:si-short}\n\\end{table}\n")
+
+
+def si_dialect():
+    """What the substrate's drawing does to each arm, and to each verdict.
+
+    Budgets are rows and arms are columns. Nine budgets across ran 69 pt past the page even with
+    the leading zeros gone, which is the same reason the intervals table is transposed.
+    """
+    d = art("dialect_sweep.json")
+    ks = [str(k) for k in d["budgets"]]
+    arms = list(d["effect_on_each_arm"])
+
+    def cell(v):
+        body = f"{v['difference']:+.4f}".replace("0.", ".")
+        lo, hi = (f"{x:+.3f}".replace("0.", ".") for x in v["ci95"])
+        mark = "$^{*}$" if v["separates"] else "\\phantom{$^{*}$}"
+        return f"{body}{mark} {{\\scriptsize [{lo},{hi}]}}"
+
+    rows = "\n".join(
+        f"${k}$ & " + " & ".join(cell(d["effect_on_each_arm"][a][k]) for a in arms) + " \\\\"
+        for k in ks)
+    cover = d["coverage_ceiling"]
+    head = " & ".join(a.replace("GRAIL ", "") for a in arms)
+    return ("\\begin{table}[h]\n\\centering\\small\n"
+            f"\\begin{{tabular}}{{r{'l' * len(arms)}}}\n\\toprule\n"
+            f"$k$ & {head} \\\\\n\\midrule\n" + rows
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{Micro recall with every substrate presented as the declared standardiser "
+            "draws it, minus the same quantity with the substrate as the corpus stores it, on the "
+            f"{d['n']} substrates of the comparison set, with the paired 95\\% interval. A "
+            "positive value is recall the corpus's drawing was denying the arm; $^{*}$ marks an "
+            "interval excluding zero, and leading zeros are dropped. The annotation is looked up "
+            "under the corpus string in both runs, so the two are scored against one set of "
+            "known metabolites and are paired substrate by substrate. On the same population "
+            "the coverage "
+            f"ceiling is {cover['stored']['coverage']:.4f} under the stored drawing and "
+            f"{cover['standardised']['coverage']:.4f} under the standardiser's, a difference of "
+            f"{cover['difference']['value']:+.4f} "
+            f"$[{cover['difference']['ci95'][0]:+.4f}, {cover['difference']['ci95'][1]:+.4f}]$. "
+            f"Of {d['verdict_cells']} arm-against-comparator verdicts, "
+            f"{d['verdict_cells_that_move']} move, and none is a lead the paper claims. The three "
+            "remaining comparators are held at the corpus drawing because MetaTox is a web "
+            "service and MetaPredictor a frozen delivery; SyGMa, which can be re-run, is swept "
+            "above.}\n"
+            "\\label{tab:si-dialect}\n\\end{table}\n")
+
+
+def si_intervals_whole():
+    """The same grid as si_intervals, on the population nobody selected.
+
+    It exists because the Supporting Information twice said it did not: that the wider cells "are
+    in no table in this paper", and that one comparator's wider cells are "among those no table
+    carries, so they are set out here". Sixty-seven cell macros were being read out in sentences in
+    consequence, and a prose enumeration is where an omission is invisible and where a claim can
+    bind to the wrong cell -- which the quantifier gate caught happening in that very section.
+
+    Two differences from its sibling, both forced by what the two axes are:
+
+      the budgets are the five this axis sweeps, not the nine the deployment table does, because a
+      lead at a budget with no whole-test counterpart cannot be followed across the move;
+
+      there is no Holm dagger. The declared family is a sweep over the comparison set, and marking
+      these cells against it would import a correction computed on a different grid. The caption
+      says so rather than leaving a reader to assume the mark was forgotten.
+    """
+    pop = art("population_definition.json")
+    con = pop["contrasts"]["the whole evaluated test set"]
+    # The axis names the two arms exhaustive_minus_comparator and deployed_minus_comparator; the
+    # printed labels are the sibling table's, so the two read alike.
+    ARMS = (("exhaustive_minus_comparator", "exhaustive"),
+            ("deployed_minus_comparator", "interactive"))
+
+    LABELS = {"metatox": "MetaTox", "sygma": "SyGMa", "metapredictor": "MetaPredictor",
+              "biotransformer": "BioTransformer", "gloryx": "GLORYx",
+              "gloryxr_default": "GLORYxR def.", "gloryxr_strict": "GLORYxR str."}
+    present = sorted(a for a, v in con.items()
+                     if isinstance(v, dict) and any(k in v for k, _ in ARMS))
+    unlabelled = [c for c in present if c not in LABELS]
+    if unlabelled:
+        raise SystemExit(
+            f"REFUSING: population_definition.json carries contrasts against "
+            f"{', '.join(unlabelled)} and this table has no column for them, while its caption "
+            f"says it holds every difference between a GRAIL arm and a comparator.")
+    comps = [(key, LABELS[key]) for key in LABELS if key in present]
+    ks = sorted({int(k) for c, _ in comps for arm, _ in ARMS for k in (con[c].get(arm) or {})})
+
+    def trim(x):
+        return ("$-$" if x < 0 else "+") + f"{abs(x):.3f}".lstrip("0")
+
+    # Seven comparator columns ran 154 pt past a one-column page, so the grid is cut into blocks of
+    # at most four and stacked. Every cell the artifact holds is still printed: narrowing the table
+    # by dropping a comparator is the failure this table's own caption forbids, and shrinking the
+    # type further would put a bootstrap interval below six point.
+    PER_BLOCK = 4
+    chunks = [comps[i:i + PER_BLOCK] for i in range(0, len(comps), PER_BLOCK)]
+
+    def tabular(group):
+        blocks = []
+        for arm, label in ARMS:
+            rows = []
+            for k in ks:
+                cells = []
+                for key, _ in group:
+                    c = (con[key].get(arm) or {}).get(str(k))
+                    if c is None:
+                        cells.append("---")
+                        continue
+                    star = "$^{*}$" if c["excludes_zero"] else "\\phantom{$^{*}$}"
+                    cells.append(f"{trim(c['difference'])}{star} "
+                                 f"[{trim(c['ci95'][0])}, {trim(c['ci95'][1])}]")
+                rows.append(f"${k}$ & " + " & ".join(cells) + " \\\\")
+            blocks.append(f"\\multicolumn{{{len(group) + 1}}}{{l}}{{\\emph{{GRAIL {label}}} minus}}"
+                          " \\\\\n" + "\n".join(rows))
+        head = " & ".join(lab for _, lab in group)
+        return ("\\begin{tabular}{r" + "l" * len(group) + "}\n\\toprule\n"
+                f"$k$ & {head} \\\\\n\\midrule\n"
+                + "\n\\midrule\n".join(blocks)
+                + "\n\\bottomrule\n\\end{tabular}\n")
+
+    return ("\\begin{table}[h]\n\\centering\\scriptsize\n"
+            "\\setlength{\\tabcolsep}{2.5pt}\n"
+            + "\n\\vspace{5pt}\n\n".join(tabular(g) for g in chunks)
+            + "\\caption{Every difference between a GRAIL arm and a comparator on the whole "
+            "evaluated test set, the companion to Table~\\ref{tab:si-intervals}, in micro recall "
+            "with its paired bootstrap 95\\% interval; leading zeros are dropped. $^{*}$ marks an "
+            "interval excluding zero. The budgets are the five this axis sweeps rather than the "
+            "nine of the comparison set, because a lead at a budget with no counterpart here "
+            "cannot be followed across the move. No Holm mark appears: the declared family is a "
+            "sweep over the comparison set, and carrying its correction onto this grid would "
+            "report a family nobody tested.}\n"
+            "\\label{tab:si-intervals-whole}\n\\end{table}\n")
+
+
+def si_intervals():
+    """Every GRAIL-versus-comparator difference with its paired interval.
+
+    One block per GRAIL arm, budgets as rows. The two transposes were 816 pt and 688 pt wide
+    against a 470 pt page; three comparator columns fit.
+    """
+    d = art("deployment_table.json")
+    mult = art("multiplicity.json")
+    con = d["contrasts"]
+    ks = sorted((int(k) for k in con), key=int)
+    # The caption says every difference between a GRAIL arm and a comparator, so the columns come
+    # from the artifact rather than from a list written when there were fewer comparators. A
+    # comparator with no heading stops the build: a table that silently prints four of five while
+    # the main text reads a verdict off the fifth is worse than one that does not build.
+    LABELS = {"metatox": "MetaTox", "sygma": "SyGMa", "metapredictor": "MetaPredictor",
+              "biotransformer": "BioTransformer", "gloryx": "GLORYx",
+              "gloryxr_default": "GLORYxR def.", "gloryxr_strict": "GLORYxR str."}
+    _present = sorted({pair.split(" - ")[1] for row in con.values() for pair in row
+                       if pair.startswith("whole bank - ")} - {"trained budget"})
+    _unlabelled = [c for c in _present if c not in LABELS]
+    if _unlabelled:
+        raise SystemExit(
+            f"REFUSING: deployment_table.json carries contrasts against "
+            f"{', '.join(_unlabelled)} and this table has no column for them, while its caption "
+            f"says it holds every difference between a GRAIL arm and a comparator.")
+    comps = [(key, LABELS[key]) for key in LABELS if key in _present]
+
+    def trim(x):
+        """+0.0496 -> +.050, so a cell is a number and not a paragraph."""
+        return ("$-$" if x < 0 else "+") + f"{abs(x):.3f}".lstrip("0")
+
+    # A fifth comparator column put this 78 pt over the measure at \footnotesize and the type came
+    # down instead of a column coming out, because the caption says the table holds every
+    # difference between a GRAIL arm and a comparator. A seventh put it 182 pt over, which no type
+    # size recovers. The grid is cut into blocks of at most four comparators and stacked; every
+    # cell the artifact holds is still printed.
+    PER_BLOCK = 4
+    chunks = [comps[i:i + PER_BLOCK] for i in range(0, len(comps), PER_BLOCK)]
+
+    def tabular(group):
+        blocks = []
+        for arm, label in (("whole bank", "exhaustive"), ("trained budget", "interactive")):
+            rows = []
+            for k in ks:
+                cells = []
+                for key, _ in group:
+                    c = con[str(k)].get(f"{arm} - {key}")
+                    if c is None:
+                        cells.append("---"); continue
+                    # A second mark for the family-wise reading: * separates per comparison,
+                    # dagger says it does not survive Holm over the whole sweep.
+                    key_cell = f"{arm} - {key} @ {k}"
+                    holm = mult["cells"].get(key_cell, {})
+                    star = "$^{*}$" if c["excludes_zero"] else "\\phantom{$^{*}$}"
+                    if c["excludes_zero"] and holm.get("separates_after_holm") is False:
+                        star += "$^{\\dagger}$"
+                    else:
+                        star += "\\phantom{$^{\\dagger}$}"
+                    cells.append(f"{trim(c['gap'])}{star} "
+                                 f"[{trim(c['ci95'][0])}, {trim(c['ci95'][1])}]")
+                rows.append(f"${k}$ & " + " & ".join(cells) + " \\\\")
+            blocks.append(f"\\multicolumn{{{len(group) + 1}}}{{l}}{{\\emph{{GRAIL {label}}} minus}}"
+                          " \\\\\n" + "\n".join(rows))
+        head = " & ".join(lab for _, lab in group)
+        return ("\\begin{tabular}{r" + "l" * len(group) + "}\n\\toprule\n"
+                f"$k$ & {head} \\\\\n\\midrule\n"
+                + "\n\\midrule\n".join(blocks)
+                + "\n\\bottomrule\n\\end{tabular}\n")
+
+    return ("\\begin{table}[h]\n\\centering\\scriptsize\n"
+            "\\setlength{\\tabcolsep}{2.5pt}\n"
+            + "\n\\vspace{5pt}\n\n".join(tabular(g) for g in chunks)
+            + "\\caption{Every difference between a GRAIL arm and a comparator on the comparison "
+            "set, in micro recall, with its paired bootstrap 95\\% interval; leading zeros are "
+            "dropped. $^{*}$ marks an interval excluding zero, which is the condition under which "
+            "the paper claims a lead or a trail, and the verdicts in the main text and in "
+            f"Figure~{xref('fig:sweep', 'si_table_intervals')} are read from these and from nothing else. The estimator is "
+            f"Equation~{xref('eq:bootstrap', 'si_table_intervals')} at "
+            "$B = 10\\,000$ resamples, seed 0. $^{\\dagger}$ marks a cell that separates per "
+            "comparison but not under Holm's correction over the whole sweep, a family of "
+            f"{mult['n_tests']} tests.}}\n"
+            "\\label{tab:si-intervals}\n\\end{table}\n")
+
+
+def si_metatox_mode():
+    """The comparator's own choice of mode, swept, where both settings came back.
+
+    Both modes were submitted and the reported column is the SMIRKS one. The default-mode
+    submission covers fewer substrates and no further one is available, so the sweep is read where
+    the two exist together and the caption says that this is not the population the rest of the
+    paper reports.
+    """
+    d = art("metatox_mode.json")
+    pop, cells = d["population"], d["contrasts"]
+    moved = d["verdicts_the_mode_moves"]
+    ARM = {"whole bank": "exhaustive", "trained budget": "interactive"}
+    ks = sorted(cells["whole bank"]["smirks"], key=int)
+    rows = []
+    for arm in ("whole bank", "trained budget"):
+        rows.append(f"\\multicolumn{{6}}{{l}}{{\\emph{{GRAIL {ARM[arm]}}} minus MetaTox}} \\\\")
+        for k in ks:
+            cs = []
+            for m in ("smirks", "default"):
+                c = cells[arm][m][k]
+                star = "$^{*}$" if c["excludes_zero"] else "\\phantom{$^{*}$}"
+                sign = "$-$" if c["gap"] < 0 else "+"
+                cs += [f"{c['recall_theirs']:.4f}".lstrip("0"),
+                       f"{sign}{abs(c['gap']):.4f}".lstrip("0") + star]
+            rows.append(f"${k}$ & " + f"{cells[arm]['smirks'][k]['recall_ours']:.4f}".lstrip("0")
+                        + " & " + " & ".join(cs) + " \\\\")
+    shift = "; ".join(
+        f"{ARM[a]} at $k={r['k']}$, {r['under_the_reported_mode']} to {r['under_the_other_mode']}"
+        for a in ("whole bank", "trained budget") for r in moved[a])
+    return ("\\begin{table}[h]\n\\centering\\scriptsize\n"
+            "\\begin{threeparttable}\n"
+            "\\caption{The comparator's own choice of mode, swept.}\n"
+            "\\label{tab:si-metatox-mode}\n"
+            "\\setlength{\\tabcolsep}{4pt}\n"
+            "\\begin{tabular}{rrrrrr}\n\\toprule\n"
+            " & & \\multicolumn{2}{c}{SMIRKS mode} & \\multicolumn{2}{c}{default mode} \\\\\n"
+            "$k$ & ours & theirs & difference & theirs & difference \\\\\n\\midrule\n"
+            + "\n".join(rows)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\begin{tablenotes}[flushleft]\\footnotesize\n"
+            f"\\item Read on the {pop['covered_by_both_modes']} substrates of the comparison set "
+            f"that both submissions came back for, carrying {pop['n_references']} known "
+            f"metabolites. That is not the {pop['declared_comparison_set']} the rest of this work "
+            f"reports: the default-mode submission did not cover "
+            f"{pop['not_covered_by_the_default_mode']} of them and no further submission is "
+            "available, so the two columns here are comparable with each other and not with any "
+            "other table. $^{*}$ marks an interval excluding zero, at "
+            f"$B = {d['bootstrap']['n']:,}$ resamples, seed {d['bootstrap']['seed']}. "
+            f"On this population the SMIRKS mode emits "
+            f"{d['mean_emitted_on_that_population']['smirks']} candidates per substrate and the "
+            f"default mode {d['mean_emitted_on_that_population']['default']}, which is why the "
+            "default mode stops gaining past a budget of fifteen: it has ended. The verdicts the "
+            f"choice of mode decides: {shift}. Leading zeros are dropped.\n"
+            "\\end{tablenotes}\n\\end{threeparttable}\n\\end{table}\n")
+
+
+def si_precision():
+    d = art(control_artifact("precision_table", HEADLINE))
+    pr = d["precision_micro"]
+    arms = list(pr)
+    ks = sorted((int(k) for k in pr[arms[0]]), key=int)
+    rows = [f"${k}$ & " + " & ".join(f"{pr[a][str(k)]:.4f}".lstrip("0") for a in arms)
+            + " \\\\" for k in ks]
+    head = " & ".join(a.replace("GRAIL ", "GRAIL\\ ") for a in arms)
+    # The float environment follows the document, the same way the cross-reference prefix
+    # does: eight columns need the two-column span in the manuscript and do not need it in
+    # the single-column Supporting Information. Moved in as "table" it overran its column.
+    env = wide_float("si_table_precision")
+    return (f"\\begin{{{env}}}[t]\n\\centering\\scriptsize\n"
+            "\\setlength{\\tabcolsep}{4pt}\n"
+            f"\\begin{{tabular}}{{r{'r' * len(arms)}}}\n\\toprule\n"
+            f"$k$ & {head} \\\\\n\\midrule\n" + "\n".join(rows)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            # Not "... of Table~\\ref{...}." -- the splitter that makes an ACS title out of the
+            # first sentence needs a letter or digit before the period, and a closing brace is
+            # neither, so the whole caption stayed in the title. Same defect, second caption.
+            "\\caption{Micro precision at each budget on the comparison set, under the parent-drop "
+            f"convention Table~{xref('tab:sweep', 'si_table_precision')} uses. Precision under an incomplete annotation is a "
+            "lower bound and is not used here to order systems.}"
+            f"\n\\label{{tab:si-precision}}\n\\end{{{env}}}\n")
+
+
+def si_parentdrop():
+    d = art("parent_drop_effect.json")
+    eff, pres = d["effect"], d["parent_returned"]
+    arms = list(eff)
+    ks = sorted((int(k) for k in eff[arms[0]]), key=int)
+
+    def trim(x):
+        if abs(x) < 5e-5:
+            return "$0$"
+        return ("$-$" if x < 0 else "$+$") + f"{abs(x):.4f}".lstrip("0")
+
+    rows = []
+    # The caption asserts that no cell separates from zero, and until now the table printed only
+    # the point effects, so the assertion rested on nothing a reader could see. The widest
+    # interval and the largest effect are read off the artifact and printed instead.
+    widest = max(((f"{a} at $k={k}$", eff[a][str(k)]["ci95"]) for a in arms for k in ks),
+                 key=lambda row: row[1][1] - row[1][0])
+    largest = max(abs(eff[a][str(k)]["effect"]) for a in arms for k in ks)
+    for a in arms:
+        cells = " & ".join(trim(eff[a][str(k)]["effect"]) for k in ks)
+        rows.append(f"{a} & {pres[a]['substrates_returning_the_parent']} & {cells} \\\\")
+    head = " & ".join(f"${k}$" for k in ks)
+    med = ", ".join(f"{a.replace('GRAIL ', '')} {pres[a]['median_rank_when_returned']}"
+                    for a in arms if pres[a]["median_rank_when_returned"])
+    return ("\\begin{table}[h]\n\\centering\\scriptsize\n"
+            f"\\begin{{tabular}}{{lr{'r' * len(ks)}}}\n\\toprule\n"
+            f" & returns & \\multicolumn{{{len(ks)}}}{{c}}{{effect on micro recall at budget "
+            f"$k$}} \\\\\n\\cmidrule(lr){{3-{len(ks) + 2}}}\n"
+            f"arm & parent & {head} \\\\\n\\midrule\n" + "\n".join(rows)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{What the parent-drop convention gives each arm. \\emph{Returns parent} is "
+            f"the number of the {d['population']['n']} substrates whose returned list contains the "
+            f"substrate itself; where it does, its median rank is {med}. The effect is recall with "
+            "the convention minus recall without it, with leading zeros dropped, so a positive "
+            "value is a hit promoted into the window and a negative one is the convention "
+            f"discarding a known metabolite: {d['substrates_whose_own_key_is_a_reference']} substrates "
+            "carry their own key among their known metabolites. Every cell carries a paired 95\\% "
+            "interval computed the same way as every other interval here and none of the "
+            f"{len(arms) * len(ks)} excludes zero; printing them all would fill the table with "
+            "the same statement, so the widest is given instead, "
+            f"$[{widest[1][0]:+.4f}, {widest[1][1]:+.4f}]$ for {widest[0]}. The largest effect "
+            f"anywhere in the grid is {largest:.4f}, which is "
+            f"{round(largest * d['population']['n_references'])} hits in "
+            f"{int(d['population']['n_references'])} known metabolites.}}\n"
+            "\\label{tab:si-parentdrop}\n\\end{table}\n")
+
+
+def si_case():
+    d = art("case_study_exhaustive.json")
+    i = art("case_study.json")
+    # Atoms on the template's reactant side, so the claim that most of this list comes from very
+    # small templates can be checked against the table it is made beside rather than taken. The
+    # count is RDKit's over the parsed reactant templates, which is the definition the census
+    # behind that claim uses; counting bracket atoms in the SMIRKS string instead gives a
+    # different answer on this very list, 12 against 11.
+    def reactant_atoms(smirks):
+        from rdkit import RDLogger
+        from rdkit.Chem import AllChem
+
+        RDLogger.DisableLog("rdApp.*")
+        try:
+            rxn = AllChem.ReactionFromSmarts(str(smirks))
+        except Exception:
+            return None
+        if rxn is None or rxn.GetNumReactantTemplates() == 0:
+            return None
+        return sum(rxn.GetReactantTemplate(i).GetNumAtoms()
+                   for i in range(rxn.GetNumReactantTemplates()))
+
+    rows, small = [], 0
+    for c in d["candidates"][:20]:
+        star = "$\\star$" if c["is_reference"] else ""
+        sites = ",".join(str(a) for a in c["firing_atoms"][:6]) or "---"
+        n_at = reactant_atoms(c.get("rule", ""))
+        small += bool(n_at and n_at <= 3)
+        rows.append(f"{c['rank']} & {star} & {c['rule_id']} & {c['rule_source']} & "
+                    f"{n_at if n_at else '---'} & {sites} & "
+                    f"{c['generator']:.3f} & {c['filter']:.3f} \\\\")
+    return ("\\begin{table}[h]\n\\centering\\footnotesize\n"
+            "\\begin{tabular}{rlrlrlrr}\n\\toprule\n"
+            "rank & ref & rule & source & atoms & sites & generator & filter \\\\\n"
+            "\\midrule\n"
+            + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}\n"
+            "\\caption{The first twenty of the "
+            f"{d['n_candidates']} candidates the exhaustive mode returns for the worked example. "
+            "Each row gives the rule that produced the candidate, whether that rule was curated "
+            "or mined, the number of atoms on its reactant side and the "
+            "substrate atoms it fired on. $\\star$ marks an annotated metabolite. "
+            f"{small} of the twenty come from a template of three reactant atoms or fewer, which "
+            "is the count the manuscript quotes and which this column makes checkable. "
+            "The interactive "
+            f"mode returns {i['n_candidates']} candidates for the same substrate. The complete "
+            "ranked lists of both modes are in the released artifacts.}\n"
+            "\\label{tab:si-case}\n\\end{table}\n")
+
+
+def si_aggregation():
+    """Recall under each aggregation rule the implementation offers, against the deployed one.
+
+    The levels here are the deployed arm's own, which is the point: the deployed rule re-derived
+    from per-template scores has to reproduce the published column or the re-run is on a different
+    model, and the producer refuses to write the artifact when it does not.
+    """
+    d = art("aggregation_ablation.json")
+    # Three is here because the manuscript quotes the maximum rule's extremum at it, the extremum
+    # is a tie between three and five with different intervals, and until this column existed a
+    # reader following the manuscript's own pointer found only the five cell and read the pair as
+    # a contradiction. Every budget a document names has to be printed somewhere.
+    ks = ["3", "5", "15", "30", "50"]
+    order = ["noisy_or", "max", "mean", "hybrid"]
+    NAME = {"noisy_or": "noisy-or", "max": "maximum", "mean": "mean", "hybrid": "hybrid"}
+    rows = []
+    for rule in order:
+        row = d["by_rule"][rule]
+        cells = " & ".join(f"{row['recall'][k]:.4f}".lstrip("0") for k in ks)
+        # The difference is shown at a tight budget and a wide one, because that is where the
+        # rules disagree: a rule that discounts duplication helps the head of the list and does
+        # nothing measurable at the budgets this work reads its leads at.
+        if rule == d["deployed"]:
+            gaps = ["---", "---", "---"]
+            label = f"\\textbf{{{NAME[rule]}}}"
+        else:
+            gaps = []
+            for at in ("3", "5", "30"):
+                cell = row["minus_noisy_or"][at]
+                star = "$^{*}$" if cell["excludes_zero"] else ""
+                gaps.append(("$-$" if cell["difference"] < 0 else "+")
+                            + f"{abs(cell['difference']):.4f}"[1:] + star)
+            label = NAME[rule]
+        rows.append(f"{label} & {row['mean_ranked']:.1f} & {cells} & "
+                    + " & ".join(gaps) + " \\\\")
+    head = " & ".join(f"$r@{k}$" for k in ks)
+    n = d["population"]["n_substrates"]
+    refs = d["population"]["n_references"]
+    return ("\\begin{table}[h]\n\\centering\\small\n"
+            "\\begin{tabular}{@{}lrrrrrrrrr@{}}\n\\toprule\n"
+            f"aggregation & candidates & {head} & at 3 & at 5 & at 30 \\\\\n\\midrule\n"
+            + "\n".join(rows)
+            + "\n\\bottomrule\n\\end{tabular}\n"
+            f"\\caption{{Micro recall under each rule for combining the templates that reach one "
+            f"candidate, on the {n} substrates of the comparison set carrying {refs} annotated "
+            "metabolites; leading zeros are dropped. Candidates is the mean number ranked after "
+            "deduplication and the pool cap. The deployed rule is in bold and reproduces the "
+            "whole-bank column of the comparison table at every budget. The last two columns are "
+            "the paired difference against it in micro recall at the two tight budgets a document of this work names and at a wide one, "
+            "with $^{*}$ marking an interval that excludes zero; the rules disagree at the head "
+            "of the list and not at the budgets this work reads its leads at.}\n"
+            "\\label{tab:si-aggregation}\n\\end{table}\n")
+
+
+def generators():
+    """Every table this module writes, as (name, callable).
+
+    Lifted out of the entry point so a checker can enumerate what the tables read. The macro
+    generator was instrumented for that and this one was not, which left every artifact reaching
+    the page through a table outside the guarantee.
+    """
+    return (("si_table_splits", si_splits), ("si_table_criteria", si_criteria),
+                     ("si_table_oracle", si_oracle),
+                     ("si_table_case", si_case),
+                     ("si_table_ranking", si_ranking),
+                     ("si_table_intervals", si_intervals),
+                     ("si_table_intervals_whole", si_intervals_whole),
+                     ("si_table_precision", si_precision),
+                     ("si_table_metatox_mode", si_metatox_mode),
+                     ("si_table_parentdrop", si_parentdrop),
+                     ("si_table_dialect", si_dialect),
+                     ("si_table_short", si_short),
+                     ("si_table_hyperparameters", si_hyperparameters),
+                     ("si_table_chemistry", si_chemistry),
+                     ("si_table_chemistry_matched", si_chemistry_matched),
+                     ("si_table_budget", si_budget),
+                     ("si_table_counts", si_counts),
+                     ("si_table_macro", si_macro),
+                     ("si_table_matched", si_matched),
+                     ("si_table_matched_comparison",
+                      lambda: si_matched("si_table_matched_comparison")),
+                     ("si_table_aggregation", si_aggregation),
+                     # The verdict grid is printed in the manuscript rather than the Supporting
+                     # Information: it is the evidence the title advertises. One generator, one
+                     # label, two documents pointing at the same object.
+                     ("si_table_criterion_levels", si_criterion_levels),
+                     ("si_table_fusion_k", si_fusion_k),
+                     ("si_table_applicability", si_applicability),
+                     ("si_table_population_list", si_population_list),
+                     ("si_table_worked_structures", si_worked_structures),
+                     ("si_table_equalised", si_drawing_equalised),
+                     )
+
+
+def _write_all(tolerate_unresolved: bool):
+    """One pass over the generators. Returns the names that refused on an unresolved label."""
+    import _acs_table
+
+    for fn in (_acs_table._doc_inputs, _acs_table._label_homes):
+        fn.cache_clear()
+    deferred = []
+    for name, fn in generators():
+        try:
+            (OUT / f"{name}.tex").write_text(acs_table(fn()))
+            print(f"  wrote paper2/{name}.tex")
+        except SystemExit as e:
+            # A cross-reference to a table that has yet to be written on this pass. The prefix a
+            # reference needs is derived from which document holds the label, and a label lives
+            # in the generated file, so a new table referred to by an older one cannot resolve
+            # until it exists. Two passes, as a LaTeX build does it, rather than a bootstrap
+            # step somebody has to know about.
+            if tolerate_unresolved and "no document defines" in str(e):
+                deferred.append(name)
+                print(f"  defer {name}: {e}")
+                continue
+            raise
+        except FileNotFoundError as e:
+            # A refusal must not leave the previous table standing. Skipping and exiting zero
+            # means a stale .tex survives, LaTeX compiles it, and the document carries numbers
+            # from an artifact the generator has just declined to use. Removing it makes the
+            # build fail on a missing \input, which is the loudest failure available here.
+            stale = OUT / f"{name}.tex"
+            if stale.exists():
+                stale.unlink()
+                print(f"  SKIP {name}, and removed the table it would have replaced: {e}")
+            else:
+                print(f"  SKIP {name}: {e}")
+    return deferred
+
+
+if __name__ == "__main__":
+    if _write_all(tolerate_unresolved=True):
+        print("  second pass, now that every label has a file")
+        _write_all(tolerate_unresolved=False)
+

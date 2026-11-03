@@ -1,0 +1,3970 @@
+{
+ "provenance": {
+  "script": "ocsr_calibration.py",
+  "script_path": "scripts/ocsr_calibration.py",
+  "source_sha256": "440030688c530d76a231edfe5ffe2a61ce2bf19cfd83895554ed067d912bde27",
+  "git_commit": "2e9ad9c44c7e7766a6ebd705716ccf6fc01adecc",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "docs/benchmark/data/gloryx_test.json",
+   "exists": true,
+   "sha256_16": "5e8df962a373eda0",
+   "bytes": 40564
+  }
+ ],
+ "what_this_is": "the answer key for the transcription calibration: which structure each rendered image is, held outside the directory the recogniser is given",
+ "styles": {
+  "plain": {
+   "rotate": 0.0,
+   "bondLineWidth": 2,
+   "minFontSize": 12,
+   "stereo": false
+  },
+  "rotated": {
+   "rotate": 24.0,
+   "bondLineWidth": 2,
+   "minFontSize": 12,
+   "stereo": false
+  },
+  "thin_small": {
+   "rotate": -11.0,
+   "bondLineWidth": 1,
+   "minFontSize": 8,
+   "stereo": false
+  },
+  "annotated": {
+   "rotate": 7.0,
+   "bondLineWidth": 2,
+   "minFontSize": 11,
+   "stereo": true
+  }
+ },
+ "size_px": 420,
+ "n_structures": 205,
+ "n_images": 784,
+ "unparsed": [],
+ "key": {
+  "img_45882a965bcf": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCC[C@H](C1)NC(C)=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "plain"
+  },
+  "img_babdfb457559": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCC[C@H](C1)NC(C)=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "rotated"
+  },
+  "img_41848c206d1c": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCC[C@H](C1)NC(C)=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "thin_small"
+  },
+  "img_080c83c48dcd": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCC[C@H](C1)NC(C)=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "annotated"
+  },
+  "img_ac5ce6454fb0": {
+   "smiles": "CN1c2nc(N3CCC[C@H](C3)NC(C)=O)n(CC#CCO)c2C(=O)N(Cc2nc(C)c3ccccc3n2)C1=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "plain"
+  },
+  "img_9c486548c699": {
+   "smiles": "CN1c2nc(N3CCC[C@H](C3)NC(C)=O)n(CC#CCO)c2C(=O)N(Cc2nc(C)c3ccccc3n2)C1=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "rotated"
+  },
+  "img_b49a58cf63b6": {
+   "smiles": "CN1c2nc(N3CCC[C@H](C3)NC(C)=O)n(CC#CCO)c2C(=O)N(Cc2nc(C)c3ccccc3n2)C1=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "thin_small"
+  },
+  "img_8112c56020ba": {
+   "smiles": "CN1c2nc(N3CCC[C@H](C3)NC(C)=O)n(CC#CCO)c2C(=O)N(Cc2nc(C)c3ccccc3n2)C1=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "annotated"
+  },
+  "img_45c319e152c6": {
+   "smiles": "CN1c2nc(N3CCC[C@@H](N)C3)n(CC#CCO)c2C(=O)N(Cc2nc(C)c3ccccc3n2)C1=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "plain"
+  },
+  "img_934fa3f9b090": {
+   "smiles": "CN1c2nc(N3CCC[C@@H](N)C3)n(CC#CCO)c2C(=O)N(Cc2nc(C)c3ccccc3n2)C1=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "rotated"
+  },
+  "img_a86fb566bb5e": {
+   "smiles": "CN1c2nc(N3CCC[C@@H](N)C3)n(CC#CCO)c2C(=O)N(Cc2nc(C)c3ccccc3n2)C1=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "thin_small"
+  },
+  "img_05fcc448df19": {
+   "smiles": "CN1c2nc(N3CCC[C@@H](N)C3)n(CC#CCO)c2C(=O)N(Cc2nc(C)c3ccccc3n2)C1=O",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "annotated"
+  },
+  "img_acc98faabd55": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCCC(=O)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "plain"
+  },
+  "img_66731fd3814c": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCCC(=O)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "rotated"
+  },
+  "img_57f3d46e7b4f": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCCC(=O)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "thin_small"
+  },
+  "img_41abf891cf22": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCCC(=O)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "annotated"
+  },
+  "img_db92bf8ba8f6": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCCC(O)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "plain"
+  },
+  "img_73c87289e40a": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCCC(O)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "rotated"
+  },
+  "img_f40dc59d1eea": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCCC(O)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "thin_small"
+  },
+  "img_7cb23385d73c": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N1CCCC(O)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "annotated"
+  },
+  "img_a6d7dcaa8b00": {
+   "smiles": "CC#CCn1c(NCCCC(O)C(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "plain"
+  },
+  "img_f43ea6b2befd": {
+   "smiles": "CC#CCn1c(NCCCC(O)C(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "rotated"
+  },
+  "img_3734e583e96c": {
+   "smiles": "CC#CCn1c(NCCCC(O)C(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "thin_small"
+  },
+  "img_ba55df86f655": {
+   "smiles": "CC#CCn1c(NCCCC(O)C(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "annotated"
+  },
+  "img_70c1ead3caa0": {
+   "smiles": "CC#CCn1c(NCCCC(=O)C(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "plain"
+  },
+  "img_a09b1e62af4d": {
+   "smiles": "CC#CCn1c(NCCCC(=O)C(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "rotated"
+  },
+  "img_64fafca3e3c2": {
+   "smiles": "CC#CCn1c(NCCCC(=O)C(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "thin_small"
+  },
+  "img_3c867e2226e0": {
+   "smiles": "CC#CCn1c(NCCCC(=O)C(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "annotated"
+  },
+  "img_537f78973f10": {
+   "smiles": "CC#CCn1c(NCCCC(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "plain"
+  },
+  "img_77b501d93821": {
+   "smiles": "CC#CCn1c(NCCCC(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "rotated"
+  },
+  "img_1dd0f24f2596": {
+   "smiles": "CC#CCn1c(NCCCC(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "thin_small"
+  },
+  "img_08f4e92ab758": {
+   "smiles": "CC#CCn1c(NCCCC(O)=O)nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "annotated"
+  },
+  "img_16fc65b0f1a1": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C(O)=O)c4ccccc4n3)C(=O)c12)N1CCC[C@@H](N)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "plain"
+  },
+  "img_5b95de77b63f": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C(O)=O)c4ccccc4n3)C(=O)c12)N1CCC[C@@H](N)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "rotated"
+  },
+  "img_def5150d9760": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C(O)=O)c4ccccc4n3)C(=O)c12)N1CCC[C@@H](N)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "thin_small"
+  },
+  "img_865b1395481b": {
+   "smiles": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C(O)=O)c4ccccc4n3)C(=O)c12)N1CCC[C@@H](N)C1",
+   "parent": "CC#CCn1c(nc2N(C)C(=O)N(Cc3nc(C)c4ccccc4n3)C(=O)c12)N5CCC[C@@H](N)C5",
+   "style": "annotated"
+  },
+  "img_3f06e7946676": {
+   "smiles": "CC(C)(O)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "plain"
+  },
+  "img_44e92c0e608d": {
+   "smiles": "CC(C)(O)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "rotated"
+  },
+  "img_77b04a385e20": {
+   "smiles": "CC(C)(O)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "thin_small"
+  },
+  "img_cee326da7231": {
+   "smiles": "CC(C)(O)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "annotated"
+  },
+  "img_0e5b30e65233": {
+   "smiles": "CC(C)(O)CN(C[C@@H](O)[C@@H](N)Cc1ccccc1)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "plain"
+  },
+  "img_79429b6d2417": {
+   "smiles": "CC(C)(O)CN(C[C@@H](O)[C@@H](N)Cc1ccccc1)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "rotated"
+  },
+  "img_395923ee7a41": {
+   "smiles": "CC(C)(O)CN(C[C@@H](O)[C@@H](N)Cc1ccccc1)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "thin_small"
+  },
+  "img_5b9064645300": {
+   "smiles": "CC(C)(O)CN(C[C@@H](O)[C@@H](N)Cc1ccccc1)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "annotated"
+  },
+  "img_56882c11b99a": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@@H](N)Cc1ccccc1)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "plain"
+  },
+  "img_f12df9037f83": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@@H](N)Cc1ccccc1)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "rotated"
+  },
+  "img_169727da3a47": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@@H](N)Cc1ccccc1)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "thin_small"
+  },
+  "img_dcf1a41117d6": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@@H](N)Cc1ccccc1)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "annotated"
+  },
+  "img_7d3f084c23d2": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccc(O)cc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "plain"
+  },
+  "img_a80dbe71afd5": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccc(O)cc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "rotated"
+  },
+  "img_c8b84188938c": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccc(O)cc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "thin_small"
+  },
+  "img_45f6acd43f54": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccc(O)cc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "annotated"
+  },
+  "img_4e86221435f5": {
+   "smiles": "CC(C)CN(C[C@@H](OC1OC(C(O)C(O)C1O)C(O)=O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "plain"
+  },
+  "img_1e3cdf55f433": {
+   "smiles": "CC(C)CN(C[C@@H](OC1OC(C(O)C(O)C1O)C(O)=O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "rotated"
+  },
+  "img_641b028fe595": {
+   "smiles": "CC(C)CN(C[C@@H](OC1OC(C(O)C(O)C1O)C(O)=O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "thin_small"
+  },
+  "img_6e64c1aa3e56": {
+   "smiles": "CC(C)CN(C[C@@H](OC1OC(C(O)C(O)C1O)C(O)=O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "annotated"
+  },
+  "img_51ab3e1a2b1e": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(NC2OC(C(O)C(O)C2O)C(O)=O)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "plain"
+  },
+  "img_ae92e0fa40d3": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(NC2OC(C(O)C(O)C2O)C(O)=O)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "rotated"
+  },
+  "img_f59179c357fc": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(NC2OC(C(O)C(O)C2O)C(O)=O)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "thin_small"
+  },
+  "img_679ad164cb18": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(NC2OC(C(O)C(O)C2O)C(O)=O)cc1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "annotated"
+  },
+  "img_5b79a9cdbaa6": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)c(O)c1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "plain"
+  },
+  "img_ddaa0b4ca852": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)c(O)c1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "rotated"
+  },
+  "img_20465d7356d5": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)c(O)c1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "thin_small"
+  },
+  "img_7bdbf31aeab4": {
+   "smiles": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]1CO[C@H]2OCC[C@@H]12)S(=O)(=O)c1ccc(N)c(O)c1",
+   "parent": "CC(C)CN(C[C@@H](O)[C@H](Cc1ccccc1)NC(=O)O[C@H]2CO[C@H]3OCC[C@@H]23)S(=O)(=O)c4ccc(N)cc4",
+   "style": "annotated"
+  },
+  "img_0203873cc228": {
+   "smiles": "C[C@H](N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc1ccccc1)C(O)=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "plain"
+  },
+  "img_ecc9e84dc52a": {
+   "smiles": "C[C@H](N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc1ccccc1)C(O)=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "rotated"
+  },
+  "img_6d5b1b6fae06": {
+   "smiles": "C[C@H](N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc1ccccc1)C(O)=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "thin_small"
+  },
+  "img_996404e6e029": {
+   "smiles": "C[C@H](N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc1ccccc1)C(O)=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "annotated"
+  },
+  "img_b1ebce79094d": {
+   "smiles": "C[C@H](N[P@](O)(=O)OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)C(O)=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "plain"
+  },
+  "img_4bcbacd9b4b3": {
+   "smiles": "C[C@H](N[P@](O)(=O)OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)C(O)=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "rotated"
+  },
+  "img_72d06a4cedce": {
+   "smiles": "C[C@H](N[P@](O)(=O)OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)C(O)=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "thin_small"
+  },
+  "img_c4a26a6b4c81": {
+   "smiles": "C[C@H](N[P@](O)(=O)OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)C(O)=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "annotated"
+  },
+  "img_e80397f7921b": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](COP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "plain"
+  },
+  "img_de83fb591cb7": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](COP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "rotated"
+  },
+  "img_768a361e46d3": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](COP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "thin_small"
+  },
+  "img_4bf5039dc630": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](COP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "annotated"
+  },
+  "img_8930869dbf7d": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](CO[P@@](O)(=O)OP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "plain"
+  },
+  "img_ed944bacb91d": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](CO[P@@](O)(=O)OP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "rotated"
+  },
+  "img_9d577389ab72": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](CO[P@@](O)(=O)OP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "thin_small"
+  },
+  "img_bd02f9b596d5": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](CO[P@@](O)(=O)OP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "annotated"
+  },
+  "img_f3dc7d07a16d": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](CO[P@@](O)(=O)OP(O)(=O)OP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "plain"
+  },
+  "img_e1a1467a327b": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](CO[P@@](O)(=O)OP(O)(=O)OP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "rotated"
+  },
+  "img_7a971ae34686": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](CO[P@@](O)(=O)OP(O)(=O)OP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "thin_small"
+  },
+  "img_e41fceb6a99b": {
+   "smiles": "C[C@@]1(F)[C@H](O)[C@@H](CO[P@@](O)(=O)OP(O)(=O)OP(O)(O)=O)O[C@H]1N1C=CC(=O)NC1=O",
+   "parent": "CC(C)OC(=O)[C@H](C)N[P@](=O)(OC[C@H]1O[C@@H](N2C=CC(=O)NC2=O)[C@](C)(F)[C@@H]1O)Oc3ccccc3",
+   "style": "annotated"
+  },
+  "img_2bd64afd00ea": {
+   "smiles": "CC(C)c1c(C(=O)Nc2ccc(O)cc2)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1",
+   "parent": "CC(C)c1c(C(=O)Nc2ccccc2)c(c3ccccc3)c(c4ccc(F)cc4)n1CC[C@@H](O)C[C@@H](O)CC(=O)O",
+   "style": "plain"
+  },
+  "img_3007c243dd19": {
+   "smiles": "CC(C)c1c(C(=O)Nc2ccc(O)cc2)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1",
+   "parent": "CC(C)c1c(C(=O)Nc2ccccc2)c(c3ccccc3)c(c4ccc(F)cc4)n1CC[C@@H](O)C[C@@H](O)CC(=O)O",
+   "style": "rotated"
+  },
+  "img_43a574264af8": {
+   "smiles": "CC(C)c1c(C(=O)Nc2ccc(O)cc2)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1",
+   "parent": "CC(C)c1c(C(=O)Nc2ccccc2)c(c3ccccc3)c(c4ccc(F)cc4)n1CC[C@@H](O)C[C@@H](O)CC(=O)O",
+   "style": "thin_small"
+  },
+  "img_a8ca7a1c61c2": {
+   "smiles": "CC(C)c1c(C(=O)Nc2ccc(O)cc2)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1",
+   "parent": "CC(C)c1c(C(=O)Nc2ccccc2)c(c3ccccc3)c(c4ccc(F)cc4)n1CC[C@@H](O)C[C@@H](O)CC(=O)O",
+   "style": "annotated"
+  },
+  "img_d7e69053a55d": {
+   "smiles": "CC(C)c1c(C(=O)Nc2ccccc2O)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1",
+   "parent": "CC(C)c1c(C(=O)Nc2ccccc2)c(c3ccccc3)c(c4ccc(F)cc4)n1CC[C@@H](O)C[C@@H](O)CC(=O)O",
+   "style": "plain"
+  },
+  "img_c0c87ad232b3": {
+   "smiles": "CC(C)c1c(C(=O)Nc2ccccc2O)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1",
+   "parent": "CC(C)c1c(C(=O)Nc2ccccc2)c(c3ccccc3)c(c4ccc(F)cc4)n1CC[C@@H](O)C[C@@H](O)CC(=O)O",
+   "style": "rotated"
+  },
+  "img_cbb2e2cc4e0c": {
+   "smiles": "CC(C)c1c(C(=O)Nc2ccccc2O)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1",
+   "parent": "CC(C)c1c(C(=O)Nc2ccccc2)c(c3ccccc3)c(c4ccc(F)cc4)n1CC[C@@H](O)C[C@@H](O)CC(=O)O",
+   "style": "thin_small"
+  },
+  "img_53cde3a2af68": {
+   "smiles": "CC(C)c1c(C(=O)Nc2ccccc2O)c(c(-c2ccc(F)cc2)n1CC[C@@H](O)C[C@@H](O)CC(O)=O)-c1ccccc1",
+   "parent": "CC(C)c1c(C(=O)Nc2ccccc2)c(c3ccccc3)c(c4ccc(F)cc4)n1CC[C@@H](O)C[C@@H](O)CC(=O)O",
+   "style": "annotated"
+  },
+  "img_90362ed7e5de": {
+   "smiles": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@@H](N)Cc2ccccc2)Cc2ccccc2)cs1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "plain"
+  },
+  "img_e2cdf0ce25cb": {
+   "smiles": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@@H](N)Cc2ccccc2)Cc2ccccc2)cs1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "rotated"
+  },
+  "img_c2be120a7613": {
+   "smiles": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@@H](N)Cc2ccccc2)Cc2ccccc2)cs1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "thin_small"
+  },
+  "img_f71b5432e7d6": {
+   "smiles": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@@H](N)Cc2ccccc2)Cc2ccccc2)cs1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "annotated"
+  },
+  "img_59aee7fa1532": {
+   "smiles": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@@H](N)Cc1ccccc1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "plain"
+  },
+  "img_2f4300d07224": {
+   "smiles": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@@H](N)Cc1ccccc1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "rotated"
+  },
+  "img_5126cc3a1b8f": {
+   "smiles": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@@H](N)Cc1ccccc1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "thin_small"
+  },
+  "img_3652dadb5e9c": {
+   "smiles": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@@H](N)Cc1ccccc1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "annotated"
+  },
+  "img_136d5ce39e19": {
+   "smiles": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "plain"
+  },
+  "img_9f9b7d09da69": {
+   "smiles": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "rotated"
+  },
+  "img_8c4958f58977": {
+   "smiles": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "thin_small"
+  },
+  "img_8c6ad8bcfe9c": {
+   "smiles": "CNC(=O)N[C@@H](CCN1CCOCC1)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "annotated"
+  },
+  "img_927ef8e5d8cd": {
+   "smiles": "CNC(=O)N[C@@H](CCNCCO)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "plain"
+  },
+  "img_bd73d93f1600": {
+   "smiles": "CNC(=O)N[C@@H](CCNCCO)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "rotated"
+  },
+  "img_4205eeb92551": {
+   "smiles": "CNC(=O)N[C@@H](CCNCCO)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "thin_small"
+  },
+  "img_120802118700": {
+   "smiles": "CNC(=O)N[C@@H](CCNCCO)C(=O)N[C@H](CC[C@H](Cc1ccccc1)NC(=O)OCc1cncs1)Cc1ccccc1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "annotated"
+  },
+  "img_317bf244b993": {
+   "smiles": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCNCCO)C(=O)N[C@H](CC[C@H](Cc2ccccc2)NC(=O)OCc2cncs2)Cc2ccccc2)cs1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "plain"
+  },
+  "img_274406e70219": {
+   "smiles": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCNCCO)C(=O)N[C@H](CC[C@H](Cc2ccccc2)NC(=O)OCc2cncs2)Cc2ccccc2)cs1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "rotated"
+  },
+  "img_f636265e7fb7": {
+   "smiles": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCNCCO)C(=O)N[C@H](CC[C@H](Cc2ccccc2)NC(=O)OCc2cncs2)Cc2ccccc2)cs1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "thin_small"
+  },
+  "img_2e7c7638cf56": {
+   "smiles": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCNCCO)C(=O)N[C@H](CC[C@H](Cc2ccccc2)NC(=O)OCc2cncs2)Cc2ccccc2)cs1",
+   "parent": "CC(C)c1nc(CN(C)C(=O)N[C@@H](CCN2CCOCC2)C(=O)N[C@H](CC[C@H](Cc3ccccc3)NC(=O)OCc4cncs4)Cc5ccccc5)cs1",
+   "style": "annotated"
+  },
+  "img_e570155f8f82": {
+   "smiles": "CC(C)c1nc(NS(C)(=O)=O)nc(-c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(O)=O",
+   "parent": "CC(C)c1nc(nc(c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(=O)(=O)C",
+   "style": "plain"
+  },
+  "img_331eee156c9f": {
+   "smiles": "CC(C)c1nc(NS(C)(=O)=O)nc(-c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(O)=O",
+   "parent": "CC(C)c1nc(nc(c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(=O)(=O)C",
+   "style": "rotated"
+  },
+  "img_fb21fa7a12fd": {
+   "smiles": "CC(C)c1nc(NS(C)(=O)=O)nc(-c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(O)=O",
+   "parent": "CC(C)c1nc(nc(c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(=O)(=O)C",
+   "style": "thin_small"
+  },
+  "img_84806a0920ce": {
+   "smiles": "CC(C)c1nc(NS(C)(=O)=O)nc(-c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(O)=O",
+   "parent": "CC(C)c1nc(nc(c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(=O)(=O)C",
+   "style": "annotated"
+  },
+  "img_d4a726db4a7b": {
+   "smiles": "CC(C)c1nc(nc(-c2ccc(F)cc2)c1\\C=C\\[C@@]1(O)C[C@@H](O)CC(=O)O1)N(C)S(C)(=O)=O",
+   "parent": "CC(C)c1nc(nc(c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(=O)(=O)C",
+   "style": "plain"
+  },
+  "img_b6d812c83296": {
+   "smiles": "CC(C)c1nc(nc(-c2ccc(F)cc2)c1\\C=C\\[C@@]1(O)C[C@@H](O)CC(=O)O1)N(C)S(C)(=O)=O",
+   "parent": "CC(C)c1nc(nc(c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(=O)(=O)C",
+   "style": "rotated"
+  },
+  "img_192b38dbfcc7": {
+   "smiles": "CC(C)c1nc(nc(-c2ccc(F)cc2)c1\\C=C\\[C@@]1(O)C[C@@H](O)CC(=O)O1)N(C)S(C)(=O)=O",
+   "parent": "CC(C)c1nc(nc(c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(=O)(=O)C",
+   "style": "thin_small"
+  },
+  "img_2ac4d2f8d6a7": {
+   "smiles": "CC(C)c1nc(nc(-c2ccc(F)cc2)c1\\C=C\\[C@@]1(O)C[C@@H](O)CC(=O)O1)N(C)S(C)(=O)=O",
+   "parent": "CC(C)c1nc(nc(c2ccc(F)cc2)c1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(=O)(=O)C",
+   "style": "annotated"
+  },
+  "img_83d005b2b424": {
+   "smiles": "CCC(=O)O[C@@]1([C@H](C)C[C@H]2[C@@H]3C[C@H](F)C4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@]12C)C(O)=O",
+   "parent": "CCC(=O)O[C@@]1([C@H](C)C[C@H]2[C@@H]3C[C@H](F)C4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@]12C)C(=O)SCF",
+   "style": "plain"
+  },
+  "img_deacee23ebac": {
+   "smiles": "CCC(=O)O[C@@]1([C@H](C)C[C@H]2[C@@H]3C[C@H](F)C4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@]12C)C(O)=O",
+   "parent": "CCC(=O)O[C@@]1([C@H](C)C[C@H]2[C@@H]3C[C@H](F)C4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@]12C)C(=O)SCF",
+   "style": "rotated"
+  },
+  "img_c3b8e627930b": {
+   "smiles": "CCC(=O)O[C@@]1([C@H](C)C[C@H]2[C@@H]3C[C@H](F)C4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@]12C)C(O)=O",
+   "parent": "CCC(=O)O[C@@]1([C@H](C)C[C@H]2[C@@H]3C[C@H](F)C4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@]12C)C(=O)SCF",
+   "style": "thin_small"
+  },
+  "img_71456bb734bd": {
+   "smiles": "CCC(=O)O[C@@]1([C@H](C)C[C@H]2[C@@H]3C[C@H](F)C4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@]12C)C(O)=O",
+   "parent": "CCC(=O)O[C@@]1([C@H](C)C[C@H]2[C@@H]3C[C@H](F)C4=CC(=O)C=C[C@]4(C)[C@@]3(F)[C@@H](O)C[C@]12C)C(=O)SCF",
+   "style": "annotated"
+  },
+  "img_0f9373692d7f": {
+   "smiles": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_57c3019450f9": {
+   "smiles": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_e1ccc6084c80": {
+   "smiles": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_1cc7c1580dc3": {
+   "smiles": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_6072ec19d789": {
+   "smiles": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_9714e9ee4ee0": {
+   "smiles": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_09ca15b36bfd": {
+   "smiles": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_09902bcdee77": {
+   "smiles": "CCC(O)C1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_7e4b11550761": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_150a63172a89": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_280e7c46f31e": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_37c7f8bb44c8": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4C=CC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_15f45764f352": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CC(O)C5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_e69ed0cc166c": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CC(O)C5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_69893a088fe2": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CC(O)C5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_378a7118d5fd": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CC(O)C5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_e01e9692e24d": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4C(=O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_0b59da49a060": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4C(=O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_03a5a892cba6": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4C(=O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_7159a348876c": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4C(=O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_69da294a5b5e": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_8b1f44e47937": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_03f848fd94a5": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_f52363306fbc": {
+   "smiles": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_441a2e1627c1": {
+   "smiles": "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_db519dd6f2b8": {
+   "smiles": "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_e3366c8c6bfe": {
+   "smiles": "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_9e906c901d7b": {
+   "smiles": "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_eddd53c7cd23": {
+   "smiles": "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_bdd7717a558f": {
+   "smiles": "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_bb47bdcc3945": {
+   "smiles": "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_4e5cc8e1f76f": {
+   "smiles": "C[C@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_ecb3c9a5b63f": {
+   "smiles": "C[C@]12CC(O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_347d00afb9bb": {
+   "smiles": "C[C@]12CC(O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_cbd7b54aa427": {
+   "smiles": "C[C@]12CC(O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_44db3aa24e3e": {
+   "smiles": "C[C@]12CC(O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_26a2803c8934": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_4256cc5e499f": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_9281690a66ca": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_8f0652bc95fc": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_6045e4f5d843": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_3e2d27baf40a": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_c36a746eca5a": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_741b38600399": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(=O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_6de968c17d2a": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "plain"
+  },
+  "img_f3f2c8237c92": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "rotated"
+  },
+  "img_9f54405e7838": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "thin_small"
+  },
+  "img_5e754f291c03": {
+   "smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4CC(O)C=C[C@]34C)[C@@H]1C[C@@H](O)[C@]2(O)C(=O)CO",
+   "parent": "CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO",
+   "style": "annotated"
+  },
+  "img_d303545d7914": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCCCCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "plain"
+  },
+  "img_114a2e7b9134": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCCCCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "rotated"
+  },
+  "img_1d936b734299": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCCCCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "thin_small"
+  },
+  "img_01bc0f75e275": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCCCCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "annotated"
+  },
+  "img_4c62ea228be3": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "plain"
+  },
+  "img_a6be764bcca4": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "rotated"
+  },
+  "img_4d8db99b15f3": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "thin_small"
+  },
+  "img_c7ecf5942fa5": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "annotated"
+  },
+  "img_1da1d2ddb088": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "plain"
+  },
+  "img_30593bd3d67f": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "rotated"
+  },
+  "img_c0f53df1ddea": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "thin_small"
+  },
+  "img_f41d7b6dd106": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CCCC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "annotated"
+  },
+  "img_b26fa2ab708e": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "plain"
+  },
+  "img_fb03ca997d00": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "rotated"
+  },
+  "img_d3208d736af2": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "thin_small"
+  },
+  "img_4d9a046b45d5": {
+   "smiles": "NC(CO)(CO)CCc1ccc(CC(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "annotated"
+  },
+  "img_c93b52d6af9d": {
+   "smiles": "CCCCCCCCc1ccc(CC[C@](N)(CO)COP(O)(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "plain"
+  },
+  "img_402a84b966ce": {
+   "smiles": "CCCCCCCCc1ccc(CC[C@](N)(CO)COP(O)(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "rotated"
+  },
+  "img_e99ee2a0ef50": {
+   "smiles": "CCCCCCCCc1ccc(CC[C@](N)(CO)COP(O)(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "thin_small"
+  },
+  "img_a6affb203cb6": {
+   "smiles": "CCCCCCCCc1ccc(CC[C@](N)(CO)COP(O)(O)=O)cc1",
+   "parent": "CCCCCCCCc1ccc(CCC(N)(CO)CO)cc1",
+   "style": "annotated"
+  },
+  "img_f518c95ae566": {
+   "smiles": "CCCSc1nc(N)c2nnn([C@@H]3C[C@H](OCCO)[C@@H](O)[C@H]3O)c2n1",
+   "parent": "CCCSc1nc(N[C@@H]2C[C@H]2c3ccc(F)c(F)c3)c4nnn([C@@H]5C[C@H](OCCO)[C@@H](O)[C@H]5O)c4n1",
+   "style": "plain"
+  },
+  "img_f9e9242c2626": {
+   "smiles": "CCCSc1nc(N)c2nnn([C@@H]3C[C@H](OCCO)[C@@H](O)[C@H]3O)c2n1",
+   "parent": "CCCSc1nc(N[C@@H]2C[C@H]2c3ccc(F)c(F)c3)c4nnn([C@@H]5C[C@H](OCCO)[C@@H](O)[C@H]5O)c4n1",
+   "style": "rotated"
+  },
+  "img_1007679c4bb4": {
+   "smiles": "CCCSc1nc(N)c2nnn([C@@H]3C[C@H](OCCO)[C@@H](O)[C@H]3O)c2n1",
+   "parent": "CCCSc1nc(N[C@@H]2C[C@H]2c3ccc(F)c(F)c3)c4nnn([C@@H]5C[C@H](OCCO)[C@@H](O)[C@H]5O)c4n1",
+   "style": "thin_small"
+  },
+  "img_6120287a9a90": {
+   "smiles": "CCCSc1nc(N)c2nnn([C@@H]3C[C@H](OCCO)[C@@H](O)[C@H]3O)c2n1",
+   "parent": "CCCSc1nc(N[C@@H]2C[C@H]2c3ccc(F)c(F)c3)c4nnn([C@@H]5C[C@H](OCCO)[C@@H](O)[C@H]5O)c4n1",
+   "style": "annotated"
+  },
+  "img_d594d4503b21": {
+   "smiles": "CCCSc1nc(N[C@@H]2C[C@H]2c2ccc(F)c(F)c2)c2nnn([C@@H]3C[C@H](O)[C@@H](O)[C@H]3O)c2n1",
+   "parent": "CCCSc1nc(N[C@@H]2C[C@H]2c3ccc(F)c(F)c3)c4nnn([C@@H]5C[C@H](OCCO)[C@@H](O)[C@H]5O)c4n1",
+   "style": "plain"
+  },
+  "img_4677fb158602": {
+   "smiles": "CCCSc1nc(N[C@@H]2C[C@H]2c2ccc(F)c(F)c2)c2nnn([C@@H]3C[C@H](O)[C@@H](O)[C@H]3O)c2n1",
+   "parent": "CCCSc1nc(N[C@@H]2C[C@H]2c3ccc(F)c(F)c3)c4nnn([C@@H]5C[C@H](OCCO)[C@@H](O)[C@H]5O)c4n1",
+   "style": "rotated"
+  },
+  "img_a0ae1027d616": {
+   "smiles": "CCCSc1nc(N[C@@H]2C[C@H]2c2ccc(F)c(F)c2)c2nnn([C@@H]3C[C@H](O)[C@@H](O)[C@H]3O)c2n1",
+   "parent": "CCCSc1nc(N[C@@H]2C[C@H]2c3ccc(F)c(F)c3)c4nnn([C@@H]5C[C@H](OCCO)[C@@H](O)[C@H]5O)c4n1",
+   "style": "thin_small"
+  },
+  "img_5630bc2c51db": {
+   "smiles": "CCCSc1nc(N[C@@H]2C[C@H]2c2ccc(F)c(F)c2)c2nnn([C@@H]3C[C@H](O)[C@@H](O)[C@H]3O)c2n1",
+   "parent": "CCCSc1nc(N[C@@H]2C[C@H]2c3ccc(F)c(F)c3)c4nnn([C@@H]5C[C@H](OCCO)[C@@H](O)[C@H]5O)c4n1",
+   "style": "annotated"
+  },
+  "img_489f05c041cf": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_2a3b0d8286a0": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_33a7a39cb90e": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_4fcde8728324": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_82bdc716d2b4": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_47493da3a288": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_51455bd46ff6": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_931ae9babf13": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_525a90d003ae": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_ab138002e222": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_04230ac0a73e": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_b711926916a5": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)NC(=O)c1cccc(NC(C)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_5853db0ad3d7": {
+   "smiles": "CC(=O)Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_e316bd61106a": {
+   "smiles": "CC(=O)Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_8def56763868": {
+   "smiles": "CC(=O)Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_9f084d1f5c42": {
+   "smiles": "CC(=O)Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_063359faf172": {
+   "smiles": "OCC(=O)Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_e39a70844eb1": {
+   "smiles": "OCC(=O)Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_31d0d9efdb1a": {
+   "smiles": "OCC(=O)Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_c28b0c21ebbb": {
+   "smiles": "OCC(=O)Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_c84d7afbb9b8": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_48d7fb0c7a60": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_88b0daac2a86": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_9334c3c10b50": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_28ca509a3744": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_5eee284986f0": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_3187604df19a": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_c4fb749afb81": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_7928152d810e": {
+   "smiles": "CC(=O)Nc1cccc2C(=O)N([C@H](CS(C)(=O)=O)c3ccc(O)c(O)c3)C(=O)c12",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_61c17a9fff9b": {
+   "smiles": "CC(=O)Nc1cccc2C(=O)N([C@H](CS(C)(=O)=O)c3ccc(O)c(O)c3)C(=O)c12",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_5f29f46eb1a0": {
+   "smiles": "CC(=O)Nc1cccc2C(=O)N([C@H](CS(C)(=O)=O)c3ccc(O)c(O)c3)C(=O)c12",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_b0c135420127": {
+   "smiles": "CC(=O)Nc1cccc2C(=O)N([C@H](CS(C)(=O)=O)c3ccc(O)c(O)c3)C(=O)c12",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_f16b40511ea5": {
+   "smiles": "COc1ccc(cc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_330b7c3f29d5": {
+   "smiles": "COc1ccc(cc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_5084ee59edf3": {
+   "smiles": "COc1ccc(cc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_6b4de2757dbd": {
+   "smiles": "COc1ccc(cc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_b272a19ecff4": {
+   "smiles": "COc1ccc(cc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_c8933e572cc1": {
+   "smiles": "COc1ccc(cc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_37090d6f76f9": {
+   "smiles": "COc1ccc(cc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_2d2965ceed43": {
+   "smiles": "COc1ccc(cc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(C)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_95ef98261cef": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_405cb709b839": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_a967c6711a93": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_0c20de0f196a": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_2108bcff5b55": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_546cb18fa12d": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_70c17aac387f": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_6f6c07538fcf": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_7d568676bdbb": {
+   "smiles": "CS(=O)(=O)C[C@@H](N1C(=O)c2cccc(N)c2C1=O)c1ccc(O)c(O)c1",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_763cf18cda1b": {
+   "smiles": "CS(=O)(=O)C[C@@H](N1C(=O)c2cccc(N)c2C1=O)c1ccc(O)c(O)c1",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_afe31c89b2eb": {
+   "smiles": "CS(=O)(=O)C[C@@H](N1C(=O)c2cccc(N)c2C1=O)c1ccc(O)c(O)c1",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_71b66899e924": {
+   "smiles": "CS(=O)(=O)C[C@@H](N1C(=O)c2cccc(N)c2C1=O)c1ccc(O)c(O)c1",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_8b2fb285958f": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_f1f884c96dc4": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_3cae578d182f": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_c2a66cd2b130": {
+   "smiles": "CCOc1cc(ccc1OC1OC(C(O)C(O)C1O)C(O)=O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_8276c950d9b5": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)CO)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_31ab967641e8": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)CO)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_494fd55b0662": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)CO)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_7debfdb9dd4c": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)CO)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_f6acae2f73d5": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)CO)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_11e97e7abd83": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)CO)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_d07eff71948e": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)CO)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_7f4743aa9e31": {
+   "smiles": "CCOc1cc(ccc1O)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)CO)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_dd52ba55ce8d": {
+   "smiles": "CS(=O)(=O)C[C@@H](N1C(=O)c2cccc(NC(=O)CO)c2C1=O)c1ccc(O)c(O)c1",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_d10be20902df": {
+   "smiles": "CS(=O)(=O)C[C@@H](N1C(=O)c2cccc(NC(=O)CO)c2C1=O)c1ccc(O)c(O)c1",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_0011c5057add": {
+   "smiles": "CS(=O)(=O)C[C@@H](N1C(=O)c2cccc(NC(=O)CO)c2C1=O)c1ccc(O)c(O)c1",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_f78005c72c3e": {
+   "smiles": "CS(=O)(=O)C[C@@H](N1C(=O)c2cccc(NC(=O)CO)c2C1=O)c1ccc(O)c(O)c1",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_c4fc0ba4b2b2": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)COC3OC(C(O)C(O)C3O)C(O)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "plain"
+  },
+  "img_a5147aa0a0fc": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)COC3OC(C(O)C(O)C3O)C(O)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "rotated"
+  },
+  "img_ea3c28d3a31d": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)COC3OC(C(O)C(O)C3O)C(O)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "thin_small"
+  },
+  "img_b575f2c27b3a": {
+   "smiles": "CCOc1cc(ccc1OC)[C@@H](CS(C)(=O)=O)N1C(=O)c2cccc(NC(=O)COC3OC(C(O)C(O)C3O)C(O)=O)c2C1=O",
+   "parent": "CCOc1cc(ccc1OC)[C@@H](CS(=O)(=O)C)N2C(=O)c3cccc(NC(=O)C)c3C2=O",
+   "style": "annotated"
+  },
+  "img_74272b445706": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O)cc2)c1",
+   "parent": "CCOc1ccc(Cc2cc(ccc2Cl)[C@@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)cc1",
+   "style": "plain"
+  },
+  "img_38c9e015ff2f": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O)cc2)c1",
+   "parent": "CCOc1ccc(Cc2cc(ccc2Cl)[C@@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)cc1",
+   "style": "rotated"
+  },
+  "img_4756bcf3e64b": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O)cc2)c1",
+   "parent": "CCOc1ccc(Cc2cc(ccc2Cl)[C@@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)cc1",
+   "style": "thin_small"
+  },
+  "img_98b7c076e57d": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O)cc2)c1",
+   "parent": "CCOc1ccc(Cc2cc(ccc2Cl)[C@@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)cc1",
+   "style": "annotated"
+  },
+  "img_c87668807d5b": {
+   "smiles": "CCOc1ccc(cc1)C(O)c1cc(ccc1Cl)[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+   "parent": "CCOc1ccc(Cc2cc(ccc2Cl)[C@@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)cc1",
+   "style": "plain"
+  },
+  "img_a36ec26bb979": {
+   "smiles": "CCOc1ccc(cc1)C(O)c1cc(ccc1Cl)[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+   "parent": "CCOc1ccc(Cc2cc(ccc2Cl)[C@@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)cc1",
+   "style": "rotated"
+  },
+  "img_e1952f434e94": {
+   "smiles": "CCOc1ccc(cc1)C(O)c1cc(ccc1Cl)[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+   "parent": "CCOc1ccc(Cc2cc(ccc2Cl)[C@@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)cc1",
+   "style": "thin_small"
+  },
+  "img_70c484255631": {
+   "smiles": "CCOc1ccc(cc1)C(O)c1cc(ccc1Cl)[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+   "parent": "CCOc1ccc(Cc2cc(ccc2Cl)[C@@H]3O[C@H](CO)[C@@H](O)[C@H](O)[C@H]3O)cc1",
+   "style": "annotated"
+  },
+  "img_a411f65b7126": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNCC3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "plain"
+  },
+  "img_9eddd85d914a": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNCC3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "rotated"
+  },
+  "img_22e9c1559bbd": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNCC3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "thin_small"
+  },
+  "img_270254afcc09": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNCC3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "annotated"
+  },
+  "img_fd737de384aa": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)CC1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "plain"
+  },
+  "img_3548290175e7": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)CC1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "rotated"
+  },
+  "img_68cbbdcebe83": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)CC1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "thin_small"
+  },
+  "img_52513f93952a": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)CC1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "annotated"
+  },
+  "img_0a0adfdfae6c": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "plain"
+  },
+  "img_7e38ca1d7fd1": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "rotated"
+  },
+  "img_340e98bb4672": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "thin_small"
+  },
+  "img_eef5b1abd3be": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "annotated"
+  },
+  "img_8beebafa159b": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CC[N+](C)([O-])CC3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "plain"
+  },
+  "img_188607347055": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CC[N+](C)([O-])CC3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "rotated"
+  },
+  "img_7001bf47d7e3": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CC[N+](C)([O-])CC3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "thin_small"
+  },
+  "img_546d7bae77df": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CC[N+](C)([O-])CC3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "annotated"
+  },
+  "img_bb6951c9749d": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1=O",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "plain"
+  },
+  "img_70206d0db19d": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1=O",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "rotated"
+  },
+  "img_d91abd4c169b": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1=O",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "thin_small"
+  },
+  "img_dc6005f26d27": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1=O",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "annotated"
+  },
+  "img_89f24837b837": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNC(=O)C3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "plain"
+  },
+  "img_df01a2f65dd9": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNC(=O)C3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "rotated"
+  },
+  "img_472febeed431": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNC(=O)C3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "thin_small"
+  },
+  "img_8f5db9d75435": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNC(=O)C3)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "annotated"
+  },
+  "img_27c93e199613": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)C(=O)C1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "plain"
+  },
+  "img_fadb5eb11a39": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)C(=O)C1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "rotated"
+  },
+  "img_c77a417ade79": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)C(=O)C1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "thin_small"
+  },
+  "img_4fa669fda97f": {
+   "smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)C(=O)C1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "annotated"
+  },
+  "img_ffc1f5ebeccb": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNCC3=O)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "plain"
+  },
+  "img_7e5323a51746": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNCC3=O)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "rotated"
+  },
+  "img_891db7cc3c8c": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNCC3=O)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "thin_small"
+  },
+  "img_1155375f0627": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCNCC3=O)cc2)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "annotated"
+  },
+  "img_609db77792ce": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(cc2)C(O)=O)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "plain"
+  },
+  "img_7bbbe917834a": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(cc2)C(O)=O)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "rotated"
+  },
+  "img_656f95fbf45a": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(cc2)C(O)=O)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "thin_small"
+  },
+  "img_d900d08b227d": {
+   "smiles": "Cc1ccc(NC(=O)c2ccc(cc2)C(O)=O)cc1Nc1nccc(n1)-c1cccnc1",
+   "parent": "CN1CCN(Cc2ccc(cc2)C(=O)Nc3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)CC1",
+   "style": "annotated"
+  },
+  "img_0bb85aebb163": {
+   "smiles": "CC1(C)N(C(=S)N(C1=O)c1ccc(C#N)c(c1)C(F)(F)F)c1ccc(C(O)=O)c(F)c1",
+   "parent": "CNC(=O)c1ccc(cc1F)N2C(=S)N(C(=O)C2(C)C)c3ccc(C#N)c(c3)C(F)(F)F",
+   "style": "plain"
+  },
+  "img_cd220b8dfb76": {
+   "smiles": "CC1(C)N(C(=S)N(C1=O)c1ccc(C#N)c(c1)C(F)(F)F)c1ccc(C(O)=O)c(F)c1",
+   "parent": "CNC(=O)c1ccc(cc1F)N2C(=S)N(C(=O)C2(C)C)c3ccc(C#N)c(c3)C(F)(F)F",
+   "style": "rotated"
+  },
+  "img_6b7ac08f89b3": {
+   "smiles": "CC1(C)N(C(=S)N(C1=O)c1ccc(C#N)c(c1)C(F)(F)F)c1ccc(C(O)=O)c(F)c1",
+   "parent": "CNC(=O)c1ccc(cc1F)N2C(=S)N(C(=O)C2(C)C)c3ccc(C#N)c(c3)C(F)(F)F",
+   "style": "thin_small"
+  },
+  "img_10bc5edff699": {
+   "smiles": "CC1(C)N(C(=S)N(C1=O)c1ccc(C#N)c(c1)C(F)(F)F)c1ccc(C(O)=O)c(F)c1",
+   "parent": "CNC(=O)c1ccc(cc1F)N2C(=S)N(C(=O)C2(C)C)c3ccc(C#N)c(c3)C(F)(F)F",
+   "style": "annotated"
+  },
+  "img_1c57c2a278a5": {
+   "smiles": "CC1(C)N(C(=S)N(C1=O)c1ccc(C#N)c(c1)C(F)(F)F)c1ccc(C(N)=O)c(F)c1",
+   "parent": "CNC(=O)c1ccc(cc1F)N2C(=S)N(C(=O)C2(C)C)c3ccc(C#N)c(c3)C(F)(F)F",
+   "style": "plain"
+  },
+  "img_6e0e4c1abcaa": {
+   "smiles": "CC1(C)N(C(=S)N(C1=O)c1ccc(C#N)c(c1)C(F)(F)F)c1ccc(C(N)=O)c(F)c1",
+   "parent": "CNC(=O)c1ccc(cc1F)N2C(=S)N(C(=O)C2(C)C)c3ccc(C#N)c(c3)C(F)(F)F",
+   "style": "rotated"
+  },
+  "img_592c896ebd91": {
+   "smiles": "CC1(C)N(C(=S)N(C1=O)c1ccc(C#N)c(c1)C(F)(F)F)c1ccc(C(N)=O)c(F)c1",
+   "parent": "CNC(=O)c1ccc(cc1F)N2C(=S)N(C(=O)C2(C)C)c3ccc(C#N)c(c3)C(F)(F)F",
+   "style": "thin_small"
+  },
+  "img_9d922abe84ec": {
+   "smiles": "CC1(C)N(C(=S)N(C1=O)c1ccc(C#N)c(c1)C(F)(F)F)c1ccc(C(N)=O)c(F)c1",
+   "parent": "CNC(=O)c1ccc(cc1F)N2C(=S)N(C(=O)C2(C)C)c3ccc(C#N)c(c3)C(F)(F)F",
+   "style": "annotated"
+  },
+  "img_5d4d4f1dd599": {
+   "smiles": "OC(=O)[C@@H](N1CCc2sccc2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "plain"
+  },
+  "img_3fa93a54d595": {
+   "smiles": "OC(=O)[C@@H](N1CCc2sccc2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "rotated"
+  },
+  "img_ce9e26497fdf": {
+   "smiles": "OC(=O)[C@@H](N1CCc2sccc2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "thin_small"
+  },
+  "img_b5870f054c9d": {
+   "smiles": "OC(=O)[C@@H](N1CCc2sccc2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "annotated"
+  },
+  "img_3eb225b67de5": {
+   "smiles": "COC(=O)[C@@H](N1CCC2SC(=O)C=C2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "plain"
+  },
+  "img_8a4b1919c50a": {
+   "smiles": "COC(=O)[C@@H](N1CCC2SC(=O)C=C2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "rotated"
+  },
+  "img_f7151b83ca90": {
+   "smiles": "COC(=O)[C@@H](N1CCC2SC(=O)C=C2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "thin_small"
+  },
+  "img_bc2c24bcacc3": {
+   "smiles": "COC(=O)[C@@H](N1CCC2SC(=O)C=C2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "annotated"
+  },
+  "img_e0b7f13923ce": {
+   "smiles": "OC(=O)[C@@H](N1CCC2SC(=O)C=C2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "plain"
+  },
+  "img_4513389a6663": {
+   "smiles": "OC(=O)[C@@H](N1CCC2SC(=O)C=C2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "rotated"
+  },
+  "img_171f3d0a6138": {
+   "smiles": "OC(=O)[C@@H](N1CCC2SC(=O)C=C2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "thin_small"
+  },
+  "img_e3332b6a1f18": {
+   "smiles": "OC(=O)[C@@H](N1CCC2SC(=O)C=C2C1)c1ccccc1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "annotated"
+  },
+  "img_5ac31d499002": {
+   "smiles": "COC(=O)[C@@H](N1CCC(S)\\C(C1)=C/C(O)=O)C1=CC=CC=C1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "plain"
+  },
+  "img_1a400ee84452": {
+   "smiles": "COC(=O)[C@@H](N1CCC(S)\\C(C1)=C/C(O)=O)C1=CC=CC=C1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "rotated"
+  },
+  "img_21694e965f35": {
+   "smiles": "COC(=O)[C@@H](N1CCC(S)\\C(C1)=C/C(O)=O)C1=CC=CC=C1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "thin_small"
+  },
+  "img_1759d3b53844": {
+   "smiles": "COC(=O)[C@@H](N1CCC(S)\\C(C1)=C/C(O)=O)C1=CC=CC=C1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "annotated"
+  },
+  "img_290e2346c0ea": {
+   "smiles": "OC(=O)\\C=C1\\CN(CCC1S)[C@H](C(O)=O)C1=CC=CC=C1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "plain"
+  },
+  "img_755269a98776": {
+   "smiles": "OC(=O)\\C=C1\\CN(CCC1S)[C@H](C(O)=O)C1=CC=CC=C1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "rotated"
+  },
+  "img_4a2cf7503162": {
+   "smiles": "OC(=O)\\C=C1\\CN(CCC1S)[C@H](C(O)=O)C1=CC=CC=C1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "thin_small"
+  },
+  "img_72d8892db93d": {
+   "smiles": "OC(=O)\\C=C1\\CN(CCC1S)[C@H](C(O)=O)C1=CC=CC=C1Cl",
+   "parent": "COC(=O)[C@@H](N1CCc2sccc2C1)c3ccccc3Cl",
+   "style": "annotated"
+  },
+  "img_3ff02ae28cdb": {
+   "smiles": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C)OC",
+   "parent": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)\\[C@H]2OC(=O)[C@@H]3CCCCN3C(=O)C(=O)[C@]4(O)O[C@H]([C@H](C[C@@H](C)C\\C(=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]2C)\\C)OC)[C@H](C[C@H]4C)OC",
+   "style": "plain"
+  },
+  "img_0771b30f40c1": {
+   "smiles": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C)OC",
+   "parent": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)\\[C@H]2OC(=O)[C@@H]3CCCCN3C(=O)C(=O)[C@]4(O)O[C@H]([C@H](C[C@@H](C)C\\C(=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]2C)\\C)OC)[C@H](C[C@H]4C)OC",
+   "style": "rotated"
+  },
+  "img_b7dfcc956868": {
+   "smiles": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C)OC",
+   "parent": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)\\[C@H]2OC(=O)[C@@H]3CCCCN3C(=O)C(=O)[C@]4(O)O[C@H]([C@H](C[C@@H](C)C\\C(=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]2C)\\C)OC)[C@H](C[C@H]4C)OC",
+   "style": "thin_small"
+  },
+  "img_3ca8a98ba50b": {
+   "smiles": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C)OC",
+   "parent": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)\\[C@H]2OC(=O)[C@@H]3CCCCN3C(=O)C(=O)[C@]4(O)O[C@H]([C@H](C[C@@H](C)C\\C(=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]2C)\\C)OC)[C@H](C[C@H]4C)OC",
+   "style": "annotated"
+  },
+  "img_ef0842bf1033": {
+   "smiles": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@@H](O)C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C",
+   "parent": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)\\[C@H]2OC(=O)[C@@H]3CCCCN3C(=O)C(=O)[C@]4(O)O[C@H]([C@H](C[C@@H](C)C\\C(=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]2C)\\C)OC)[C@H](C[C@H]4C)OC",
+   "style": "plain"
+  },
+  "img_fa3e1ce0213b": {
+   "smiles": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@@H](O)C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C",
+   "parent": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)\\[C@H]2OC(=O)[C@@H]3CCCCN3C(=O)C(=O)[C@]4(O)O[C@H]([C@H](C[C@@H](C)C\\C(=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]2C)\\C)OC)[C@H](C[C@H]4C)OC",
+   "style": "rotated"
+  },
+  "img_29644f4402ba": {
+   "smiles": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@@H](O)C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C",
+   "parent": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)\\[C@H]2OC(=O)[C@@H]3CCCCN3C(=O)C(=O)[C@]4(O)O[C@H]([C@H](C[C@@H](C)C\\C(=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]2C)\\C)OC)[C@H](C[C@H]4C)OC",
+   "style": "thin_small"
+  },
+  "img_a5639b75a2f1": {
+   "smiles": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)OC(C[C@H]2C)C(O)[C@@H](O)C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C",
+   "parent": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)\\[C@H]2OC(=O)[C@@H]3CCCCN3C(=O)C(=O)[C@]4(O)O[C@H]([C@H](C[C@@H](C)C\\C(=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]2C)\\C)OC)[C@H](C[C@H]4C)OC",
+   "style": "annotated"
+  },
+  "img_aca8014b9066": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@@H](O)C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_61002c9572cd": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@@H](O)C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_e4855d326614": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@@H](O)C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_1906b9c34f4e": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@@H](O)C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_9621c389a7ee": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](O)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_ea2974918198": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](O)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_25b315ad4e0e": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](O)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_5f671481ead7": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](O)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_8ee42a17f204": {
+   "smiles": "CO[C@H]1C[C@@H]2CC[C@@H](C)[C@@](O)(O2)C(=O)C(=O)N2CCCC[C@H]2C(=O)O[C@@H](CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C1/C)[C@H](C)C[C@@H]1CC[C@@H](OCCO)[C@H](O)C1",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_5c18e4d3127f": {
+   "smiles": "CO[C@H]1C[C@@H]2CC[C@@H](C)[C@@](O)(O2)C(=O)C(=O)N2CCCC[C@H]2C(=O)O[C@@H](CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C1/C)[C@H](C)C[C@@H]1CC[C@@H](OCCO)[C@H](O)C1",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_33fa21a143d5": {
+   "smiles": "CO[C@H]1C[C@@H]2CC[C@@H](C)[C@@](O)(O2)C(=O)C(=O)N2CCCC[C@H]2C(=O)O[C@@H](CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C1/C)[C@H](C)C[C@@H]1CC[C@@H](OCCO)[C@H](O)C1",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_b64abcabef60": {
+   "smiles": "CO[C@H]1C[C@@H]2CC[C@@H](C)[C@@](O)(O2)C(=O)C(=O)N2CCCC[C@H]2C(=O)O[C@@H](CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C1/C)[C@H](C)C[C@@H]1CC[C@@H](OCCO)[C@H](O)C1",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_b17489523faa": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@](C)(O)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_23acef389e74": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@](C)(O)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_8a9e09ba324f": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@](C)(O)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_7ce20fed0e29": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@](C)(O)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_f0b1951b8fde": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC(O)[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_273d9e1a6253": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC(O)[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_5b4f22beebd8": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC(O)[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_08a1b26355d0": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC(O)[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_ead9191b17ab": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@]3(O)CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_dca5ed824c83": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@]3(O)CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_bfcfadef204e": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@]3(O)CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_9991921cc1a4": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@]3(O)CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_bea002f8c246": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C(O)[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_ba03ccb61ce3": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C(O)[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_ca3459ebb70b": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C(O)[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_a3ce81013484": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C(O)[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_ada69554140c": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@](C)(O)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_fb67dbbe6ea1": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@](C)(O)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_30b00b927526": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@](C)(O)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_5f286b8881ea": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@](C)(O)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_7115cd7d419d": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](CO)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_9fa246de80db": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](CO)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_c469dbc1d4ef": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](CO)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_d50b9e42971a": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](CO)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_4ceb63f660e1": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](CO)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_ceed7a40e9f8": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](CO)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_ecbb73eaf273": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](CO)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_02076bf8285d": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](CO)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCO",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_02bc620b22eb": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1O",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_65cd76fa31ac": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1O",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_6b3e503e8535": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1O",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_76231928a5f3": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1O",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_c62c31182707": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCOP(O)(=O)OCC[N+](C)(C)C",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "plain"
+  },
+  "img_a2d2063007a7": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCOP(O)(=O)OCC[N+](C)(C)C",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "rotated"
+  },
+  "img_50694ed4877e": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCOP(O)(=O)OCC[N+](C)(C)C",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "thin_small"
+  },
+  "img_0a33467c0d3e": {
+   "smiles": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)OC)CC[C@H]1OCCOP(O)(=O)OCC[N+](C)(C)C",
+   "parent": "CO[C@@H]1C[C@H](C[C@@H](C)[C@@H]2CC(=O)[C@H](C)\\C=C(/C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(/C)\\[C@H](C[C@@H]3CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N4CCCC[C@H]4C(=O)O2)OC)CC[C@H]1OCCO",
+   "style": "annotated"
+  },
+  "img_5bee2ed43333": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc1nccc(n1)-c1c[nH]c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "plain"
+  },
+  "img_a20ffe665508": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc1nccc(n1)-c1c[nH]c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "rotated"
+  },
+  "img_10ac1269db92": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc1nccc(n1)-c1c[nH]c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "thin_small"
+  },
+  "img_3893c18a4ec9": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc1nccc(n1)-c1c[nH]c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "annotated"
+  },
+  "img_e373b5865ef5": {
+   "smiles": "CNCCN(C)c1cc(OC)c(Nc2nccc(n2)-c2cn(C)c3ccccc23)cc1NC(=O)C=C",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "plain"
+  },
+  "img_b2fc8a7c709e": {
+   "smiles": "CNCCN(C)c1cc(OC)c(Nc2nccc(n2)-c2cn(C)c3ccccc23)cc1NC(=O)C=C",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "rotated"
+  },
+  "img_2f30542fda0a": {
+   "smiles": "CNCCN(C)c1cc(OC)c(Nc2nccc(n2)-c2cn(C)c3ccccc23)cc1NC(=O)C=C",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "thin_small"
+  },
+  "img_72285a9f89f8": {
+   "smiles": "CNCCN(C)c1cc(OC)c(Nc2nccc(n2)-c2cn(C)c3ccccc23)cc1NC(=O)C=C",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "annotated"
+  },
+  "img_9864c016ef42": {
+   "smiles": "COc1cc(N(C)CC[N+](C)(C)[O-])c(NC(=O)C=C)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "plain"
+  },
+  "img_0bdbd8e65935": {
+   "smiles": "COc1cc(N(C)CC[N+](C)(C)[O-])c(NC(=O)C=C)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "rotated"
+  },
+  "img_ddf7cfbb5af0": {
+   "smiles": "COc1cc(N(C)CC[N+](C)(C)[O-])c(NC(=O)C=C)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "thin_small"
+  },
+  "img_a0db5d2b0c45": {
+   "smiles": "COc1cc(N(C)CC[N+](C)(C)[O-])c(NC(=O)C=C)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "annotated"
+  },
+  "img_ca40be98ab44": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(=O)NCC(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "plain"
+  },
+  "img_a55e519da32e": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(=O)NCC(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "rotated"
+  },
+  "img_79a33058e979": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(=O)NCC(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "thin_small"
+  },
+  "img_428827723565": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(=O)NCC(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "annotated"
+  },
+  "img_e5abbc6371a6": {
+   "smiles": "CNc1cc(OC)c(Nc2nccc(n2)-c2cn(C)c3ccccc23)cc1NC(=O)C=C",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "plain"
+  },
+  "img_596b04c313ad": {
+   "smiles": "CNc1cc(OC)c(Nc2nccc(n2)-c2cn(C)c3ccccc23)cc1NC(=O)C=C",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "rotated"
+  },
+  "img_004dc54bf8a5": {
+   "smiles": "CNc1cc(OC)c(Nc2nccc(n2)-c2cn(C)c3ccccc23)cc1NC(=O)C=C",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "thin_small"
+  },
+  "img_f1531d97b02b": {
+   "smiles": "CNc1cc(OC)c(Nc2nccc(n2)-c2cn(C)c3ccccc23)cc1NC(=O)C=C",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "annotated"
+  },
+  "img_ba9b135aed32": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "plain"
+  },
+  "img_2d377a9d8fe7": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "rotated"
+  },
+  "img_a845221d99b2": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "thin_small"
+  },
+  "img_82ded5b4c25f": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(N)C(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "annotated"
+  },
+  "img_e7994d5e6206": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(NC(=O)CCC(N)C(O)=O)C(=O)NCC(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "plain"
+  },
+  "img_e7df6c0c8164": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(NC(=O)CCC(N)C(O)=O)C(=O)NCC(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "rotated"
+  },
+  "img_3d8afda9c2c0": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(NC(=O)CCC(N)C(O)=O)C(=O)NCC(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "thin_small"
+  },
+  "img_52eb79a9eb87": {
+   "smiles": "COc1cc(N(C)CCN(C)C)c(NC(=O)CCSCC(NC(=O)CCC(N)C(O)=O)C(=O)NCC(O)=O)cc1Nc1nccc(n1)-c1cn(C)c2ccccc12",
+   "parent": "COc1cc(N(C)CCN(C)C)c(NC(=O)C=C)cc1Nc2nccc(n2)c3cn(C)c4ccccc34",
+   "style": "annotated"
+  },
+  "img_66741e08b4b4": {
+   "smiles": "CC(Cc1ccc(O)cc1)NCC(O)c1ccc(O)c(NC=O)c1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "plain"
+  },
+  "img_dd5324a37659": {
+   "smiles": "CC(Cc1ccc(O)cc1)NCC(O)c1ccc(O)c(NC=O)c1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "rotated"
+  },
+  "img_42a69e8a749b": {
+   "smiles": "CC(Cc1ccc(O)cc1)NCC(O)c1ccc(O)c(NC=O)c1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "thin_small"
+  },
+  "img_329fd51f5f73": {
+   "smiles": "CC(Cc1ccc(O)cc1)NCC(O)c1ccc(O)c(NC=O)c1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "annotated"
+  },
+  "img_91076db754ba": {
+   "smiles": "COc1ccc(CC(C)NCC(O)c2ccc(OC3OC(C(O)C(O)C3O)C(O)=O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "plain"
+  },
+  "img_0a16ceb840a2": {
+   "smiles": "COc1ccc(CC(C)NCC(O)c2ccc(OC3OC(C(O)C(O)C3O)C(O)=O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "rotated"
+  },
+  "img_fc638ba5ef36": {
+   "smiles": "COc1ccc(CC(C)NCC(O)c2ccc(OC3OC(C(O)C(O)C3O)C(O)=O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "thin_small"
+  },
+  "img_70f9e8347adf": {
+   "smiles": "COc1ccc(CC(C)NCC(O)c2ccc(OC3OC(C(O)C(O)C3O)C(O)=O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "annotated"
+  },
+  "img_db3f01ffcf70": {
+   "smiles": "COc1ccc(CC(C)NCC(OC2OC(C(O)C(O)C2O)C(O)=O)c2ccc(O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "plain"
+  },
+  "img_0e9a1fa791e0": {
+   "smiles": "COc1ccc(CC(C)NCC(OC2OC(C(O)C(O)C2O)C(O)=O)c2ccc(O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "rotated"
+  },
+  "img_37f4f63565e0": {
+   "smiles": "COc1ccc(CC(C)NCC(OC2OC(C(O)C(O)C2O)C(O)=O)c2ccc(O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "thin_small"
+  },
+  "img_8ee372753ea9": {
+   "smiles": "COc1ccc(CC(C)NCC(OC2OC(C(O)C(O)C2O)C(O)=O)c2ccc(O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "annotated"
+  },
+  "img_753a3c5968e8": {
+   "smiles": "COc1ccc(CC(C)NCC(O)c2ccc(OS(O)(=O)=O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "plain"
+  },
+  "img_db18a9ae2221": {
+   "smiles": "COc1ccc(CC(C)NCC(O)c2ccc(OS(O)(=O)=O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "rotated"
+  },
+  "img_022ff32f9e2c": {
+   "smiles": "COc1ccc(CC(C)NCC(O)c2ccc(OS(O)(=O)=O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "thin_small"
+  },
+  "img_a92b0b6b7392": {
+   "smiles": "COc1ccc(CC(C)NCC(O)c2ccc(OS(O)(=O)=O)c(NC=O)c2)cc1",
+   "parent": "COc1ccc(CC(C)NCC(O)c2ccc(O)c(NC=O)c2)cc1",
+   "style": "annotated"
+  },
+  "img_d30872911edc": {
+   "smiles": "NC(=O)c1nn(c2c1CCN(C2=O)c1ccc(cc1)N1CCCCC1=O)-c1ccc(O)cc1",
+   "parent": "COc1ccc(cc1)n2nc(C(=O)N)c3CCN(C(=O)c23)c4ccc(cc4)N5CCCCC5=O",
+   "style": "plain"
+  },
+  "img_3e539350bc48": {
+   "smiles": "NC(=O)c1nn(c2c1CCN(C2=O)c1ccc(cc1)N1CCCCC1=O)-c1ccc(O)cc1",
+   "parent": "COc1ccc(cc1)n2nc(C(=O)N)c3CCN(C(=O)c23)c4ccc(cc4)N5CCCCC5=O",
+   "style": "rotated"
+  },
+  "img_79b6549286d7": {
+   "smiles": "NC(=O)c1nn(c2c1CCN(C2=O)c1ccc(cc1)N1CCCCC1=O)-c1ccc(O)cc1",
+   "parent": "COc1ccc(cc1)n2nc(C(=O)N)c3CCN(C(=O)c23)c4ccc(cc4)N5CCCCC5=O",
+   "style": "thin_small"
+  },
+  "img_5973e2ecf00e": {
+   "smiles": "NC(=O)c1nn(c2c1CCN(C2=O)c1ccc(cc1)N1CCCCC1=O)-c1ccc(O)cc1",
+   "parent": "COc1ccc(cc1)n2nc(C(=O)N)c3CCN(C(=O)c23)c4ccc(cc4)N5CCCCC5=O",
+   "style": "annotated"
+  },
+  "img_74d63695e19c": {
+   "smiles": "NC(=O)c1nn(c2c1CCN(C2=O)c1ccc(cc1)N1CCCCC1=O)-c1ccc(OS(O)(=O)=O)cc1",
+   "parent": "COc1ccc(cc1)n2nc(C(=O)N)c3CCN(C(=O)c23)c4ccc(cc4)N5CCCCC5=O",
+   "style": "plain"
+  },
+  "img_9d5709057406": {
+   "smiles": "NC(=O)c1nn(c2c1CCN(C2=O)c1ccc(cc1)N1CCCCC1=O)-c1ccc(OS(O)(=O)=O)cc1",
+   "parent": "COc1ccc(cc1)n2nc(C(=O)N)c3CCN(C(=O)c23)c4ccc(cc4)N5CCCCC5=O",
+   "style": "rotated"
+  },
+  "img_d5c0ca83355c": {
+   "smiles": "NC(=O)c1nn(c2c1CCN(C2=O)c1ccc(cc1)N1CCCCC1=O)-c1ccc(OS(O)(=O)=O)cc1",
+   "parent": "COc1ccc(cc1)n2nc(C(=O)N)c3CCN(C(=O)c23)c4ccc(cc4)N5CCCCC5=O",
+   "style": "thin_small"
+  },
+  "img_dada741ac139": {
+   "smiles": "NC(=O)c1nn(c2c1CCN(C2=O)c1ccc(cc1)N1CCCCC1=O)-c1ccc(OS(O)(=O)=O)cc1",
+   "parent": "COc1ccc(cc1)n2nc(C(=O)N)c3CCN(C(=O)c23)c4ccc(cc4)N5CCCCC5=O",
+   "style": "annotated"
+  },
+  "img_9ca0ece01d45": {
+   "smiles": "COc1c(C)cnc(C[S@](=O)c2nc3cc(O)ccc3[nH]2)c1C",
+   "parent": "COc1ccc2[nH]c(nc2c1)[S@@](=O)Cc3ncc(C)c(OC)c3C",
+   "style": "plain"
+  },
+  "img_6a39f330eb8f": {
+   "smiles": "COc1c(C)cnc(C[S@](=O)c2nc3cc(O)ccc3[nH]2)c1C",
+   "parent": "COc1ccc2[nH]c(nc2c1)[S@@](=O)Cc3ncc(C)c(OC)c3C",
+   "style": "rotated"
+  },
+  "img_b80e6ad41df8": {
+   "smiles": "COc1c(C)cnc(C[S@](=O)c2nc3cc(O)ccc3[nH]2)c1C",
+   "parent": "COc1ccc2[nH]c(nc2c1)[S@@](=O)Cc3ncc(C)c(OC)c3C",
+   "style": "thin_small"
+  },
+  "img_d6259f53bf34": {
+   "smiles": "COc1c(C)cnc(C[S@](=O)c2nc3cc(O)ccc3[nH]2)c1C",
+   "parent": "COc1ccc2[nH]c(nc2c1)[S@@](=O)Cc3ncc(C)c(OC)c3C",
+   "style": "annotated"
+  },
+  "img_ffa1cccbc891": {
+   "smiles": "COc1ccc2[nH]c(nc2c1)S(=O)(=O)Cc1ncc(C)c(OC)c1C",
+   "parent": "COc1ccc2[nH]c(nc2c1)[S@@](=O)Cc3ncc(C)c(OC)c3C",
+   "style": "plain"
+  },
+  "img_abb66c2dd010": {
+   "smiles": "COc1ccc2[nH]c(nc2c1)S(=O)(=O)Cc1ncc(C)c(OC)c1C",
+   "parent": "COc1ccc2[nH]c(nc2c1)[S@@](=O)Cc3ncc(C)c(OC)c3C",
+   "style": "rotated"
+  },
+  "img_f096a8189c98": {
+   "smiles": "COc1ccc2[nH]c(nc2c1)S(=O)(=O)Cc1ncc(C)c(OC)c1C",
+   "parent": "COc1ccc2[nH]c(nc2c1)[S@@](=O)Cc3ncc(C)c(OC)c3C",
+   "style": "thin_small"
+  },
+  "img_2f95e874ba4e": {
+   "smiles": "COc1ccc2[nH]c(nc2c1)S(=O)(=O)Cc1ncc(C)c(OC)c1C",
+   "parent": "COc1ccc2[nH]c(nc2c1)[S@@](=O)Cc3ncc(C)c(OC)c3C",
+   "style": "annotated"
+  },
+  "img_8aca1931798d": {
+   "smiles": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)C1=C[C@@H](O)[C@H](OC2OC(C(O)C(O)C2O)C(O)=O)c2ccccc12",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "plain"
+  },
+  "img_4ab076a26030": {
+   "smiles": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)C1=C[C@@H](O)[C@H](OC2OC(C(O)C(O)C2O)C(O)=O)c2ccccc12",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "rotated"
+  },
+  "img_3dec4651bc1e": {
+   "smiles": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)C1=C[C@@H](O)[C@H](OC2OC(C(O)C(O)C2O)C(O)=O)c2ccccc12",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "thin_small"
+  },
+  "img_697c94266de7": {
+   "smiles": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)C1=C[C@@H](O)[C@H](OC2OC(C(O)C(O)C2O)C(O)=O)c2ccccc12",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "annotated"
+  },
+  "img_19485b9bab01": {
+   "smiles": "OC(=O)CCc1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "plain"
+  },
+  "img_4c0e8aa46f1d": {
+   "smiles": "OC(=O)CCc1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "rotated"
+  },
+  "img_c3c09144e42a": {
+   "smiles": "OC(=O)CCc1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "thin_small"
+  },
+  "img_8b0a6a084aa0": {
+   "smiles": "OC(=O)CCc1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "annotated"
+  },
+  "img_3973968cec46": {
+   "smiles": "OC(CC(O)=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "plain"
+  },
+  "img_725881a5107c": {
+   "smiles": "OC(CC(O)=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "rotated"
+  },
+  "img_4e65bf182898": {
+   "smiles": "OC(CC(O)=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "thin_small"
+  },
+  "img_186982ce5b62": {
+   "smiles": "OC(CC(O)=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "annotated"
+  },
+  "img_135061426162": {
+   "smiles": "OC(=O)\\C=C\\c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "plain"
+  },
+  "img_d4f53047b971": {
+   "smiles": "OC(=O)\\C=C\\c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "rotated"
+  },
+  "img_53aee03207bb": {
+   "smiles": "OC(=O)\\C=C\\c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "thin_small"
+  },
+  "img_97502578e691": {
+   "smiles": "OC(=O)\\C=C\\c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "annotated"
+  },
+  "img_720ba8cdf5bf": {
+   "smiles": "OC(=O)CNC(=O)\\C=C\\c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "plain"
+  },
+  "img_027b1e56d3c2": {
+   "smiles": "OC(=O)CNC(=O)\\C=C\\c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "rotated"
+  },
+  "img_2f348c43234d": {
+   "smiles": "OC(=O)CNC(=O)\\C=C\\c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "thin_small"
+  },
+  "img_8cc0a8c1e4ab": {
+   "smiles": "OC(=O)CNC(=O)\\C=C\\c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "annotated"
+  },
+  "img_5e7464393b3e": {
+   "smiles": "OC(=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "plain"
+  },
+  "img_52fbc0d8797d": {
+   "smiles": "OC(=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "rotated"
+  },
+  "img_cdd41971983e": {
+   "smiles": "OC(=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "thin_small"
+  },
+  "img_35afee80a73e": {
+   "smiles": "OC(=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "annotated"
+  },
+  "img_242f90cad95a": {
+   "smiles": "OC(=O)CNC(=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "plain"
+  },
+  "img_e39c1a8042e9": {
+   "smiles": "OC(=O)CNC(=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "rotated"
+  },
+  "img_b2495bbd28b2": {
+   "smiles": "OC(=O)CNC(=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "thin_small"
+  },
+  "img_b7bef2086073": {
+   "smiles": "OC(=O)CNC(=O)c1cccc(c1)C(F)(F)F",
+   "parent": "C[C@@H](NCCCc1cccc(c1)C(F)(F)F)c2cccc3ccccc23",
+   "style": "annotated"
+  },
+  "img_8436d4a4a3a1": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1Nc1ncnc2[nH]ccc12)C(=O)CC#N",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "plain"
+  },
+  "img_63e85bb84ede": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1Nc1ncnc2[nH]ccc12)C(=O)CC#N",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "rotated"
+  },
+  "img_705a00db9250": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1Nc1ncnc2[nH]ccc12)C(=O)CC#N",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "thin_small"
+  },
+  "img_83c8574d4329": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1Nc1ncnc2[nH]ccc12)C(=O)CC#N",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "annotated"
+  },
+  "img_319c0658de41": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1N(C)c1ncnc2[nH]ccc12)C(=O)CO",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "plain"
+  },
+  "img_5d42d474e740": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1N(C)c1ncnc2[nH]ccc12)C(=O)CO",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "rotated"
+  },
+  "img_0f71984c39aa": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1N(C)c1ncnc2[nH]ccc12)C(=O)CO",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "thin_small"
+  },
+  "img_46b5b597a27d": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1N(C)c1ncnc2[nH]ccc12)C(=O)CO",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "annotated"
+  },
+  "img_3dd1f1460aca": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1N(C)c1ncnc2[nH]ccc12)C(=O)C(O)=O",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "plain"
+  },
+  "img_5ffe59173257": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1N(C)c1ncnc2[nH]ccc12)C(=O)C(O)=O",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "rotated"
+  },
+  "img_7850ecdc0b8e": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1N(C)c1ncnc2[nH]ccc12)C(=O)C(O)=O",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "thin_small"
+  },
+  "img_7ca37c9f55ac": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1N(C)c1ncnc2[nH]ccc12)C(=O)C(O)=O",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "annotated"
+  },
+  "img_ad6a6aeb8b5d": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1NC1=C2CC(=O)NC2=NC=N1)C(=O)CC#N",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "plain"
+  },
+  "img_6e4f502a6c97": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1NC1=C2CC(=O)NC2=NC=N1)C(=O)CC#N",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "rotated"
+  },
+  "img_571842a01848": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1NC1=C2CC(=O)NC2=NC=N1)C(=O)CC#N",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "thin_small"
+  },
+  "img_42448d2b0848": {
+   "smiles": "C[C@@H]1CCN(C[C@@H]1NC1=C2CC(=O)NC2=NC=N1)C(=O)CC#N",
+   "parent": "C[C@@H]1CCN(C[C@@H]1N(C)c2ncnc3[nH]ccc23)C(=O)CC#N",
+   "style": "annotated"
+  },
+  "img_a1f8b327fb47": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(OC4OC(C(O)C(O)C4O)C(O)=O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "plain"
+  },
+  "img_d820a6222432": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(OC4OC(C(O)C(O)C4O)C(O)=O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "rotated"
+  },
+  "img_a8eade997df0": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(OC4OC(C(O)C(O)C4O)C(O)=O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "thin_small"
+  },
+  "img_7bb02947ad45": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(OC4OC(C(O)C(O)C4O)C(O)=O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "annotated"
+  },
+  "img_84d6153e965e": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NC(O)c4ccc(F)cc4F)C(=O)C(O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "plain"
+  },
+  "img_13f094cef450": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NC(O)c4ccc(F)cc4F)C(=O)C(O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "rotated"
+  },
+  "img_0cccd92f9d60": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NC(O)c4ccc(F)cc4F)C(=O)C(O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "thin_small"
+  },
+  "img_29213345aa4c": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NC(O)c4ccc(F)cc4F)C(=O)C(O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "annotated"
+  },
+  "img_ca47dc4348ac": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(N)=O)C(=O)C(O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "plain"
+  },
+  "img_53782f96f9d9": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(N)=O)C(=O)C(O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "rotated"
+  },
+  "img_34c67f951329": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(N)=O)C(=O)C(O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "thin_small"
+  },
+  "img_05d869ab9217": {
+   "smiles": "C[C@@H]1CCO[C@H]2CN3C=C(C(N)=O)C(=O)C(O)=C3C(=O)N12",
+   "parent": "C[C@@H]1CCO[C@H]2CN3C=C(C(=O)NCc4ccc(F)cc4F)C(=O)C(=C3C(=O)N12)O",
+   "style": "annotated"
+  },
+  "img_5f56fb3a071b": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4C=CCC[C@]34C)[C@@H]1CC=C2c1cccnc1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "plain"
+  },
+  "img_0a0e8fb7140c": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4C=CCC[C@]34C)[C@@H]1CC=C2c1cccnc1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "rotated"
+  },
+  "img_c7057f133280": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4C=CCC[C@]34C)[C@@H]1CC=C2c1cccnc1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "thin_small"
+  },
+  "img_171771d86e67": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4C=CCC[C@]34C)[C@@H]1CC=C2c1cccnc1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "annotated"
+  },
+  "img_468f0e577e2c": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1cccnc1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "plain"
+  },
+  "img_ba709d3583d6": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1cccnc1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "rotated"
+  },
+  "img_2e517ce81f08": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1cccnc1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "thin_small"
+  },
+  "img_b241758c6f91": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1cccnc1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "annotated"
+  },
+  "img_7019d08cdb73": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+](c1)C1OC(C(O)C(O)C1O)C(O)=O",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "plain"
+  },
+  "img_a07cf6b8ea06": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+](c1)C1OC(C(O)C(O)C1O)C(O)=O",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "rotated"
+  },
+  "img_92393903bc2c": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+](c1)C1OC(C(O)C(O)C1O)C(O)=O",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "thin_small"
+  },
+  "img_96f127a6644f": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+](c1)C1OC(C(O)C(O)C1O)C(O)=O",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "annotated"
+  },
+  "img_52d928249362": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+]([O-])c1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "plain"
+  },
+  "img_c16a4e573f5b": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+]([O-])c1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "rotated"
+  },
+  "img_60511559b1c0": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+]([O-])c1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "thin_small"
+  },
+  "img_abb77367f773": {
+   "smiles": "C[C@]12CC[C@H]3[C@@H](CC=C4CC(CC[C@]34C)OS(O)(=O)=O)[C@@H]1CC=C2c1ccc[n+]([O-])c1",
+   "parent": "C[C@]12CC[C@H]3[C@@H](CC=C4C[C@@H](O)CC[C@]34C)[C@@H]1CC=C2c5cccnc5",
+   "style": "annotated"
+  },
+  "img_7cd01ccce566": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(CO)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "plain"
+  },
+  "img_71c4bc31c993": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(CO)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "rotated"
+  },
+  "img_6b724c019ee6": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(CO)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "thin_small"
+  },
+  "img_0fe69a20e80d": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(CO)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "annotated"
+  },
+  "img_37fa92068770": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(COC2OC(C(O)C(O)C2O)C(O)=O)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "plain"
+  },
+  "img_bb2b446390c5": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(COC2OC(C(O)C(O)C2O)C(O)=O)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "rotated"
+  },
+  "img_8b9fd7094179": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(COC2OC(C(O)C(O)C2O)C(O)=O)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "thin_small"
+  },
+  "img_8e4e1785ebb0": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(COC2OC(C(O)C(O)C2O)C(O)=O)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "annotated"
+  },
+  "img_959fc8685289": {
+   "smiles": "OCc1cc(\\C=C\\C#N)cc(CO)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "plain"
+  },
+  "img_526531bc10bd": {
+   "smiles": "OCc1cc(\\C=C\\C#N)cc(CO)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "rotated"
+  },
+  "img_1db888ee0738": {
+   "smiles": "OCc1cc(\\C=C\\C#N)cc(CO)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "thin_small"
+  },
+  "img_e08bb6eeef0f": {
+   "smiles": "OCc1cc(\\C=C\\C#N)cc(CO)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "annotated"
+  },
+  "img_2273d9acd7e9": {
+   "smiles": "OCc1cc(\\C=C\\C#N)cc(COC2OC(C(O)C(O)C2O)C(O)=O)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "plain"
+  },
+  "img_dae07739a53f": {
+   "smiles": "OCc1cc(\\C=C\\C#N)cc(COC2OC(C(O)C(O)C2O)C(O)=O)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "rotated"
+  },
+  "img_e3fa7786095b": {
+   "smiles": "OCc1cc(\\C=C\\C#N)cc(COC2OC(C(O)C(O)C2O)C(O)=O)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "thin_small"
+  },
+  "img_afb657944fba": {
+   "smiles": "OCc1cc(\\C=C\\C#N)cc(COC2OC(C(O)C(O)C2O)C(O)=O)c1Nc1ccnc(Nc2ccc(cc2)C#N)n1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "annotated"
+  },
+  "img_ed82f90daca3": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(C)c1NC1C=CN(C2OC(C(O)C(O)C2O)C(O)=O)C(Nc2ccc(cc2)C#N)=N1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "plain"
+  },
+  "img_f7f52b8e98fa": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(C)c1NC1C=CN(C2OC(C(O)C(O)C2O)C(O)=O)C(Nc2ccc(cc2)C#N)=N1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "rotated"
+  },
+  "img_c56abb505c75": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(C)c1NC1C=CN(C2OC(C(O)C(O)C2O)C(O)=O)C(Nc2ccc(cc2)C#N)=N1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "thin_small"
+  },
+  "img_a481da862449": {
+   "smiles": "Cc1cc(\\C=C\\C#N)cc(C)c1NC1C=CN(C2OC(C(O)C(O)C2O)C(O)=O)C(Nc2ccc(cc2)C#N)=N1",
+   "parent": "Cc1cc(\\C=C\\C#N)cc(C)c1Nc2ccnc(Nc3ccc(cc3)C#N)n2",
+   "style": "annotated"
+  },
+  "img_af667092a075": {
+   "smiles": "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "plain"
+  },
+  "img_04300606968e": {
+   "smiles": "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "rotated"
+  },
+  "img_d6dba9c4e077": {
+   "smiles": "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "thin_small"
+  },
+  "img_987e972d8377": {
+   "smiles": "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(CO)c(Nc3nccc(n3)-c3cccnc3)c2)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "annotated"
+  },
+  "img_a58ca80b4c01": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(cc(c1)C(F)(F)F)-n1cnc(CO)c1",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "plain"
+  },
+  "img_169b850121b5": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(cc(c1)C(F)(F)F)-n1cnc(CO)c1",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "rotated"
+  },
+  "img_a775d5d74365": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(cc(c1)C(F)(F)F)-n1cnc(CO)c1",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "thin_small"
+  },
+  "img_ecca0e491ccf": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(cc(c1)C(F)(F)F)-n1cnc(CO)c1",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "annotated"
+  },
+  "img_772ff762bc58": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(cc(c1)C(F)(F)F)-n1cnc(c1)C(O)=O",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "plain"
+  },
+  "img_0c2fb5e61faa": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(cc(c1)C(F)(F)F)-n1cnc(c1)C(O)=O",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "rotated"
+  },
+  "img_c26aaafefe06": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(cc(c1)C(F)(F)F)-n1cnc(c1)C(O)=O",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "thin_small"
+  },
+  "img_a47f59ace4fb": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(cc(c1)C(F)(F)F)-n1cnc(c1)C(O)=O",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "annotated"
+  },
+  "img_a71138e9df98": {
+   "smiles": "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "plain"
+  },
+  "img_795958b596df": {
+   "smiles": "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "rotated"
+  },
+  "img_d5581c267d79": {
+   "smiles": "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "thin_small"
+  },
+  "img_6e037104e4fe": {
+   "smiles": "Cc1cn(cn1)-c1cc(NC(=O)c2ccc(C)c(Nc3nccc(n3)-c3ccc[n+]([O-])c3)c2)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "annotated"
+  },
+  "img_510962b5f220": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(N)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "plain"
+  },
+  "img_afa4c508494d": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(N)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "rotated"
+  },
+  "img_1281427e6244": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(N)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "thin_small"
+  },
+  "img_96fb0b034efb": {
+   "smiles": "Cc1ccc(cc1Nc1nccc(n1)-c1cccnc1)C(=O)Nc1cc(N)cc(c1)C(F)(F)F",
+   "parent": "Cc1cn(cn1)c2cc(NC(=O)c3ccc(C)c(Nc4nccc(n4)c5cccnc5)c3)cc(c2)C(F)(F)F",
+   "style": "annotated"
+  },
+  "img_1d6b70c3da30": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C2=Nc3c(Cl)cccc3CO2)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "plain"
+  },
+  "img_acc492858dbe": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C2=Nc3c(Cl)cccc3CO2)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "rotated"
+  },
+  "img_891078d7ed2e": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C2=Nc3c(Cl)cccc3CO2)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "thin_small"
+  },
+  "img_91b13e23f6ac": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C2=Nc3c(Cl)cccc3CO2)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "annotated"
+  },
+  "img_9e36f6c483d6": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CCN(CC(O)=O)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "plain"
+  },
+  "img_dac4a37227e2": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CCN(CC(O)=O)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "rotated"
+  },
+  "img_f8ca1d6e77e8": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CCN(CC(O)=O)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "thin_small"
+  },
+  "img_2b181c607991": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CCN(CC(O)=O)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "annotated"
+  },
+  "img_5806db4552aa": {
+   "smiles": "Cc1cccc(Cl)c1NC(=O)c1cnc(Nc2cc(nc(C)n2)N2CCNCC2)s1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "plain"
+  },
+  "img_53cd9276f49d": {
+   "smiles": "Cc1cccc(Cl)c1NC(=O)c1cnc(Nc2cc(nc(C)n2)N2CCNCC2)s1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "rotated"
+  },
+  "img_df837b075fbc": {
+   "smiles": "Cc1cccc(Cl)c1NC(=O)c1cnc(Nc2cc(nc(C)n2)N2CCNCC2)s1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "thin_small"
+  },
+  "img_00f2cb26ab33": {
+   "smiles": "Cc1cccc(Cl)c1NC(=O)c1cnc(Nc2cc(nc(C)n2)N2CCNCC2)s1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "annotated"
+  },
+  "img_0cbdcb4cae89": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cc(O)cc2Cl)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "plain"
+  },
+  "img_b3233ae30942": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cc(O)cc2Cl)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "rotated"
+  },
+  "img_cbf1d37eb23c": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cc(O)cc2Cl)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "thin_small"
+  },
+  "img_cc13566be33d": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cc(O)cc2Cl)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "annotated"
+  },
+  "img_959f71f4f98f": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(Cl)cccc2CO)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "plain"
+  },
+  "img_e240ce18e339": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(Cl)cccc2CO)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "rotated"
+  },
+  "img_0e9985df6f17": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(Cl)cccc2CO)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "thin_small"
+  },
+  "img_8d9b8c3cd799": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(Cl)cccc2CO)cc(n1)N1CCN(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "annotated"
+  },
+  "img_2a0bb383ba75": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CC[N+]([O-])(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "plain"
+  },
+  "img_1ec14f7190ab": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CC[N+]([O-])(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "rotated"
+  },
+  "img_e5612f3351cf": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CC[N+]([O-])(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "thin_small"
+  },
+  "img_3acc54d792ba": {
+   "smiles": "Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CC[N+]([O-])(CCO)CC1",
+   "parent": "Cc1nc(Nc2ncc(s2)C(=O)Nc3c(C)cccc3Cl)cc(n1)N4CCN(CCO)CC4",
+   "style": "annotated"
+  },
+  "img_5c29f1bbe17d": {
+   "smiles": "OC1OCCN(C1=O)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_1e84d87f49b2": {
+   "smiles": "OC1OCCN(C1=O)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_f775d390cbb6": {
+   "smiles": "OC1OCCN(C1=O)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_3fce2b16b1fa": {
+   "smiles": "OC1OCCN(C1=O)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_dc0510ef91ea": {
+   "smiles": "OCCN(C(=O)C(O)=O)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_1658166f5c62": {
+   "smiles": "OCCN(C(=O)C(O)=O)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_8da5616850cd": {
+   "smiles": "OCCN(C(=O)C(O)=O)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_2b02c35a8236": {
+   "smiles": "OCCN(C(=O)C(O)=O)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_0eb6258bcac0": {
+   "smiles": "OCCN(C(=O)CO)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_91933ec44170": {
+   "smiles": "OCCN(C(=O)CO)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_32a005d29d93": {
+   "smiles": "OCCN(C(=O)CO)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_fe88a19f0aad": {
+   "smiles": "OCCN(C(=O)CO)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_0436b7ccdd51": {
+   "smiles": "OCCNc1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_66e1de3ef327": {
+   "smiles": "OCCNc1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_552669e508b5": {
+   "smiles": "OCCNc1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_2294c34fb8fe": {
+   "smiles": "OCCNc1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_3436c778bbb6": {
+   "smiles": "OC(=O)COCCNc1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_689c98708fca": {
+   "smiles": "OC(=O)COCCNc1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_aeb9648e0d80": {
+   "smiles": "OC(=O)COCCNc1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_ff09f5cb5ec2": {
+   "smiles": "OC(=O)COCCNc1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_04a2ebc7ccdf": {
+   "smiles": "Clc1ccc(s1)C(=O)NCC(=O)CNc1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_8ae29be8e4ed": {
+   "smiles": "Clc1ccc(s1)C(=O)NCC(=O)CNc1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_19a74df9616f": {
+   "smiles": "Clc1ccc(s1)C(=O)NCC(=O)CNc1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_cd4ff53f3727": {
+   "smiles": "Clc1ccc(s1)C(=O)NCC(=O)CNc1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_9734ac0e57c1": {
+   "smiles": "OC(=O)c1ccc(Cl)s1",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_87949778ce98": {
+   "smiles": "OC(=O)c1ccc(Cl)s1",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_5eac320dc8ab": {
+   "smiles": "OC(=O)c1ccc(Cl)s1",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_219069f71a11": {
+   "smiles": "OC(=O)c1ccc(Cl)s1",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_f29832523e76": {
+   "smiles": "OC(=O)CNC(=O)c1ccc(Cl)s1",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_a2819d8ff539": {
+   "smiles": "OC(=O)CNC(=O)c1ccc(Cl)s1",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_95f9fa88f6b8": {
+   "smiles": "OC(=O)CNC(=O)c1ccc(Cl)s1",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_44d9f430c5fa": {
+   "smiles": "OC(=O)CNC(=O)c1ccc(Cl)s1",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_c9d68b96e7f7": {
+   "smiles": "NC[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_6a00671d5aed": {
+   "smiles": "NC[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_1aa299aebfa0": {
+   "smiles": "NC[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_f732542b2cff": {
+   "smiles": "NC[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_db8c847c8335": {
+   "smiles": "OC[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_3d6dcfdb4b71": {
+   "smiles": "OC[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_8e9deed3731c": {
+   "smiles": "OC[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_8fa13201a1ee": {
+   "smiles": "OC[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_3502c14e0523": {
+   "smiles": "OC(=O)[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_c1e3fcd3a3d4": {
+   "smiles": "OC(=O)[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_fd8c92264596": {
+   "smiles": "OC(=O)[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_27c294d451d4": {
+   "smiles": "OC(=O)[C@H]1CN(C(=O)O1)c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_6bbffde3ee12": {
+   "smiles": "OC1[C@H](CNC(=O)c2ccc(Cl)s2)OC(=O)N1c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_7870a5e4bf02": {
+   "smiles": "OC1[C@H](CNC(=O)c2ccc(Cl)s2)OC(=O)N1c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_98fc20bfee26": {
+   "smiles": "OC1[C@H](CNC(=O)c2ccc(Cl)s2)OC(=O)N1c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_6c84b44b3b9c": {
+   "smiles": "OC1[C@H](CNC(=O)c2ccc(Cl)s2)OC(=O)N1c1ccc(cc1)N1CCOCC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_9aaeaea7e6de": {
+   "smiles": "OC1COCC(=O)N1c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_191c44dca85d": {
+   "smiles": "OC1COCC(=O)N1c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_205fa024ef14": {
+   "smiles": "OC1COCC(=O)N1c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_ffe462d8ef68": {
+   "smiles": "OC1COCC(=O)N1c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_8bc63e5a9b34": {
+   "smiles": "OC1CN(C(=O)CO1)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "plain"
+  },
+  "img_2634dd08fb50": {
+   "smiles": "OC1CN(C(=O)CO1)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "rotated"
+  },
+  "img_b83f7b449b3c": {
+   "smiles": "OC1CN(C(=O)CO1)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "thin_small"
+  },
+  "img_e6d734252be6": {
+   "smiles": "OC1CN(C(=O)CO1)c1ccc(cc1)N1C[C@H](CNC(=O)c2ccc(Cl)s2)OC1=O",
+   "parent": "Clc1ccc(s1)C(=O)NC[C@H]2CN(C(=O)O2)c3ccc(cc3)N4CCOCC4=O",
+   "style": "annotated"
+  },
+  "img_dfe76baddff0": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)Nc1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_a75a448c6332": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)Nc1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_6572b4ea88a1": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)Nc1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_6236a01ce7aa": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)Nc1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_3612f9abd1f8": {
+   "smiles": "Cn1c(nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_9cb0ac5e4038": {
+   "smiles": "Cn1c(nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_90b42294ff4c": {
+   "smiles": "Cn1c(nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_55c2758cb5db": {
+   "smiles": "Cn1c(nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_831d5364730c": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_43d8f042e76f": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_2508c75b5843": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_0652b45aa28d": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_5b66b911d3b7": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)OC1OC(C(O)C(O)C1O)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_58dd8c9a1f0b": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)OC1OC(C(O)C(O)C1O)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_8ec3f079de42": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)OC1OC(C(O)C(O)C1O)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_1a4de32f551c": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)OC1OC(C(O)C(O)C1O)C(O)=O",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_6b0c16473880": {
+   "smiles": "Cn1c(CO)nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_24c77dd6268f": {
+   "smiles": "Cn1c(CO)nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_7090ecd814b4": {
+   "smiles": "Cn1c(CO)nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_83077e1d4146": {
+   "smiles": "Cn1c(CO)nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_36e974549eef": {
+   "smiles": "Cn1cnc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_34a736f6b08d": {
+   "smiles": "Cn1cnc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_6bf63fe19b09": {
+   "smiles": "Cn1cnc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_46dfc145b55c": {
+   "smiles": "Cn1cnc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_274123c68d13": {
+   "smiles": "Cn1c(CN)nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_97fa32825ec4": {
+   "smiles": "Cn1c(CN)nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_54951300c1bf": {
+   "smiles": "Cn1c(CN)nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_f243a2851853": {
+   "smiles": "Cn1c(CN)nc2cc(ccc12)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_c7685942235b": {
+   "smiles": "CC(=O)NCc1nc2cc(ccc2n1C)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_2ab02ba73b9c": {
+   "smiles": "CC(=O)NCc1nc2cc(ccc2n1C)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_d262e435475b": {
+   "smiles": "CC(=O)NCc1nc2cc(ccc2n1C)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_1b48043eceba": {
+   "smiles": "CC(=O)NCc1nc2cc(ccc2n1C)C(=O)N(CCC(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_4d723cf7c23a": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OC1CC(C(O)C(O)C1O)C(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_2d0e191ed90b": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OC1CC(C(O)C(O)C1O)C(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_9993cd8069bf": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OC1CC(C(O)C(O)C1O)C(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_ad2c571974a4": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OC1CC(C(O)C(O)C1O)C(O)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_cb42ca21726d": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OC1OC(C(O)C(O)C1O)C(=O)NC(N)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_de2b8452b35f": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OC1OC(C(O)C(O)C1O)C(=O)NC(N)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_88b6545ed34d": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OC1OC(C(O)C(O)C1O)C(=O)NC(N)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_e3f973ba8fcd": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OC1OC(C(O)C(O)C1O)C(=O)NC(N)=O)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_33ce08d23479": {
+   "smiles": "COC(=O)CCN(C(=O)c1ccc2n(C)c(CNc3ccc(cc3)C(N)=N)nc2c1)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_907006a9d3a4": {
+   "smiles": "COC(=O)CCN(C(=O)c1ccc2n(C)c(CNc3ccc(cc3)C(N)=N)nc2c1)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_6d13b67f356e": {
+   "smiles": "COC(=O)CCN(C(=O)c1ccc2n(C)c(CNc3ccc(cc3)C(N)=N)nc2c1)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_ce1092e5b13c": {
+   "smiles": "COC(=O)CCN(C(=O)c1ccc2n(C)c(CNc3ccc(cc3)C(N)=N)nc2c1)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_8867c4d96a77": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OCC(O)C(O)C(O)C(O)CO)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "plain"
+  },
+  "img_4c90dc779914": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OCC(O)C(O)C(O)C(O)CO)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "rotated"
+  },
+  "img_6a19ab64d4b9": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OCC(O)C(O)C(O)C(O)CO)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "thin_small"
+  },
+  "img_5c8a234dd6f8": {
+   "smiles": "Cn1c(CNc2ccc(cc2)C(N)=N)nc2cc(ccc12)C(=O)N(CCC(=O)OCC(O)C(O)C(O)C(O)CO)c1ccccn1",
+   "parent": "Cn1c(CNc2ccc(cc2)C(=N)N)nc3cc(ccc13)C(=O)N(CCC(=O)O)c4ccccn4",
+   "style": "annotated"
+  },
+  "img_c26083966e05": {
+   "smiles": "OS(=O)(=O)N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc1cc(F)c(F)cc1F",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "plain"
+  },
+  "img_6526c0dad30c": {
+   "smiles": "OS(=O)(=O)N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc1cc(F)c(F)cc1F",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "rotated"
+  },
+  "img_cf8d93b6d947": {
+   "smiles": "OS(=O)(=O)N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc1cc(F)c(F)cc1F",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "thin_small"
+  },
+  "img_8c734abb093c": {
+   "smiles": "OS(=O)(=O)N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc1cc(F)c(F)cc1F",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "annotated"
+  },
+  "img_3059f7606fce": {
+   "smiles": "OC1C(O)C(OC(=O)N[C@@H](CC(=O)N2CCn3c(C2)nnc3C(F)(F)F)Cc2cc(F)c(F)cc2F)OC(C1O)C(O)=O",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "plain"
+  },
+  "img_2dbdaecbdbdf": {
+   "smiles": "OC1C(O)C(OC(=O)N[C@@H](CC(=O)N2CCn3c(C2)nnc3C(F)(F)F)Cc2cc(F)c(F)cc2F)OC(C1O)C(O)=O",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "rotated"
+  },
+  "img_2c561ae41d76": {
+   "smiles": "OC1C(O)C(OC(=O)N[C@@H](CC(=O)N2CCn3c(C2)nnc3C(F)(F)F)Cc2cc(F)c(F)cc2F)OC(C1O)C(O)=O",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "thin_small"
+  },
+  "img_6060464df115": {
+   "smiles": "OC1C(O)C(OC(=O)N[C@@H](CC(=O)N2CCn3c(C2)nnc3C(F)(F)F)Cc2cc(F)c(F)cc2F)OC(C1O)C(O)=O",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "annotated"
+  },
+  "img_ae30b4b811b1": {
+   "smiles": "Fc1cc(F)c(CC2CC(=O)N3CCn4c(nnc4C(F)(F)F)C3N2)cc1F",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "plain"
+  },
+  "img_732cb8829fb4": {
+   "smiles": "Fc1cc(F)c(CC2CC(=O)N3CCn4c(nnc4C(F)(F)F)C3N2)cc1F",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "rotated"
+  },
+  "img_1f11f0b9b412": {
+   "smiles": "Fc1cc(F)c(CC2CC(=O)N3CCn4c(nnc4C(F)(F)F)C3N2)cc1F",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "thin_small"
+  },
+  "img_a30335c1446a": {
+   "smiles": "Fc1cc(F)c(CC2CC(=O)N3CCn4c(nnc4C(F)(F)F)C3N2)cc1F",
+   "parent": "N[C@@H](CC(=O)N1CCn2c(C1)nnc2C(F)(F)F)Cc3cc(F)c(F)cc3F",
+   "style": "annotated"
+  },
+  "img_57445c122c12": {
+   "smiles": "NC(=O)C(CCC(O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "plain"
+  },
+  "img_e0b900946eca": {
+   "smiles": "NC(=O)C(CCC(O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "rotated"
+  },
+  "img_304d023efeb8": {
+   "smiles": "NC(=O)C(CCC(O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "thin_small"
+  },
+  "img_33f942a1184f": {
+   "smiles": "NC(=O)C(CCC(O)=O)N1C(=O)c2cccc(N)c2C1=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "annotated"
+  },
+  "img_bf52320359f4": {
+   "smiles": "Nc1ccc(O)c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "plain"
+  },
+  "img_24247085395b": {
+   "smiles": "Nc1ccc(O)c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "rotated"
+  },
+  "img_b62207d507d5": {
+   "smiles": "Nc1ccc(O)c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "thin_small"
+  },
+  "img_a89fcce1ddfd": {
+   "smiles": "Nc1ccc(O)c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "annotated"
+  },
+  "img_c1484a055978": {
+   "smiles": "Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "plain"
+  },
+  "img_8ed0931a2e7e": {
+   "smiles": "Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "rotated"
+  },
+  "img_08afacf236a0": {
+   "smiles": "Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "thin_small"
+  },
+  "img_4f2ff346171a": {
+   "smiles": "Nc1cccc(C(O)=O)c1C(O)=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "annotated"
+  },
+  "img_93d2c87ff134": {
+   "smiles": "Nc1cccc2C(=O)N(C3CC(O)C(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "plain"
+  },
+  "img_dbf37c3c16dc": {
+   "smiles": "Nc1cccc2C(=O)N(C3CC(O)C(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "rotated"
+  },
+  "img_522556b2d8c1": {
+   "smiles": "Nc1cccc2C(=O)N(C3CC(O)C(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "thin_small"
+  },
+  "img_33d8d4a877fd": {
+   "smiles": "Nc1cccc2C(=O)N(C3CC(O)C(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "annotated"
+  },
+  "img_4b04e5443ee4": {
+   "smiles": "NC(=O)CCC(N1C(=O)c2cccc(N)c2C1=O)C(O)=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "plain"
+  },
+  "img_33c2be996ef1": {
+   "smiles": "NC(=O)CCC(N1C(=O)c2cccc(N)c2C1=O)C(O)=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "rotated"
+  },
+  "img_23074ca78a79": {
+   "smiles": "NC(=O)CCC(N1C(=O)c2cccc(N)c2C1=O)C(O)=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "thin_small"
+  },
+  "img_787551867744": {
+   "smiles": "NC(=O)CCC(N1C(=O)c2cccc(N)c2C1=O)C(O)=O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "annotated"
+  },
+  "img_87f986deba51": {
+   "smiles": "OC(=O)Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "plain"
+  },
+  "img_f289e8fbed4b": {
+   "smiles": "OC(=O)Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "rotated"
+  },
+  "img_887c02828c37": {
+   "smiles": "OC(=O)Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "thin_small"
+  },
+  "img_57e2b45b4049": {
+   "smiles": "OC(=O)Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "annotated"
+  },
+  "img_7c4da129bff5": {
+   "smiles": "Nc1c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c2ccc1O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "plain"
+  },
+  "img_5f86ee30c976": {
+   "smiles": "Nc1c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c2ccc1O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "rotated"
+  },
+  "img_3aa4d0b13aa6": {
+   "smiles": "Nc1c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c2ccc1O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "thin_small"
+  },
+  "img_d09a911a3539": {
+   "smiles": "Nc1c2C(=O)N(C3CCC(=O)NC3=O)C(=O)c2ccc1O",
+   "parent": "Nc1cccc2C(=O)N(C3CCC(=O)NC3=O)C(=O)c12",
+   "style": "annotated"
+  },
+  "img_d4094d944a3f": {
+   "smiles": "Nc1c2CN(C3CCC(=O)NC3=O)C(=O)c2ccc1O",
+   "parent": "Nc1cccc2C(=O)N(Cc12)C3CCC(=O)NC3=O",
+   "style": "plain"
+  },
+  "img_70d433b1b0e4": {
+   "smiles": "Nc1c2CN(C3CCC(=O)NC3=O)C(=O)c2ccc1O",
+   "parent": "Nc1cccc2C(=O)N(Cc12)C3CCC(=O)NC3=O",
+   "style": "rotated"
+  },
+  "img_07ade3699dc9": {
+   "smiles": "Nc1c2CN(C3CCC(=O)NC3=O)C(=O)c2ccc1O",
+   "parent": "Nc1cccc2C(=O)N(Cc12)C3CCC(=O)NC3=O",
+   "style": "thin_small"
+  },
+  "img_9eec869b758d": {
+   "smiles": "Nc1c2CN(C3CCC(=O)NC3=O)C(=O)c2ccc1O",
+   "parent": "Nc1cccc2C(=O)N(Cc12)C3CCC(=O)NC3=O",
+   "style": "annotated"
+  },
+  "img_562198f45a91": {
+   "smiles": "CC(=O)Nc1cccc2C(=O)N(Cc12)C1CCC(=O)NC1=O",
+   "parent": "Nc1cccc2C(=O)N(Cc12)C3CCC(=O)NC3=O",
+   "style": "plain"
+  },
+  "img_939e63036153": {
+   "smiles": "CC(=O)Nc1cccc2C(=O)N(Cc12)C1CCC(=O)NC1=O",
+   "parent": "Nc1cccc2C(=O)N(Cc12)C3CCC(=O)NC3=O",
+   "style": "rotated"
+  },
+  "img_62a19841158a": {
+   "smiles": "CC(=O)Nc1cccc2C(=O)N(Cc12)C1CCC(=O)NC1=O",
+   "parent": "Nc1cccc2C(=O)N(Cc12)C3CCC(=O)NC3=O",
+   "style": "thin_small"
+  },
+  "img_6ef490ceb79d": {
+   "smiles": "CC(=O)Nc1cccc2C(=O)N(Cc12)C1CCC(=O)NC1=O",
+   "parent": "Nc1cccc2C(=O)N(Cc12)C3CCC(=O)NC3=O",
+   "style": "annotated"
+  },
+  "img_4f1148a62e9a": {
+   "smiles": "Nc1nc(NC2CC2)c2ncn([C@@H]3C[C@@H](C=C3)C(O)=O)c2n1",
+   "parent": "Nc1nc(NC2CC2)c3ncn([C@@H]4C[C@H](CO)C=C4)c3n1",
+   "style": "plain"
+  },
+  "img_eed90cffcf7b": {
+   "smiles": "Nc1nc(NC2CC2)c2ncn([C@@H]3C[C@@H](C=C3)C(O)=O)c2n1",
+   "parent": "Nc1nc(NC2CC2)c3ncn([C@@H]4C[C@H](CO)C=C4)c3n1",
+   "style": "rotated"
+  },
+  "img_66c0b7fd6a6e": {
+   "smiles": "Nc1nc(NC2CC2)c2ncn([C@@H]3C[C@@H](C=C3)C(O)=O)c2n1",
+   "parent": "Nc1nc(NC2CC2)c3ncn([C@@H]4C[C@H](CO)C=C4)c3n1",
+   "style": "thin_small"
+  },
+  "img_c9016f6c45dc": {
+   "smiles": "Nc1nc(NC2CC2)c2ncn([C@@H]3C[C@@H](C=C3)C(O)=O)c2n1",
+   "parent": "Nc1nc(NC2CC2)c3ncn([C@@H]4C[C@H](CO)C=C4)c3n1",
+   "style": "annotated"
+  },
+  "img_92b7f0654d04": {
+   "smiles": "Nc1nc(NC2CC2)c2ncn([C@@H]3C[C@H](COC4OC(C(O)C(O)C4O)C(O)=O)C=C3)c2n1",
+   "parent": "Nc1nc(NC2CC2)c3ncn([C@@H]4C[C@H](CO)C=C4)c3n1",
+   "style": "plain"
+  },
+  "img_7211e77b5fbb": {
+   "smiles": "Nc1nc(NC2CC2)c2ncn([C@@H]3C[C@H](COC4OC(C(O)C(O)C4O)C(O)=O)C=C3)c2n1",
+   "parent": "Nc1nc(NC2CC2)c3ncn([C@@H]4C[C@H](CO)C=C4)c3n1",
+   "style": "rotated"
+  },
+  "img_c20b5c8603ef": {
+   "smiles": "Nc1nc(NC2CC2)c2ncn([C@@H]3C[C@H](COC4OC(C(O)C(O)C4O)C(O)=O)C=C3)c2n1",
+   "parent": "Nc1nc(NC2CC2)c3ncn([C@@H]4C[C@H](CO)C=C4)c3n1",
+   "style": "thin_small"
+  },
+  "img_e771c4e2b3c2": {
+   "smiles": "Nc1nc(NC2CC2)c2ncn([C@@H]3C[C@H](COC4OC(C(O)C(O)C4O)C(O)=O)C=C3)c2n1",
+   "parent": "Nc1nc(NC2CC2)c3ncn([C@@H]4C[C@H](CO)C=C4)c3n1",
+   "style": "annotated"
+  },
+  "img_e4f66a516cb2": {
+   "smiles": "NC(CCC(=O)NC(CSCCC(=O)N1CCC[C@H](C1)n1nc(-c2ccc(Oc3ccccc3)cc2)c2c(N)ncnc12)C(=O)NCC(O)=O)C(O)=O",
+   "parent": "Nc1ncnc2c1c(nn2[C@@H]3CCCN(C3)C(=O)C=C)c4ccc(Oc5ccccc5)cc4",
+   "style": "plain"
+  },
+  "img_47d4f1c29280": {
+   "smiles": "NC(CCC(=O)NC(CSCCC(=O)N1CCC[C@H](C1)n1nc(-c2ccc(Oc3ccccc3)cc2)c2c(N)ncnc12)C(=O)NCC(O)=O)C(O)=O",
+   "parent": "Nc1ncnc2c1c(nn2[C@@H]3CCCN(C3)C(=O)C=C)c4ccc(Oc5ccccc5)cc4",
+   "style": "rotated"
+  },
+  "img_bc3f86d5d439": {
+   "smiles": "NC(CCC(=O)NC(CSCCC(=O)N1CCC[C@H](C1)n1nc(-c2ccc(Oc3ccccc3)cc2)c2c(N)ncnc12)C(=O)NCC(O)=O)C(O)=O",
+   "parent": "Nc1ncnc2c1c(nn2[C@@H]3CCCN(C3)C(=O)C=C)c4ccc(Oc5ccccc5)cc4",
+   "style": "thin_small"
+  },
+  "img_43d29da52aa6": {
+   "smiles": "NC(CCC(=O)NC(CSCCC(=O)N1CCC[C@H](C1)n1nc(-c2ccc(Oc3ccccc3)cc2)c2c(N)ncnc12)C(=O)NCC(O)=O)C(O)=O",
+   "parent": "Nc1ncnc2c1c(nn2[C@@H]3CCCN(C3)C(=O)C=C)c4ccc(Oc5ccccc5)cc4",
+   "style": "annotated"
+  },
+  "img_2f9f845ebc9e": {
+   "smiles": "Nc1ncnc2n(nc(-c3ccc(Oc4ccccc4)cc3)c12)[C@@H]1CCCN(C1)C(=O)C(O)CO",
+   "parent": "Nc1ncnc2c1c(nn2[C@@H]3CCCN(C3)C(=O)C=C)c4ccc(Oc5ccccc5)cc4",
+   "style": "plain"
+  },
+  "img_8e3d5a9d188d": {
+   "smiles": "Nc1ncnc2n(nc(-c3ccc(Oc4ccccc4)cc3)c12)[C@@H]1CCCN(C1)C(=O)C(O)CO",
+   "parent": "Nc1ncnc2c1c(nn2[C@@H]3CCCN(C3)C(=O)C=C)c4ccc(Oc5ccccc5)cc4",
+   "style": "rotated"
+  },
+  "img_848d3224ad88": {
+   "smiles": "Nc1ncnc2n(nc(-c3ccc(Oc4ccccc4)cc3)c12)[C@@H]1CCCN(C1)C(=O)C(O)CO",
+   "parent": "Nc1ncnc2c1c(nn2[C@@H]3CCCN(C3)C(=O)C=C)c4ccc(Oc5ccccc5)cc4",
+   "style": "thin_small"
+  },
+  "img_9574d0c65e0f": {
+   "smiles": "Nc1ncnc2n(nc(-c3ccc(Oc4ccccc4)cc3)c12)[C@@H]1CCCN(C1)C(=O)C(O)CO",
+   "parent": "Nc1ncnc2c1c(nn2[C@@H]3CCCN(C3)C(=O)C=C)c4ccc(Oc5ccccc5)cc4",
+   "style": "annotated"
+  },
+  "img_d045ff3f1911": {
+   "smiles": "C1CN(CCN1)c1nsc2ccccc12",
+   "parent": "O=C1[C@@H]2[C@H]3CC[C@H](C3)[C@@H]2C(=O)N1C[C@@H]4CCCC[C@H]4CN5CCN(CC5)c6nsc7ccccc67",
+   "style": "plain"
+  },
+  "img_d4c28ec29a6f": {
+   "smiles": "C1CN(CCN1)c1nsc2ccccc12",
+   "parent": "O=C1[C@@H]2[C@H]3CC[C@H](C3)[C@@H]2C(=O)N1C[C@@H]4CCCC[C@H]4CN5CCN(CC5)c6nsc7ccccc67",
+   "style": "rotated"
+  },
+  "img_64ad881115c2": {
+   "smiles": "C1CN(CCN1)c1nsc2ccccc12",
+   "parent": "O=C1[C@@H]2[C@H]3CC[C@H](C3)[C@@H]2C(=O)N1C[C@@H]4CCCC[C@H]4CN5CCN(CC5)c6nsc7ccccc67",
+   "style": "thin_small"
+  },
+  "img_c07b9c1538e7": {
+   "smiles": "C1CN(CCN1)c1nsc2ccccc12",
+   "parent": "O=C1[C@@H]2[C@H]3CC[C@H](C3)[C@@H]2C(=O)N1C[C@@H]4CCCC[C@H]4CN5CCN(CC5)c6nsc7ccccc67",
+   "style": "annotated"
+  },
+  "img_9e649809ac09": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H](O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "plain"
+  },
+  "img_4e08b2baaae2": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H](O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "rotated"
+  },
+  "img_f95dae52b9fa": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H](O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "thin_small"
+  },
+  "img_bee8bf5b0c57": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H](O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "annotated"
+  },
+  "img_d67e55b25e87": {
+   "smiles": "O[C@H]1[C@H](O)[C@@H](COC2OC(C(O)C(O)C2O)C(O)=O)O[C@H]([C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "plain"
+  },
+  "img_413595dff432": {
+   "smiles": "O[C@H]1[C@H](O)[C@@H](COC2OC(C(O)C(O)C2O)C(O)=O)O[C@H]([C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "rotated"
+  },
+  "img_c054c24839c7": {
+   "smiles": "O[C@H]1[C@H](O)[C@@H](COC2OC(C(O)C(O)C2O)C(O)=O)O[C@H]([C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "thin_small"
+  },
+  "img_829f650ca73e": {
+   "smiles": "O[C@H]1[C@H](O)[C@@H](COC2OC(C(O)C(O)C2O)C(O)=O)O[C@H]([C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "annotated"
+  },
+  "img_f06e677e641f": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](O)[C@@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "plain"
+  },
+  "img_751bb53989f0": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](O)[C@@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "rotated"
+  },
+  "img_1747f57bf870": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](O)[C@@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "thin_small"
+  },
+  "img_3d4fdc374051": {
+   "smiles": "OC[C@H]1O[C@H]([C@H](O)[C@@H](OC2OC(C(O)C(O)C2O)C(O)=O)[C@@H]1O)c1ccc(Cl)c(Cc2ccc(O[C@H]3CCOC3)cc2)c1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "annotated"
+  },
+  "img_b9e3097d2cb3": {
+   "smiles": "OCC[C@@H](CO)Oc1ccc(Cc2cc(ccc2Cl)[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "plain"
+  },
+  "img_00e1073e7d01": {
+   "smiles": "OCC[C@@H](CO)Oc1ccc(Cc2cc(ccc2Cl)[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "rotated"
+  },
+  "img_a87c7ebcd86d": {
+   "smiles": "OCC[C@@H](CO)Oc1ccc(Cc2cc(ccc2Cl)[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "thin_small"
+  },
+  "img_460c5e0f16cd": {
+   "smiles": "OCC[C@@H](CO)Oc1ccc(Cc2cc(ccc2Cl)[C@@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)cc1",
+   "parent": "OC[C@H]1O[C@H]([C@H](O)[C@@H](O)[C@@H]1O)c2ccc(Cl)c(Cc3ccc(O[C@H]4CCOC4)cc3)c2",
+   "style": "annotated"
+  }
+ }
+}

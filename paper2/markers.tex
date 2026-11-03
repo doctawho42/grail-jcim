@@ -1,0 +1,49 @@
+% Values the manuscript cannot compute: they come from outside the artifacts and outside the
+% code. Each renders as a conspicuous bracket so it cannot survive to submission unnoticed, and
+% each is defined in exactly one place so filling it is a one-line edit. This file is shared by
+% every journal wrapper, because a marker that lives in a layout preamble goes missing the moment
+% the target journal changes -- which is how \ZenodoDoi came to be undefined.
+\newcommand{\unresolved}[1]{\textbf{[#1]}}
+% The bracket has to break across a two-column line, so it carries explicit break points.
+\newcommand{\ZenodoDoi}{\unresolved{ZENODO DOI}}
+\newcommand{\CorpusVersions}{ChEMBL~34, DrugBank~5.1.10, MetXBioDB~1.0 and the GLORYx reference set released in 2020, published as \citet{de_Bruyn_Kops_2020}}
+% The licence conflict is a fact about ChEMBL's ShareAlike and DrugBank's NonCommercial
+% terms and does not resolve. What follows from it for this deposit is a release decision
+% and is taken rather than deferred: no source structure is redistributed.
+\newcommand{\CorpusLicence}{settled by not redistributing them: the deposit carries no source structure}
+% The repository's licence was constrained rather than free and the constraint decided it: the bank
+% redistributes SyGMa's GPL rules and BioTransformer's LGPL ones verbatim, so a permissive licence
+% was never consistent with it and GPLv3 is the licence that satisfies both. NOTICE.md records the
+% attributions each requires and what removing either would have cost.
+\newcommand{\RepoLicence}{the GNU General Public License, version 3, which is what the GPL and LGPL templates the bank redistributes admit}
+% ACS asks for a funding statement, and an acknowledgement section that is absent at
+% submission is a desk query.
+\newcommand{\Funding}{This study was supported by the Russian Science Foundation,
+project No.~25-25-00148, \url{https://rscf.ru/project/25-25-00148/}.}
+% Most of the curated half is now traced by measurement: results/curated_third_party.json finds
+% 966 of the 1,725 curated templates verbatim in a set published by BioTransformer, SyGMa or
+% GLORYx. The remainder is 759, and the two numbers printed for it disagreed until this was fixed.
+% That remainder is not one body. 492 of it is the second machine extraction whose source file
+% the history does name, so what nothing here accounts for is the 267 inside the three named
+% collections; the marker asks for those and states the rest, because a marker covering a number
+% four fifths of which is already answered is a question nobody can act on.
+\newcommand{\CuratedProvenance}{Of the \numThirdpartyUntraceable{} curated templates that match
+no published set measured here, \numThirdpartyExtraction{} are the second machine extraction
+above, whose origin file the history names. The remaining \numThirdpartyUnaccounted{} were written
+from the primary literature on xenobiotic metabolism as this bank was assembled. They match no
+published rule set measured here, and the repository records the templates without recording the
+paper each was read from, so their provenance is stated at the level of the source and not
+per template.}
+
+% ACS requires the use of AI tools for text or image generation to be disclosed in the
+% Acknowledgement, with a description of when and how they were used, and does not admit an AI
+% tool as an author. This manuscript had no such statement. The wording below is drafted from the
+% verdicts the authors recorded for the companion manuscript, results/ai_statement_verdicts.json,
+% and it is a claim about how the authors worked: it stands only once they have confirmed each
+% clause of it.
+\newcommand{\AIUse}{Generative AI tools were used in preparing this work: to implement the
+analysis and checking code, to clean and reformat data, to draft and edit the manuscript, and to
+give feedback on methodology, on conceptual framing and on the interpretation of results. They
+were not used to run the experiments, to generate research ideas or hypotheses, to produce
+synthetic data, or to make mathematical claims. Every number reported here was checked by an
+author against the artifact that produced it.}

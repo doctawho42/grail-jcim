@@ -1,0 +1,30 @@
+\begin{table*}[t]
+\centering\small
+\begin{threeparttable}
+\caption{The comparison with the output budget taken from the comparator instead of the experiment.}
+\label{tab:si-matched}
+\begin{tabular}{llrrrl}
+\toprule
+arm & comparator & slots & ours & theirs & difference \\
+\midrule
+exhaustive & MetaTox & 34.96 & .6430 & .6623 & $-$.0193$^{*}$ [$-$.0375, $-$.0004] \\
+interactive & MetaTox & 34.96 & .5094 & .6623 & $-$.1529$^{*}$ [$-$.1747, $-$.1312] \\
+exhaustive & SyGMa & 59.65 & .7058 & .5391 & +.1667$^{*}$ [+.1488, +.1852] \\
+interactive & SyGMa & 59.65 & .5114 & .5391 & $-$.0277$^{*}$ [$-$.0486, $-$.0065] \\
+exhaustive & MetaPredictor & 10.61 & .4463 & .4979 & $-$.0516$^{*}$ [$-$.0745, $-$.0290] \\
+interactive & MetaPredictor & 10.61 & .4432 & .4979 & $-$.0547$^{*}$ [$-$.0767, $-$.0321] \\
+exhaustive & BioTransformer & 11.08 & .4340 & .4486 & $-$.0146 [$-$.0362, +.0074] \\
+interactive & BioTransformer & 11.08 & .4151 & .4486 & $-$.0335$^{*}$ [$-$.0560, $-$.0111] \\
+exhaustive & GLORYx & 30.41 & .6223 & .6330 & $-$.0108 [$-$.0294, +.0085] \\
+interactive & GLORYx & 30.41 & .5037 & .6330 & $-$.1294$^{*}$ [$-$.1517, $-$.1068] \\
+exhaustive & GLORYxR, default & 30.23 & .6234 & .6265 & $-$.0031 [$-$.0218, +.0163] \\
+interactive & GLORYxR, default & 30.23 & .5052 & .6265 & $-$.1213$^{*}$ [$-$.1439, $-$.0989] \\
+exhaustive & GLORYxR, strict & 30.23 & .6234 & .6265 & $-$.0031 [$-$.0218, +.0163] \\
+interactive & GLORYxR, strict & 30.23 & .5052 & .6265 & $-$.1213$^{*}$ [$-$.1439, $-$.0989] \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item On each of the 1170 substrates both arms are cut to the number of candidates that comparator returned there, so the two are read over the same slots on every substrate and not on average; slots is the mean of those lengths. That number is not the comparator's mean emission, because the comparator's list first has its duplicates removed, a prediction equal to the substrate dropped, and is then truncated at 105 candidates. The truncation is this work's choice and not the comparator's: it sits five past this work's own pool cap, beyond which neither of its arms has a candidate to put in a slot, so a comparison there would measure that cap rather than the ordering. Of the 1170 substrates it binds on 218 substrates for SyGMa, 27 substrates for MetaTox, 18 substrates for GLORYx, 18 substrates for GLORYxR in its default setting and 18 substrates for GLORYxR in its strict setting, and on none for the others, whose lists are shorter than the cut everywhere. What it costs is measured: removing the cut moves 2 of 14 contrasts, by at most 0.0019, and against this work in each, leaving every verdict as it stands (Section~\ref{sec:si-matched}). The two GLORYxR rows are identical because the setting that separates them reorders a substrate's candidates without changing them (284 of 291 substrates reordered, none of them with a different list), and this control reads each comparator's whole list; only a budget that truncates can tell the two settings apart. This population carries no column for sygma on the standardised drawing, which exists only for the substrates that were submitted to it; Table~\ref{tab:si-matched-comparison} gives the same control on the comparison set, where it does. $^{*}$ marks an interval excluding zero. Leading zeros are dropped.
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}

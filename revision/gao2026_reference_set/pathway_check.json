@@ -1,0 +1,1145 @@
+{
+ "provenance": {
+  "script": "gao_pathway_check.py",
+  "script_path": "scripts/typed_edit/gao_pathway_check.py",
+  "source_sha256": "005c02e95d5738ec75256ba1f5736de0af75ed5ac10a9fe56baf5400e95ebdbf",
+  "git_commit": "06a3f9297c9652af9a0e7929a98df837ca283c2b",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "revision/gao2026_reference_set/ci5c03045_si_001.pdf",
+   "exists": true,
+   "sha256_16": "907aef9adad03660",
+   "bytes": 280725
+  },
+  {
+   "path": "revision/gao2026_reference_set/si_tables.json",
+   "exists": true,
+   "sha256_16": "4f88c7297e93813a",
+   "bytes": 65261
+  }
+ ],
+ "what_this_is": "whether a metabolite rebuilt from the segments it is drawn with differs from the structure it was made from by the formula change its stated pathway implies, which is a check the reconstructor was not fitted to",
+ "n_rows": 92,
+ "n_checked": 27,
+ "n_agree": 8,
+ "n_disagree": 19,
+ "rate": 0.2963,
+ "by_outcome": {
+  "agrees": 8,
+  "a marked region, not a structure": 19,
+  "structure not rebuilt": 5,
+  "pathway states no formula change": 41,
+  "disagrees": 19
+ },
+ "by_verdict": {
+  "drawn as one structure": {
+   "agrees": 8,
+   "disagrees": 9,
+   "rate": 0.4706
+  },
+  "one signal only, to be looked at": {
+   "agrees": 0,
+   "disagrees": 10,
+   "rate": 0.0
+  }
+ },
+ "rows": [
+  {
+   "drug": "Pamiparib",
+   "id": "M2",
+   "pathway": "Oxidation",
+   "base": "Pamiparib",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "O": 1
+   },
+   "outcome": "agrees"
+  },
+  {
+   "drug": "Pamiparib",
+   "id": "M3",
+   "pathway": "N-oxidation and dehydrogenation",
+   "base": "Pamiparib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "H": -2,
+    "O": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Pamiparib",
+   "id": "M5",
+   "pathway": "Oxidation and dehydrogenation",
+   "base": "Pamiparib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "H": -2,
+    "O": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Pamiparib",
+   "id": "M4",
+   "pathway": "Oxidation and dehydrogenation",
+   "base": "Pamiparib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "H": -2,
+    "O": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Pamiparib",
+   "id": "M25",
+   "pathway": "Oxidation",
+   "base": "Pamiparib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "O": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Pamiparib",
+   "id": "M8",
+   "pathway": "Oxidation and glucuronidation",
+   "base": "Pamiparib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 7
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Pamiparib",
+   "id": "M1",
+   "pathway": "Oxidation",
+   "base": "Pamiparib",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "outcome": "structure not rebuilt",
+   "note": "AtomValenceException: Explicit valence for atom # 5 N, 4, is greater than permitted"
+  },
+  {
+   "drug": "Pamiparib",
+   "id": "M10",
+   "pathway": "Hydrolysis",
+   "base": "Pamiparib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M32.7",
+   "pathway": "N-dealkylation",
+   "base": "Encorafenib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M20.3A",
+   "pathway": "N-dealkylation and hydrolysis",
+   "base": "Encorafenib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M42.5A",
+   "pathway": "N-dealkylation",
+   "base": "Encorafenib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M35.5B",
+   "pathway": "Hydrolysis",
+   "base": "Encorafenib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M50.5A",
+   "pathway": "Hydrolysis and oxidation",
+   "base": "Encorafenib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M44",
+   "pathway": "M50.5A reduction",
+   "base": "M50.5A",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "H": 2
+   },
+   "observed": {
+    "H": 2
+   },
+   "outcome": "agrees"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M25.5",
+   "pathway": "M44 N-dealkylation",
+   "base": "M44",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M46.3",
+   "pathway": "Hydroxylation",
+   "base": "Encorafenib",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "C": 10,
+    "H": 28,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M23.8",
+   "pathway": "N-dealkylation",
+   "base": "Encorafenib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M36.5",
+   "pathway": "Hydroxylation",
+   "base": "Encorafenib",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "C": 4,
+    "H": 14,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M28.3",
+   "pathway": "Hydroxylation and N-dealkylation",
+   "base": "Encorafenib",
+   "verdict": "one signal only, to be looked at",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Encorafenib",
+   "id": "M58.5",
+   "pathway": "Hydroxylation and Dehydration",
+   "base": "Encorafenib",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "H": -2
+   },
+   "observed": {
+    "H": -2
+   },
+   "outcome": "agrees"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M534-1",
+   "pathway": "N-dealkylation",
+   "base": "Fovinaciclib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M534-2",
+   "pathway": "N-dealkylation",
+   "base": "Fovinaciclib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M466",
+   "pathway": "N-dealkylation and oxidation",
+   "base": "Fovinaciclib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M520",
+   "pathway": "N-dealkylation",
+   "base": "Fovinaciclib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M564-2",
+   "pathway": "Oxidation",
+   "base": "Fovinaciclib",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "H": 2,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M580",
+   "pathway": "Oxidation",
+   "base": "Fovinaciclib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "O": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M550-1",
+   "pathway": "N-dealkylation and oxidation",
+   "base": "Fovinaciclib",
+   "verdict": "one signal only, to be looked at",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M667-2",
+   "pathway": "Cysteine conjugation",
+   "base": "Fovinaciclib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M724-1, M724-2",
+   "pathway": "Glucuronidation",
+   "base": "Fovinaciclib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 6
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Fovinaciclib",
+   "id": "M853",
+   "pathway": "Glutathione conjugation",
+   "base": "Fovinaciclib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Rezafungin",
+   "id": "Hydroxylpentyl rezafungin",
+   "pathway": "Hydroxylation",
+   "base": "Rezafungin",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "outcome": "structure not rebuilt",
+   "note": "AtomValenceException: Explicit valence for atom # 19 O, 4, is greater than permitted"
+  },
+  {
+   "drug": "Rezafungin",
+   "id": "Hydroxy rezafungin sulfate conjugate",
+   "pathway": "Hydroxylation and Sulfation",
+   "base": "Rezafungin",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "O": 4,
+    "S": 1
+   },
+   "outcome": "structure not rebuilt",
+   "note": "AtomValenceException: Explicit valence for atom # 26 N, 4, is greater than permitted"
+  },
+  {
+   "drug": "Rezafungin",
+   "id": "Despentyl- rezafungin",
+   "pathway": "O-dealkylation",
+   "base": "Rezafungin",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "Isavuconazole",
+   "pathway": "N-dealkylation",
+   "base": "Isavuconazoium",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "BAL8728",
+   "pathway": "Hydrolysis",
+   "base": "Isavuconazoium",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "M4",
+   "pathway": "Hydrolysis",
+   "base": "Isavuconazoium",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "M2",
+   "pathway": "Hydroxylated",
+   "base": "Isavuconazoium",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "O": 1
+   },
+   "outcome": "structure not rebuilt",
+   "note": "AtomValenceException: Explicit valence for atom # 14 N, 4, is greater than permitted"
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "M1",
+   "pathway": "Hydroxylated isavuconazole carbamoyl form",
+   "base": "Isavuconazoium",
+   "verdict": "one signal only, to be looked at",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "M14",
+   "pathway": "Glucuronidation",
+   "base": "Isavuconazoium",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 6
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Isavuconazole",
+   "id": "M11",
+   "pathway": "N-acetylcysteine conjugate of hydroxylated",
+   "base": "Isavuconazoium",
+   "verdict": "one signal only, to be looked at",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "LY3202626",
+   "id": "M1",
+   "pathway": "Hydrolysis",
+   "base": "LY3202626",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "LY3202626",
+   "id": "M3",
+   "pathway": "Hydrolysis",
+   "base": "LY3202626",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "LY3202626",
+   "id": "M2",
+   "pathway": "O-dealkylation",
+   "base": "LY3202626",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "LY3202626",
+   "id": "M4",
+   "pathway": "M3 glycine conjugation",
+   "base": "M3",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "C": 2,
+    "H": 3,
+    "N": 1,
+    "O": 1
+   },
+   "observed": {
+    "C": 2,
+    "H": 3,
+    "N": 1,
+    "O": 1
+   },
+   "outcome": "agrees"
+  },
+  {
+   "drug": "LY3202626",
+   "id": "M5",
+   "pathway": "M1 N- Acetylation",
+   "base": "M1",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "C": 2,
+    "H": 2,
+    "O": 1
+   },
+   "observed": {
+    "C": 2,
+    "H": 2,
+    "O": 1
+   },
+   "outcome": "agrees"
+  },
+  {
+   "drug": "LY3202626",
+   "id": "M16",
+   "pathway": "Dehydroxylation",
+   "base": "LY3202626",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": -1
+   },
+   "observed": {
+    "C": -1,
+    "H": -2,
+    "O": -1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M1",
+   "pathway": "N-oxidation",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "outcome": "structure not rebuilt",
+   "note": "AtomValenceException: Explicit valence for atom # 27 N, 4, is greater than permitted"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M2",
+   "pathway": "Hydrolysis",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M4",
+   "pathway": "Hydrolysis and N-oxidation",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M6",
+   "pathway": "Morpholino amino ethanol",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M7",
+   "pathway": "Morpholino amino ethanol and hydrolysis",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M11",
+   "pathway": "O-dealkylation",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M14",
+   "pathway": "Oxidation",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "C": -4,
+    "H": -9,
+    "N": -1,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M10",
+   "pathway": "Oxidation",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "C": -2,
+    "H": -4,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M12",
+   "pathway": "Oxidation",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "H": -2,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M9",
+   "pathway": "Oxidation",
+   "base": "Iberdomide",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "O": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M21a",
+   "pathway": "Oxidation and dehydrogenation",
+   "base": "Iberdomide",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "H": -2,
+    "O": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Iberdomide",
+   "id": "M22",
+   "pathway": "decarboxylation",
+   "base": "Iberdomide",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "C": -1,
+    "O": -2
+   },
+   "observed": {
+    "H": -2,
+    "O": 3
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-1106",
+   "pathway": "Glucuronidation",
+   "base": "Opicapone",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 6
+   },
+   "observed": {
+    "C": 1,
+    "H": 2
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-1103",
+   "pathway": "Sulfation",
+   "base": "Opicapone",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "O": 3,
+    "S": 1
+   },
+   "observed": {
+    "C": 8,
+    "H": 22,
+    "S": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-1104",
+   "pathway": "O-methylation",
+   "base": "Opicapone",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "C": 1,
+    "H": 2
+   },
+   "observed": {
+    "C": 1,
+    "H": 2
+   },
+   "outcome": "agrees"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-1100",
+   "pathway": "O-methylation",
+   "base": "Opicapone",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "C": 1,
+    "H": 2
+   },
+   "observed": {
+    "C": 1,
+    "H": 2
+   },
+   "outcome": "agrees"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "MWT 568",
+   "pathway": "O-methylation and cysteinylglycine conjugation",
+   "base": "Opicapone",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "MWT 687",
+   "pathway": "MWT 568 cysteine conjugation",
+   "base": "MWT 568",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "MWT 630",
+   "pathway": "O-methylation and cysteine conjugation",
+   "base": "Opicapone",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-5049",
+   "pathway": "O-methylation and cysteine conjugation",
+   "base": "Opicapone",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-1079",
+   "pathway": "Reduction",
+   "base": "Opicapone",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "H": 2
+   },
+   "observed": {
+    "O": -1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "M41",
+   "pathway": "Reduction",
+   "base": "Opicapone",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "H": 2
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-1101",
+   "pathway": "O-methylation and reduction",
+   "base": "Opicapone",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "C": 1,
+    "H": 4
+   },
+   "observed": {
+    "C": 8,
+    "H": 20,
+    "O": -1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "MWT 490",
+   "pathway": "BIA 9-1101 Sulfation",
+   "base": "BIA 9-1101",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "O": 3,
+    "S": 1
+   },
+   "observed": {
+    "H": 2,
+    "S": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "M4",
+   "pathway": "M41 N- Acetylation",
+   "base": "M41",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "C": 2,
+    "H": 2,
+    "O": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "MWT 424",
+   "pathway": "M4 O-methylation",
+   "base": "M4",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "C": 1,
+    "H": 2
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-3752",
+   "pathway": "M4 Hydrolysis",
+   "base": "M4",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Opicapone",
+   "id": "BIA 9-3679",
+   "pathway": "M4 Hydrolysis",
+   "base": "M4",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M570-1",
+   "pathway": "Glucuronidation",
+   "base": "Tinengotinib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 6
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M382",
+   "pathway": "Oxidation",
+   "base": "Tinengotinib",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "C": -2,
+    "H": -4,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M410-1",
+   "pathway": "Oxidation",
+   "base": "Tinengotinib",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "C": 8,
+    "H": 22,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M410-3",
+   "pathway": "Hydroxylation",
+   "base": "Tinengotinib",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "O": 1
+   },
+   "outcome": "agrees"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M412-1",
+   "pathway": "oxidative cleavage of morpholine ring",
+   "base": "Tinengotinib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M412-2",
+   "pathway": "oxidative cleavage of morpholine ring",
+   "base": "Tinengotinib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M426-2",
+   "pathway": "Oxidation",
+   "base": "Tinengotinib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "O": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M513",
+   "pathway": "Cysteine conjugation",
+   "base": "Tinengotinib",
+   "verdict": "one signal only, to be looked at",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M602",
+   "pathway": "Oxidation and glucuronidation",
+   "base": "Tinengotinib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 7
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M588-1",
+   "pathway": "Glucuronidation of M412-1",
+   "base": "M412-1",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 6
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Tinengotinib",
+   "id": "M588-2",
+   "pathway": "Glucuronidation of M412-2",
+   "base": "M412-2",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 6
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M1",
+   "pathway": "N-dealkylation",
+   "base": "Nemiralisib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M9",
+   "pathway": "N-dealkylation and sulfation",
+   "base": "Nemiralisib",
+   "verdict": "drawn as one structure",
+   "expected": null,
+   "outcome": "pathway states no formula change"
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M14",
+   "pathway": "Glucuronidation",
+   "base": "Nemiralisib",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 6
+   },
+   "observed": {
+    "C": 8,
+    "H": 22
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M15",
+   "pathway": "Oxidation",
+   "base": "Nemiralisib",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "C": 8,
+    "H": 22,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M7",
+   "pathway": "Oxidation",
+   "base": "Nemiralisib",
+   "verdict": "drawn as one structure",
+   "expected": {
+    "O": 1
+   },
+   "observed": {
+    "H": 2,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M6",
+   "pathway": "Oxidation and sulfation",
+   "base": "Nemiralisib",
+   "verdict": "a change of stated mass somewhere in a marked region",
+   "expected": {
+    "O": 4,
+    "S": 1
+   },
+   "outcome": "a marked region, not a structure"
+  },
+  {
+   "drug": "Nemiralisib",
+   "id": "M3",
+   "pathway": "Oxidation and Glucuronidation",
+   "base": "Nemiralisib",
+   "verdict": "one signal only, to be looked at",
+   "expected": {
+    "C": 6,
+    "H": 8,
+    "O": 7
+   },
+   "observed": {
+    "C": 8,
+    "H": 24,
+    "O": 1
+   },
+   "outcome": "disagrees"
+  }
+ ],
+ "a_disagreement_names_two_suspects": "A row that disagrees says the reading and the pathway vocabulary are inconsistent; it does not say which is wrong. Opicapone is a nitrocatechol and one of its rows is called Reduction, which this vocabulary takes to be the addition of two hydrogens and which for a nitro group is not: the observed change there is the loss of one oxygen, and the drawing may well be right. The vocabulary is deliberately left as it was written, before any row was checked, because repairing the entries that disagree is how a held-out check stops being one.",
+ "reading": "A row that agrees was rebuilt into a molecule whose formula moved by exactly what the document says happened to it, which nothing in the reconstructor could have arranged. A row that disagrees names a drawing feature read wrongly. The rows that are not checked are not failures and not passes: the name states no size, or the drawing marks a region rather than a structure."
+}

@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+"""Audit every set this paper calls external for overlap with GRAIL's training data.
+
+The GLORYx contamination -- 19 of 37 drugs inside the training split -- was found by accident while
+measuring something else. A reviewer's next question is what else was not checked, so this runs the
+same check over every external or third-party set the paper reports on, and prints the answer for
+each rather than for the one that happened to be caught.
+"""
+import json, re, sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _provenance import record_inputs, stamp  # noqa: E402
+from rdkit import Chem, RDLogger
+from grail_metabolism.metrics import _tautomer_inchikey
+RDLogger.DisableLog('rdApp.*')
+R = Path(__file__).resolve().parents[1]
+
+
+def tk(s):
+    try:
+        return _tautomer_inchikey(s)
+    except Exception:
+        return None
+
+
+def trained_keys():
+    keys = set()
+    for split in ('train', 'val'):
+        sdf, tri = R/f'grail_metabolism/data/{split}.sdf', R/f'grail_metabolism/data/{split}_triples_clean.txt'
+        if not sdf.exists():
+            continue
+        ids = set()
+        with open(tri) as fh:
+            for line in fh:
+                a = line.split()
+                if len(a) == 3:
+                    ids.add(a[0])
+        for m in Chem.SDMolSupplier(str(sdf)):
+            if m is None:
+                continue
+            p = m.GetPropsAsDict()
+            if str(p.get('Index', '')) in ids:
+                s = p.get('SMILES') or Chem.MolToSmiles(m)
+                k = tk(s) if s else None
+                if k:
+                    keys.add(k)
+    return keys
+
+
+def gloryx():
+    raw = (R/'docs/benchmark/data/gloryx_test.json').read_text()
+    d = json.loads(re.sub(r'\\(?!["\\/bfnrtu])', r'\\\\', raw))
+    return [p['smiles'] for p in d if p.get('smiles')]
+
+
+def shared_subset():
+    """The 150-substrate multi-method subset: drawn from the test split, so external only to training."""
+    f = R/'artifacts/tier2/metatrans_preds.json'
+    return list(json.loads(f.read_text())) if f.exists() else []
+
+
+def metatox_291():
+    """The 291 substrates the MetaTox comparison is decided on.
+
+    These carry the release claim, so their membership in training matters more than any other
+    set here. They are read from the pool artifact rather than recomputed, so the audited set is
+    the one the comparison actually ran on.
+    """
+    import glob
+
+    # Read from the pools every comparison in this paper is read off, not from a superseded run
+    # of an earlier script that happened to hold the same keys. The two agreed; depending on the
+    # superseded one meant this audit could only be re-run by rebuilding it.
+    subs = []
+    read_from = sorted(glob.glob(str(R/'results/widepools_implicit/w*.json')))
+    for shard in read_from:
+        blob = json.loads(Path(shard).read_text())
+        subs.extend(s for s in blob['pools'] if blob['references'].get(s))
+    # The shard list is returned rather than left in this frame, so the artifact records the files
+    # this run opened instead of a re-glob at stamping time.
+    return sorted(set(subs)), read_from
+
+
+def main():
+    seen = trained_keys()
+    print(f'{len(seen)} substrates seen in training or validation\n')
+    metatox_subs, pool_shards = metatox_291()
+    sets = {'GLORYx external set': gloryx(), 'shared 150-substrate subset': shared_subset(),
+            'MetaTox 291-substrate comparison set': metatox_subs}
+    out = {}
+    for name, subs in sets.items():
+        if not subs:
+            print(f'{name}: not available'); continue
+        keys = [tk(s) for s in subs]
+        n_ok = sum(1 for k in keys if k)
+        hit = sum(1 for k in keys if k and k in seen)
+        out[name] = {'n': len(subs), 'keyed': n_ok, 'in_train_or_val': hit,
+                     'fraction': round(hit/n_ok, 3) if n_ok else None}
+        print(f'{name}: {hit}/{n_ok} substrates were in training or validation ({hit/n_ok:.1%})')
+    out['provenance'] = stamp(__file__)
+    # Which pools this run actually read, so an artifact written against a pool that has
+    # since gone can be told from a current one.
+    out['inputs'] = record_inputs(pool_shards)
+    (R/'results/external_overlap_audit.json').write_text(json.dumps(out, indent=1))
+    print('\nwrote results/external_overlap_audit.json')
+
+
+if __name__ == '__main__':
+    main()

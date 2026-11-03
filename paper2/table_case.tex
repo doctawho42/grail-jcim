@@ -1,0 +1,29 @@
+\begin{table*}[t]
+\centering\small
+\begin{threeparttable}
+\caption{Two worked examples: every annotated metabolite of each substrate and the rank the two operating modes return it at, with the bank template that produced it.}
+\label{tab:case}
+\begin{tabular}{lrrrr}
+\toprule
+ & \multicolumn{2}{c}{interactive} & \multicolumn{2}{c}{exhaustive} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+annotated metabolite & rank & rule & rank & rule \\
+\midrule
+\multicolumn{5}{l}{\emph{gemcitabine}} \\
+\quad dFdU, deamination & 5 & 4913 & 18 & 4913 \\
+\quad dFdCMP, 5$^\prime$-monophosphate & --- & not produced & 3 & 2198 \\
+\quad dFdCDP, 5$^\prime$-diphosphate & --- & not produced & 20 & 2139 \\
+\quad dFdCTP, 5$^\prime$-triphosphate & --- & not produced & 16 & 1745 \\
+\midrule
+\multicolumn{5}{l}{\emph{bupropion}} \\
+\quad hydrobupropion, carbonyl reduction & 1 & 3065 & 4 & 3065 \\
+\quad ring hydroxylation, para to the carbonyl & 3 & 1813 & 1 & 1813 \\
+\quad \emph{tert}-butyl hydroxylation, open chain & 5 & 1178 & 10 & 1178 \\
+\quad the same, cyclised to the morpholinol & --- & not produced & --- & not produced \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item Rule is the index into the deployed bank. Both substrates are drawn as the corpus stores them. For gemcitabine that is not how a chemist draws it and the same run on the chemist's drawing returns different ranks, which Section~\ref{SI-sec:si-case} gives; bupropion's stored form is already the standardiser's fixed point, and its two runs are identical.
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}

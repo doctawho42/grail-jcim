@@ -1,0 +1,31 @@
+{
+ "provenance": {
+  "script": "make_metatox_corpus_form_input.py",
+  "script_path": "scripts/make_metatox_corpus_form_input.py",
+  "source_sha256": "6c29984b5fca4bf9ee58562691140a202f6f3db1c9316de94933fbfb47f89992",
+  "git_commit": "8c473dc0b3def883e168df1677924735e6861058",
+  "git_dirty": true
+ },
+ "inputs": [
+  {
+   "path": "results/metatox_input/substrate_map.csv",
+   "exists": true,
+   "sha256_16": "2f61386be0a963e2",
+   "bytes": 29507
+  },
+  {
+   "path": "revision/metatox_submission_1170/substrate_map.csv",
+   "exists": true,
+   "sha256_16": "ed9bcfde0c74c0b1",
+   "bytes": 91580
+  }
+ ],
+ "question": "what MetaTox returns when it is handed the substrate as the corpus stores it, which is the drawing every other arm of the comparison was given",
+ "n_substrates": 336,
+ "by_population": {
+  "comparison set": 79,
+  "whole evaluated test set": 257
+ },
+ "why_these_and_not_all": "a substrate whose corpus drawing and submitted drawing already agree returns the same answer either way, so re-running it cannot move a cell and costs a submission",
+ "join": "the corpus string, which is what the scoring joins on and what both the first submission and this one are keyed back to"
+}

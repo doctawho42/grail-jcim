@@ -1,0 +1,374 @@
+#!/usr/bin/env python3
+"""Every artifact the manuscript's numbers come from is pinned and stamped, counted by machine.
+
+The paper asserts that every printed number reaches the page from a pinned artifact. That
+guarantee was maintained by hand, and a hand-maintained guarantee about a countable quantity is
+the wrong instrument for a paper whose thesis is that undeclared choices are what make this
+literature incomparable. Asked how many artifacts fell outside it, five readers produced five
+different answers.
+
+This settles it mechanically. `paper2_numbers.py` is the one generator every printed macro passes
+through; its `art()` is instrumented and `build()` is run, so what is counted is what was actually
+read rather than what a regular expression found in the source. Each artifact is then checked
+twice: it must be in the pinned set of `audit_artifact_provenance.py`, and it must carry a
+provenance block naming the script that wrote it.
+
+    python scripts/check_number_provenance.py
+    python scripts/check_number_provenance.py --json results/number_sources.json
+
+Exit status is non-zero when any artifact fails either check. The counts are written to the
+artifact so the manuscript can quote them rather than assert them.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
+
+# Artifacts a number legitimately comes from that cannot themselves be pinned, each with the
+# reason. The list is short and every entry is an argument, not an exemption.
+# Artifacts that legitimately name more than one checkpoint: the provenance sweep lists every
+# artifact and therefore every checkpoint any of them mentions, and a comparison of training runs
+# is about the runs. Each is here because it was looked at.
+CKPT_EXEMPT = {
+    "results/artifact_provenance.json",
+}
+
+# A study of what retraining moves must read checkpoints that are not the deployed one; that is
+# what it measures. So the reader is named here with the run series its inputs are allowed to
+# name, and the allowance is checked rather than granted: a pool read by this artifact passes only
+# if every run it names belongs to that series, and a pool scored by some other model still fails.
+SEED_STUDIES = {
+    "results/retraining_spread.json": "multiseed_full5000_implicit_seed",
+}
+
+EXEMPT = {
+    # The provenance sweep's own output. Pinning it would ask the sweep to verify itself, and its
+    # numbers are counts of the sweep's result rather than measurements of the system.
+    "results/artifact_provenance.json":
+        "the provenance sweep's own report; pinning it would make the check circular",
+    # Written by check_paper2_numbers.py, which runs after this generator; same circularity.
+    "results/number_provenance.json":
+        "written by the numeral checker that runs after this generator",
+    # This generator's own output.
+    "results/paper2_numbers.json":
+        "this generator's own output",
+    # This gate's own output. The paper quotes the gate's counts, so the generator reads them,
+    # so the gate sees its own report among the sources. Requiring it to verify itself is the
+    # same circularity as the other two.
+    "results/number_sources.json":
+        "this gate's own report, which the paper quotes and the generator therefore reads",
+}
+
+
+# Artifacts the manuscript prints numbers from whose producer cannot be run in this repository.
+# Each reason was already written down elsewhere and this gate had no way to hear it, so it has
+# been red for as long as they have existed, which is the state the project's own doctrine
+# forbids: a red gate nobody has declared is indistinguishable from a broken one.
+#
+# A reason on its own would be the wrong mechanism, because a reason outlives the file it was
+# written about. "This cannot be re-run" stays true while the file is replaced by hand, and the
+# exemption would cover the replacement without anyone deciding that. So each entry carries the
+# digest the artifact had when its reason was written. An artifact that changes stops being
+# excused and fails here until someone reads what changed.
+UNREPEATABLE = {
+    "results/gloryx_service_preds.json": (
+        "61383272c0066045",
+        "the GLORYx arm is a recorded run of the service its own authors operate, pinned by its "
+        "job identifiers, because the FAME 3 models a local build needs are not distributed "
+        "with its source. Re-running the producer would make a NEW run against a service whose "
+        "version may have moved, so currency here would mean replacing the data rather than "
+        "checking it."),
+    "results/uspto_type_overlap.json": (
+        "dbf2592c1d560679",
+        "its input, grail_metabolism/uspto_templates.csv.gz, is a zero-byte placeholder in every "
+        "checkout, was never tracked, and no producer in this repository writes it, so the "
+        "artifact cannot be regenerated at all."),
+    "results/metatox_outside_submission.json": (
+        "8f41e77f239408e7",
+        "its producer takes the two SDF files the MetaTox service returned, which were consumed "
+        "once and are not in this repository. The input that moved is "
+        "scripts/typed_edit/population_definition.py, whose change in this revision is confined "
+        "to a prose field of that script's own output and touches no quantity this artifact "
+        "reads, so its numbers stand and its recorded digest for that input does not."),
+}
+
+
+def excused(rel: str) -> bool:
+    """True when `rel` is excused AND is still the file the exemption was written about."""
+    entry = UNREPEATABLE.get(rel)
+    if entry is None:
+        return False
+    digest, _reason = entry
+    p = ROOT / rel
+    if not p.exists():
+        return False
+    return hashlib.sha256(p.read_bytes()).hexdigest()[:16] == digest
+
+
+def instrumented_reads() -> list[str]:
+    """Run both generators and record every artifact they open.
+
+    The macro generator was the only one instrumented, and it is not the only thing that puts a
+    number on the page: the Supporting Information's tables are written straight from artifacts
+    by their own generator, which reads through its own `art`. An artifact reaching the page that
+    way was outside this guarantee entirely, and one was.
+    """
+    import paper2_numbers
+    import paper2_si_tables
+
+    seen: list[str] = []
+
+    def watcher(module):
+        original = module.art
+
+        def watched(name):
+            rel = f"results/{name}"
+            if rel not in seen:
+                seen.append(rel)
+            return original(name)
+
+        return original, watched
+
+    original_numbers, watched_numbers = watcher(paper2_numbers)
+    paper2_numbers.art = watched_numbers
+    try:
+        paper2_numbers.build()
+    finally:
+        paper2_numbers.art = original_numbers
+
+    original_tables, watched_tables = watcher(paper2_si_tables)
+    paper2_si_tables.art = watched_tables
+    try:
+        for name, fn in paper2_si_tables.generators():
+            try:
+                fn()
+            except FileNotFoundError:
+                # A generator that refuses is not a provenance failure; the build gate fails on
+                # the missing table instead, which is a different check with a different message.
+                continue
+    finally:
+        paper2_si_tables.art = original_tables
+    return sorted(seen)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--json", default=str(ROOT / "results" / "number_sources.json"))
+    args = ap.parse_args()
+
+    import audit_artifact_provenance as audit
+
+    pinned = set(audit.PINNED)
+    reads = instrumented_reads()
+
+    rows, unpinned, unstamped, named_only = [], [], [], []
+    for rel in reads:
+        path = ROOT / rel
+        is_pinned = rel in pinned
+        # Three states, not two. A full stamp records the producer's source digest, so the
+        # sweep can say the code has not moved. A weaker one names the producing script and
+        # nothing more, which is enough for the sweep to recover the source from the history and
+        # verify by inference. Nothing at all is the state that fails.
+        stamp, names_producer = None, False
+        try:
+            blob = json.loads(path.read_text())
+            if isinstance(blob, dict):
+                stamp = blob.get("provenance") or blob.get("measured_by")
+                config = blob.get("config")
+                names_producer = bool(isinstance(config, dict) and config.get("script"))
+        except Exception:
+            pass
+        # Two kinds, kept apart in the report because they are different states: EXEMPT is
+        # circularity, this gate reading its own output; UNREPEATABLE is an artifact whose
+        # producer cannot be run here, excused only while it is the file the reason names.
+        unrepeatable = excused(rel)
+        exempt = rel in EXEMPT or unrepeatable
+        # The property that matters is not whether the artifact carries a block but whether the
+        # sweep can name the code that wrote it and say whether that code has moved. For a
+        # stamped artifact that is a digest comparison; for one predating stamping it is an
+        # inference from the history, which the sweep reports as inferred. Either verifies; a
+        # producer the sweep cannot identify at all does not.
+        verdict = audit.check(rel, audit.PINNED.get(rel)) if is_pinned else {"status": "unpinned"}
+        verifiable = verdict.get("status") in audit.OK
+        if not is_pinned and not exempt:
+            unpinned.append(rel)
+        if not verifiable and not exempt:
+            unstamped.append(rel)
+        if verifiable and not stamp:
+            named_only.append(rel)
+        rows.append({"artifact": rel, "pinned": is_pinned, "stamped": bool(stamp),
+                     "verifiable": verifiable, "sweep_status": verdict.get("status"),
+                     "how": verdict.get("how"), "exempt": EXEMPT.get(rel),
+                     "unrepeatable": UNREPEATABLE[rel][1] if unrepeatable else None})
+
+    # A producer whose source has not moved can still have been pointed at a model nobody
+    # deployed. Every artifact the numbers come from that names a checkpoint has to name the
+    # deployed one; the worked example named a neighbouring filter for three weeks and nothing
+    # here looked, though the artifact said so in plain text.
+    CKPT = re.compile(r"artifacts/([A-Za-z0-9_]+)/checkpoints/(?:generator|filter)\.pt")
+    # What the release is, read from what this repository tracks rather than named here. The two
+    # came apart once: a constant said one run and the tree tracked a generator from one run and a
+    # filter from another, so this gate would have failed an artifact scored by the very filter
+    # that ships. One source of truth, and changing what is released changes what this demands.
+    sys.path.insert(0, str(ROOT / "scripts" / "typed_edit"))
+    try:
+        from pool_checkpoints import deployed_runs
+
+        DEPLOYED_RUNS = set(deployed_runs().values()) or {"full5000_implicit"}
+    except Exception:
+        DEPLOYED_RUNS = {"full5000_implicit"}
+    # The scan follows an artifact's own `inputs` block one hop. An artifact that records what it
+    # read names files this list would otherwise never open -- the validation pools are a
+    # subdirectory away and are what a published curve is actually made of, and three of them were
+    # scored by a checkpoint nobody deploys while every artifact above them read as current.
+    def one_hop(rel):
+        path = ROOT / rel
+        if not path.exists():
+            return []
+        try:
+            blob = json.loads(path.read_text())
+        except Exception:
+            return []
+        return [row["path"] for row in (blob.get("inputs") or [])
+                if isinstance(row, dict) and row.get("path")]
+
+    followed = {}
+    for rel in list(reads):
+        for dep in one_hop(rel):
+            followed.setdefault(dep, rel)
+
+    wrong_model = []
+    for rel in list(reads) + sorted(followed):
+        path = ROOT / rel
+        if rel in CKPT_EXEMPT or not path.exists():
+            continue
+        # An artifact may record a checkpoint among its inputs, and a checkpoint is not text.
+        # Its own path is the run it names, which is the thing this check is asking about.
+        if path.suffix == ".pt":
+            runs = set(CKPT.findall(rel))
+        else:
+            runs = set(CKPT.findall(path.read_text(errors="replace")))
+        if runs and not runs <= DEPLOYED_RUNS:
+            reader = followed.get(rel)
+            series = SEED_STUDIES.get(reader)
+            if series and all(r.startswith(series) for r in runs):
+                continue
+            via = f" (read by {reader})" if rel in followed else ""
+            wrong_model.append(f"{rel}{via}: {', '.join(sorted(runs))}")
+
+    # The blind spot of the check above: an artifact that names no checkpoint passes it without
+    # being examined. Where the producer loads a model, silence is not evidence, so those are
+    # counted separately and reported. They are not failed on, because the defaults in every such
+    # producer are the deployed pair and a test holds them there; what is missing is the record in
+    # the artifact, and the count of that is the honest thing to print.
+    LOADS_A_MODEL = re.compile(r"build_generator\(|build_filter\(")
+    # Files reached only through an inputs block are counted separately, so the reach of the
+    # check is a number rather than an impression.
+    n_followed = len(followed)
+    # An artifact that records no checkpoint is not necessarily one whose model is unknown. Where
+    # pool_checkpoints.py has established the models by reproduction -- scoring the artifact's own
+    # candidates with every trained checkpoint and finding a unique perfect match -- the identity
+    # is on the record, just not in that file. Those are counted apart from the ones nothing
+    # establishes at all, because the two are different situations and only the second is a gap.
+    established = {}
+    pc = ROOT / "results" / "pool_checkpoints.json"
+    if pc.exists():
+        try:
+            blob = json.loads(pc.read_text())
+            for row in blob.get("pools", {}).values():
+                names = {row.get(stage, {}).get("identified_as")
+                         for stage in ("generator", "filter")} - {None}
+                if names:
+                    established[row["path"]] = sorted(names)
+        except Exception:
+            pass
+
+    silent_model, silent_but_established = [], []
+    for rel in reads:
+        path = ROOT / rel
+        if rel in CKPT_EXEMPT or not path.exists():
+            continue
+        if CKPT.search(path.read_text()):
+            continue
+        producer = audit.PINNED.get(rel)
+        if not producer:
+            continue
+        psrc = ROOT / producer
+        if psrc.exists() and LOADS_A_MODEL.search(psrc.read_text()):
+            if rel in established:
+                silent_but_established.append(f"{rel} -> {', '.join(established[rel])}")
+            else:
+                silent_model.append(f"{rel} <- {producer}")
+
+    report = {
+        "artifacts_the_numbers_come_from": len(reads),
+        "naming_a_checkpoint_that_is_not_the_deployed_run": sorted(wrong_model),
+        "n_naming_a_non_deployed_checkpoint": len(wrong_model),
+        "n_reached_only_through_an_inputs_block": n_followed,
+        "producer_loads_a_model_but_the_artifact_records_none": sorted(silent_model),
+        "records_none_but_established_by_reproduction": sorted(silent_but_established),
+        "n_established_by_reproduction": len(silent_but_established),
+        "n_recording_no_checkpoint": len(silent_model),
+        "exempt": len([r for r in rows if r["exempt"]]),
+        "unrepeatable": {r["artifact"]: r["unrepeatable"] for r in rows if r["unrepeatable"]},
+        "unpinned": sorted(unpinned),
+        "unstamped": sorted(unstamped),
+        "verifiable_by_inference_only": sorted(named_only),
+        "n_unpinned": len(unpinned),
+        "n_unstamped": len(unstamped),
+        "n_verifiable_by_inference_only": len(named_only),
+        "method": ("paper2_numbers.build() is run with art() instrumented, so the count is of "
+                   "artifacts actually opened rather than of matches in the source"),
+        "artifacts": rows,
+    }
+    Path(args.json).write_text(json.dumps(report, indent=1))
+
+    print(f"the manuscript's numbers come from {len(reads)} artifacts "
+          f"({report['exempt']} exempt with a stated reason)")
+    for rel in unpinned:
+        print(f"  NOT PINNED    {rel}")
+    for rel in unstamped:
+        print(f"  NOT VERIFIABLE  {rel}")
+    for row in wrong_model:
+        print(f"  NOT THE DEPLOYED MODEL  {row}")
+    for row in silent_but_established:
+        print(f"  RECORDS NONE, ESTABLISHED BY REPRODUCTION   {row}")
+    for row in silent_model:
+        print(f"  RECORDS NO CHECKPOINT   {row}")
+    if report.get("unrepeatable"):
+        print(f"  {len(report['unrepeatable'])} artifact(s) whose producer cannot be run here, "
+              f"excused while they are the files their reasons name:")
+        for rel in sorted(report["unrepeatable"]):
+            print(f"    {rel}")
+    # An entry for a file that has changed, or that is gone, excuses nothing and is reported
+    # rather than silently ignored: that is the one way this mechanism could become a hole.
+    _lapsed = sorted(r for r in UNREPEATABLE if not excused(r))
+    if _lapsed:
+        print("  AN EXEMPTION HAS LAPSED, because the artifact is not the file its reason was "
+              "written about:")
+        for rel in _lapsed:
+            print(f"    {rel}")
+    ok = not unpinned and not unstamped and not wrong_model and not _lapsed
+    print(f"  {report['n_unpinned']} unpinned, {report['n_unstamped']} unstamped, "
+          f"{report['n_reached_only_through_an_inputs_block']} reached only because an artifact "
+          f"records what it read, "
+          f"{report['n_naming_a_non_deployed_checkpoint']} scored with a model that is not the "
+          f"deployed one, {report['n_established_by_reproduction']} recording none whose models "
+          f"reproduction establishes, "
+          f"{report['n_recording_no_checkpoint']} whose producer loads a model and "
+          f"which record none, {report['n_verifiable_by_inference_only']} verified by inference "
+          f"rather than by a recorded digest")
+    print("check_number_provenance: " + ("OK" if ok else "FAIL"))
+    return 0 if ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
